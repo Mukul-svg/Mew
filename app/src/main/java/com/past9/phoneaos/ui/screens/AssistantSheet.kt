@@ -26,6 +26,7 @@ import androidx.lifecycle.compose.LifecycleResumeEffect
 import com.past9.phoneaos.assist.AssistEntry
 import com.past9.phoneaos.assist.AssistPrefs
 import com.past9.phoneaos.assist.AssistRole
+import com.past9.phoneaos.assist.LiveToken
 import com.past9.phoneaos.ui.AppSheet
 
 /**
@@ -85,8 +86,13 @@ fun AssistantSheet(agentName: String, onDismiss: () -> Unit, held: Boolean? = nu
         SwitchRow(Icons.Rounded.RecordVoiceOver, stringResource(R.string.assist_talk), stringResource(R.string.assist_talk_line, agentName),
             talkOn) { on -> talkOn = on; AssistPrefs.setTalk(context, on) }
         var liveOn by remember(tick) { mutableStateOf(liveVoice ?: AssistPrefs.liveVoice(context)) }
+        val liveReady = remember(tick) { LiveToken.configured(context) }
         SwitchRow(Icons.Rounded.GraphicEq, stringResource(R.string.assist_live_voice), stringResource(R.string.assist_live_voice_line, agentName),
             liveOn) { on -> liveOn = on; AssistPrefs.setLiveVoice(context, on) }
+        if (liveOn && !liveReady) {
+            Text(stringResource(R.string.svc_call_needs_gemini), style = MaterialTheme.typography.bodySmall, color = cs.error,
+                modifier = Modifier.padding(start = 40.dp, bottom = 8.dp))
+        }
         var seesOn by remember(tick) { mutableStateOf(liveSees ?: (screenOn && AssistPrefs.liveSees(context))) }
         SwitchRow(Icons.Rounded.Visibility, "Live sees your screen", "While live voice is on, $agentName looks at your screen about once a second, so \"what is this?\" is answered at once. Needs \"read the screen\" above. Never banking or money apps.",
             seesOn, enabled = screenOn && liveOn) { on -> seesOn = on; AssistPrefs.setLiveSees(context, on) }

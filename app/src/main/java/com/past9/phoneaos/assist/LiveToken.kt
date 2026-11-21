@@ -44,9 +44,16 @@ object LiveToken {
         return LiveAuth.Token.Ok(LiveAuth.keyUrl(key), LiveAssistant.DEFAULT_MODEL, "")
     }
 
+    /** Whether a live start has a chance without making the user wait: this phone's Gemini key, or a configured computer link. */
+    fun configured(app: Context): Boolean {
+        if (App.graph(app).settings.voiceKey("gemini") != null) return true
+        RemoteHub.init(app)
+        return RemoteHub.link.value?.on == true
+    }
+
     /** The sheet is starting to open: get the token now, in parallel. Does nothing when Live voice is off or one is already on its way. */
     fun warm(app: Context) {
-        if (!AssistPrefs.liveVoice(app) || prepared.fresh()) return
+        if (!AssistPrefs.liveVoice(app) || !configured(app) || prepared.fresh()) return
         prepared.put(scope.async { mint(app) })
     }
 

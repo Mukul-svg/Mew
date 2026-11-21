@@ -68,6 +68,7 @@ A change is not complete until:
 - Debug builds only for now (`D-008`). Do not publish a signed release until the signing path is decided.
 - CI is the verification gate (`D-014`): Linux runs the debug build, translation checks, host tests, and phone unit tests on every push and pull request. Report manual verification too; do not claim a green suite without the CI result or a full local run.
 - OpenCode Zen/Go API key is the only required model path (`D-011`). Do not add Claude Code, Codex, or Antigravity runtime/bundling work unless the user changes that decision.
+- The power-button assistant uses Gemini Live for full-duplex voice when a Gemini key or linked computer is available, and falls back to system STT/TTS conversation mode otherwise (`D-017`). Real work still goes to the OpenCode agent; approvals stay hold-to-approve (`D-013`).
 - `run_code`, watchers, and card scripts are part of the product. Do not remove Node without replacing them.
 - Secrets belong in Keystore-encrypted storage. Do not add a new plaintext fallback.
 - Remote links are pinned by certificate fingerprint. Do not weaken pinning or send the link pass to arbitrary hosts.

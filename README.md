@@ -67,7 +67,7 @@ accounts, its files and its bigger keys. It behaves like one agent, not two:
 
 **It hands heavy work to a real computer.** Any server or PC you can SSH into becomes a machine it can use. Run a command, start a long job that keeps going in the background, move files both ways. Looking around just runs. Anything that changes the machine shows you the exact command first.
 
-**It answers in voice, and reads your files.** As your phone's assistant (hold the power button), it holds a conversation: it reads each answer aloud and listens again, like a call, using the phone's own voice until you add a cloud one. Say goodbye or tap End to stop. Dictation is instant: the caption goes at once and the whole take replaces it in place when it has been written down. Voice notes in and out, live calls if you add a Gemini key, photos and documents in chat, including scanned PDFs read on the device.
+**It answers in voice, and reads your files.** As your phone's assistant (hold the power button), it holds a live conversation: with a Gemini key it listens and answers naturally, lets you talk over it, and keeps going while the agent works; without one it uses the phone's own voice turn by turn. Say goodbye or tap End to stop. With Live voice it speaks short progress updates when you pause, then the final result. Dictation is instant: the caption goes at once and the whole take replaces it in place when it has been written down. Voice notes in and out, live calls if you add a Gemini key, photos and documents in chat, including scanned PDFs read on the device.
 
 **It tidies up overnight.** At 02:00, and only while charging and online, it sorts its memory, writes notes from the day and builds your morning screen.
 
@@ -250,6 +250,7 @@ in light and dark. Watch tests are not part of the default verification; use `-P
 
 - **Your own risk.** The agent can browse, fill in forms, read the notifications you allow and act in the apps you connect. Approvals cover connected-app sends, machine commands and app intents; browser actions and code you ask it to run are not automatically gated, so check what it does.
 - **Your OpenCode key is a secret.** It is stored in Keystore-encrypted preferences and sent only to the OpenCode endpoint you configure. Do not share it.
+- **Live voice uses the cloud.** When Live voice is on, microphone audio goes to Google's Gemini Live for the duration of the call. The fallback conversation mode uses the phone's speech recogniser and voice instead.
 - **Sideloaded.** It is not reviewed by Google.
 - **Battery.** Background browsing and routines use battery. The overnight routine only runs while charging.
 - **Early software.** Tested mainly on one Samsung phone.

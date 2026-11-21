@@ -27,8 +27,8 @@ object AssistPrefs {
      */
     fun talk(context: Context): Boolean = prefs(context).getBoolean("x_assist_talk", true)
     fun setTalk(context: Context, on: Boolean) { prefs(context).edit().putBoolean("x_assist_talk", on).apply() }
-    /** "Live voice in the assistant". Off by default: the sheet opens its normal listening input. On: it opens a Gemini Live session. */
-    fun liveVoice(context: Context): Boolean = prefs(context).getBoolean("x_assist_live_voice", false)
+    /** "Live voice in the assistant". On by default: the sheet opens a Gemini Live session when a key or a linked computer is available, else the normal listening input. */
+    fun liveVoice(context: Context): Boolean = prefs(context).getBoolean("x_assist_live_voice", true)
     fun setLiveVoice(context: Context, on: Boolean) {
         prefs(context).edit().putBoolean("x_assist_live_voice", on).apply()
         AssistService.live?.let { runCatching { it.applyShowContext() } }

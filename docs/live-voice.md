@@ -1,7 +1,9 @@
 # Live voice in the assistant
 
-The assistant sheet (side key, corner swipe, wake word) can open a Gemini Live session instead of the one-request
-input. Settings > Default assistant > "Live voice in the assistant" (off by default).
+The assistant sheet (side key, corner swipe, wake word) opens a Gemini Live session instead of the one-request
+input when a Gemini key is configured on the phone, or a linked computer can mint a token. Settings > Default
+assistant > **Live voice in the assistant** is on by default; with no Gemini key and no linked computer the sheet
+uses conversation mode below. The sheet shows a Gemini-key hint when Live is selected but not configured.
 
 ## Conversation mode (no key needed)
 
@@ -23,6 +25,16 @@ With Live voice off, the sheet itself holds a conversation, like a call: Setting
 - Typing still works; a typed turn's answer is read aloud too, then it listens again.
 - Live voice stays the richer path when a Gemini key is present: if a Live session cannot start or drops, the
   sheet falls back to this conversation after showing the reason.
+
+## Progress while the agent works (Live and conversation mode)
+
+Real work is handed to the same OpenCode agent as the typed chat, so it keeps running while you talk. A short
+spoken update is sent when a new activity or helper starts, at most once every 12 seconds; `TurnHold` waits for
+both you and the voice to be quiet (1.8 s after your last words, and never mid-answer) before it is said. The
+final result and any question or approval are spoken when they arrive. If the agent is late, the voice says once
+that it is still working; it never claims an outcome before the agent's own reply. A job nobody answers for ten
+minutes no longer holds the line open; its result is still notified in the chat. In conversation mode the same
+progress is shown on screen; spoken progress updates are a Live feature.
 
 Code: `AssistCore` (SPEAKING phase, quiet rounds, exit phrases), `AssistActivity` (the loop, `speakAloud`,
 card read-out), `system/Speaker` (phone TTS with a completion callback), `voice/Tts` (cloud voice),

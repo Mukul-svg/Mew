@@ -129,7 +129,7 @@ class AssistActivity : ComponentActivity() {
             val settings by g.settings.state.collectAsState()
             AppTheme(accent = settings.accent, mascot = settings.mascot) { Sheet(settings.agentName.takeIf { it.isNotBlank() && it != "Your agent" } ?: stringResource(R.string.svc_your_agent), settings.onboarded) }
         }
-        liveMode = st.onboarded && AssistPrefs.liveVoice(this)
+        liveMode = st.onboarded && AssistPrefs.liveVoice(this) && LiveToken.configured(this)
         talkMode = st.onboarded && !liveMode && AssistPrefs.talk(this)
         if (st.onboarded) beginListening()
     }

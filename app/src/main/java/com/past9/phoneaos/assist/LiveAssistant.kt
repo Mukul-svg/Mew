@@ -153,6 +153,9 @@ class LiveAssistant(
         rows = r
         if (ended) return
         core.rows(r, w).forEach { tell(it) }
+        // A brief spoken update while the agent is still working. TurnHold in LiveSession waits for
+        // both the user and the voice to be quiet, so this never talks over a sentence.
+        core.progress(r, w).forEach { tell(it) }
         push()
     }
 

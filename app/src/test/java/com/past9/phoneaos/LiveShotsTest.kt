@@ -128,10 +128,10 @@ open class LiveShotsTest(private val dark: Boolean) {
         rule.onRoot().captureRoboImage(file(name))
     }
 
-    @Test fun theSwitchIsInTheAssistantSheetAndOffByDefault() {
-        guide("09-switch-off", live = false)
+    @Test fun theSwitchIsInTheAssistantSheetAndOnByDefault() {
+        guide("09-switch-on-default", live = true)
         rule.onNodeWithText("Live voice in the assistant").assertExists()
-        assertTrue(!com.past9.phoneaos.assist.AssistPrefs.liveVoice(androidx.test.core.app.ApplicationProvider.getApplicationContext()))
+        assertTrue(com.past9.phoneaos.assist.AssistPrefs.liveVoice(androidx.test.core.app.ApplicationProvider.getApplicationContext()))
     }
 
     @Test fun theSwitchOn() { guide("10-switch-on", live = true); rule.onNodeWithText("Live voice in the assistant").assertExists() }

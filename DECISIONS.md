@@ -208,6 +208,16 @@ When a conflict exists, **ask the user before doing any implementation work**. W
 - **Verification:** `app/build.gradle.kts` reports `versionCode = 180`, `versionName = "0.16.0"`; the built APK is checked with `aapt`.
 - **Related:** D-007, D-003, D-011, D-012.
 
+### D-017: The power-button assistant uses Gemini Live for voice and OpenCode for work
+
+- **Date:** 2026-11-21
+- **Status:** accepted
+- **Decision:** When a Gemini key is configured on the phone, or a linked computer can mint a Gemini Live token, the assistant opened by the power-button shortcut uses Gemini Live as its voice layer. Real work is handed to the same OpenCode agent as the typed chat; the Live session stays open while a job runs, speaks brief progress updates only after the user and the voice are quiet, and speaks the final result, questions and approvals as they arrive. If neither a key nor a linked computer is available, it falls back to the existing system-STT/TTS conversation mode. Keep the slide-up sheet and floating bubble; end on goodbye or End, with a 5-minute idle guard when the sheet is open and 10 minutes when minimised. Approvals remain hold-to-approve and are never answered by voice (`D-013`).
+- **Rationale:** The user wants a live, call-like personal assistant that can work in the background. Gemini Live provides full-duplex audio, barge-in and tool calls; the existing `LiveAssistant`/`hand_to_agent` path already connects it to the OpenCode agent, approvals and chat. No extra orchestration server is needed.
+- **Alternatives considered:** System STT/TTS only (half-duplex); OpenAI Realtime (another provider and adapter); OpenCode's experimental server-brokered voice API (experimental, OpenAI/xAI-oriented, needs a server); Pipecat/LiveKit (duplicates the existing agent integration).
+- **Consequences:** Full-duplex voice needs a Gemini key or a linked computer with one; without it the assistant is half-duplex. Microphone audio goes to Google only during a Live call. Progress updates are throttled to one every 12 seconds and wait for a natural pause; they are not results. A Live session still ends after a long silence or on End/goodbye; a job nobody answers for ten minutes no longer holds the line, though its result is notified.
+- **Related:** D-011, D-013, D-015, D-016.
+
 ## Superseded decisions
 
 ### D-105: Write an exit plan for `targetSdk 28`

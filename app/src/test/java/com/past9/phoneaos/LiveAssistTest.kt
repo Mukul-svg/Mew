@@ -168,12 +168,30 @@ class LiveAssistTest {
         assertFalse(c.idle())
         now += LiveAssistCore.IDLE_MS - 1; assertFalse(c.idle())
         now += 2; assertTrue(c.idle())
-        // Work out with the agent: not idle however long.
+        // Work out with the agent: it holds the line for a while, then the unanswered-job cap releases it.
         val d = core(); d.connected(); d.handOff("Do it", 1)
-        now += LiveAssistCore.IDLE_MS * 3; assertFalse(d.idle())
+        now += 5 * 60_000L; assertFalse(d.idle())
+        now += 6 * 60_000L; assertTrue("a job nobody answers no longer holds the line", d.idle())
         // Speaking resets the clock.
         val e = core(); e.connected(); now += LiveAssistCore.IDLE_MS - 5; e.speaking(true); e.speaking(false)
         now += 100; assertFalse(e.idle())
+    }
+
+    @Test fun progressIsSpokenOnlyWhileAJobIsOutAndAtMostEveryGap() {
+        val c = core(); c.connected()
+        assertTrue("nothing is out yet", c.progress(listOf(row(11, "activity", "Checking the price")), true).isEmpty())
+        c.handOff("Check the price", 10)
+        now += LiveAssistCore.PROGRESS_GAP_MS
+        val first = c.progress(listOf(row(11, "activity", "Checking the price")), true)
+        assertEquals(1, first.size); assertTrue(first.single().contains("Progress update"))
+        assertTrue("the same step is never repeated", c.progress(listOf(row(11, "activity", "Checking the price")), true).isEmpty())
+        now += LiveAssistCore.PROGRESS_GAP_MS
+        assertEquals(1, c.progress(listOf(row(12, "activity", "Comparing two shops")), true).size)
+        assertTrue("a finished job has no progress left to say", c.progress(listOf(row(13, "activity", "Still going")), false).isEmpty())
+        // The agent's own reply ends the job: no progress may follow it.
+        c.rows(listOf(row(12, "agent", "The cheapest is R 2,300.")), false)
+        now += LiveAssistCore.PROGRESS_GAP_MS
+        assertTrue(c.progress(listOf(row(14, "activity", "Late step")), true).isEmpty())
     }
 
     @Test fun interruptingClearsWhatIsQueuedAndGoesQuiet() {

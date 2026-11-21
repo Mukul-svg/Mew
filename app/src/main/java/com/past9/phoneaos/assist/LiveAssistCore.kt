@@ -66,6 +66,10 @@ class LiveAssistCore(private val clock: () -> Long = { System.currentTimeMillis(
     private var jobs = 0
     private var sentAt = 0L
     private var lateTold = false
+    /** Activity rows already mentioned as a spoken progress update, and when the last one went. */
+    private val progressTold = HashSet<Long>()
+    private var lastProgressAt = 0L
+    private var lastProgressText = ""
     /** A real agent reply has been delivered since the last hand-off: only then may an outcome be spoken. */
     private var replyDelivered = false
     /** Chat rows up to this id are accounted for; every later agent row of the call's chat is the agent talking to Live. */
@@ -180,9 +184,10 @@ class LiveAssistCore(private val clock: () -> Long = { System.currentTimeMillis(
         lastWho = who
     }
 
-    /** True when it has been quiet for [IDLE_MS]: nobody speaking, nothing out with the agent, nothing waiting on him. */
+    /** True when it has been quiet for [IDLE_MS]: nobody speaking, no live job holding the line, nothing waiting on him. */
     fun idle(minimised: Boolean = false): Boolean =
-        live && !speaking && (jobs == 0 || clock() - sentAt >= OUTSTANDING_CAP_MS) && view.card == null && clock() - lastActive >= if (minimised) IDLE_MINIMISED_MS else IDLE_MS
+        live && !speaking && (jobs == 0 || clock() - sentAt >= OUTSTANDING_CAP_MS) && view.card == null &&
+            clock() - lastActive >= if (minimised) IDLE_MINIMISED_MS else IDLE_MS
 
     /** The user said goodbye by tool-free means (a tap is handled by the caller). */
     fun goodbye() { endPending = true }
@@ -199,6 +204,7 @@ class LiveAssistCore(private val clock: () -> Long = { System.currentTimeMillis(
         // A job aimed at a helper or a project's chat does not come back through the main chat: its outcome arrives as a context update.
         if (track) {
             jobs++; sentAt = clock(); lateTold = false; replyDelivered = false
+            lastProgressAt = clock(); lastProgressText = ""
             if (hand == null) { base = lastIdBefore; arm(lastIdBefore) }
         }
         publish { it.copy(label = "") } // the sheet shows its own "Working on it" for a blank label
@@ -266,6 +272,27 @@ class LiveAssistCore(private val clock: () -> Long = { System.currentTimeMillis(
         return out
     }
 
+    /**
+     * What to say about a new step while a job is still running: at most one update every
+     * [PROGRESS_GAP_MS], and only after the agent has actually started something. It is not a
+     * result; the voice is told to say a short line and never claim an outcome.
+     */
+    fun progress(rows: List<ChatItem>, working: Boolean): List<String> {
+        if (!working || jobs == 0 || view.card != null || ending) return emptyList()
+        val now = clock()
+        if (now - lastProgressAt < PROGRESS_GAP_MS) return emptyList()
+        val step = rows.asReversed().firstOrNull {
+            it.id > base && (it.kind == "activity" || it.kind == "helper") &&
+                it.id !in progressTold && !isCallRow(it) && it.text.isNotBlank()
+        } ?: return emptyList()
+        val clean = AssistCore.stepLabel(step).trim().take(140)
+        if (clean.isBlank() || clean.equals(lastProgressText, ignoreCase = true)) return emptyList()
+        progressTold += step.id
+        lastProgressAt = now
+        lastProgressText = clean
+        return listOf("[Progress update from your agent: \"$clean\". Say one short line about what is happening now. It is NOT done: never say done, sent, uploaded, completed or any other result.]")
+    }
+
     // ---- context ------------------------------------------------------------------------------------
 
     /** The same short handles for the life of the session: the prompt and answer_ask speak of a question by its ref. */
@@ -328,12 +355,14 @@ class LiveAssistCore(private val clock: () -> Long = { System.currentTimeMillis(
     }
 
     companion object {
-        /** Quiet for this long and the session ends by itself. */
-        const val IDLE_MS = 45_000L
-        /** Minimised to a bubble he is busy in another app, so it waits longer before letting go. */
-        const val IDLE_MINIMISED_MS = 180_000L
-        /** A job out this long with no reply no longer holds the session open. */
+        /** Quiet for this long with no job out and nothing waiting, and the session ends by itself. */
+        const val IDLE_MS = 5 * 60_000L
+        /** Minimised to a bubble he is busy in another app, so it waits longer rather than dropping the call. */
+        const val IDLE_MINIMISED_MS = 10 * 60_000L
+        /** A job nobody answers for this long no longer holds the line open; its result is still notified. */
         const val OUTSTANDING_CAP_MS = 600_000L
+        /** Spoken progress at most this often. The actual point is a natural pause, held by TurnHold. */
+        const val PROGRESS_GAP_MS = 12_000L
 
         const val TOOL = "hand_to_agent"
         /** Answers a question an agent is waiting on (see [AssistRouter]). */
