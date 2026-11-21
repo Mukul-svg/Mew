@@ -43,7 +43,7 @@ try {
 }
 
 const text = `${system}\n\n---\n\n${prompt}` +
-  "\n\nYou are running inside the user's Agent app on their phone. Use the `phone` MCP server tools for the user's memory, tasks, browser, connected apps, files and questions. Do not use shell commands to do what a phone tool can do." +
+  "\n\nYou are running inside the user's Mew app on their phone. Use the `phone` MCP server tools for the user's memory, tasks, browser, connected apps, files and questions. Do not use shell commands to do what a phone tool can do." +
   (images.length ? `\n\nThe user attached these files: ${images.join(", ")}` : "");
 
 const args = ["-p", text, "--output-format", "stream-json", "--dangerously-skip-permissions", "--print-timeout", "20m"];

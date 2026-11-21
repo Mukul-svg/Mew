@@ -37,11 +37,11 @@
     <string name="onb_any_openai_compatible">Yoyote inayooana na OpenAI</string>
     <string name="onb_key_anthropic_1">Gusa Fungua hapa chini. Hufungua dashibodi ya Anthropic kwenye kivinjari chako. Jisajili au uingie.</string>
     <string name="onb_key_anthropic_2">Nenda kwenye Billing na uongeze salio kidogo. Unalipa kadiri unavyotumia, na dola chache hudumu kwa muda mrefu.</string>
-    <string name="onb_key_anthropic_3">Nenda kwenye API keys na ugonge Create key. Ipe jina lolote, kama Agent.</string>
+    <string name="onb_key_anthropic_3">Nenda kwenye API keys na ugonge Create key. Ipe jina lolote, kama Mew.</string>
     <string name="onb_key_anthropic_4">Gusa Copy, rudi kwenye programu hii, bandika ufunguo kwenye kisanduku hapo juu na ugonge Kagua ufunguo.</string>
     <string name="onb_key_openai_1">Gusa Fungua hapa chini. Hufungua jukwaa la OpenAI kwenye kivinjari chako. Jisajili au uingie. (Hii ni tofauti na usajili wa ChatGPT.)</string>
     <string name="onb_key_openai_2">Nenda kwenye Billing na uongeze salio kidogo. Dola chache hudumu kwa muda mrefu.</string>
-    <string name="onb_key_openai_3">Nenda kwenye API keys na ugonge Create new secret key. Ipe jina lolote, kama Agent.</string>
+    <string name="onb_key_openai_3">Nenda kwenye API keys na ugonge Create new secret key. Ipe jina lolote, kama Mew.</string>
     <string name="onb_key_step_copy_once">Gusa Copy (unaweza kuuona ufunguo mara moja tu), rudi hapa, ubandike hapo juu na ugonge Kagua ufunguo.</string>
     <string name="onb_key_gemini_1">Gusa Fungua hapa chini. Hufungua Google AI Studio. Ingia kwa akaunti yoyote ya Google.</string>
     <string name="onb_key_gemini_2">Gusa Create API key. Ikikuomba uchague mradi, chagua ule unaopendekezwa.</string>

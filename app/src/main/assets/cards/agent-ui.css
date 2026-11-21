@@ -1,5 +1,5 @@
 /*
- * agent-ui.css: the Agent app's look for cards the agent writes in HTML.
+ * agent-ui.css: the Mew app's look for cards the agent writes in HTML.
  * Colours come from the app's live theme as CSS variables (set above this file at render time),
  * so a card matches the native screens in the user's colour, light or dark.
  * Use these classes and var(--…) colours only. Never hard-code a colour.

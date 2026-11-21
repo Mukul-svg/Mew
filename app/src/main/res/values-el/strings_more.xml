@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">Ή ΧΡΗΣΙΜΟΠΟΙΗΣΕ ΤΟΝ ΠΡΑΚΤΟΡΑ ΣΤΟΝ ΥΠΟΛΟΓΙΣΤΗ ΣΟΥ</string>
     <string name="onb_use_on_computer">Χρήση του πράκτορα στον υπολογιστή μου</string>
-    <string name="onb_use_on_computer_sub">Σάρωσε τον κωδικό στην εφαρμογή Agent στον υπολογιστή ή τον διακομιστή σου. Χωρίς κλειδιά σε αυτό το τηλέφωνο.</string>
+    <string name="onb_use_on_computer_sub">Σάρωσε τον κωδικό στην εφαρμογή Mew στον υπολογιστή ή τον διακομιστή σου. Χωρίς κλειδιά σε αυτό το τηλέφωνο.</string>
     <string name="sub_paste_code_from">Επικόλλησε τον κωδικό από το %1$s</string>
     <string name="sub_paste_code_body_from">Στον περιηγητή: πάτησε Authorize. Το %1$s εμφανίζει τότε έναν κωδικό. Αντίγραψέ τον, γύρνα εδώ και επικόλλησέ τον παρακάτω.</string>
     <string name="sub_code_from">Κωδικός από το %1$s</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">Προσθήκη δοκιμαστικού αριθμού</string>
     <string name="browser_test_number_body">Ο αριθμός του λογαριασμού WhatsApp με τον οποίο δοκιμάζεις. Δεν στέλνεται τίποτα στο WhatsApp και η επαναφόρτωση της σελίδας το αναιρεί.</string>
     <string name="link_cant_reach">Δεν ήταν δυνατή η επικοινωνία με τον υπολογιστή.</string>
-    <string name="link_bad_answer">Η απάντηση του υπολογιστή δεν είχε νόημα. Είναι ενημερωμένη η εφαρμογή Agent σε αυτόν;</string>
+    <string name="link_bad_answer">Η απάντηση του υπολογιστή δεν είχε νόημα. Είναι ενημερωμένη η εφαρμογή Mew σε αυτόν;</string>
     <string name="link_tried_addresses">(δοκιμάστηκαν %1$d διευθύνσεις)</string>
     <string name="link_type_address">Πληκτρολόγησε τη διεύθυνση του υπολογιστή.</string>
     <string name="link_no_certificate">Ο υπολογιστής δεν έστειλε πιστοποιητικό.</string>
     <string name="link_failed">Η σύζευξη απέτυχε.</string>
     <string name="link_your_computer">ο υπολογιστής σου</string>
-    <string name="link_not_a_code">Αυτός ο κωδικός QR δεν είναι κωδικός σύζευξης Agent.</string>
+    <string name="link_not_a_code">Αυτός ο κωδικός QR δεν είναι κωδικός σύζευξης Mew.</string>
     <string name="link_subtitle">Σύζευξε αυτό το τηλέφωνο με έναν υπολογιστή ή διακομιστή</string>
     <string name="link_linked_to">Συζευγμένο με %1$s</string>
     <string name="link_runs_on">Ο πράκτοράς σου τρέχει στο %1$s. Αυτό το τηλέφωνο δείχνει τη συνομιλία, τη μνήμη, τις εργασίες και τις ρουτίνες του και δεν κρατά κλειδιά AI γι’ αυτόν.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">Σύζευξη με %1$s</string>
     <string name="link_keep">Διατήρηση του %1$s</string>
     <string name="link_linking_to">Σύζευξη με %1$s...</string>
-    <string name="link_how_to">Στον υπολογιστή σου, άνοιξε την εφαρμογή Agent και πήγαινε στις Ρυθμίσεις, Συσκευές, Προσθήκη συσκευής.</string>
+    <string name="link_how_to">Στον υπολογιστή σου, άνοιξε την εφαρμογή Mew και πήγαινε στις Ρυθμίσεις, Συσκευές, Προσθήκη συσκευής.</string>
     <string name="link_how_type">Πληκτρολόγησε τη διεύθυνση και τον κωδικό που εμφανίζει.</string>
     <string name="link_how_scan">Στόχευσε αυτή την κάμερα στον κωδικό που εμφανίζει.</string>
     <string name="link_allow_camera">Να επιτρέπεται η κάμερα</string>
@@ -273,7 +273,7 @@
     <string name="proj_new_chat_line">Ό,τι ειπώθηκε μέχρι τώρα αποθηκεύεται στη μνήμη και αυτό το παράθυρο ξεκινά άδειο. Τίποτα στον υπολογιστή σου δεν διαγράφεται.</string>
     <string name="proj_new_chat">Νέα συνομιλία</string>
     <string name="proj_not_linked_now">Δεν είναι συζευγμένο με υπολογιστή αυτή τη στιγμή.</string>
-    <string name="proj_computer_older">Η εφαρμογή Agent του υπολογιστή σου είναι παλαιότερη από αυτή, οπότε δεν μπορεί να ξεκινήσει εκεί νέα συνομιλία. Ενημέρωσέ την στον υπολογιστή σου και δοκίμασε ξανά.</string>
+    <string name="proj_computer_older">Η εφαρμογή Mew του υπολογιστή σου είναι παλαιότερη από αυτή, οπότε δεν μπορεί να ξεκινήσει εκεί νέα συνομιλία. Ενημέρωσέ την στον υπολογιστή σου και δοκίμασε ξανά.</string>
     <string name="proj_unreachable">Δεν ήταν δυνατή η επικοινωνία με τον υπολογιστή σου. Δοκίμασε ξανά όταν επανέλθει.</string>
     <string name="proj_photo_you_sent">Η φωτογραφία που έστειλες</string>
     <string name="proj_start_chat_failed">Δεν ήταν δυνατή η έναρξη συνομιλίας στο «%1$s»: %2$s.</string>
@@ -371,14 +371,14 @@
     <string name="wake_up_your_computer">ο υπολογιστής σου</string>
     <string name="wake_up_reaches">Φτάνει σε αυτό το τηλέφωνο</string>
     <string name="wake_up_link_first">Σύζευξε πρώτα αυτό το τηλέφωνο με τον υπολογιστή σου (Ρυθμίσεις > Συζευγμένες συσκευές)</string>
-    <string name="wake_up_lacks">Το %1$s δεν μπορεί ακόμη να χτυπήσει αυτό το τηλέφωνο: ενημέρωσε εκεί την εφαρμογή Agent</string>
+    <string name="wake_up_lacks">Το %1$s δεν μπορεί ακόμη να χτυπήσει αυτό το τηλέφωνο: ενημέρωσε εκεί την εφαρμογή Mew</string>
     <string name="wake_up_connected">Συνδεδεμένο με %1$s</string>
     <string name="wake_up_not_connected">Δεν είναι συνδεδεμένο τώρα. Συνεχίζει να προσπαθεί.</string>
     <string name="wake_up_test">Δοκιμή αφύπνισης</string>
     <string name="wake_up_test_body">Χτυπά αυτό το τηλέφωνο στ’ αλήθεια. Απάντησε για να σταματήσει.</string>
     <string name="wake_up_test_sent">Η δοκιμή %1$s στάλθηκε.</string>
     <string name="wake_up_not_sent">Δεν στάλθηκε.</string>
-    <string name="wake_up_secure_folder">Εγκατάστησε το Agent κανονικά (όχι στον Ασφαλή φάκελο): ένας κλειδωμένος Ασφαλής φάκελος δεν μπορεί να χτυπήσει.</string>
+    <string name="wake_up_secure_folder">Εγκατάστησε το Mew κανονικά (όχι στον Ασφαλή φάκελο): ένας κλειδωμένος Ασφαλής φάκελος δεν μπορεί να χτυπήσει.</string>
     <string name="rec_recording_now">Εγγραφή τώρα</string>
     <string name="rec_cut_off">Διακόπηκε</string>
     <string name="rec_partly">Μέρος της δεν γράφτηκε</string>
@@ -407,7 +407,7 @@
     <string name="media_play">Αναπαραγωγή μουσικής και βίντεο</string>
     <string name="media_intro">Όταν ζητάς από τον πράκτορά σου να παίξει κάτι, χρησιμοποιεί την εφαρμογή που διαλέγεις εδώ. Στο αυτόματο χρησιμοποιεί την προεπιλογή του τηλεφώνου σου και μετά οποιαδήποτε εφαρμογή μπορεί να παίξει από αναζήτηση.</string>
     <string name="media_access_off">Η πρόσβαση στις ειδοποιήσεις είναι ανενεργή</string>
-    <string name="media_access_body">Το Android δείχνει τι παίζει και αφήνει τον πράκτορά σου να κάνει παύση ή παράλειψη μόνο αφού το Agent αποκτήσει πρόσβαση στις ειδοποιήσεις.</string>
+    <string name="media_access_body">Το Android δείχνει τι παίζει και αφήνει τον πράκτορά σου να κάνει παύση ή παράλειψη μόνο αφού το Mew αποκτήσει πρόσβαση στις ειδοποιήσεις.</string>
     <string name="media_none">Καμία εφαρμογή σε αυτό το τηλέφωνο δεν δηλώνει ότι μπορεί να παίξει μουσική ή βίντεο για τον πράκτορά σου. Εγκατάστησε μια εφαρμογή μουσικής και θα εμφανιστεί εδώ.</string>
     <string name="media_music_app">Εφαρμογή μουσικής</string>
     <string name="media_video_app">Εφαρμογή βίντεο</string>
@@ -653,7 +653,7 @@
     <string name="main_your_computer">ο υπολογιστής σου</string>
     <string name="main_a_computer">ένας υπολογιστής</string>
     <string name="main_whatever_agent_runs">Ό,τι κι αν τρέχει ο πράκτοράς σου</string>
-    <string name="rt_clear_computer_older">Η συνομιλία αυτού του τηλεφώνου καθαρίστηκε. Εκείνη του υπολογιστή σου όχι: η εφαρμογή Agent σε αυτόν είναι παλαιότερη από αυτή, οπότε δεν μπορεί να ξεκινήσει νέα συνομιλία. Ενημέρωσε την εφαρμογή στον υπολογιστή σου και καθάρισε ξανά.</string>
+    <string name="rt_clear_computer_older">Η συνομιλία αυτού του τηλεφώνου καθαρίστηκε. Εκείνη του υπολογιστή σου όχι: η εφαρμογή Mew σε αυτόν είναι παλαιότερη από αυτή, οπότε δεν μπορεί να ξεκινήσει νέα συνομιλία. Ενημέρωσε την εφαρμογή στον υπολογιστή σου και καθάρισε ξανά.</string>
     <string name="rt_clear_unreachable">Η συνομιλία αυτού του τηλεφώνου καθαρίστηκε. Δεν ήταν δυνατή η επικοινωνία με τον υπολογιστή σου τώρα, οπότε η δική του συνομιλία παραμένει και θα εμφανιστεί ξανά όταν συγχρονιστεί. Καθάρισε ξανά όταν επανέλθει.</string>
     <string name="assist_type_it_instead">Πληκτρολόγησέ το</string>
     <string name="assist_unlock_to_carry_on">Ξεκλείδωσε για να συνεχίσεις</string>
@@ -704,6 +704,10 @@
     <string name="assist_over_lock_line">Ανενεργό: ξεκλείδωσε πρώτα το τηλέφωνο και μετά κάλεσέ τον. Ενεργό: ανοίγει σε κλειδωμένο τηλέφωνο και στέλνει το αίτημά σου όταν ξεκλειδώσεις.</string>
     <string name="assist_live_voice">Ζωντανή φωνή στον βοηθό</string>
     <string name="assist_live_voice_line">Ανενεργό: λες ένα αίτημα και απαντά. Ενεργό: μίλα φυσικά, το %1$s απαντά φωναχτά αμέσως, μπορείς να το διακόπτεις και δίνει εργασίες στον πράκτορά σου και σου λέει το αποτέλεσμα.</string>
+    <string name="assist_talk">Συνέχιση της συνομιλίας</string>
+    <string name="assist_talk_line">Σαν κλήση: το %1$s διαβάζει κάθε απάντηση δυνατά και ακούει ξανά, μέχρι να πείτε αντίο ή να πατήσετε Τέλος. Χρησιμοποιεί τη φωνή cloud που έχετε, αλλιώς τη φωνή του ίδιου του τηλεφώνου.</string>
+    <string name="assist_talk_end">Τέλος</string>
+    <string name="assist_talk_interrupt">Διακοπή</string>
     <string name="assist_never_reads_money">Δεν διαβάζει ποτέ τραπεζικές, πληρωμών ή οικονομικές εφαρμογές, με όποιον διακόπτη κι αν είναι ενεργός. Ό,τι διαβάζει χρησιμοποιείται μόνο για εκείνο το αίτημα.</string>
     <string name="live_bubble_desc">Ζωντανή φωνή. Πάτησε για άνοιγμα</string>
     <string name="live_end_session">Τέλος ζωντανής συνεδρίας</string>

@@ -69,7 +69,7 @@
     <string name="svc_weekly_every">ஒவ்வொரு %1$s அன்றும் %2$02d:%3$02d</string>
     <string name="svc_weekly_weekday">வார நாள்</string>
     <string name="svc_weekly_weekend">வார இறுதி நாள்</string>
-    <string name="svc_work_channel">Agent வேலை செய்கிறது</string>
+    <string name="svc_work_channel">Mew வேலை செய்கிறது</string>
     <plurals name="svc_work_helpers">
         <item quantity="one">வேலை செய்கிறது: %1$d உதவியாளர்</item>
         <item quantity="other">வேலை செய்கிறது: %1$d உதவியாளர்கள்</item>

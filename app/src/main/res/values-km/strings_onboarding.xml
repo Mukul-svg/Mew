@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">សេវាណាក៏ដោយដែលត្រូវគ្នានឹង OpenAI</string>
     <string name="onb_key_anthropic_1">ចុចបើកខាងក្រោម។ វាបើកកុងសូលរបស់ Anthropic ក្នុងកម្មវិធីរុករក។ ចុះឈ្មោះ ឬចូល។</string>
     <string name="onb_key_anthropic_2">ទៅ Billing ហើយបន្ថែមឥណទានបន្តិច។ បង់តាមការប្រើប្រាស់ ហើយពីរបីដុល្លារប្រើបានយូរ។</string>
-    <string name="onb_key_anthropic_3">ទៅ API keys ហើយចុច Create key។ ដាក់ឈ្មោះអ្វីក៏បាន ដូចជា Agent។</string>
+    <string name="onb_key_anthropic_3">ទៅ API keys ហើយចុច Create key។ ដាក់ឈ្មោះអ្វីក៏បាន ដូចជា Mew។</string>
     <string name="onb_key_anthropic_4">ចុច Copy ត្រឡប់មកកម្មវិធីនេះ បិទភ្ជាប់សោក្នុងប្រអប់ខាងលើ ហើយចុចពិនិត្យសោ។</string>
     <string name="onb_key_openai_1">ចុចបើកខាងក្រោម។ វាបើកវេទិការបស់ OpenAI ក្នុងកម្មវិធីរុករក។ ចុះឈ្មោះ ឬចូល។ (នេះដាច់ដោយឡែកពីការជាវ ChatGPT។)</string>
     <string name="onb_key_openai_2">ទៅ Billing ហើយបន្ថែមឥណទានបន្តិច។ ពីរបីដុល្លារប្រើបានយូរ។</string>
-    <string name="onb_key_openai_3">ទៅ API keys ហើយចុច Create new secret key។ ដាក់ឈ្មោះអ្វីក៏បាន ដូចជា Agent។</string>
+    <string name="onb_key_openai_3">ទៅ API keys ហើយចុច Create new secret key។ ដាក់ឈ្មោះអ្វីក៏បាន ដូចជា Mew។</string>
     <string name="onb_key_step_copy_once">ចុច Copy (អ្នកឃើញសោបានតែម្តង) ត្រឡប់មកទីនេះ បិទភ្ជាប់ខាងលើ ហើយចុចពិនិត្យសោ។</string>
     <string name="onb_key_gemini_1">ចុចបើកខាងក្រោម។ វាបើក Google AI Studio។ ចូលដោយគណនី Google ណាក៏បាន។</string>
     <string name="onb_key_gemini_2">ចុច Create API key។ ប្រសិនបើវាសុំឱ្យជ្រើសរើសគម្រោង សូមជ្រើសរើសមួយដែលវាណែនាំ។</string>

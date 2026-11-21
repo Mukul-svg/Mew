@@ -80,6 +80,14 @@ class AssistActivity : ComponentActivity() {
     private var closing by mutableStateOf(false)
     /** Live voice in the assistant: a Gemini Live session instead of the one-request listening input. */
     private var liveMode = false
+    /** Conversation mode: read each answer aloud and listen again, like a call. The normal sheet when Live is off or could not start. */
+    private var talkMode = false
+    private val speaker by lazy { com.past9.phoneaos.system.Speaker(this) }
+    private var talkJob: Job? = null
+    private var talkGen = 0
+    private var cardSpeaking = false
+    /** Cards already read aloud in this opening, so a recomposition never reads one twice. */
+    private val cardSpoken = mutableSetOf<Long>()
     private var liveView by mutableStateOf(LiveView())
     /** Minimise needs "display over other apps": the slide-up sheet that asks for it. */
     private var overlaySheet by mutableStateOf(false)
@@ -122,6 +130,7 @@ class AssistActivity : ComponentActivity() {
             AppTheme(accent = settings.accent, mascot = settings.mascot) { Sheet(settings.agentName.takeIf { it.isNotBlank() && it != "Your agent" } ?: stringResource(R.string.svc_your_agent), settings.onboarded) }
         }
         liveMode = st.onboarded && AssistPrefs.liveVoice(this)
+        talkMode = st.onboarded && !liveMode && AssistPrefs.talk(this)
         if (st.onboarded) beginListening()
     }
 
@@ -135,6 +144,8 @@ class AssistActivity : ComponentActivity() {
         AssistHub.keepIfFresh()
         AssistEntry.clearNotification(this)
         g.stopSpeaking()
+        stopTalkSpeech()
+        cardSpoken.clear()
         core.listen(); refresh()
         beginListening()
     }
@@ -161,6 +172,8 @@ class AssistActivity : ComponentActivity() {
         if (liveMode && !LiveHost.minimised.value) LiveHost.end("")
         stopListening()
         follow?.cancel()
+        stopTalkSpeech()
+        if (talkMode) runCatching { speaker.release() }
         runCatching { g.stopSpeaking() }
         AssistEntry.setOpen(false)
         // A minimised session still holds the microphone: the wake word keeps out of its way.
@@ -200,9 +213,12 @@ class AssistActivity : ComponentActivity() {
     private fun liveEnded(why: String) {
         if (why.isBlank()) { finish(); return }
         liveMode = false
+        talkMode = AssistPrefs.talk(this)
         core.listen()
         core.micFailed(getString(R.string.assist_live_stopped, why))
         refresh()
+        // Conversation mode takes over after the reason has been on screen a moment: the call goes on without Gemini.
+        if (talkMode) lifecycleScope.launch { kotlinx.coroutines.delay(2_500); if (!isFinishing && !isDestroyed) { core.listen(); refresh(); beginListening() } }
     }
 
     // ---- listening ------------------------------------------------------------------------------
@@ -223,7 +239,12 @@ class AssistActivity : ComponentActivity() {
         dictation = SystemDictation(this, onText = { t -> core.partial(t); refresh() }, onEnd = { error ->
             dictation = null
             AssistEntry.setListening(false)
-            if (error != null && core.words.isBlank()) { core.micFailed(error); refresh() } else heard(core.words)
+            when {
+                error != null && core.words.isBlank() -> { core.micFailed(error); refresh() }
+                // Conversation: a round that heard nothing counts toward the quiet end; otherwise listen again.
+                talkMode && core.words.isBlank() -> { if (core.quiet()) finish() else { core.listen(); refresh(); beginListening() } }
+                else -> heard(core.words)
+            }
         }, oneShot = true).also { it.start() }
         refresh()
     }
@@ -239,6 +260,11 @@ class AssistActivity : ComponentActivity() {
 
     /** His words are final (spoken or typed): send them, or keep them until the phone is unlocked. */
     private fun heard(words: String, byKeyboard: Boolean = false) {
+        // Conversation: goodbye ends the call instead of going to the agent; "stop" ends it when nothing is running.
+        if (talkMode && words.isNotBlank()) {
+            val name = g.settings.state.value.agentName
+            if (AssistCore.isExit(words, name) || (words.trim().equals("stop", ignoreCase = true) && !working)) { endConversation(); return }
+        }
         val now = core.finished(words, locked = locked(), byKeyboard = byKeyboard)
         refresh()
         if (now != null) route(now) else if (core.waitingForUnlock) unlock()
@@ -296,6 +322,50 @@ class AssistActivity : ComponentActivity() {
         finish()
     }
 
+    // ---- conversation mode ------------------------------------------------------------------------
+
+    /** Read text aloud: the cloud voice when one is set up, else the phone's own. [onDone] fires once when it finishes. */
+    private fun speakAloud(text: String, onDone: () -> Unit) {
+        val gen = ++talkGen
+        talkJob?.cancel()
+        val spoken = com.past9.phoneaos.voice.SpokenResult.cut(com.past9.phoneaos.voice.SpokenResult.speakable(text))
+        talkJob = lifecycleScope.launch {
+            val f = runCatching { com.past9.phoneaos.voice.Tts.synth(this@AssistActivity, g.settings, spoken) }.getOrNull()
+            if (gen != talkGen || isFinishing || isDestroyed) return@launch
+            if (f != null) com.past9.phoneaos.voice.Tts.play(f) { if (gen == talkGen) onDone() }
+            else speaker.say(spoken) { if (gen == talkGen) onDone() }
+        }
+    }
+
+    /** Interrupt the voice (a tap, a second press, leaving): nothing pending may start listening again on its own. */
+    private fun stopTalkSpeech() {
+        talkGen++; talkJob?.cancel(); talkJob = null
+        com.past9.phoneaos.voice.Tts.stop(); speaker.stop()
+    }
+
+    /** The voice finished: listen again, unless the sheet is going away. */
+    private fun talkContinue() {
+        if (isFinishing || isDestroyed) return
+        core.finishedSpeaking()
+        refresh()
+        beginListening()
+    }
+
+    private fun endConversation() { stopTalkSpeech(); finish() }
+
+    /** What the voice says for a card that waits for him: the agent's own words, plus the options or the yes it needs. */
+    private fun cardSpokenText(card: ChatItem, phase: AssistPhase): String {
+        val m = AssistCore.meta(card)
+        return if (phase == AssistPhase.APPROVAL) {
+            val summary = runCatching { com.past9.phoneaos.ui.screens.Approval.of(card).summary }.getOrNull().orEmpty().ifBlank { card.text }
+            "$summary. ${getString(R.string.assist_needs_your_yes)}"
+        } else {
+            val opts = m.optJSONArray("options")
+            val options = if (opts != null) (0 until opts.length()).map { opts.optString(it) }.filter { it.isNotBlank() } else emptyList()
+            if (options.isEmpty()) card.text else card.text + ". " + options.joinToString(", ")
+        }
+    }
+
     // ---- UI -------------------------------------------------------------------------------------
 
     @Composable
@@ -307,10 +377,41 @@ class AssistActivity : ComponentActivity() {
         val maxHeight = (LocalConfiguration.current.screenHeightDp * 0.78f).dp
         fun dismiss() { closing = true; finish() }
         BackHandler { dismiss() }
-        // An answer he asked for out loud is read out, once, when a voice is set up.
+        // An answer he asked for out loud is read out, once. Conversation mode reads every answer aloud and then
+        // listens again; the one-request sheet reads it only when a cloud voice is set up.
         LaunchedEffect(view.answerId, view.phase) {
             val id = view.answerId
-            if (view.phase == AssistPhase.ANSWERING && id != null && !core.wasTyped) g.speak(view.answer, id)
+            when {
+                view.phase == AssistPhase.ANSWERING && id != null && talkMode -> {
+                    val answer = view.answer
+                    core.startSpeaking(answer, id)
+                    speakAloud(answer) { talkContinue() }
+                    refresh()
+                }
+                view.phase == AssistPhase.ANSWERING && id != null && !core.wasTyped -> g.speak(view.answer, id)
+                // Conversation: an answer with no chat row of its own (a routed note, or "Done.") is still heard.
+                view.phase == AssistPhase.ANSWERING && id == null && talkMode -> {
+                    val note = view.answer
+                    if (note.isNotBlank()) speakAloud(note) { talkContinue() }
+                    else { kotlinx.coroutines.delay(900); if (view.phase == AssistPhase.ANSWERING && view.answerId == null) talkContinue() }
+                }
+                view.phase == AssistPhase.ERROR && talkMode -> speakAloud(view.problem) { talkContinue() }
+            }
+        }
+        // Conversation: a question or approval that waits for him is read aloud once. A question then listens for his
+        // answer; an approval keeps the microphone closed — it is held on the screen, never answered by words.
+        LaunchedEffect(view.card?.id, view.phase) {
+            if (!talkMode) return@LaunchedEffect
+            val card = view.card
+            val phase = view.phase
+            if (card == null || (phase != AssistPhase.ASKING && phase != AssistPhase.APPROVAL)) {
+                if (cardSpeaking) { cardSpeaking = false; stopTalkSpeech() }
+                return@LaunchedEffect
+            }
+            if (!cardSpoken.add(card.id)) return@LaunchedEffect
+            cardSpeaking = true
+            val text = cardSpokenText(card, phase)
+            speakAloud(text) { cardSpeaking = false; if (phase == AssistPhase.ASKING) talkContinue() }
         }
         Box(Modifier.fillMaxSize()) {
             AnimatedVisibility(visible, enter = fadeIn(tween(160)), exit = fadeOut(tween(120))) {
@@ -338,10 +439,11 @@ class AssistActivity : ComponentActivity() {
                             onDismissChoice = { LiveHost.dismissChoice() },
                         ))
                         else AssistSheetBody(view, agentName, AssistWords.screenLine(screen, AssistPrefs.readScreen(this@AssistActivity), this@AssistActivity), AssistActions(
-                            onMic = { g.stopSpeaking(); core.listen(); refresh(); beginListening() },
+                            onMic = { stopTalkSpeech(); g.stopSpeaking(); core.resetQuiet(); core.listen(); refresh(); beginListening() },
+                            onEnd = if (talkMode) ::endConversation else null,
                             onDoneSpeaking = { dictation?.finish() ?: heard(core.words) },
                             onStopAgent = { g.runtime.stop() },
-                            onKeyboard = { stopListening(); g.stopSpeaking(); core.type(); refresh() },
+                            onKeyboard = { stopListening(); stopTalkSpeech(); g.stopSpeaking(); core.type(); refresh() },
                             onSendTyped = { t -> heard(t, byKeyboard = true) },
                             onOpenApp = { openApp() },
                             onAnswer = { id, option -> g.runtime.answer(id, option) },

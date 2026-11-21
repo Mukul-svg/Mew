@@ -18,6 +18,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.OpenInNew
 import androidx.compose.material.icons.automirrored.rounded.Send
+import androidx.compose.material.icons.rounded.CallEnd
 import androidx.compose.material.icons.rounded.ErrorOutline
 import androidx.compose.material.icons.rounded.Keyboard
 import androidx.compose.material.icons.rounded.Lock
@@ -69,6 +70,8 @@ data class AssistActions(
     /** He picked which waiting question his words answer (the choice sheet), or closed it without picking. */
     val onPickAsk: (CtxAsk, String) -> Unit = { _, _ -> },
     val onDismissChoice: () -> Unit = {},
+    /** Conversation mode: end the call. Null hides the End button (the one-request sheet). */
+    val onEnd: (() -> Unit)? = null,
 )
 
 /** What the sheet says it knows about the screen: a line and whether anything is being read. */
@@ -85,6 +88,7 @@ object AssistWords {
         AssistPhase.THINKING -> stringResource(R.string.assist_thinking)
         AssistPhase.ACTING -> v.label.ifBlank { stringResource(R.string.chat_working) }
         AssistPhase.ANSWERING -> stringResource(R.string.chat_answered)
+        AssistPhase.SPEAKING -> stringResource(R.string.voice_talking)
         AssistPhase.APPROVAL -> stringResource(R.string.assist_needs_your_yes)
         AssistPhase.ASKING -> stringResource(R.string.chat_needs_you_title)
         AssistPhase.ERROR -> stringResource(R.string.assist_did_not_work)
@@ -115,7 +119,7 @@ fun AssistSheetBody(view: AssistView, agentName: String, screen: ScreenLine?, ac
         Box(Modifier.align(Alignment.CenterHorizontally).width(36.dp).height(4.dp).clip(CircleShape).background(cs.outlineVariant))
         Spacer(Modifier.height(14.dp))
         Row(verticalAlignment = Alignment.CenterVertically) {
-            AgentAvatar(working = busy || view.phase == AssistPhase.LISTENING, size = 44.dp, needsYou = view.phase == AssistPhase.APPROVAL || view.phase == AssistPhase.ASKING)
+            AgentAvatar(working = busy || view.phase == AssistPhase.LISTENING || view.phase == AssistPhase.SPEAKING, size = 44.dp, needsYou = view.phase == AssistPhase.APPROVAL || view.phase == AssistPhase.ASKING)
             Spacer(Modifier.width(12.dp))
             Column(Modifier.weight(1f)) {
                 Text(agentName, style = MaterialTheme.typography.titleMedium, color = cs.onSurface, maxLines = 1, overflow = TextOverflow.Ellipsis)
@@ -123,6 +127,13 @@ fun AssistSheetBody(view: AssistView, agentName: String, screen: ScreenLine?, ac
                     maxLines = 1, overflow = TextOverflow.Ellipsis)
             }
             if (view.phase == AssistPhase.LISTENING) ListeningBars()
+            actions.onEnd?.let { end ->
+                TextButton(onClick = end) {
+                    Icon(Icons.Rounded.CallEnd, null, Modifier.size(18.dp), tint = cs.error)
+                    Spacer(Modifier.width(4.dp))
+                    Text(stringResource(R.string.assist_talk_end), style = MaterialTheme.typography.labelLarge, color = cs.error)
+                }
+            }
         }
         Spacer(Modifier.height(14.dp))
         // What is going on right now, so he never has to say it again: shown while he is about to speak or read an answer.
@@ -158,7 +169,7 @@ fun AssistSheetBody(view: AssistView, agentName: String, screen: ScreenLine?, ac
                         }
                     }
                 }
-                AssistPhase.ANSWERING -> {
+                AssistPhase.ANSWERING, AssistPhase.SPEAKING -> {
                     Heard(view.heard)
                     Spacer(Modifier.height(10.dp))
                     Markdown(com.past9.phoneaos.voice.Tts.stripEmoji(view.answer), style = MaterialTheme.typography.bodyLarge)
@@ -190,6 +201,7 @@ fun AssistSheetBody(view: AssistView, agentName: String, screen: ScreenLine?, ac
             }
             val (icon, label, tap) = when {
                 view.phase == AssistPhase.LISTENING -> Triple(Icons.Rounded.Stop, stringResource(R.string.assist_done_speaking), actions.onDoneSpeaking)
+                view.phase == AssistPhase.SPEAKING -> Triple(Icons.Rounded.Mic, stringResource(R.string.assist_talk_interrupt), actions.onMic)
                 busy -> Triple(Icons.Rounded.Stop, stringResource(R.string.chat_stop), actions.onStopAgent)
                 else -> Triple(Icons.Rounded.Mic, stringResource(R.string.chat_speak), actions.onMic)
             }

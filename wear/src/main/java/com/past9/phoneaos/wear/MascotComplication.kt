@@ -48,7 +48,7 @@ object MascotBitmap {
 /**
  * The agent itself for a watch face: a picture complication, so the face shows the mascot and the accent the user picked on the phone (not
  * a drawing baked into the face), amber when something needs them, a line drawing in ambient mode. Tap: talk. A face with an image slot
- * takes it; the three Agent faces use it by default.
+ * takes it; the three Mew faces use it by default.
  */
 class MascotComplication : SuspendingComplicationDataSourceService() {
     override fun getPreviewData(type: ComplicationType): ComplicationData? = render(type, false)

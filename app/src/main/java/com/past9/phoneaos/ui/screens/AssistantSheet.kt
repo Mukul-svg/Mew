@@ -12,6 +12,7 @@ import androidx.compose.material.icons.rounded.ErrorOutline
 import androidx.compose.material.icons.rounded.GraphicEq
 import androidx.compose.material.icons.rounded.Image
 import androidx.compose.material.icons.rounded.Lock
+import androidx.compose.material.icons.rounded.RecordVoiceOver
 import androidx.compose.material.icons.rounded.Visibility
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -80,6 +81,9 @@ fun AssistantSheet(agentName: String, onDismiss: () -> Unit, held: Boolean? = nu
         var lockOn by remember(tick) { mutableStateOf(AssistPrefs.overLockScreen(context)) }
         SwitchRow(Icons.Rounded.Lock, stringResource(R.string.assist_over_lock), stringResource(R.string.assist_over_lock_line),
             lockOn) { on -> lockOn = on; AssistPrefs.setOverLockScreen(context, on) }
+        var talkOn by remember(tick) { mutableStateOf(AssistPrefs.talk(context)) }
+        SwitchRow(Icons.Rounded.RecordVoiceOver, stringResource(R.string.assist_talk), stringResource(R.string.assist_talk_line, agentName),
+            talkOn) { on -> talkOn = on; AssistPrefs.setTalk(context, on) }
         var liveOn by remember(tick) { mutableStateOf(liveVoice ?: AssistPrefs.liveVoice(context)) }
         SwitchRow(Icons.Rounded.GraphicEq, stringResource(R.string.assist_live_voice), stringResource(R.string.assist_live_voice_line, agentName),
             liveOn) { on -> liveOn = on; AssistPrefs.setLiveVoice(context, on) }

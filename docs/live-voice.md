@@ -3,6 +3,32 @@
 The assistant sheet (side key, corner swipe, wake word) can open a Gemini Live session instead of the one-request
 input. Settings > Default assistant > "Live voice in the assistant" (off by default).
 
+## Conversation mode (no key needed)
+
+With Live voice off, the sheet itself holds a conversation, like a call: Settings > Default assistant >
+**Keep the conversation going** (on by default).
+
+- You speak, the agent answers, the sheet **reads the answer aloud and listens again**, turn after turn.
+- The voice is the cloud voice when one is set up (Settings, Voice: Gemini, OpenAI or ElevenLabs); with none set
+  up it is the **phone's own text-to-speech**, so it works with only the OpenCode key. Long answers are cut at
+  about 4,000 characters with "(The rest is in the chat.)".
+- The microphone is closed while the voice speaks (it never hears itself). Tap the mic button to interrupt and
+  talk over it.
+- It ends when you say **goodbye / bye / end call / hang up / that's all / stop listening** (whole phrases, also
+  "ok bye", "bye <agent name>"), tap **End**, swipe the sheet away, or stay quiet for two listening rounds.
+  "stop" ends it too when the agent is not working; while it works, the Stop button stops the work.
+- A question the agent asks is read aloud with its options, then the sheet listens for your answer (the same
+  routing as the one-request sheet). An **approval is read aloud but never answered by words**: the microphone
+  stays closed and you hold the approve button on the screen, exactly as everywhere else in the app (`D-013`).
+- Typing still works; a typed turn's answer is read aloud too, then it listens again.
+- Live voice stays the richer path when a Gemini key is present: if a Live session cannot start or drops, the
+  sheet falls back to this conversation after showing the reason.
+
+Code: `AssistCore` (SPEAKING phase, quiet rounds, exit phrases), `AssistActivity` (the loop, `speakAloud`,
+card read-out), `system/Speaker` (phone TTS with a completion callback), `voice/Tts` (cloud voice),
+`voice/SpokenResult` (markdown stripped for speech). Exit phrases are English; other languages end with the
+End button or by leaving the sheet.
+
 ## What it does
 - Talks naturally, answers aloud at once, can be talked over, minimises to a floating bubble (the agent's own mascot).
 - **Sees the screen itself.** While a session is open it sends frames of the screen into the Live session as
@@ -100,13 +126,13 @@ If the server refuses a tuned field (close code 1007 before setup completes) the
 
 **Nothing is sent to the model while he talks or while it is mid-answer.** `TurnHold` keeps announcements and [Context update] notes until he has been quiet for 1.8 s and the model has finished (Google: a clientContent message interrupts current generation; on gemini-3.8-live a note sent mid-speech derailed the answer).
 
-**Answers are read as written.** A finished answer reaches Live as `[Agent result, speak as written] ... [End of agent result]` (markdown removed, up to 4000 characters, then "(The rest is in the chat.)"). Live's instruction says to read it as written and never summarise a summary. The hand-off to the agent says its reply is read aloud, so it writes the spoken version.
+**Answers are read as written.** A finished answer reaches Live as `[Mew result, speak as written] ... [End of Mew result]` (markdown removed, up to 4000 characters, then "(The rest is in the chat.)"). Live's instruction says to read it as written and never summarise a summary. The hand-off to the agent says its reply is read aloud, so it writes the spoken version.
 
 ## Live never invents an outcome; replies and follow-ups come back (17 Nov 2026)
 
 A call on 17 Nov 2026: Live said "On it. Done." before the agent had answered, invented "the PDF has been successfully uploaded" when nothing had been, then said "still in progress" after the agent had replied and after the upload finished. Causes and fixes (all in code, not only in wording):
 
-- **Canned "Done." read as a result.** The sheet's state machine ends a hand-off with "Done." or "On it. The rest is in the chat." when the agent stopped without a word (no chat row). `LiveAssistCore.rows` framed that as `[Agent result, speak as written]`. Now a result needs a real agent row; the canned text is never spoken.
+- **Canned "Done." read as a result.** The sheet's state machine ends a hand-off with "Done." or "On it. The rest is in the chat." when the agent stopped without a word (no chat row). `LiveAssistCore.rows` framed that as `[Mew result, speak as written]`. Now a result needs a real agent row; the canned text is never spoken.
 - **Tracker closed after the first reply.** `hand = null` on the first answer, so a second reply, a second hand-off's reply and a helper's result relayed minutes later were dropped. The tracker now follows the main chat for the whole call (`base` advances with each reply; every later agent row is read once, as written). `jobs` counts hand-offs not yet answered in words.
 - **Tool answer.** `hand_to_agent` answers `sent_not_done` with `LiveTruth.ack`: the job is NOT done, say one holding line, never an outcome.
 - **Claim guard.** At the end of each of its turns, `LiveTruth.claimsOutcome` checks what the voice said; with a job out and no agent reply delivered, a correction is announced (`correctionLine`).

@@ -2,6 +2,7 @@ package com.past9.phoneaos.remote
 
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.withTimeout
+import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -88,7 +89,7 @@ class RemoteApi(private val http: OkHttpClient) {
         } catch (e: javax.net.ssl.SSLException) {
             throw PairException("Something else answered at ${url.removePrefix("https://")}: its certificate isn't the one in the QR code.", unreachable = true)
         } catch (e: java.io.IOException) {
-            throw PairException("Couldn't reach the computer at ${url.removePrefix("https://")}. Is the Agent app open there, with Devices on, and on the same network?", unreachable = true)
+            throw PairException("Couldn't reach the computer at ${url.removePrefix("https://")}. Is the Mew app open there, with Devices on, and on the same network?", unreachable = true)
         }
         r.use {
             val text = it.body?.string().orEmpty()
@@ -117,13 +118,24 @@ class RemoteApi(private val http: OkHttpClient) {
             pathOrUrl.startsWith("/v1/") -> url + pathOrUrl
             else -> "$url/v1/file?path=" + java.net.URLEncoder.encode(pathOrUrl, "UTF-8")
         }
+        // The pass opens the linked computer. Never send it to a third-party host the computer
+        // happens to name in a media path or a file command: an absolute URL on another origin is
+        // fetched without credentials.
+        val request = Request.Builder().url(target)
+        if (sameOrigin(url, target)) request.header("Authorization", "Bearer $pass")
         http.newBuilder().callTimeout(10, TimeUnit.MINUTES).readTimeout(60, TimeUnit.SECONDS).build()
-            .newCall(Request.Builder().url(target).header("Authorization", "Bearer $pass").build()).execute().use { r ->
+            .newCall(request.build()).execute().use { r ->
                 if (!r.isSuccessful) throw java.io.IOException("The computer answered ${r.code} for that file.")
                 val b = r.body ?: throw java.io.IOException("Empty file.")
                 sink(b.byteStream(), b.contentType()?.toString())
             }
     }
+
+    private fun sameOrigin(a: String, b: String): Boolean = runCatching {
+        val x = a.toHttpUrlOrNull() ?: return@runCatching false
+        val y = b.toHttpUrlOrNull() ?: return@runCatching false
+        x.scheme == y.scheme && x.host == y.host && x.port == y.port
+    }.getOrDefault(false)
 }
 
 class RpcException(message: String) : Exception(message)

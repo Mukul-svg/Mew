@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">أي خدمة متوافقة مع OpenAI</string>
     <string name="onb_key_anthropic_1">اضغط فتح أدناه. يفتح وحدة تحكم Anthropic في متصفحك. أنشئ حسابًا أو سجّل الدخول.</string>
     <string name="onb_key_anthropic_2">انتقل إلى الفوترة وأضف رصيدًا بسيطًا. الدفع حسب الاستخدام، وبضعة دولارات تكفي مدة طويلة.</string>
-    <string name="onb_key_anthropic_3">انتقل إلى مفاتيح API واضغط إنشاء مفتاح. سمّه أي اسم، مثل Agent.</string>
+    <string name="onb_key_anthropic_3">انتقل إلى مفاتيح API واضغط إنشاء مفتاح. سمّه أي اسم، مثل Mew.</string>
     <string name="onb_key_anthropic_4">اضغط نسخ، وعد إلى هذا التطبيق، والصق المفتاح في الخانة أعلاه واضغط فحص المفتاح.</string>
     <string name="onb_key_openai_1">اضغط فتح أدناه. يفتح منصة OpenAI في متصفحك. أنشئ حسابًا أو سجّل الدخول. (هذا منفصل عن اشتراك ChatGPT.)</string>
     <string name="onb_key_openai_2">انتقل إلى الفوترة وأضف رصيدًا بسيطًا. بضعة دولارات تكفي مدة طويلة.</string>
-    <string name="onb_key_openai_3">انتقل إلى مفاتيح API واضغط إنشاء مفتاح سري جديد. سمّه أي اسم، مثل Agent.</string>
+    <string name="onb_key_openai_3">انتقل إلى مفاتيح API واضغط إنشاء مفتاح سري جديد. سمّه أي اسم، مثل Mew.</string>
     <string name="onb_key_step_copy_once">اضغط نسخ (لا يمكنك رؤية المفتاح إلا مرة واحدة)، وعد إلى هنا، والصقه أعلاه واضغط فحص المفتاح.</string>
     <string name="onb_key_gemini_1">اضغط فتح أدناه. يفتح Google AI Studio. سجّل الدخول بأي حساب Google.</string>
     <string name="onb_key_gemini_2">اضغط إنشاء مفتاح API. إذا طلب منك اختيار مشروع، فاختر المشروع الذي يقترحه.</string>

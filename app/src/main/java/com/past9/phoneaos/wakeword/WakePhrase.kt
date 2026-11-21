@@ -22,7 +22,7 @@ object WakePhrase {
 
     /** "Hey <name>": the phrase when the person has not typed their own. */
     fun defaultFor(agentName: String): String {
-        val n = agentName.trim().takeIf { it.isNotEmpty() && !it.equals(UNNAMED, ignoreCase = true) } ?: "Agent"
+        val n = agentName.trim().takeIf { it.isNotEmpty() && !it.equals(UNNAMED, ignoreCase = true) } ?: "Mew"
         return "$PREFIX $n"
     }
 

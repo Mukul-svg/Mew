@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">OpenAI 互換のもの</string>
     <string name="onb_key_anthropic_1">下の「開く」をタップします。ブラウザで Anthropic のコンソールが開きます。登録またはサインインしてください。</string>
     <string name="onb_key_anthropic_2">「Billing」に進み、少額のクレジットを追加します。従量課金で、数ドルで長く使えます。</string>
-    <string name="onb_key_anthropic_3">「API keys」に進み、「Create key」をタップします。名前は Agent など何でも構いません。</string>
+    <string name="onb_key_anthropic_3">「API keys」に進み、「Create key」をタップします。名前は Mew など何でも構いません。</string>
     <string name="onb_key_anthropic_4">「Copy」をタップし、このアプリに戻って上の欄にキーを貼り付け、「キーを確認」をタップします。</string>
     <string name="onb_key_openai_1">下の「開く」をタップします。ブラウザで OpenAI のプラットフォームが開きます。登録またはサインインしてください。（ChatGPT のサブスクリプションとは別です。）</string>
     <string name="onb_key_openai_2">「Billing」に進み、少額のクレジットを追加します。数ドルで長く使えます。</string>
-    <string name="onb_key_openai_3">「API keys」に進み、「Create new secret key」をタップします。名前は Agent など何でも構いません。</string>
+    <string name="onb_key_openai_3">「API keys」に進み、「Create new secret key」をタップします。名前は Mew など何でも構いません。</string>
     <string name="onb_key_step_copy_once">「Copy」をタップし（キーは一度しか表示されません）、ここに戻って上に貼り付け、「キーを確認」をタップします。</string>
     <string name="onb_key_gemini_1">下の「開く」をタップします。Google AI Studio が開きます。任意の Google アカウントでサインインしてください。</string>
     <string name="onb_key_gemini_2">「Create API key」をタップします。プロジェクトの選択を求められたら、提案されたものを選んでください。</string>

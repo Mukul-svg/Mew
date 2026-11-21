@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">లేదా మీ కంప్యూటర్‌లో ఏజెంట్‌ను ఉపయోగించండి</string>
     <string name="onb_use_on_computer">నా కంప్యూటర్‌లో ఏజెంట్‌ను ఉపయోగించు</string>
-    <string name="onb_use_on_computer_sub">మీ కంప్యూటర్ లేదా సర్వర్‌లోని Agent యాప్‌లో ఉన్న కోడ్‌ను స్కాన్ చేయండి. ఈ ఫోన్‌లో కీలు ఏవీ ఉండవు.</string>
+    <string name="onb_use_on_computer_sub">మీ కంప్యూటర్ లేదా సర్వర్‌లోని Mew యాప్‌లో ఉన్న కోడ్‌ను స్కాన్ చేయండి. ఈ ఫోన్‌లో కీలు ఏవీ ఉండవు.</string>
     <string name="sub_paste_code_from">%1$s నుండి కోడ్‌ను అతికించండి</string>
     <string name="sub_paste_code_body_from">బ్రౌజర్‌లో: Authorize నొక్కండి. తర్వాత %1$s ఒక కోడ్ చూపిస్తుంది. దాన్ని కాపీ చేసి ఇక్కడికి తిరిగి వచ్చి కింద అతికించండి.</string>
     <string name="sub_code_from">%1$s నుండి కోడ్</string>
@@ -18,7 +18,7 @@
     <string name="settings_automation_not_listening">ఇంకా వినడం లేదు: యాప్‌ను ఒకసారి తెరవండి</string>
     <string name="settings_automation_on">ఆన్ · %1$s</string>
     <string name="settings_automation_off">ఆఫ్ · సెటప్ చేయడానికి నొక్కండి</string>
-    <string name="settings_macro_title">Agent మీ యాప్‌లతో మాట్లాడుతుంది</string>
+    <string name="settings_macro_title">Mew మీ యాప్‌లతో మాట్లాడుతుంది</string>
     <string name="settings_media_apps">మీడియా యాప్‌లు</string>
     <string name="settings_bg_screen">నేపథ్య స్క్రీన్</string>
     <string name="settings_bg_screen_sub">మీ స్క్రీన్ మీదే ఉన్నప్పుడు ఇతర యాప్‌లు</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">టెస్ట్ నంబర్ జోడించు</string>
     <string name="browser_test_number_body">మీరు పరీక్షించే WhatsApp ఖాతా నంబర్. ఏదీ WhatsAppకు పంపబడదు, పేజీని రీలోడ్ చేస్తే ఇది రద్దవుతుంది.</string>
     <string name="link_cant_reach">కంప్యూటర్‌ను చేరుకోలేకపోయాం.</string>
-    <string name="link_bad_answer">కంప్యూటర్ ఇచ్చిన సమాధానం అర్థం కాలేదు. దాని Agent యాప్ తాజాగా ఉందా?</string>
+    <string name="link_bad_answer">కంప్యూటర్ ఇచ్చిన సమాధానం అర్థం కాలేదు. దాని Mew యాప్ తాజాగా ఉందా?</string>
     <string name="link_tried_addresses">(%1$d చిరునామాలు ప్రయత్నించబడ్డాయి)</string>
     <string name="link_type_address">కంప్యూటర్ చిరునామాను టైప్ చేయండి.</string>
     <string name="link_no_certificate">కంప్యూటర్ సర్టిఫికెట్ పంపలేదు.</string>
     <string name="link_failed">లింక్ చేయడం విఫలమైంది.</string>
     <string name="link_your_computer">మీ కంప్యూటర్</string>
-    <string name="link_not_a_code">ఆ QR కోడ్ Agent లింక్ కోడ్ కాదు.</string>
+    <string name="link_not_a_code">ఆ QR కోడ్ Mew లింక్ కోడ్ కాదు.</string>
     <string name="link_subtitle">ఈ ఫోన్‌ను ఒక కంప్యూటర్ లేదా సర్వర్‌కు లింక్ చేయండి</string>
     <string name="link_linked_to">%1$sకి లింక్ చేయబడింది</string>
     <string name="link_runs_on">మీ ఏజెంట్ %1$sపై నడుస్తుంది. ఈ ఫోన్ దాని చాట్, మెమరీ, పనులు, రొటీన్లు చూపిస్తుంది; దాని కోసం AI కీలు ఇక్కడ ఉండవు.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">%1$sకి లింక్ చేయి</string>
     <string name="link_keep">%1$sను ఉంచు</string>
     <string name="link_linking_to">%1$sకి లింక్ అవుతోంది...</string>
-    <string name="link_how_to">మీ కంప్యూటర్‌లో Agent యాప్ తెరిచి, సెట్టింగ్స్ → పరికరాలు → పరికరాన్ని జోడించు కి వెళ్లండి.</string>
+    <string name="link_how_to">మీ కంప్యూటర్‌లో Mew యాప్ తెరిచి, సెట్టింగ్స్ → పరికరాలు → పరికరాన్ని జోడించు కి వెళ్లండి.</string>
     <string name="link_how_type">అది చూపే చిరునామా మరియు కోడ్‌ను టైప్ చేయండి.</string>
     <string name="link_how_scan">అది చూపే కోడ్‌పై ఈ కెమెరాను ఉంచండి.</string>
     <string name="link_allow_camera">కెమెరాకు అనుమతి ఇవ్వండి</string>
@@ -273,7 +273,7 @@
     <string name="proj_new_chat_line">ఇప్పటివరకు జరిగిన సంభాషణ మెమరీలో సేవ్ అవుతుంది, ఈ విండో ఖాళీగా మొదలవుతుంది. మీ కంప్యూటర్‌లో ఏదీ తొలగించబడదు.</string>
     <string name="proj_new_chat">కొత్త చాట్</string>
     <string name="proj_not_linked_now">ప్రస్తుతం ఏ కంప్యూటర్‌తోనూ లింక్ చేయబడలేదు.</string>
-    <string name="proj_computer_older">మీ కంప్యూటర్‌లోని Agent యాప్ ఈ యాప్ కంటే పాతది కావడంతో, అక్కడ కొత్త చాట్ ప్రారంభించలేరు. మీ కంప్యూటర్‌లో అప్‌డేట్ చేసి, మళ్ళీ ప్రయత్నించండి.</string>
+    <string name="proj_computer_older">మీ కంప్యూటర్‌లోని Mew యాప్ ఈ యాప్ కంటే పాతది కావడంతో, అక్కడ కొత్త చాట్ ప్రారంభించలేరు. మీ కంప్యూటర్‌లో అప్‌డేట్ చేసి, మళ్ళీ ప్రయత్నించండి.</string>
     <string name="proj_unreachable">మీ కంప్యూటర్‌ను చేరుకోలేకపోయాం. అది తిరిగి అందుబాటులోకి వచ్చాక మళ్ళీ ప్రయత్నించండి.</string>
     <string name="proj_photo_you_sent">మీరు పంపిన ఫోటో</string>
     <string name="proj_start_chat_failed">%1$sలో చాట్ ప్రారంభించలేకపోయాం: %2$s.</string>
@@ -371,14 +371,14 @@
     <string name="wake_up_your_computer">మీ కంప్యూటర్</string>
     <string name="wake_up_reaches">ఈ ఫోన్‌కు చేరుతుంది</string>
     <string name="wake_up_link_first">ముందుగా ఈ ఫోన్‌ను మీ కంప్యూటర్‌తో లింక్ చేయండి (సెట్టింగ్‌లు > లింక్ చేసిన పరికరాలు)</string>
-    <string name="wake_up_lacks">%1$s ఇంకా ఈ ఫోన్‌ను మోగించలేదు: అక్కడ Agent యాప్‌ను అప్‌డేట్ చేయండి</string>
+    <string name="wake_up_lacks">%1$s ఇంకా ఈ ఫోన్‌ను మోగించలేదు: అక్కడ Mew యాప్‌ను అప్‌డేట్ చేయండి</string>
     <string name="wake_up_connected">%1$sకు కనెక్ట్ అయింది</string>
     <string name="wake_up_not_connected">ప్రస్తుతం కనెక్ట్ కాలేదు. ప్రయత్నిస్తూనే ఉంటుంది.</string>
     <string name="wake_up_test">మేల్కొలుపును పరీక్షించండి</string>
     <string name="wake_up_test_body">ఈ ఫోన్‌ను నిజంగా మోగిస్తుంది. ఆపడానికి సమాధానం ఇవ్వండి.</string>
     <string name="wake_up_test_sent">%1$s టెస్ట్ పంపబడింది.</string>
     <string name="wake_up_not_sent">అది పంపబడలేదు.</string>
-    <string name="wake_up_secure_folder">Agent ను సాధారణంగా ఇన్‌స్టాల్ చేయండి (Secure Folder లో కాదు): లాక్ చేసిన Secure Folder లో అలారం మోగదు.</string>
+    <string name="wake_up_secure_folder">Mew ను సాధారణంగా ఇన్‌స్టాల్ చేయండి (Secure Folder లో కాదు): లాక్ చేసిన Secure Folder లో అలారం మోగదు.</string>
     <string name="rec_recording_now">ఇప్పుడు రికార్డ్ అవుతోంది</string>
     <string name="rec_cut_off">మధ్యలో ఆగిపోయింది</string>
     <string name="rec_partly">కొంత భాగం రాయబడలేదు</string>
@@ -407,7 +407,7 @@
     <string name="media_play">సంగీతం, వీడియో ప్లే చేయి</string>
     <string name="media_intro">మీరు మీ ఏజెంట్‌ను ఏదైనా ప్లే చేయమని అడిగినప్పుడు, ఇక్కడ మీరు ఎంచుకున్న యాప్‌ను అది వాడుతుంది. ఆటోమేటిక్‌గా ఉంచితే, మీ ఫోన్ డిఫాల్ట్ యాప్, ఆ తర్వాత సెర్చ్ నుండి ప్లే చేయగల ఏ యాప్ అయినా వాడుతుంది.</string>
     <string name="media_access_off">నోటిఫికేషన్ యాక్సెస్ ఆఫ్‌లో ఉంది</string>
-    <string name="media_access_body">Agent కి నోటిఫికేషన్ యాక్సెస్ ఇచ్చిన తర్వాతే, ఏది ప్లే అవుతోందో Android చూపిస్తుంది, మీ ఏజెంట్ పాజ్ లేదా స్కిప్ చేయగలదు.</string>
+    <string name="media_access_body">Mew కి నోటిఫికేషన్ యాక్సెస్ ఇచ్చిన తర్వాతే, ఏది ప్లే అవుతోందో Android చూపిస్తుంది, మీ ఏజెంట్ పాజ్ లేదా స్కిప్ చేయగలదు.</string>
     <string name="media_none">ఈ ఫోన్‌లో మీ ఏజెంట్ కోసం సంగీతం లేదా వీడియో ప్లే చేయగల యాప్ ఏదీ లేదు. మ్యూజిక్ యాప్ ఇన్‌స్టాల్ చేస్తే ఇక్కడ కనిపిస్తుంది.</string>
     <string name="media_music_app">మ్యూజిక్ యాప్</string>
     <string name="media_video_app">వీడియో యాప్</string>
@@ -416,7 +416,7 @@
     <string name="macro_and">%1$s మరియు %2$s</string>
     <string name="macro_line_some">%1$s అడగకుండానే నడుస్తాయి; మిగతావి అడుగుతాయి</string>
     <string name="macro_eyebrow">ఆటోమేషన్</string>
-    <string name="macro_title">Agent మీ యాప్‌లతో మాట్లాడుతుంది</string>
+    <string name="macro_title">Mew మీ యాప్‌లతో మాట్లాడుతుంది</string>
     <string name="macro_intro">మీ ఏజెంట్ ఈ ఫోన్‌లోని ఏ యాప్‌కైనా Android intent పంపగలదు: Maps లో ఒక ప్రదేశం తెరవడం, ఒక యాప్‌లోకి షేర్ చేయడం, MacroDroid లేదా Tasker మ్యాక్రో నడపడం. స్క్రీన్ తెరవడాన్ని ఎప్పుడూ అడగదు. మిగతా ఏ పనైనా ఇక్కడ జాబితాలో లేకపోతే ముందుగా మిమ్మల్ని అడుగుతుంది. ఏదీ ఫోన్ నుండి బయటకు వెళ్లదు.</string>
     <string name="macro_intents">అనుమతించిన యాప్ intents</string>
     <string name="macro_intents_hint">action | package, ఒక్కో లైన్‌కి ఒకటి</string>
@@ -653,7 +653,7 @@
     <string name="main_your_computer">మీ కంప్యూటర్</string>
     <string name="main_a_computer">ఒక కంప్యూటర్</string>
     <string name="main_whatever_agent_runs">మీ ఏజెంట్ ఏ దానిపై నడిచినా</string>
-    <string name="rt_clear_computer_older">ఈ ఫోన్ చాట్ క్లియర్ అయింది. మీ కంప్యూటర్ చాట్ కాదు: అందులో ఉన్న Agent యాప్ ఈ దానికంటే పాతది కావడంతో కొత్త చాట్ ప్రారంభించలేదు. మీ కంప్యూటర్‌లో యాప్‌ను అప్‌డేట్ చేసి, మళ్లీ క్లియర్ చేయండి.</string>
+    <string name="rt_clear_computer_older">ఈ ఫోన్ చాట్ క్లియర్ అయింది. మీ కంప్యూటర్ చాట్ కాదు: అందులో ఉన్న Mew యాప్ ఈ దానికంటే పాతది కావడంతో కొత్త చాట్ ప్రారంభించలేదు. మీ కంప్యూటర్‌లో యాప్‌ను అప్‌డేట్ చేసి, మళ్లీ క్లియర్ చేయండి.</string>
     <string name="rt_clear_unreachable">ఈ ఫోన్ చాట్ క్లియర్ అయింది. ఇప్పుడే మీ కంప్యూటర్‌ను చేరుకోలేకపోయాం, కాబట్టి దాని చాట్ ఇంకా ఉంది మరియు సింక్ అయినప్పుడు మళ్లీ కనిపిస్తుంది. అది అందుబాటులోకి వచ్చాక మళ్లీ క్లియర్ చేయండి.</string>
     <string name="assist_type_it_instead">బదులుగా టైప్ చేయండి</string>
     <string name="assist_unlock_to_carry_on">కొనసాగించడానికి అన్‌లాక్ చేయండి</string>
@@ -704,6 +704,10 @@
     <string name="assist_over_lock_line">ఆఫ్: ముందు ఫోన్‌ను అన్‌లాక్ చేసి, తర్వాత దాన్ని పిలవండి. ఆన్: లాక్ చేసిన ఫోన్‌లోనే ఇది తెరుచుకుంటుంది, మీరు అన్‌లాక్ చేసిన తర్వాత మీ అభ్యర్థనను పంపుతుంది.</string>
     <string name="assist_live_voice">అసిస్టెంట్‌లో లైవ్ వాయిస్</string>
     <string name="assist_live_voice_line">ఆఫ్: మీరు ఒక అభ్యర్థన చెబితే అది సమాధానం ఇస్తుంది. ఆన్: సహజంగా మాట్లాడండి, %1$s వెంటనే బిగ్గరగా సమాధానమిస్తుంది, మీరు దాని మాట మధ్యలోనే మాట్లాడవచ్చు, పనులను మీ ఏజెంట్‌కు అప్పగించి ఫలితాన్ని మీకు చెబుతుంది.</string>
+    <string name="assist_talk">సంభాషణ కొనసాగించండి</string>
+    <string name="assist_talk_line">కాల్ లాగా: %1$s ప్రతి సమాధానాన్ని బిగ్గరగా చదివి మళ్లీ వింటుంది, మీరు వీడ్కోలు చెప్పే వరకు లేదా ముగింపు నొక్కే వరకు. మీ క్లౌడ్ వాయిస్‌ను ఉపయోగిస్తుంది, లేకపోతే ఫోన్ స్వంత వాయిస్.</string>
+    <string name="assist_talk_end">ముగింపు</string>
+    <string name="assist_talk_interrupt">అడ్డుకో</string>
     <string name="assist_never_reads_money">రెండు స్విచ్‌లు ఏ స్థితిలో ఉన్నా, ఇది బ్యాంకింగ్, చెల్లింపు లేదా డబ్బు యాప్‌లను ఎప్పుడూ చదవదు. ఇది చదివిన సమాచారాన్ని ఆ అభ్యర్థనకు మాత్రమే ఉపయోగిస్తుంది.</string>
     <string name="live_bubble_desc">లైవ్ వాయిస్. తెరవడానికి నొక్కండి</string>
     <string name="live_end_session">లైవ్ సెషన్‌ను ముగించు</string>

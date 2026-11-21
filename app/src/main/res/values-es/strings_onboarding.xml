@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">Cualquiera compatible con OpenAI</string>
     <string name="onb_key_anthropic_1">Toca Abrir abajo. Se abre la consola de Anthropic en tu navegador. Regístrate o inicia sesión.</string>
     <string name="onb_key_anthropic_2">Ve a Billing y añade un poco de crédito. Pagas por uso, y con unos pocos dólares tienes para mucho tiempo.</string>
-    <string name="onb_key_anthropic_3">Ve a API keys y toca Create key. Ponle cualquier nombre, como Agent.</string>
+    <string name="onb_key_anthropic_3">Ve a API keys y toca Create key. Ponle cualquier nombre, como Mew.</string>
     <string name="onb_key_anthropic_4">Toca Copy, vuelve a esta app, pega la clave en la casilla de arriba y toca Comprobar clave.</string>
     <string name="onb_key_openai_1">Toca Abrir abajo. Se abre la plataforma de OpenAI en tu navegador. Regístrate o inicia sesión. (Es independiente de una suscripción a ChatGPT.)</string>
     <string name="onb_key_openai_2">Ve a Billing y añade un poco de crédito. Con unos pocos dólares tienes para mucho tiempo.</string>
-    <string name="onb_key_openai_3">Ve a API keys y toca Create new secret key. Ponle cualquier nombre, como Agent.</string>
+    <string name="onb_key_openai_3">Ve a API keys y toca Create new secret key. Ponle cualquier nombre, como Mew.</string>
     <string name="onb_key_step_copy_once">Toca Copy (solo podrás ver la clave una vez), vuelve aquí, pégala arriba y toca Comprobar clave.</string>
     <string name="onb_key_gemini_1">Toca Abrir abajo. Se abre Google AI Studio. Inicia sesión con cualquier cuenta de Google.</string>
     <string name="onb_key_gemini_2">Toca Create API key. Si te pide elegir un proyecto, elige el que te sugiere.</string>

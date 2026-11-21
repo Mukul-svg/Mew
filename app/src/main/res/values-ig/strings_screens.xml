@@ -8,7 +8,7 @@
     <string name="home_call_your_agent">Kpọọ agent gị</string>
     <string name="home_watch_browse">Lelee ka ọ na-achọgharị</string>
     <string name="home_needs_you">Chọrọ gị</string>
-    <string name="home_needs_you_sub">Agent gị enweghị ike ịga n\'ihu na-enweghị ndị a</string>
+    <string name="home_needs_you_sub">Mew gị enweghị ike ịga n\'ihu na-enweghị ndị a</string>
     <string name="home_blocked_eyebrow">MECHIRI</string>
     <string name="home_needs">Chọrọ: %1$s</string>
     <string name="home_cards">Kaadị gị</string>
@@ -255,7 +255,7 @@
     <plurals name="notif_sub">
         <item quantity="other">App %1$d agent gị nwere ike ịgụ</item>
     </plurals>
-    <string name="notif_intro">Agent gị na-amụta ọtụtụ site n\'ọkwa gị: ịdọ aka ntị ụlọ akụ, nnyefe, ozi. Ọ na-agụ naanị app ndị ị meghere ebe a, ma na-edebe otu izu nke ha n\'ekwentị a.</string>
+    <string name="notif_intro">Mew gị na-amụta ọtụtụ site n\'ọkwa gị: ịdọ aka ntị ụlọ akụ, nnyefe, ozi. Ọ na-agụ naanị app ndị ị meghere ebe a, ma na-edebe otu izu nke ha n\'ekwentị a.</string>
     <string name="notif_access_off">OHERE ỌKWA EMECHIRI</string>
     <string name="notif_access_body">Meghee ya maka app a na ntọala Android. Ọ bụrụ na Android sị na ọ bụ ntọala a machibidoro, meghe ozi app a, pịa menu ⋮, wee Allow restricted settings.</string>
     <string name="notif_open_settings">Meghe ntọala</string>
@@ -303,7 +303,7 @@
     <string name="voice_mute">Mechie olu</string>
     <string name="voice_end_call">Kwụsị oku</string>
     <string name="voice_call_again">Kpọọ ọzọ</string>
-    <string name="home_your_agent">Agent gị</string>
+    <string name="home_your_agent">Mew gị</string>
     <string name="routines_wake_once">Otu ugboro, %1$s, naanị ma ihe dị ime</string>
     <string name="memory_busy_saving">Na-echekwa ncheta gị</string>
     <string name="memory_busy_importing">Na-ebubata ncheta gị</string>
@@ -332,7 +332,7 @@
     <plurals name="memory_import_imported">
         <item quantity="other">Ebubatara ibe %1$d</item>
     </plurals>
-    <string name="memory_import_sub">Agent gị nwere ike ịchọ ha ugbu a.</string>
+    <string name="memory_import_sub">Mew gị nwere ike ịchọ ha ugbu a.</string>
     <string name="memory_row_new">Ọhụrụ</string>
     <string name="memory_row_updated">Emeghariri</string>
     <string name="memory_row_skipped">Dị ebe ahụ ugbu a</string>

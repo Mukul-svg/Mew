@@ -43,7 +43,7 @@ object MacroRulesUi {
 }
 
 /**
- * Settings > Automation > Agent talks to your apps: what may run without asking (app intents and macros), a test for
+ * Settings > Automation > Mew talks to your apps: what may run without asking (app intents and macros), a test for
  * each, the MacroDroid recipe to copy and the optional MacroDroid webhook. A slide-up sheet in the app's own pieces, never a pop-up.
  */
 @Composable

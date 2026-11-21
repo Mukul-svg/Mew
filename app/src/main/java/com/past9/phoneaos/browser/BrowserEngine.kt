@@ -184,7 +184,7 @@ class BrowserEngine(private val context: Context, val profile: String = "Persona
             }
         }
         // Web notifications: WebView has none, so give pages one that hands them to the app.
-        addJavascriptInterface(WebNotifications(context, profile), "__aosWeb")
+        addJavascriptInterface(WebNotifications(context, profile) { url }, "__aosWeb")
         if (androidx.webkit.WebViewFeature.isFeatureSupported(androidx.webkit.WebViewFeature.DOCUMENT_START_SCRIPT))
             runCatching { androidx.webkit.WebViewCompat.addDocumentStartJavaScript(this, WebNotifications.SHIM, setOf("*")); androidx.webkit.WebViewCompat.addDocumentStartJavaScript(this, com.past9.phoneaos.connections.PageJs.NET_SHIM, setOf("*")) }
         // The agent's voice in a WhatsApp Web call: only when the user switched it on, only on that site, and the hooks
@@ -690,9 +690,18 @@ class BrowserEngine(private val context: Context, val profile: String = "Persona
  * notifications (app "web:<site>"), so notification routines fire on them. Only while the page is
  * open in the agent's browser: WebView has no push service for closed sites.
  */
-class WebNotifications(private val context: Context, private val profile: String) {
+class WebNotifications(
+    private val context: Context,
+    private val profile: String,
+    private val pageUrl: () -> String?,
+) {
     @android.webkit.JavascriptInterface
-    fun notify(title: String, body: String, host: String) {
+    fun notify(title: String, body: String, @Suppress("UNUSED_PARAMETER") pageSuppliedHost: String) {
+        // The page can call this bridge directly, so its host argument is NOT trusted: a malicious
+        // page could claim to be a bank and fire that site's notification routines. The host comes
+        // from the WebView's own current URL instead.
+        val host = runCatching { android.net.Uri.parse(pageUrl()).host }.getOrNull()
+            ?.lowercase()?.takeIf { it.isNotBlank() } ?: return
         val g = com.past9.phoneaos.App.graph(context)
         g.scope.launch {
             val pkg = "web:$host"
@@ -702,7 +711,7 @@ class WebNotifications(private val context: Context, private val profile: String
             g.db.triggers().list().filter { it.enabled && it.kind == "notification" }.forEach { t ->
                 val (who, word) = t.spec.split("|", limit = 2).let { it[0] to it.getOrElse(1) { "" } }
                 val site = who.removePrefix("web:").lowercase()
-                if ((who == pkg || (site.isNotBlank() && host.lowercase().contains(site))) && (word.isBlank() || title.contains(word, true) || body.contains(word, true)))
+                if ((who == pkg || (site.isNotBlank() && host.contains(site))) && (word.isBlank() || title.contains(word, true) || body.contains(word, true)))
                     com.past9.phoneaos.triggers.Routines.runNow(context, t.id, "A web notification just arrived from $host: \"$title: ${body.take(400)}\". ")
             }
         }

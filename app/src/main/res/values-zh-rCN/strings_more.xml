@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">或者使用你电脑上的智能体</string>
     <string name="onb_use_on_computer">使用我电脑上的智能体</string>
-    <string name="onb_use_on_computer_sub">请在电脑或服务器上的 Agent 应用中扫描二维码。这部手机上不需要密钥。</string>
+    <string name="onb_use_on_computer_sub">请在电脑或服务器上的 Mew 应用中扫描二维码。这部手机上不需要密钥。</string>
     <string name="sub_paste_code_from">粘贴来自 %1$s 的代码</string>
     <string name="sub_paste_code_body_from">在浏览器中：点按“授权”。%1$s 随后会显示一个代码。复制它，回到这里，粘贴到下方。</string>
     <string name="sub_code_from">来自 %1$s 的代码</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">添加测试号码</string>
     <string name="browser_test_number_body">你用来测试的 WhatsApp 账号的号码。不会向 WhatsApp 发送任何内容，重新加载页面即可撤销。</string>
     <string name="link_cant_reach">无法连接到电脑。</string>
-    <string name="link_bad_answer">电脑的响应无法理解。它的 Agent 应用是最新版本吗？</string>
+    <string name="link_bad_answer">电脑的响应无法理解。它的 Mew 应用是最新版本吗？</string>
     <string name="link_tried_addresses">（已尝试 %1$d 个地址）</string>
     <string name="link_type_address">请输入电脑的地址。</string>
     <string name="link_no_certificate">电脑没有发送证书。</string>
     <string name="link_failed">关联失败。</string>
     <string name="link_your_computer">你的电脑</string>
-    <string name="link_not_a_code">该二维码不是 Agent 关联码。</string>
+    <string name="link_not_a_code">该二维码不是 Mew 关联码。</string>
     <string name="link_subtitle">将这部手机关联到电脑或服务器</string>
     <string name="link_linked_to">已关联到 %1$s</string>
     <string name="link_runs_on">你的智能体运行在 %1$s 上。这部手机显示它的聊天、记忆、任务和例行任务，不为它保存任何 AI 密钥。</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">关联到 %1$s</string>
     <string name="link_keep">保留 %1$s</string>
     <string name="link_linking_to">正在关联到 %1$s...</string>
-    <string name="link_how_to">在你的电脑上打开 Agent 应用，依次进入设置、设备、添加设备。</string>
+    <string name="link_how_to">在你的电脑上打开 Mew 应用，依次进入设置、设备、添加设备。</string>
     <string name="link_how_type">输入它显示的地址和代码。</string>
     <string name="link_how_scan">把相机对准它显示的二维码。</string>
     <string name="link_allow_camera">允许使用相机</string>
@@ -272,7 +272,7 @@
     <string name="proj_new_chat_line">到目前为止的内容会保存到记忆中，此窗口将清空。你电脑上的内容不会被删除。</string>
     <string name="proj_new_chat">新聊天</string>
     <string name="proj_not_linked_now">目前未关联到电脑。</string>
-    <string name="proj_computer_older">你电脑上的 Agent 应用比这个版本旧，所以无法在那里开始新聊天。请在电脑上更新后重试。</string>
+    <string name="proj_computer_older">你电脑上的 Mew 应用比这个版本旧，所以无法在那里开始新聊天。请在电脑上更新后重试。</string>
     <string name="proj_unreachable">无法连接到你的电脑。等它恢复后再试。</string>
     <string name="proj_photo_you_sent">你发送的照片</string>
     <string name="proj_start_chat_failed">无法在 %1$s 中开始聊天：%2$s。</string>
@@ -367,14 +367,14 @@
     <string name="wake_up_your_computer">你的电脑</string>
     <string name="wake_up_reaches">能联系到这部手机</string>
     <string name="wake_up_link_first">请先将这部手机关联到你的电脑（设置 &gt; 已关联的设备）</string>
-    <string name="wake_up_lacks">%1$s 还不能让这部手机响铃：请更新那边的 Agent 应用</string>
+    <string name="wake_up_lacks">%1$s 还不能让这部手机响铃：请更新那边的 Mew 应用</string>
     <string name="wake_up_connected">已连接到 %1$s</string>
     <string name="wake_up_not_connected">目前未连接。它会不断重试。</string>
     <string name="wake_up_test">测试唤醒</string>
     <string name="wake_up_test_body">会真的让这部手机响铃。回应后即停止。</string>
     <string name="wake_up_test_sent">已发送 %1$s 测试。</string>
     <string name="wake_up_not_sent">没有发出去。</string>
-    <string name="wake_up_secure_folder">请正常安装 Agent（不要装在安全文件夹中）：锁定的安全文件夹无法响铃。</string>
+    <string name="wake_up_secure_folder">请正常安装 Mew（不要装在安全文件夹中）：锁定的安全文件夹无法响铃。</string>
     <string name="rec_recording_now">正在录音</string>
     <string name="rec_cut_off">已中断</string>
     <string name="rec_partly">部分内容没有被记录下来</string>
@@ -403,7 +403,7 @@
     <string name="media_play">播放音乐和视频</string>
     <string name="media_intro">当你让智能体播放内容时，它会使用你在这里选的应用。保持自动时，它先用手机的默认应用，再用任何能通过搜索播放的应用。</string>
     <string name="media_access_off">通知访问权限已关闭</string>
-    <string name="media_access_body">只有在 Agent 获得通知访问权限后，Android 才会显示正在播放的内容，并让你的智能体暂停或跳过。</string>
+    <string name="media_access_body">只有在 Mew 获得通知访问权限后，Android 才会显示正在播放的内容，并让你的智能体暂停或跳过。</string>
     <string name="media_none">这部手机上没有应用声明能为你的智能体播放音乐或视频。安装一个音乐应用后，它会显示在这里。</string>
     <string name="media_music_app">音乐应用</string>
     <string name="media_video_app">视频应用</string>
@@ -643,7 +643,7 @@
     <string name="main_your_computer">你的电脑</string>
     <string name="main_a_computer">一台电脑</string>
     <string name="main_whatever_agent_runs">你的智能体所运行的任何设备</string>
-    <string name="rt_clear_computer_older">这部手机的聊天已清除。你电脑的聊天没有清除：它上面的 Agent 应用比这个版本旧，所以无法开始新聊天。请在电脑上更新应用，然后再次清除。</string>
+    <string name="rt_clear_computer_older">这部手机的聊天已清除。你电脑的聊天没有清除：它上面的 Mew 应用比这个版本旧，所以无法开始新聊天。请在电脑上更新应用，然后再次清除。</string>
     <string name="rt_clear_unreachable">这部手机的聊天已清除。刚才无法连接你的电脑，所以它的聊天仍在，同步后会再次显示。等它恢复后再次清除。</string>
     <string name="assist_type_it_instead">改为输入</string>
     <string name="assist_unlock_to_carry_on">解锁以继续</string>
@@ -694,6 +694,10 @@
     <string name="assist_over_lock_line">关闭：先解锁手机，再呼叫它。开启：在锁定的手机上也会打开，并在你解锁后发送你的请求。</string>
     <string name="assist_live_voice">助手中的实时语音</string>
     <string name="assist_live_voice_line">关闭：你说一个请求，它回答。开启：自然对话，%1$s 立即语音回答，你可以打断它，它会把工作交给你的智能体并告诉你结果。</string>
+    <string name="assist_talk">持续对话</string>
+    <string name="assist_talk_line">像通话一样：%1$s 会朗读每个回答并继续聆听，直到你说再见或点按“结束”。使用你的云端语音，未设置时使用手机自带的语音。</string>
+    <string name="assist_talk_end">结束</string>
+    <string name="assist_talk_interrupt">打断</string>
     <string name="assist_never_reads_money">无论哪个开关开启，它都绝不会读取银行、支付或金钱类应用。读取到的内容只用于那一次请求。</string>
     <string name="live_bubble_desc">实时语音。点按打开</string>
     <string name="live_end_session">结束实时会话</string>

@@ -223,7 +223,25 @@ class RemoteLinkTest {
         }
     }
 
-    @Test fun theShortCodePathTrustsOnFirstUseAndRemembersTheCertificate() {
+    @Test fun aDownloadOnlySendsThePassToTheLinkedOrigin() {
+    val tls = selfSigned()
+    httpsServer(tls).use { linked ->
+        httpsServer(tls).use { other ->
+            linked.enqueue(MockResponse().setBody("linked"))
+            other.enqueue(MockResponse().setBody("other"))
+            val api = RemoteApi(Pinning.client(OkHttpClient(), Pinning.PinnedTrust({ listOf(tls.fp) })))
+            val base = linked.url("/").toString().trimEnd('/')
+
+            api.download(base, linked.url("/v1/file?path=x").toString(), "the-pass") { input, _ -> input.readBytes() }
+            assertEquals("Bearer the-pass", linked.takeRequest().getHeader("Authorization"))
+
+            api.download(base, other.url("/media").toString(), "the-pass") { input, _ -> input.readBytes() }
+            assertNull(other.takeRequest().getHeader("Authorization"))
+        }
+    }
+}
+
+@Test fun theShortCodePathTrustsOnFirstUseAndRemembersTheCertificate() {
         val tls = selfSigned()
         httpsServer(tls).use { srv ->
             srv.enqueue(MockResponse().setBody("""{"deviceId":"dev_9","pass":"p","meshId":"m","node":{"id":"n1","name":"Desk"},"brains":[]}"""))

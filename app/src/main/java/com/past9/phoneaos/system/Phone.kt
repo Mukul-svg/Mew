@@ -103,7 +103,7 @@ class AndroidPhone(private val context: Context) : PhoneBridge {
         if (active.decrementAndGet() <= 0) { active.set(0); activeCount = 0; ForegroundGuard.stop(context, WorkService::class.java) } else activeCount = active.get()
     }
 
-    /** The "Agent is working: N helpers" line follows the count, and a safety-net check runs while any helper is working. */
+    /** The "Mew is working: N helpers" line follows the count, and a safety-net check runs while any helper is working. */
     override fun helpersChanged(count: Int) {
         helperCount = count
         runCatching { WorkService.refresh(context) }
@@ -166,7 +166,7 @@ class WorkService : Service() {
         fun build(context: Context): android.app.Notification {
             val open = PendingIntent.getActivity(context, 0, Intent(context, MainActivity::class.java), PendingIntent.FLAG_IMMUTABLE)
             val st = App.graph(context).settings.state.value
-            val who = when (st.agentName) { "" -> "Agent"; "Your agent" -> context.getString(R.string.svc_your_agent); else -> st.agentName }
+            val who = when (st.agentName) { "" -> "Mew"; "Your agent" -> context.getString(R.string.svc_your_agent); else -> st.agentName }
             val h = AndroidPhone.helperCount
             return Identity.asAgent(context, NotificationCompat.Builder(context, AndroidPhone.CH_WORK).setSmallIcon(Identity.statIcon(context, st.mascot))
                 .setContentTitle(if (h > 0) context.resources.getQuantityString(R.plurals.svc_work_title_helpers, h, who, h) else context.getString(R.string.svc_work_title, who))
@@ -221,8 +221,35 @@ class BootReceiver : BroadcastReceiver() {
 /** Speaks replies when the user turned voice replies on. */
 class Speaker(context: Context) : android.speech.tts.TextToSpeech.OnInitListener {
     private val tts = android.speech.tts.TextToSpeech(context.applicationContext, this)
+    private val main = android.os.Handler(android.os.Looper.getMainLooper())
     private var ready = false
-    override fun onInit(status: Int) { ready = status == android.speech.tts.TextToSpeech.SUCCESS }
-    fun say(text: String) { if (ready) tts.speak(text.replace(Regex("[*_#`>]"), ""), android.speech.tts.TextToSpeech.QUEUE_FLUSH, null, "reply") }
-    fun stop() = tts.stop()
+    private var seq = 0
+    private var doneId: String? = null
+    private var done: (() -> Unit)? = null
+    override fun onInit(status: Int) {
+        ready = status == android.speech.tts.TextToSpeech.SUCCESS
+        if (ready) tts.setOnUtteranceProgressListener(object : android.speech.tts.UtteranceProgressListener() {
+            override fun onStart(utteranceId: String?) {}
+            override fun onDone(utteranceId: String?) { finish(utteranceId) }
+            @Suppress("OVERRIDE_DEPRECATION")
+            override fun onError(utteranceId: String?) { finish(utteranceId) }
+            override fun onError(utteranceId: String?, errorCode: Int) { finish(utteranceId) }
+        })
+    }
+    private fun finish(utteranceId: String?) {
+        main.post { if (utteranceId != null && utteranceId == doneId) { val d = done; doneId = null; done = null; d?.invoke() } }
+    }
+    fun say(text: String) = say(text, null)
+    /** Say the text; [onDone] fires once when it finishes (or cannot). No engine yet: it fires at once, so a conversation never hangs. */
+    fun say(text: String, onDone: (() -> Unit)?) {
+        val clean = text.replace(Regex("[*_#`>]"), "")
+        if (!ready || clean.isBlank()) { onDone?.invoke(); return }
+        if (onDone == null) { tts.speak(clean, android.speech.tts.TextToSpeech.QUEUE_FLUSH, null, "reply"); return }
+        val id = "mew-talk-" + (++seq)
+        doneId = id; done = onDone
+        if (tts.speak(clean, android.speech.tts.TextToSpeech.QUEUE_FLUSH, null, id) == android.speech.tts.TextToSpeech.ERROR) { doneId = null; done = null; onDone() }
+    }
+    /** Stop talking. A pending [say] callback is dropped: the caller interrupted on purpose and moves on itself. */
+    fun stop() { doneId = null; done = null; tts.stop() }
+    fun release() { stop(); runCatching { tts.shutdown() } }
 }

@@ -269,7 +269,7 @@ object MemoryTransfer {
         ZipOutputStream(out.buffered()).use { z ->
             z.putNextEntry(ZipEntry("manifest.json"))
             z.write(JSONObject().put("format", FORMAT).put("version", 1).put("exportedAt", iso(System.currentTimeMillis())).put("count", rows.size)
-                .put("app", "com.past9.phoneaos").put("note", "Memory pages, one markdown file each. Import this zip in the Agent app: Memory, menu, Import memories.").toString(2).toByteArray())
+                .put("app", "com.past9.phoneaos").put("note", "Memory pages, one markdown file each. Import this zip in the Mew app: Memory, menu, Import memories.").toString(2).toByteArray())
             z.closeEntry()
             val used = HashSet<String>()
             for (m in rows) {

@@ -145,7 +145,7 @@
     <string name="ui_no_steps_logged">તેણે કોઈ પગલાં નોંધ્યા નથી</string>
     <string name="ui_steps_so_far">%1$d અત્યાર સુધી, સૌથી જૂનું પહેલા</string>
     <string name="ui_drawer_sub">તે તમારા માટે જે કંઈ સાચવે છે તે બધું</string>
-    <string name="ui_drawer_your_agent">તમારો Agent</string>
+    <string name="ui_drawer_your_agent">તમારો Mew</string>
     <string name="ui_nav_chat">ચેટ</string>
     <string name="ui_nav_tasks">કાર્યો</string>
     <string name="ui_nav_tasks_open">%1$d ખુલ્લા</string>

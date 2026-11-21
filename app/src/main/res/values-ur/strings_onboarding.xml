@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">کوئی بھی OpenAI سے مطابقت رکھنے والا</string>
     <string name="onb_key_anthropic_1">نیچے کھولیں دبائیں۔ یہ آپ کے براؤزر میں Anthropic کا کنسول کھولتا ہے۔ سائن اپ یا سائن اِن کریں۔</string>
     <string name="onb_key_anthropic_2">بلنگ میں جائیں اور تھوڑا کریڈٹ ڈالیں۔ ادائیگی استعمال کے مطابق ہے، اور چند ڈالر بہت دیر چلتے ہیں۔</string>
-    <string name="onb_key_anthropic_3">API keys میں جائیں اور Create key دبائیں۔ کوئی بھی نام دیں، جیسے Agent۔</string>
+    <string name="onb_key_anthropic_3">API keys میں جائیں اور Create key دبائیں۔ کوئی بھی نام دیں، جیسے Mew۔</string>
     <string name="onb_key_anthropic_4">کاپی دبائیں، اس ایپ میں واپس آئیں، اوپر باکس میں کلید چسپاں کریں اور کلید جانچیں دبائیں۔</string>
     <string name="onb_key_openai_1">نیچے کھولیں دبائیں۔ یہ آپ کے براؤزر میں OpenAI کا پلیٹ فارم کھولتا ہے۔ سائن اپ یا سائن اِن کریں۔ (یہ ChatGPT سبسکرپشن سے الگ ہے۔)</string>
     <string name="onb_key_openai_2">بلنگ میں جائیں اور تھوڑا کریڈٹ ڈالیں۔ چند ڈالر بہت دیر چلتے ہیں۔</string>
-    <string name="onb_key_openai_3">API keys میں جائیں اور Create new secret key دبائیں۔ کوئی بھی نام دیں، جیسے Agent۔</string>
+    <string name="onb_key_openai_3">API keys میں جائیں اور Create new secret key دبائیں۔ کوئی بھی نام دیں، جیسے Mew۔</string>
     <string name="onb_key_step_copy_once">کاپی دبائیں (کلید صرف ایک بار نظر آتی ہے)، یہاں واپس آئیں، اوپر چسپاں کریں اور کلید جانچیں دبائیں۔</string>
     <string name="onb_key_gemini_1">نیچے کھولیں دبائیں۔ یہ Google AI Studio کھولتا ہے۔ کسی بھی Google اکاؤنٹ سے سائن اِن کریں۔</string>
     <string name="onb_key_gemini_2">Create API key دبائیں۔ اگر یہ پروجیکٹ چننے کو کہے تو وہ چنیں جو یہ تجویز کرتا ہے۔</string>

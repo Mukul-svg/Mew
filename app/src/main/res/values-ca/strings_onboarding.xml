@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">Qualsevol servei compatible amb OpenAI</string>
     <string name="onb_key_anthropic_1">Toca Obre aquí sota. S\'obre la consola d\'Anthropic al navegador. Registra\'t o inicia la sessió.</string>
     <string name="onb_key_anthropic_2">Ves a Billing i afegeix una mica de crèdit. És de pagament per ús, i uns quants dòlars duren molt.</string>
-    <string name="onb_key_anthropic_3">Ves a API keys i toca Create key. Posa-li el nom que vulguis, com ara Agent.</string>
+    <string name="onb_key_anthropic_3">Ves a API keys i toca Create key. Posa-li el nom que vulguis, com ara Mew.</string>
     <string name="onb_key_anthropic_4">Toca Copia, torna a aquesta app, enganxa la clau al camp de dalt i toca Comprova la clau.</string>
     <string name="onb_key_openai_1">Toca Obre aquí sota. S\'obre la plataforma d\'OpenAI al navegador. Registra\'t o inicia la sessió. (Això és independent d\'una subscripció a ChatGPT.)</string>
     <string name="onb_key_openai_2">Ves a Billing i afegeix una mica de crèdit. Uns quants dòlars duren molt.</string>
-    <string name="onb_key_openai_3">Ves a API keys i toca Create new secret key. Posa-li el nom que vulguis, com ara Agent.</string>
+    <string name="onb_key_openai_3">Ves a API keys i toca Create new secret key. Posa-li el nom que vulguis, com ara Mew.</string>
     <string name="onb_key_step_copy_once">Toca Copia (només veus la clau una vegada), torna aquí, enganxa-la a dalt i toca Comprova la clau.</string>
     <string name="onb_key_gemini_1">Toca Obre aquí sota. S\'obre Google AI Studio. Inicia la sessió amb qualsevol compte de Google.</string>
     <string name="onb_key_gemini_2">Toca Create API key. Si et demana triar un projecte, tria el que et suggereix.</string>

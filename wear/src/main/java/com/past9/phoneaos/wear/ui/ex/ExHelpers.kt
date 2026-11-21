@@ -35,10 +35,10 @@ import kotlin.math.cos
 import kotlin.math.sin
 
 /**
- * The look of the watch app: Material 3 Expressive for Wear in the Agent's own tokens. Flat tonal colour blocks, shape containers cut
+ * The look of the watch app: Material 3 Expressive for Wear in the Mew's own tokens. Flat tonal colour blocks, shape containers cut
  * from Material's own shape library, wavy progress, a bold type scale, buttons that rise from the bottom bezel, and the phone's own
  * mascot. The palette is derived from one seed colour (the accent the phone syncs), the way Material's dynamic colour does it; the
- * default seed is the Agent's iris.
+ * default seed is the Mew's iris.
  */
 class Pal(
     val primary: Color, val onPrimary: Color, val container: Color, val onContainer: Color, val deep: Color,

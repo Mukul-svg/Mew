@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">Epe e e tshwanang le OpenAI</string>
     <string name="onb_key_anthropic_1">Kgotla Open kafa tlase. E bula console ya Anthropic mo sebatlining sa gago. Ikwadise kgotsa o tsene.</string>
     <string name="onb_key_anthropic_2">Ya kwa go Billing mme o oketse credit e nnye. O duela fa o dirisa, mme di-dollar di le mmalwa di nna nako e telele.</string>
-    <string name="onb_key_anthropic_3">Ya kwa go API keys mme o kgotle Create key. E reye leina lefe kapa lefe, jaaka Agent.</string>
+    <string name="onb_key_anthropic_3">Ya kwa go API keys mme o kgotle Create key. E reye leina lefe kapa lefe, jaaka Mew.</string>
     <string name="onb_key_anthropic_4">Kgotla Copy, boela mo app eno, kopanya senotlolo mo lebokosong le le kwa godimo mme o kgotle Check key.</string>
     <string name="onb_key_openai_1">Kgotla Open kafa tlase. E bula setlhaga sa OpenAI mo sebatlining sa gago. Ikwadise kgotsa o tsene. (Seno se farologane le ChatGPT subscription.)</string>
     <string name="onb_key_openai_2">Ya kwa go Billing mme o oketse credit e nnye. Di-dollar di le mmalwa di nna nako e telele.</string>
-    <string name="onb_key_openai_3">Ya kwa go API keys mme o kgotle Create new secret key. E reye leina lefe kapa lefe, jaaka Agent.</string>
+    <string name="onb_key_openai_3">Ya kwa go API keys mme o kgotle Create new secret key. E reye leina lefe kapa lefe, jaaka Mew.</string>
     <string name="onb_key_step_copy_once">Kgotla Copy (o bona senotlolo ka nako e le nngwe fela), boela fano, se kopanye kwa godimo mme o kgotle Check key.</string>
     <string name="onb_key_gemini_1">Kgotla Open kafa tlase. E bula Google AI Studio. Tsena ka akhaonto epe ya Google.</string>
     <string name="onb_key_gemini_2">Kgotla Create API key. Fa e go kopa go kgetha projeke, kgetha e e e akaretsang.</string>

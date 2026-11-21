@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ ಏಜೆಂಟ್ ಬಳಸಿ</string>
     <string name="onb_use_on_computer">ನನ್ನ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿರುವ ಏಜೆಂಟ್ ಬಳಸಿ</string>
-    <string name="onb_use_on_computer_sub">ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್ ಅಥವಾ ಸರ್ವರ್‌ನಲ್ಲಿರುವ Agent ಆ್ಯಪ್‌ನಲ್ಲಿ ಕೋಡ್ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ. ಈ ಫೋನ್‌ನಲ್ಲಿ ಯಾವುದೇ ಕೀ ಬೇಕಾಗುವುದಿಲ್ಲ.</string>
+    <string name="onb_use_on_computer_sub">ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್ ಅಥವಾ ಸರ್ವರ್‌ನಲ್ಲಿರುವ Mew ಆ್ಯಪ್‌ನಲ್ಲಿ ಕೋಡ್ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ. ಈ ಫೋನ್‌ನಲ್ಲಿ ಯಾವುದೇ ಕೀ ಬೇಕಾಗುವುದಿಲ್ಲ.</string>
     <string name="sub_paste_code_from">%1$sನಿಂದ ಕೋಡ್ ಅಂಟಿಸಿ</string>
     <string name="sub_paste_code_body_from">ಬ್ರೌಸರ್‌ನಲ್ಲಿ: Authorize ಮೇಲೆ ಟ್ಯಾಪ್ ಮಾಡಿ. ಆಗ %1$s ಒಂದು ಕೋಡ್ ತೋರಿಸುತ್ತದೆ. ಅದನ್ನು ನಕಲು ಮಾಡಿ, ಇಲ್ಲಿಗೆ ಹಿಂತಿರುಗಿ ಮತ್ತು ಕೆಳಗೆ ಅಂಟಿಸಿ.</string>
     <string name="sub_code_from">%1$sನಿಂದ ಕೋಡ್</string>
@@ -73,7 +73,7 @@
     <string name="browser_add_test_number">ಪರೀಕ್ಷಾ ಸಂಖ್ಯೆ ಸೇರಿಸಿ</string>
     <string name="browser_test_number_body">ನೀವು ಪರೀಕ್ಷಿಸುತ್ತಿರುವ WhatsApp ಖಾತೆಯ ಸಂಖ್ಯೆ. ಇದನ್ನು WhatsApp ಗೆ ಕಳುಹಿಸಲಾಗುವುದಿಲ್ಲ, ಮತ್ತು ಪುಟವನ್ನು ಮರುಲೋಡ್ ಮಾಡಿದರೆ ಇದು ರದ್ದಾಗುತ್ತದೆ.</string>
     <string name="link_cant_reach">ಕಂಪ್ಯೂಟರ್ ಅನ್ನು ತಲುಪಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.</string>
-    <string name="link_bad_answer">ಕಂಪ್ಯೂಟರ್‌ನ ಉತ್ತರ ಅರ್ಥವಾಗಲಿಲ್ಲ. ಅದರ Agent ಆ್ಯಪ್ ಇತ್ತೀಚಿನ ಆವೃತ್ತಿಯಲ್ಲಿದೆಯೇ?</string>
+    <string name="link_bad_answer">ಕಂಪ್ಯೂಟರ್‌ನ ಉತ್ತರ ಅರ್ಥವಾಗಲಿಲ್ಲ. ಅದರ Mew ಆ್ಯಪ್ ಇತ್ತೀಚಿನ ಆವೃತ್ತಿಯಲ್ಲಿದೆಯೇ?</string>
     <string name="link_tried_addresses">(%1$d ವಿಳಾಸಗಳನ್ನು ಪ್ರಯತ್ನಿಸಲಾಯಿತು)</string>
     <string name="link_type_address">ಕಂಪ್ಯೂಟರ್‌ನ ವಿಳಾಸವನ್ನು ಟೈಪ್ ಮಾಡಿ.</string>
     <string name="link_no_certificate">ಕಂಪ್ಯೂಟರ್ ಯಾವುದೇ ಪ್ರಮಾಣಪತ್ರ ಕಳುಹಿಸಲಿಲ್ಲ.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">%1$s ಗೆ ಲಿಂಕ್ ಮಾಡಿ</string>
     <string name="link_keep">%1$s ಅನ್ನು ಇರಿಸಿ</string>
     <string name="link_linking_to">%1$s ಗೆ ಲಿಂಕ್ ಮಾಡಲಾಗುತ್ತಿದೆ...</string>
-    <string name="link_how_to">ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ Agent ಆ್ಯಪ್ ತೆರೆದು ಸೆಟ್ಟಿಂಗ್‌ಗಳು → ಸಾಧನಗಳು → ಸಾಧನ ಸೇರಿಸಿ ಗೆ ಹೋಗಿ.</string>
+    <string name="link_how_to">ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ Mew ಆ್ಯಪ್ ತೆರೆದು ಸೆಟ್ಟಿಂಗ್‌ಗಳು → ಸಾಧನಗಳು → ಸಾಧನ ಸೇರಿಸಿ ಗೆ ಹೋಗಿ.</string>
     <string name="link_how_type">ಅದು ತೋರಿಸುವ ವಿಳಾಸ ಮತ್ತು ಕೋಡ್ ಟೈಪ್ ಮಾಡಿ.</string>
     <string name="link_how_scan">ಅದು ತೋರಿಸುವ ಕೋಡ್ ಮೇಲೆ ಈ ಕ್ಯಾಮೆರಾ ತೋರಿಸಿ.</string>
     <string name="link_allow_camera">ಕ್ಯಾಮೆರಾಗೆ ಅನುಮತಿ ನೀಡಿ</string>
@@ -273,7 +273,7 @@
     <string name="proj_new_chat_line">ಇಲ್ಲಿಯವರೆಗೆ ಹೇಳಿದ್ದು ಮೆಮೊರಿಯಲ್ಲಿ ಉಳಿಸಲಾಗಿದೆ ಮತ್ತು ಈ ವಿಂಡೋ ಖಾಲಿಯಾಗಿ ಪ್ರಾರಂಭವಾಗುತ್ತದೆ. ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ ಯಾವುದನ್ನೂ ಅಳಿಸಲಾಗುವುದಿಲ್ಲ.</string>
     <string name="proj_new_chat">ಹೊಸ ಚಾಟ್</string>
     <string name="proj_not_linked_now">ಈಗ ಯಾವುದೇ ಕಂಪ್ಯೂಟರ್‌ಗೆ ಲಿಂಕ್ ಆಗಿಲ್ಲ.</string>
-    <string name="proj_computer_older">ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿರುವ Agent ಆ್ಯಪ್ ಈ ಆವೃತ್ತಿಗಿಂತ ಹಳೆಯದಾಗಿದೆ, ಆದ್ದರಿಂದ ಅಲ್ಲಿ ಹೊಸ ಚಾಟ್ ಪ್ರಾರಂಭಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ಅದನ್ನು ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ ಅಪ್‌ಡೇಟ್ ಮಾಡಿ, ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
+    <string name="proj_computer_older">ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿರುವ Mew ಆ್ಯಪ್ ಈ ಆವೃತ್ತಿಗಿಂತ ಹಳೆಯದಾಗಿದೆ, ಆದ್ದರಿಂದ ಅಲ್ಲಿ ಹೊಸ ಚಾಟ್ ಪ್ರಾರಂಭಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ಅದನ್ನು ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್‌ನಲ್ಲಿ ಅಪ್‌ಡೇಟ್ ಮಾಡಿ, ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
     <string name="proj_unreachable">ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್ ತಲುಪಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ. ಅದು ಮತ್ತೆ ಲಭ್ಯವಾದಾಗ ಪುನಃ ಪ್ರಯತ್ನಿಸಿ.</string>
     <string name="proj_photo_you_sent">ನೀವು ಕಳುಹಿಸಿದ ಫೋಟೋ</string>
     <string name="proj_start_chat_failed">%1$s ನಲ್ಲಿ ಚಾಟ್ ಆರಂಭಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ: %2$s.</string>
@@ -371,14 +371,14 @@
     <string name="wake_up_your_computer">ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್</string>
     <string name="wake_up_reaches">ಈ ಫೋನನ್ನು ತಲುಪುತ್ತದೆ</string>
     <string name="wake_up_link_first">ಮೊದಲು ಈ ಫೋನನ್ನು ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್‌ಗೆ ಲಿಂಕ್ ಮಾಡಿ (ಸೆಟ್ಟಿಂಗ್ಸ್ > ಲಿಂಕ್ ಮಾಡಿದ ಸಾಧನಗಳು)</string>
-    <string name="wake_up_lacks">%1$s ಈ ಫೋನ್ ಅನ್ನು ಇನ್ನೂ ರಿಂಗ್ ಮಾಡಲಾರದು: ಅಲ್ಲಿ Agent ಆ್ಯಪ್ ಅಪ್‌ಡೇಟ್ ಮಾಡಿ</string>
+    <string name="wake_up_lacks">%1$s ಈ ಫೋನ್ ಅನ್ನು ಇನ್ನೂ ರಿಂಗ್ ಮಾಡಲಾರದು: ಅಲ್ಲಿ Mew ಆ್ಯಪ್ ಅಪ್‌ಡೇಟ್ ಮಾಡಿ</string>
     <string name="wake_up_connected">%1$sಗೆ ಸಂಪರ್ಕಗೊಂಡಿದೆ</string>
     <string name="wake_up_not_connected">ಈಗ ಸಂಪರ್ಕವಿಲ್ಲ. ಇದು ಪ್ರಯತ್ನಿಸುತ್ತಲೇ ಇರುತ್ತದೆ.</string>
     <string name="wake_up_test">ಎಚ್ಚರಿಕೆ ಕರೆಯನ್ನು ಪರೀಕ್ಷಿಸಿ</string>
     <string name="wake_up_test_body">ಈ ಫೋನನ್ನು ನಿಜವಾಗಿ ರಿಂಗ್ ಮಾಡುತ್ತದೆ. ನಿಲ್ಲಿಸಲು ಉತ್ತರಿಸಿ.</string>
     <string name="wake_up_test_sent">%1$s ಪರೀಕ್ಷೆ ಕಳುಹಿಸಲಾಗಿದೆ.</string>
     <string name="wake_up_not_sent">ಕಳುಹಿಸಲಾಗಲಿಲ್ಲ.</string>
-    <string name="wake_up_secure_folder">Agent ಅನ್ನು ಸಾಮಾನ್ಯವಾಗಿ ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಿ (ಸೆಕ್ಯೂರ್ ಫೋಲ್ಡರ್ ಒಳಗೆ ಅಲ್ಲ): ಲಾಕ್ ಆಗಿರುವ ಸೆಕ್ಯೂರ್ ಫೋಲ್ಡರ್ ರಿಂಗ್ ಮಾಡಲಾರದು.</string>
+    <string name="wake_up_secure_folder">Mew ಅನ್ನು ಸಾಮಾನ್ಯವಾಗಿ ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಿ (ಸೆಕ್ಯೂರ್ ಫೋಲ್ಡರ್ ಒಳಗೆ ಅಲ್ಲ): ಲಾಕ್ ಆಗಿರುವ ಸೆಕ್ಯೂರ್ ಫೋಲ್ಡರ್ ರಿಂಗ್ ಮಾಡಲಾರದು.</string>
     <string name="rec_recording_now">ಈಗ ರೆಕಾರ್ಡ್ ಆಗುತ್ತಿದೆ</string>
     <string name="rec_cut_off">ಅಡಚಣೆಯಾಯಿತು</string>
     <string name="rec_partly">ಕೆಲವು ಭಾಗ ಬರೆಯಲಾಗಲಿಲ್ಲ</string>
@@ -407,7 +407,7 @@
     <string name="media_play">ಸಂಗೀತ ಮತ್ತು ವೀಡಿಯೊ ಪ್ಲೇ ಮಾಡಿ</string>
     <string name="media_intro">ಏನಾದರೂ ಪ್ಲೇ ಮಾಡಲು ನೀವು ನಿಮ್ಮ ಏಜೆಂಟ್‌ಗೆ ಕೇಳಿದಾಗ, ಇಲ್ಲಿ ನೀವು ಆರಿಸಿದ ಆಪ್ ಬಳಸುತ್ತದೆ. ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಬಿಟ್ಟರೆ, ಫೋನ್‌ನ ಡೀಫಾಲ್ಟ್ ಬಳಸುತ್ತದೆ, ನಂತರ ಹುಡುಕಾಟದಿಂದ ಪ್ಲೇ ಮಾಡಬಲ್ಲ ಯಾವುದೇ ಆಪ್.</string>
     <string name="media_access_off">ಅಧಿಸೂಚನೆ ಪ್ರವೇಶ ಆಫ್ ಆಗಿದೆ</string>
-    <string name="media_access_body">Agent ಗೆ ಅಧಿಸೂಚನೆ ಪ್ರವೇಶ ಸಿಕ್ಕ ನಂತರ ಮಾತ್ರ, ಏನು ಪ್ಲೇ ಆಗುತ್ತಿದೆ ಎಂಬುದನ್ನು Android ತೋರಿಸುತ್ತದೆ ಮತ್ತು ನಿಮ್ಮ ಏಜೆಂಟ್ ವಿರಾಮ ಅಥವಾ ಮುಂದಕ್ಕೆ ಹೋಗಲು ಅವಕಾಶ ನೀಡುತ್ತದೆ.</string>
+    <string name="media_access_body">Mew ಗೆ ಅಧಿಸೂಚನೆ ಪ್ರವೇಶ ಸಿಕ್ಕ ನಂತರ ಮಾತ್ರ, ಏನು ಪ್ಲೇ ಆಗುತ್ತಿದೆ ಎಂಬುದನ್ನು Android ತೋರಿಸುತ್ತದೆ ಮತ್ತು ನಿಮ್ಮ ಏಜೆಂಟ್ ವಿರಾಮ ಅಥವಾ ಮುಂದಕ್ಕೆ ಹೋಗಲು ಅವಕಾಶ ನೀಡುತ್ತದೆ.</string>
     <string name="media_none">ಈ ಫೋನ್‌ನಲ್ಲಿ ನಿಮ್ಮ ಏಜೆಂಟ್‌ಗಾಗಿ ಸಂಗೀತ ಅಥವಾ ವೀಡಿಯೊ ಪ್ಲೇ ಮಾಡಬಲ್ಲ ಯಾವುದೇ ಆ್ಯಪ್ ಇಲ್ಲ. ಸಂಗೀತ ಆ್ಯಪ್ ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಿದರೆ ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತದೆ.</string>
     <string name="media_music_app">ಸಂಗೀತ ಆ್ಯಪ್</string>
     <string name="media_video_app">ವೀಡಿಯೊ ಆ್ಯಪ್</string>
@@ -416,7 +416,7 @@
     <string name="macro_and">%1$s ಮತ್ತು %2$s</string>
     <string name="macro_line_some">%1$s ಕೇಳದೆ ಚಲಿಸಬಹುದು; ಇತರವು ಕೇಳುತ್ತವೆ</string>
     <string name="macro_eyebrow">ಆಟೊಮೇಷನ್</string>
-    <string name="macro_title">Agent ನಿಮ್ಮ ಆ್ಯಪ್‌ಗಳೊಂದಿಗೆ ಮಾತನಾಡುತ್ತದೆ</string>
+    <string name="macro_title">Mew ನಿಮ್ಮ ಆ್ಯಪ್‌ಗಳೊಂದಿಗೆ ಮಾತನಾಡುತ್ತದೆ</string>
     <string name="macro_intro">ನಿಮ್ಮ ಏಜೆಂಟ್ ಈ ಫೋನ್‌ನ ಯಾವುದೇ ಆ್ಯಪ್‌ಗೆ Android ಇಂಟೆಂಟ್ ಕಳುಹಿಸಬಹುದು: Maps ನಲ್ಲಿ ಒಂದು ಸ್ಥಳ ತೆರೆಯುವುದು, ಆ್ಯಪ್‌ಗೆ ಹಂಚಿಕೊಳ್ಳುವುದು, ಅಥವಾ MacroDroid ಅಥವಾ Tasker ಮ್ಯಾಕ್ರೋ ರನ್ ಮಾಡುವುದು. ಸ್ಕ್ರೀನ್ ತೆರೆಯುವುದಕ್ಕೆ ಎಂದಿಗೂ ಕೇಳುವುದಿಲ್ಲ. ಇಲ್ಲಿ ಪಟ್ಟಿ ಮಾಡದ ಬೇರೆ ಎಲ್ಲವೂ ಮೊದಲು ನಿಮ್ಮನ್ನು ಕೇಳುತ್ತದೆ. ಯಾವುದೂ ಫೋನ್‌ನಿಂದ ಹೊರಹೋಗುವುದಿಲ್ಲ.</string>
     <string name="macro_intents">ಅನುಮತಿಸಿದ ಆ್ಯಪ್ ಇಂಟೆಂಟ್‌ಗಳು</string>
     <string name="macro_intents_hint">ಕ್ರಿಯೆ | ಪ್ಯಾಕೇಜ್, ಪ್ರತಿ ಸಾಲಿಗೆ ಒಂದು</string>
@@ -653,7 +653,7 @@
     <string name="main_your_computer">ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್</string>
     <string name="main_a_computer">ಒಂದು ಕಂಪ್ಯೂಟರ್</string>
     <string name="main_whatever_agent_runs">ನಿಮ್ಮ ಏಜೆಂಟ್ ಯಾವುದರಲ್ಲಿ ಚಲಿಸುತ್ತದೋ ಅದು</string>
-    <string name="rt_clear_computer_older">ಈ ಫೋನ್‌ನ ಚಾಟ್ ಅಳಿಸಲಾಗಿದೆ. ಆದರೆ ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್‌ನ ಚಾಟ್ ಅಳಿಸಿಲ್ಲ: ಅದರಲ್ಲಿರುವ Agent ಆ್ಯಪ್ ಇದಕ್ಕಿಂತ ಹಳೆಯದಾಗಿದ್ದು, ಹೊಸ ಚಾಟ್ ಪ್ರಾರಂಭಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್‌ನ ಆ್ಯಪ್ ಅನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಿ, ನಂತರ ಮತ್ತೆ ಅಳಿಸಿ.</string>
+    <string name="rt_clear_computer_older">ಈ ಫೋನ್‌ನ ಚಾಟ್ ಅಳಿಸಲಾಗಿದೆ. ಆದರೆ ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್‌ನ ಚಾಟ್ ಅಳಿಸಿಲ್ಲ: ಅದರಲ್ಲಿರುವ Mew ಆ್ಯಪ್ ಇದಕ್ಕಿಂತ ಹಳೆಯದಾಗಿದ್ದು, ಹೊಸ ಚಾಟ್ ಪ್ರಾರಂಭಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್‌ನ ಆ್ಯಪ್ ಅನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡಿ, ನಂತರ ಮತ್ತೆ ಅಳಿಸಿ.</string>
     <string name="rt_clear_unreachable">ಈ ಫೋನ್‌ನ ಚಾಟ್ ಅಳಿಸಲಾಗಿದೆ. ಈಗ ನಿಮ್ಮ ಕಂಪ್ಯೂಟರ್ ಸಂಪರ್ಕಕ್ಕೆ ಸಿಗಲಿಲ್ಲ, ಆದ್ದರಿಂದ ಅದರ ಚಾಟ್ ಇನ್ನೂ ಇದೆ ಮತ್ತು ಸಿಂಕ್ ಆದಾಗ ಮತ್ತೆ ಕಾಣಿಸುತ್ತದೆ. ಅದು ಮತ್ತೆ ಲಭ್ಯವಾದ ನಂತರ ಮತ್ತೆ ಅಳಿಸಿ.</string>
     <string name="assist_type_it_instead">ಬದಲಿಗೆ ಟೈಪ್ ಮಾಡಿ</string>
     <string name="assist_unlock_to_carry_on">ಮುಂದುವರಿಸಲು ಅನ್‌ಲಾಕ್ ಮಾಡಿ</string>
@@ -704,6 +704,10 @@
     <string name="assist_over_lock_line">ಆಫ್: ಮೊದಲು ಫೋನ್ ಅನ್‌ಲಾಕ್ ಮಾಡಿ, ನಂತರ ಅದನ್ನು ಕರೆಯಿರಿ. ಆನ್: ಲಾಕ್ ಆಗಿರುವ ಫೋನ್‌ನಲ್ಲೂ ಇದು ತೆರೆಯುತ್ತದೆ ಮತ್ತು ನೀವು ಅನ್‌ಲಾಕ್ ಮಾಡಿದ ತಕ್ಷಣ ನಿಮ್ಮ ವಿನಂತಿಯನ್ನು ಕಳುಹಿಸುತ್ತದೆ.</string>
     <string name="assist_live_voice">ಅಸಿಸ್ಟೆಂಟ್‌ನಲ್ಲಿ ಲೈವ್ ಧ್ವನಿ</string>
     <string name="assist_live_voice_line">ಆಫ್: ನೀವು ಒಂದು ವಿನಂತಿಯನ್ನು ಹೇಳುತ್ತೀರಿ, ಅದು ಉತ್ತರಿಸುತ್ತದೆ. ಆನ್: ಸಹಜವಾಗಿ ಮಾತನಾಡಿ, %1$s ತಕ್ಷಣ ಧ್ವನಿಯಲ್ಲಿ ಉತ್ತರಿಸುತ್ತದೆ, ನೀವು ಅದರ ಮಧ್ಯೆ ಮಾತನಾಡಬಹುದು, ಮತ್ತು ಕೆಲಸಗಳನ್ನು ನಿಮ್ಮ ಏಜೆಂಟ್‌ಗೆ ಹಸ್ತಾಂತರಿಸಿ ಫಲಿತಾಂಶವನ್ನು ತಿಳಿಸುತ್ತದೆ.</string>
+    <string name="assist_talk">ಸಂಭಾಷಣೆ ಮುಂದುವರಿಸಿ</string>
+    <string name="assist_talk_line">ಕರೆಯಂತೆ: %1$s ಪ್ರತಿ ಉತ್ತರವನ್ನು ಗಟ್ಟಿಯಾಗಿ ಓದುತ್ತದೆ ಮತ್ತು ಮತ್ತೆ ಕೇಳುತ್ತದೆ, ನೀವು ವಿದಾಯ ಹೇಳುವವರೆಗೆ ಅಥವಾ ಅಂತ್ಯ ಟ್ಯಾಪ್ ಮಾಡುವವರೆಗೆ. ನಿಮ್ಮ ಕ್ಲೌಡ್ ಧ್ವನಿ ಬಳಸುತ್ತದೆ, ಇಲ್ಲದಿದ್ದರೆ ಫೋನ್‌ನ ಸ್ವಂತ ಧ್ವನಿ.</string>
+    <string name="assist_talk_end">ಅಂತ್ಯ</string>
+    <string name="assist_talk_interrupt">ತಡೆ</string>
     <string name="assist_never_reads_money">ಎರಡೂ ಸ್ವಿಚ್ ಆನ್ ಇದ್ದರೂ, ಇದು ಬ್ಯಾಂಕಿಂಗ್, ಪಾವತಿ ಅಥವಾ ಹಣಕಾಸು ಆ್ಯಪ್‌ಗಳನ್ನು ಎಂದಿಗೂ ಓದುವುದಿಲ್ಲ. ಇದು ಓದುವ ಮಾಹಿತಿಯನ್ನು ಆ ವಿನಂತಿಗೆ ಮಾತ್ರ ಬಳಸಲಾಗುತ್ತದೆ.</string>
     <string name="live_bubble_desc">ಲೈವ್ ಧ್ವನಿ. ತೆರೆಯಲು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
     <string name="live_end_session">ಲೈವ್ ಸೆಷನ್ ಕೊನೆಗೊಳಿಸಿ</string>

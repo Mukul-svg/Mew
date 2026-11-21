@@ -69,7 +69,7 @@
     <string name="svc_weekly_every">Every %1$s at %2$02d:%3$02d</string>
     <string name="svc_weekly_weekday">weekday</string>
     <string name="svc_weekly_weekend">weekend day</string>
-    <string name="svc_work_channel">Agent working</string>
+    <string name="svc_work_channel">Mew working</string>
     <plurals name="svc_work_helpers">
         <item quantity="one">Working: %1$d helper</item>
         <item quantity="other">Working: %1$d helpers</item>

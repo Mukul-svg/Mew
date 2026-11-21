@@ -35,7 +35,7 @@
     <string name="person_timeline_empty">Jeszcze nic nie zostało zarejestrowane</string>
     <string name="person_remove">Usuń z osób</string>
     <string name="person_remove_title">Usunąć %1$s?</string>
-    <string name="person_remove_line">Ich daty, obecne pomysły i wszystko, co zarejestrowałeś, przechodzą wraz z nimi. Agent też o nich zapomina.</string>
+    <string name="person_remove_line">Ich daty, obecne pomysły i wszystko, co zarejestrowałeś, przechodzą wraz z nimi. Mew też o nich zapomina.</string>
     <string name="person_cancel">Zachowaj je</string>
     <string name="person_reminded_before">%1$d dni wcześniej</string>
     <string name="person_today">Dzisiaj</string>

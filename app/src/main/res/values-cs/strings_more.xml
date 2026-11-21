@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">NEBO POUŽIJTE AGENTA NA SVÉM POČÍTAČI</string>
     <string name="onb_use_on_computer">Použít agenta na mém počítači</string>
-    <string name="onb_use_on_computer_sub">Naskenujte kód v aplikaci Agent na počítači nebo serveru. V tomto telefonu žádné klíče.</string>
+    <string name="onb_use_on_computer_sub">Naskenujte kód v aplikaci Mew na počítači nebo serveru. V tomto telefonu žádné klíče.</string>
     <string name="sub_paste_code_from">Vložte kód z %1$s</string>
     <string name="sub_paste_code_body_from">V prohlížeči klepněte na Authorize. %1$s pak zobrazí kód. Zkopírujte ho, vraťte se sem a vložte ho níže.</string>
     <string name="sub_code_from">Kód z %1$s</string>
@@ -18,7 +18,7 @@
     <string name="settings_automation_not_listening">Zatím nenaslouchá: otevřete aplikaci jednou</string>
     <string name="settings_automation_on">Zap. · %1$s</string>
     <string name="settings_automation_off">Vyp. · klepnutím nastavíte</string>
-    <string name="settings_macro_title">Agent komunikuje s vašimi aplikacemi</string>
+    <string name="settings_macro_title">Mew komunikuje s vašimi aplikacemi</string>
     <string name="settings_media_apps">Mediální aplikace</string>
     <string name="settings_bg_screen">Obrazovka na pozadí</string>
     <string name="settings_bg_screen_sub">Jiné aplikace, zatímco vy máte svou obrazovku</string>
@@ -61,10 +61,10 @@
     <string name="browser_sites_hint">Jen zabezpečené weby (https), podle přesné adresy. Změny platí pro nové panely.</string>
     <string name="browser_call_voice">Nechat agenta mluvit v hovorech WhatsApp</string>
     <string name="browser_call_voice_on">Zap.: v hovoru WhatsApp Web, který tu agent zahájí, jde jeho hlas do hovoru a slyší druhou osobu.</string>
-    <string name="browser_call_voice_off">Vyp. Agent nemůže mluvit v hovoru WhatsApp Web.</string>
+    <string name="browser_call_voice_off">Vyp. Mew nemůže mluvit v hovoru WhatsApp Web.</string>
     <string name="browser_test_calling">Zapnout hovory pro testovací účet</string>
     <string name="browser_test_calling_on">Zap.: když agent zahájí hovor a číslo přihlášené ve WhatsApp Web je jedním z uvedených níže, hovory se na té stránce zapnou. Nikdy pro jiné číslo.</string>
-    <string name="browser_test_calling_off">Vyp. Agent může volat jen z účtů, kterým WhatsApp hovory povolil.</string>
+    <string name="browser_test_calling_off">Vyp. Mew může volat jen z účtů, kterým WhatsApp hovory povolil.</string>
     <string name="browser_test_number_first">Nejdřív přidejte číslo testovacího účtu.</string>
     <string name="browser_yes_turn_on">Ano, zapnout</string>
     <string name="browser_remove_test_number">Odebrat testovací číslo %1$s</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">Přidat testovací číslo</string>
     <string name="browser_test_number_body">Číslo účtu WhatsApp, se kterým testujete. Nic se do WhatsApp neposílá a znovunačtení stránky to vrátí.</string>
     <string name="link_cant_reach">Nepodařilo se spojit s počítačem.</string>
-    <string name="link_bad_answer">Odpověď počítače nedávala smysl. Je jeho aplikace Agent aktuální?</string>
+    <string name="link_bad_answer">Odpověď počítače nedávala smysl. Je jeho aplikace Mew aktuální?</string>
     <string name="link_tried_addresses">(vyzkoušeno adres: %1$d)</string>
     <string name="link_type_address">Zadejte adresu počítače.</string>
     <string name="link_no_certificate">Počítač neposlal žádný certifikát.</string>
     <string name="link_failed">Propojení se nezdařilo.</string>
     <string name="link_your_computer">váš počítač</string>
-    <string name="link_not_a_code">Tento QR kód není propojovací kód Agent.</string>
+    <string name="link_not_a_code">Tento QR kód není propojovací kód Mew.</string>
     <string name="link_subtitle">Propojte tento telefon s počítačem nebo serverem</string>
     <string name="link_linked_to">Propojeno s %1$s</string>
     <string name="link_runs_on">Váš agent běží na %1$s. Tento telefon zobrazuje jeho chat, paměť, úkoly a rutiny a nedrží pro něj žádné klíče AI.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">Propojit s %1$s</string>
     <string name="link_keep">Ponechat %1$s</string>
     <string name="link_linking_to">Propojuji s %1$s...</string>
-    <string name="link_how_to">Na počítači otevřete aplikaci Agent a přejděte do Nastavení, Zařízení, Přidat zařízení.</string>
+    <string name="link_how_to">Na počítači otevřete aplikaci Mew a přejděte do Nastavení, Zařízení, Přidat zařízení.</string>
     <string name="link_how_type">Zadejte adresu a kód, který zobrazuje.</string>
     <string name="link_how_scan">Zamiřte tímto fotoaparátem na zobrazený kód.</string>
     <string name="link_allow_camera">Povolit fotoaparát</string>
@@ -275,7 +275,7 @@
     <string name="proj_new_chat_line">Co bylo dosud řečeno, se uloží do paměti a toto okno bude prázdné. Na vašem počítači se nic nemaže.</string>
     <string name="proj_new_chat">Nový chat</string>
     <string name="proj_not_linked_now">Teď není propojeno s počítačem.</string>
-    <string name="proj_computer_older">Aplikace Agent na vašem počítači je starší než tato, takže tam nemůže zahájit nový chat. Aktualizujte ji na počítači a zkuste to znovu.</string>
+    <string name="proj_computer_older">Aplikace Mew na vašem počítači je starší než tato, takže tam nemůže zahájit nový chat. Aktualizujte ji na počítači a zkuste to znovu.</string>
     <string name="proj_unreachable">S vaším počítačem se nepodařilo spojit. Zkuste to znovu, až bude zpátky.</string>
     <string name="proj_photo_you_sent">Fotka, kterou jste poslali</string>
     <string name="proj_start_chat_failed">Chat v „%1$s“ se nepodařilo zahájit: %2$s.</string>
@@ -379,14 +379,14 @@
     <string name="wake_up_your_computer">váš počítač</string>
     <string name="wake_up_reaches">Dosáhne na tento telefon</string>
     <string name="wake_up_link_first">Nejdřív propojte tento telefon s počítačem (Nastavení > Propojená zařízení)</string>
-    <string name="wake_up_lacks">%1$s na tento telefon zatím zazvonit neumí: aktualizujte tam aplikaci Agent</string>
+    <string name="wake_up_lacks">%1$s na tento telefon zatím zazvonit neumí: aktualizujte tam aplikaci Mew</string>
     <string name="wake_up_connected">Připojeno k %1$s</string>
     <string name="wake_up_not_connected">Teď nepřipojeno. Zkouší to dál.</string>
     <string name="wake_up_test">Vyzkoušet buzení</string>
     <string name="wake_up_test_body">Telefon zazvoní doopravdy. Odpovězte, abyste ho zastavili.</string>
     <string name="wake_up_test_sent">Test %1$s odeslán.</string>
     <string name="wake_up_not_sent">Neodešlo to.</string>
-    <string name="wake_up_secure_folder">Nainstalujte Agent normálně (ne do Zabezpečené složky): zamčená Zabezpečená složka zvonit nemůže.</string>
+    <string name="wake_up_secure_folder">Nainstalujte Mew normálně (ne do Zabezpečené složky): zamčená Zabezpečená složka zvonit nemůže.</string>
     <string name="rec_recording_now">Právě nahrává</string>
     <string name="rec_cut_off">Přerušeno</string>
     <string name="rec_partly">Část nebyla zapsána</string>
@@ -415,7 +415,7 @@
     <string name="media_play">Přehrávat hudbu a video</string>
     <string name="media_intro">Když agenta požádáte, aby něco pustil, použije aplikaci, kterou zde vyberete. Na automatiku použije výchozí aplikaci telefonu, pak jakoukoli, která umí přehrávat z vyhledávání.</string>
     <string name="media_access_off">Přístup k oznámením je vypnutý</string>
-    <string name="media_access_body">Android ukazuje, co hraje, a nechá agenta pozastavit nebo přeskočit, až když má Agent přístup k oznámením.</string>
+    <string name="media_access_body">Android ukazuje, co hraje, a nechá agenta pozastavit nebo přeskočit, až když má Mew přístup k oznámením.</string>
     <string name="media_none">Žádná aplikace v tomto telefonu nehlásí, že umí pro vašeho agenta přehrávat hudbu nebo video. Nainstalujte hudební aplikaci a objeví se zde.</string>
     <string name="media_music_app">Hudební aplikace</string>
     <string name="media_video_app">Video aplikace</string>
@@ -424,7 +424,7 @@
     <string name="macro_and">%1$s a %2$s</string>
     <string name="macro_line_some">%1$s mohou běžet bez ptaní; ostatní se ptají</string>
     <string name="macro_eyebrow">Automatizace</string>
-    <string name="macro_title">Agent komunikuje s vašimi aplikacemi</string>
+    <string name="macro_title">Mew komunikuje s vašimi aplikacemi</string>
     <string name="macro_intro">Váš agent může libovolné aplikaci v tomto telefonu poslat intent Androidu: otevřít místo v Mapách, sdílet do aplikace, spustit makro MacroDroid nebo Tasker. Otevření obrazovky se nikdy neptá. Cokoli jiného se nejdřív zeptá vás, pokud to není uvedeno zde. Nic telefon neopouští.</string>
     <string name="macro_intents">Povolené intenty aplikací</string>
     <string name="macro_intents_hint">akce | balíček, jeden na řádek</string>
@@ -549,7 +549,7 @@
     <string name="screen_learned_none">Zatím žádné. Zobrazují se spolu s vašimi dalšími naučenými aplikacemi v Připojeních.</string>
     <string name="screen_learned_list">%1$s. Otevřete, přejmenujte nebo odeberte je v Připojeních.</string>
     <string name="screen_show_job_yourself">Ukažte mu úkol sami</string>
-    <string name="screen_show_job_sub">Udělejte ho jednou ručně na skryté obrazovce. Agent se kroky naučí a bude je umět opakovat.</string>
+    <string name="screen_show_job_sub">Udělejte ho jednou ručně na skryté obrazovce. Mew se kroky naučí a bude je umět opakovat.</string>
     <string name="screen_show">Ukázat</string>
     <string name="screen_keep_recordings">Uchovávat nahrávky</string>
     <string name="screen_keep_recordings_sub">Hesla a cokoli zadané jako soukromé se zakryje. Staré se mažou samy.</string>
@@ -673,7 +673,7 @@
     <string name="main_your_computer">váš počítač</string>
     <string name="main_a_computer">počítač</string>
     <string name="main_whatever_agent_runs">Na čem váš agent běží</string>
-    <string name="rt_clear_computer_older">Chat tohoto telefonu je vymazán. Chat vašeho počítače ne: jeho aplikace Agent je starší než tato, takže nemůže zahájit nový chat. Aktualizujte aplikaci na počítači a vymažte znovu.</string>
+    <string name="rt_clear_computer_older">Chat tohoto telefonu je vymazán. Chat vašeho počítače ne: jeho aplikace Mew je starší než tato, takže nemůže zahájit nový chat. Aktualizujte aplikaci na počítači a vymažte znovu.</string>
     <string name="rt_clear_unreachable">Chat tohoto telefonu je vymazán. S vaším počítačem se teď nepodařilo spojit, takže jeho chat tam zůstává a po synchronizaci se znovu zobrazí. Vymažte znovu, až bude zpátky.</string>
     <string name="assist_type_it_instead">Napsat místo toho</string>
     <string name="assist_unlock_to_carry_on">Odemkněte a pokračujte</string>
@@ -724,6 +724,10 @@
     <string name="assist_over_lock_line">Vypnuto: nejdřív odemkněte telefon, pak ho vyvolejte. Zapnuto: otevře se na zamčeném telefonu a váš požadavek odešle, až odemknete.</string>
     <string name="assist_live_voice">Živý hlas v asistentovi</string>
     <string name="assist_live_voice_line">Vypnuto: řeknete jeden požadavek a on odpoví. Zapnuto: mluvte přirozeně, %1$s odpovídá hned nahlas, můžete mu skákat do řeči, předává úkoly vašemu agentovi a řekne vám výsledek.</string>
+    <string name="assist_talk">Pokračovat v konverzaci</string>
+    <string name="assist_talk_line">Jako hovor: %1$s přečte každou odpověď nahlas a znovu poslouchá, dokud neřeknete sbohem nebo neklepnete na Konec. Použije váš cloudový hlas, jinak vlastní hlas telefonu.</string>
+    <string name="assist_talk_end">Konec</string>
+    <string name="assist_talk_interrupt">Přerušit</string>
     <string name="assist_never_reads_money">Nikdy nečte bankovní, platební ani peněžní aplikace, ať jsou oba přepínače zapnuté. To, co čte, se použije jen pro ten jeden požadavek.</string>
     <string name="live_bubble_desc">Živý hlas. Klepnutím otevřete</string>
     <string name="live_end_session">Ukončit živou relaci</string>

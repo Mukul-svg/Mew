@@ -35,7 +35,7 @@
     <string name="person_timeline_empty">Zatím není nic přihlášeno</string>
     <string name="person_remove">Odebrat z lidí</string>
     <string name="person_remove_title">Odebrat %1$s?</string>
-    <string name="person_remove_line">Jejich data, současné nápady a vše, co jste zaregistrovali, jdou s nimi. Agent na ně také zapomene.</string>
+    <string name="person_remove_line">Jejich data, současné nápady a vše, co jste zaregistrovali, jdou s nimi. Mew na ně také zapomene.</string>
     <string name="person_cancel">Nechte si je</string>
     <string name="person_reminded_before">Před %1$d dny</string>
     <string name="person_today">dnes</string>

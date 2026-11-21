@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">Noma iyiphi ehambisana ne-OpenAI</string>
     <string name="onb_key_anthropic_1">Thepha u-Vula ngezansi. Ivula ikhonsoli ye-Anthropic esiphequluli sakho. Zibhalise noma ungene.</string>
     <string name="onb_key_anthropic_2">Iya ku-Billing bese wengeza i-credit encane. Ukhokha njengoba usebenzisa, futhi amadola ambalwa ahlala isikhathi eside.</string>
-    <string name="onb_key_anthropic_3">Iya ku-API keys bese uthepha u-Create key. Yibize noma yini, njenge-Agent.</string>
+    <string name="onb_key_anthropic_3">Iya ku-API keys bese uthepha u-Create key. Yibize noma yini, njenge-Mew.</string>
     <string name="onb_key_anthropic_4">Thepha u-Copy, buyela kule app, namathisela isihluthulelo ebhokisini elingenhla bese uthepha u-Check key.</string>
     <string name="onb_key_openai_1">Thepha u-Open ngezansi. Ivula iplathifomu ye-OpenAI esiphequluli sakho. Zibhalise noma ungene. (Lokhu kuhlukile ku-ChatGPT subscription.)</string>
     <string name="onb_key_openai_2">Iya ku-Billing bese wengeza i-credit encane. Amadola ambalwa ahlala isikhathi eside.</string>
-    <string name="onb_key_openai_3">Iya ku-API keys bese uthepha u-Create new secret key. Yibize noma yini, njenge-Agent.</string>
+    <string name="onb_key_openai_3">Iya ku-API keys bese uthepha u-Create new secret key. Yibize noma yini, njenge-Mew.</string>
     <string name="onb_key_step_copy_once">Thepha u-Copy (isihluthulelo usibona kanye kuphela), buyela lapha, usinamathisele ngenhla bese uthepha u-Check key.</string>
     <string name="onb_key_gemini_1">Thepha u-Open ngezansi. Ivula i-Google AI Studio. Ngena nganoma iyiphi i-akhawunti ye-Google.</string>
     <string name="onb_key_gemini_2">Thepha u-Create API key. Uma ikucela ukuthi ukhethe iphrojekthi, khetha leyo ekuphakamisayo.</string>

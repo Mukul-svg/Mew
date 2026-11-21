@@ -154,7 +154,7 @@ private fun WatchNav(c: WatchController, call: WatchCall, go: String) {
     }
     fun type() {
         val intent = RemoteInputIntentHelper.createActionRemoteInputIntent()
-        RemoteInputIntentHelper.putRemoteInputsExtra(intent, listOf(RemoteInput.Builder("ask").setLabel(agent.ifBlank { "Agent" }).build()))
+        RemoteInputIntentHelper.putRemoteInputsExtra(intent, listOf(RemoteInput.Builder("ask").setLabel(agent.ifBlank { "Mew" }).build()))
         typing.launch(intent)
     }
 

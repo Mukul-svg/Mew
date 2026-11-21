@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">OU USE O AGENTE NO SEU COMPUTADOR</string>
     <string name="onb_use_on_computer">Usar o agente no meu computador</string>
-    <string name="onb_use_on_computer_sub">Escaneie o código na app Agent do seu computador ou servidor. Nenhuma chave neste telemóvel.</string>
+    <string name="onb_use_on_computer_sub">Escaneie o código na app Mew do seu computador ou servidor. Nenhuma chave neste telemóvel.</string>
     <string name="sub_paste_code_from">Cole o código do %1$s</string>
     <string name="sub_paste_code_body_from">No navegador: toque em Authorize. O %1$s mostra então um código. Copie, volte aqui e cole abaixo.</string>
     <string name="sub_code_from">Código do %1$s</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">Adicionar número de teste</string>
     <string name="browser_test_number_body">O número da conta do WhatsApp com a qual testa. Nada é enviado ao WhatsApp, e recarregar a página desfaz.</string>
     <string name="link_cant_reach">Não foi possível aceder o computador.</string>
-    <string name="link_bad_answer">A resposta do computador não fez sentido. A app Agent dele está atualizado?</string>
+    <string name="link_bad_answer">A resposta do computador não fez sentido. A app Mew dele está atualizado?</string>
     <string name="link_tried_addresses">(tentados %1$d endereços)</string>
     <string name="link_type_address">Escreva o endereço do computador.</string>
     <string name="link_no_certificate">O computador não enviou certificado.</string>
     <string name="link_failed">A associação falhou.</string>
     <string name="link_your_computer">O seu computador</string>
-    <string name="link_not_a_code">Esse QR code não é um código de associação do Agent.</string>
+    <string name="link_not_a_code">Esse QR code não é um código de associação do Mew.</string>
     <string name="link_subtitle">Associe este telemóvel a um computador ou servidor</string>
     <string name="link_linked_to">Associado a %1$s</string>
     <string name="link_runs_on">O seu agente executa em %1$s. Este telemóvel mostra o chat, a memória, as tarefas e as rotinas dele e não guarda chaves de IA para ele.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">Associar a %1$s</string>
     <string name="link_keep">Manter %1$s</string>
     <string name="link_linking_to">A associar a %1$s...</string>
-    <string name="link_how_to">No seu computador, abra a app Agent e vá a Definições, Dispositivos, Adicionar um dispositivo.</string>
+    <string name="link_how_to">No seu computador, abra a app Mew e vá a Definições, Dispositivos, Adicionar um dispositivo.</string>
     <string name="link_how_type">Escreva o endereço e o código que ele mostra.</string>
     <string name="link_how_scan">Aponte esta câmara para o código mostrado.</string>
     <string name="link_allow_camera">Permitir a câmara</string>
@@ -274,7 +274,7 @@
     <string name="proj_new_chat_line">O que foi dito até agora é guardado na memória e esta janela começa vazia. Nada é apagado do seu computador.</string>
     <string name="proj_new_chat">Novo chat</string>
     <string name="proj_not_linked_now">Não associado a um computador no momento.</string>
-    <string name="proj_computer_older">A app Agent do seu computador é mais antiga do que esta e não consegue iniciar um novo chat lá. Atualize-o no seu computador e tente novamente.</string>
+    <string name="proj_computer_older">A app Mew do seu computador é mais antiga do que esta e não consegue iniciar um novo chat lá. Atualize-o no seu computador e tente novamente.</string>
     <string name="proj_unreachable">Não foi possível aceder ao seu computador. Tente novamente quando estiver de volta.</string>
     <string name="proj_photo_you_sent">Foto que enviou</string>
     <string name="proj_start_chat_failed">Não foi possível iniciar um chat em %1$s: %2$s.</string>
@@ -375,14 +375,14 @@
     <string name="wake_up_your_computer">O seu computador</string>
     <string name="wake_up_reaches">Alcança este telemóvel</string>
     <string name="wake_up_link_first">Associe primeiro este telemóvel ao seu computador (Definições &gt; Dispositivos associados)</string>
-    <string name="wake_up_lacks">%1$s ainda não consegue fazer este telemóvel tocar: atualize a app Agent lá</string>
+    <string name="wake_up_lacks">%1$s ainda não consegue fazer este telemóvel tocar: atualize a app Mew lá</string>
     <string name="wake_up_connected">Ligado a %1$s</string>
     <string name="wake_up_not_connected">Não ligado agora. Ele continua a tentar.</string>
     <string name="wake_up_test">Testar um despertador</string>
     <string name="wake_up_test_body">Faz este telemóvel tocar de verdade. Responda para parar.</string>
     <string name="wake_up_test_sent">Teste de %1$s enviado.</string>
     <string name="wake_up_not_sent">Não foi enviado.</string>
-    <string name="wake_up_secure_folder">Instale o Agent normalmente (não dentro da Pasta Segura): uma Pasta Segura bloqueada não consegue tocar.</string>
+    <string name="wake_up_secure_folder">Instale o Mew normalmente (não dentro da Pasta Segura): uma Pasta Segura bloqueada não consegue tocar.</string>
     <string name="rec_recording_now">A gravar agora</string>
     <string name="rec_cut_off">Interrompida</string>
     <string name="rec_partly">Parte não foi transcrita</string>
@@ -411,7 +411,7 @@
     <string name="media_play">Tocar música e vídeo</string>
     <string name="media_intro">Quando pede ao seu agente para reproduzir algo, ele usa a app que escolher aqui. No automático, usa a predefinida do telemóvel e depois qualquer app que reproduza a partir de uma pesquisa.</string>
     <string name="media_access_off">O acesso às notificações está desativado</string>
-    <string name="media_access_body">O Android só mostra o que está a ser reproduzido, e deixa o seu agente pausar ou saltar, quando o Agent tem acesso às notificações.</string>
+    <string name="media_access_body">O Android só mostra o que está a ser reproduzido, e deixa o seu agente pausar ou saltar, quando o Mew tem acesso às notificações.</string>
     <string name="media_none">Nenhuma app neste telemóvel diz poder tocar música ou vídeo para o seu agente. Instale uma app de música e ele aparece aqui.</string>
     <string name="media_music_app">App de música</string>
     <string name="media_video_app">App de vídeo</string>
@@ -663,7 +663,7 @@
     <string name="main_your_computer">O seu computador</string>
     <string name="main_a_computer">um computador</string>
     <string name="main_whatever_agent_runs">No que quer que o seu agente rode</string>
-    <string name="rt_clear_computer_older">O chat deste telemóvel foi limpo. O do seu computador não: a app Agent dele é mais antiga do que esta e não consegue iniciar um novo chat. Atualize a app no seu computador e limpe novamente.</string>
+    <string name="rt_clear_computer_older">O chat deste telemóvel foi limpo. O do seu computador não: a app Mew dele é mais antiga do que esta e não consegue iniciar um novo chat. Atualize a app no seu computador e limpe novamente.</string>
     <string name="rt_clear_unreachable">O chat deste telemóvel foi limpo. Não foi possível aceder ao seu computador neste momento, por isso o chat dele continua lá e vai reaparecer na sincronização. Limpe novamente quando estiver de volta.</string>
     <string name="assist_type_it_instead">Escrever em vez disso</string>
     <string name="assist_unlock_to_carry_on">Desbloqueie para continuar</string>
@@ -714,6 +714,10 @@
     <string name="assist_over_lock_line">Desativado: desbloqueie primeiro o telemóvel e só depois o chame. Ativado: abre com o telemóvel bloqueado e envia o seu pedido quando desbloquear.</string>
     <string name="assist_live_voice">Voz ao vivo no assistente</string>
     <string name="assist_live_voice_line">Desativado: diz um pedido e ele responde. Ativado: converse naturalmente, %1$s responde logo em voz alta, pode falar por cima, e ele passa trabalhos ao seu agente e diz-lhe o resultado.</string>
+    <string name="assist_talk">Manter a conversa</string>
+    <string name="assist_talk_line">Como uma chamada: %1$s lê cada resposta em voz alta e volta a ouvir, até dizer adeus ou tocar em Terminar. Usa a sua voz na nuvem, ou a voz do próprio telefone se nenhuma estiver configurada.</string>
+    <string name="assist_talk_end">Terminar</string>
+    <string name="assist_talk_interrupt">Interromper</string>
     <string name="assist_never_reads_money">Ele nunca lê apps de banco, pagamento ou dinheiro, com qualquer uma das chaves ativada. O que ele lê é usado só para aquele pedido.</string>
     <string name="live_bubble_desc">Voz ao vivo. Toque para abrir</string>
     <string name="live_end_session">Encerrar a sessão ao vivo</string>

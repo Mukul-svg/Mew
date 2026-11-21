@@ -37,11 +37,11 @@
     <string name="onb_any_openai_compatible">Valfri OpenAI-kompatibel</string>
     <string name="onb_key_anthropic_1">Tryck på Öppna nedan. Då öppnas Anthropics konsol i din webbläsare. Registrera dig eller logga in.</string>
     <string name="onb_key_anthropic_2">Gå till Billing och lägg till lite kredit. Du betalar för det du använder, och några dollar räcker länge.</string>
-    <string name="onb_key_anthropic_3">Gå till API keys och tryck på Create key. Ge den vilket namn som helst, till exempel Agent.</string>
+    <string name="onb_key_anthropic_3">Gå till API keys och tryck på Create key. Ge den vilket namn som helst, till exempel Mew.</string>
     <string name="onb_key_anthropic_4">Tryck på Copy, kom tillbaka till den här appen, klistra in nyckeln i rutan ovan och tryck på Kontrollera nyckel.</string>
     <string name="onb_key_openai_1">Tryck på Öppna nedan. Då öppnas OpenAIs plattform i din webbläsare. Registrera dig eller logga in. (Det är skilt från en ChatGPT-prenumeration.)</string>
     <string name="onb_key_openai_2">Gå till Billing och lägg till lite kredit. Några dollar räcker länge.</string>
-    <string name="onb_key_openai_3">Gå till API keys och tryck på Create new secret key. Ge den vilket namn som helst, till exempel Agent.</string>
+    <string name="onb_key_openai_3">Gå till API keys och tryck på Create new secret key. Ge den vilket namn som helst, till exempel Mew.</string>
     <string name="onb_key_step_copy_once">Tryck på Copy (du kan bara se nyckeln en gång), kom tillbaka hit, klistra in den ovan och tryck på Kontrollera nyckel.</string>
     <string name="onb_key_gemini_1">Tryck på Öppna nedan. Då öppnas Google AI Studio. Logga in med vilket Google-konto som helst.</string>
     <string name="onb_key_gemini_2">Tryck på Create API key. Om den ber dig välja ett projekt, välj det den föreslår.</string>

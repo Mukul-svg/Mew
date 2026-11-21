@@ -53,8 +53,15 @@ class SubscriptionRuntime(private val context: Context, val kind: SubKind) {
     val dir: File get() = RuntimePacks.root(context)
     val bin: File get() = File(dir, "bin")
     val home: File get() = File(dir, "home").apply { mkdirs() }
+    /** bin/node is a symlink to libnode.so in bundled builds, or the downloaded binary otherwise. */
     val node: File get() = File(bin, "node")
     private val tokenFile: File get() = File(dir, ".token-${kind.name.lowercase()}")
+    // Robolectric and some embedded contexts leave nativeLibraryDir null; a null directory simply
+    // means this build did not bundle Node, not a reason to crash every watcher and card script.
+    private val libDir: File? get() = context.applicationInfo.nativeLibraryDir?.takeIf { it.isNotBlank() }?.let(::File)
+    private val bundledNodeFile: File? get() = libDir?.let { File(it, "libnode.so") }
+    /** True when this APK carries Node as jniLibs (the 0.16.0+ path). */
+    val bundledNode: Boolean get() = bundledNodeFile?.isFile == true
 
     private val packId: String get() = when (kind) {
         SubKind.CLAUDE -> "claude"
@@ -113,11 +120,29 @@ class SubscriptionRuntime(private val context: Context, val kind: SubKind) {
         }
     }
 
-    /** Node can run on its own (no sign-in needed): the agent's code tool uses it. */
-    val nodeAvailable: Boolean get() = RuntimePacks.installed(context, "node")
+    /** Node can run on its own (no sign-in needed): the code tool and watchers use it. */
+    val nodeAvailable: Boolean get() = bundledNode || RuntimePacks.installed(context, "node")
 
-    /** Download just Node if it isn't there yet; the code tool and routines call this. */
-    suspend fun ensureNode(progress: (String) -> Unit = {}) = RuntimePacks.ensure(context, listOf("node"), progress)
+    /** Make Node usable: bundled builds only need the symlink and the CA bundle; thin builds download it. */
+    suspend fun ensureNode(progress: (String) -> Unit = {}) {
+        if (bundledNode) {
+            prepareNodeFiles()
+            linkBins()
+            return
+        }
+        RuntimePacks.ensure(context, listOf("node"), progress)
+        prepareNodeFiles()
+    }
+
+    /** Copy the CA bundle and create the OpenSSL config the Termux Node build expects. */
+    private fun prepareNodeFiles() {
+        dir.mkdirs(); bin.mkdirs()
+        val ca = File(dir, "cacert.pem")
+        if (!ca.isFile) runCatching {
+            context.assets.open("runtime/cacert.pem").use { i -> ca.outputStream().use { i.copyTo(it) } }
+        }
+        File(dir, "openssl.cnf").takeIf { !it.exists() }?.writeText("")
+    }
 
     /** Download the packs this subscription needs, then check they can run. */
     suspend fun install(progress: (String) -> Unit) = withContext(Dispatchers.IO) {
@@ -127,15 +152,15 @@ class SubscriptionRuntime(private val context: Context, val kind: SubKind) {
             context.assets.open("runtime/$name").use { i -> File(dir, name).outputStream().use { i.copyTo(it) } }
         }
         check(available) { "${kind.label} isn't available on this phone yet." }
-        RuntimePacks.ensure(context, packIds, progress)
+        if (!bundledNode) RuntimePacks.ensure(context, packIds, progress)
+        prepareNodeFiles()
+        linkBins()
         check(node.exists()) { "The Node runtime pack did not unpack. Try again." }
         spec.nativeBins.forEach { check(File(bin, it).exists()) { "The ${kind.label} runtime pack did not unpack. Try again." } }
-        linkBins()
         if (kind == SubKind.CLAUDE) check(File(bin, "ld-musl-aarch64.so.1").let { it.isFile && it.path == CLAUDE_INTERP }) {
             "Claude Code can't run from this app's folder (${bin.path}); it expects $CLAUDE_INTERP"
         }
-        // Prove Android really lets this app execute the downloaded binary (targetSdk 28). If this fails,
-        // nothing else will work, so say so here instead of at the first message.
+        // Prove Node really runs from wherever this build put it before the first message.
         progress(context.getString(com.past9.phoneaos.R.string.rt_checking_runtime))
         val out = StringBuilder()
         val code = runCatching {
@@ -144,7 +169,7 @@ class SubscriptionRuntime(private val context: Context, val kind: SubKind) {
                 p.waitFor()
             }
         }.getOrElse { out.appendLine(it.message); -1 }
-        check(code == 0) { "Android blocked the downloaded runtime (exit $code). ${out.toString().take(300)}" }
+        check(code == 0) { "Android blocked the runtime (exit $code). ${out.toString().take(300)}" }
         progress(context.getString(com.past9.phoneaos.R.string.rt_installed))
     }
 
@@ -200,18 +225,35 @@ class SubscriptionRuntime(private val context: Context, val kind: SubKind) {
 
     fun cancelLogin() { runCatching { loginStdin?.close() } }
 
-    /** Make every downloaded executable runnable. No symlinks: the packs put the real files in bin/. */
+    /** Make every downloaded executable runnable, or point bin/node at the bundled native library. */
     fun linkBins() {
         bin.mkdirs()
-        val names = spec.nativeBins + listOf("node", "rg", "ld-musl-aarch64.so.1")
-        names.forEach { n -> File(bin, n).takeIf { it.isFile }?.setExecutable(true, false) }
+        prepareNodeFiles()
+        if (bundledNode) {
+            linkNative("node", "libnode.so")
+            linkNative("rg", "librg.so")
+        } else {
+            val names = spec.nativeBins + listOf("node", "rg", "ld-musl-aarch64.so.1")
+            names.forEach { n -> File(bin, n).takeIf { it.isFile }?.setExecutable(true, false) }
+        }
+    }
+
+    /** nativeLibraryDir changes after every app update, so the symlink is re-pointed before each run. */
+    private fun linkNative(name: String, lib: String) {
+        val target = libDir?.let { File(it, lib) }?.takeIf { it.isFile } ?: return
+        val link = File(bin, name)
+        if (runCatching { android.system.Os.readlink(link.path) }.getOrNull() != target.path) {
+            link.delete()
+            runCatching { android.system.Os.symlink(target.path, link.path) }
+        }
     }
 
     fun env(): Map<String, String> {
         linkBins()
+        val libPath = if (bundledNode) libDir?.path ?: File(dir, "lib").path else File(dir, "lib").path
         val base = mapOf(
             "HOME" to home.path, "TMPDIR" to context.cacheDir.path, "SHELL" to "/system/bin/sh",
-            "PATH" to "${bin.path}:/system/bin", "LD_LIBRARY_PATH" to File(dir, "lib").path,
+            "PATH" to "${bin.path}:/system/bin", "LD_LIBRARY_PATH" to libPath,
             "NODE_PATH" to File(dir, "node_modules").path,
             "SSL_CERT_FILE" to File(dir, "cacert.pem").path, "NODE_EXTRA_CA_CERTS" to File(dir, "cacert.pem").path,
             "SSL_CERT_DIR" to File(dir, "certs").apply { mkdirs() }.path,

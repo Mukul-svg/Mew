@@ -47,7 +47,7 @@ import kotlinx.coroutines.withContext
 data class WakeWordView(
     val settings: WakeWordSettings = WakeWordSettings(),
     /** "Hey" and the agent's name: what is listened for when the person typed nothing. */
-    val defaultPhrase: String = "Hey Agent",
+    val defaultPhrase: String = "Hey Mew",
     /** The phrase in force as the model spells it, lower case; empty when it cannot be spelled. */
     val latin: String = "hey agent",
     val micAllowed: Boolean = true,

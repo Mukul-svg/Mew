@@ -241,7 +241,7 @@ fun SettingsScreen(s: AgentSettings, runtime: RuntimeInfo, version: String, acti
     }
     // Slide-up sheets, never pop-up dialogs.
     if (pickSub) com.past9.phoneaos.ui.ChoiceSheet(androidx.compose.material.icons.Icons.Rounded.Bolt, stringResource(R.string.settings_what_powers), stringResource(R.string.settings_which_sub),
-        com.past9.phoneaos.data.SubKind.entries.map { k -> com.past9.phoneaos.ui.SheetChoice(k.name, "${k.label} ${stringResource(k.plan)}", if (k == com.past9.phoneaos.data.SubKind.OPENCODE) stringResource(R.string.settings_paste_opencode) else stringResource(R.string.settings_sign_in_with, k.label),
+        com.past9.phoneaos.data.SubKind.selectable.map { k -> com.past9.phoneaos.ui.SheetChoice(k.name, "${k.label} ${stringResource(k.plan)}", if (k == com.past9.phoneaos.data.SubKind.OPENCODE) stringResource(R.string.settings_paste_opencode) else stringResource(R.string.settings_sign_in_with, k.label),
             selected = s.mode == PowerMode.SUBSCRIPTION && s.subKind == k) },
         onPick = { c -> pickSub = false; actions.onChooseSub(com.past9.phoneaos.data.SubKind.valueOf(c.id)) }, onDismiss = { pickSub = false })
     // The language picker slides up from the bottom (never a centred dialog) and is built from the app's own sheet.

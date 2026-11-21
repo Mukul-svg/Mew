@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">HOẶC DÙNG TRỢ LÝ TRÊN MÁY TÍNH CỦA BẠN</string>
     <string name="onb_use_on_computer">Dùng trợ lý trên máy tính của tôi</string>
-    <string name="onb_use_on_computer_sub">Quét mã trong ứng dụng Agent trên máy tính hoặc máy chủ của bạn. Không cần khóa trên điện thoại này.</string>
+    <string name="onb_use_on_computer_sub">Quét mã trong ứng dụng Mew trên máy tính hoặc máy chủ của bạn. Không cần khóa trên điện thoại này.</string>
     <string name="sub_paste_code_from">Dán mã từ %1$s</string>
     <string name="sub_paste_code_body_from">Trong trình duyệt: nhấn Cho phép. Sau đó %1$s hiện một mã. Sao chép nó, quay lại đây và dán vào bên dưới.</string>
     <string name="sub_code_from">Mã từ %1$s</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">Thêm số thử nghiệm</string>
     <string name="browser_test_number_body">Số của tài khoản WhatsApp bạn dùng để thử. Không có gì được gửi tới WhatsApp, và tải lại trang sẽ hoàn tác.</string>
     <string name="link_cant_reach">Không kết nối được máy tính.</string>
-    <string name="link_bad_answer">Câu trả lời của máy tính không hiểu được. Ứng dụng Agent trên đó đã cập nhật chưa?</string>
+    <string name="link_bad_answer">Câu trả lời của máy tính không hiểu được. Ứng dụng Mew trên đó đã cập nhật chưa?</string>
     <string name="link_tried_addresses">(đã thử %1$d địa chỉ)</string>
     <string name="link_type_address">Nhập địa chỉ của máy tính.</string>
     <string name="link_no_certificate">Máy tính không gửi chứng chỉ.</string>
     <string name="link_failed">Liên kết thất bại.</string>
     <string name="link_your_computer">máy tính của bạn</string>
-    <string name="link_not_a_code">Mã QR đó không phải mã liên kết Agent.</string>
+    <string name="link_not_a_code">Mã QR đó không phải mã liên kết Mew.</string>
     <string name="link_subtitle">Liên kết điện thoại này với máy tính hoặc máy chủ</string>
     <string name="link_linked_to">Đã liên kết với %1$s</string>
     <string name="link_runs_on">Trợ lý của bạn chạy trên %1$s. Điện thoại này hiển thị cuộc trò chuyện, ký ức, việc cần làm và tác vụ định kỳ của nó, và không giữ khóa AI nào cho nó.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">Liên kết với %1$s</string>
     <string name="link_keep">Giữ %1$s</string>
     <string name="link_linking_to">Đang liên kết với %1$s...</string>
-    <string name="link_how_to">Trên máy tính, mở ứng dụng Agent và vào Cài đặt, Thiết bị, Thêm thiết bị.</string>
+    <string name="link_how_to">Trên máy tính, mở ứng dụng Mew và vào Cài đặt, Thiết bị, Thêm thiết bị.</string>
     <string name="link_how_type">Nhập địa chỉ và mã mà nó hiển thị.</string>
     <string name="link_how_scan">Hướng máy ảnh vào mã mà nó hiển thị.</string>
     <string name="link_allow_camera">Cho phép máy ảnh</string>
@@ -272,7 +272,7 @@
     <string name="proj_new_chat_line">Những gì đã nói được lưu vào ký ức và cửa sổ này sẽ trống. Không có gì trên máy tính của bạn bị xóa.</string>
     <string name="proj_new_chat">Cuộc trò chuyện mới</string>
     <string name="proj_not_linked_now">Hiện chưa liên kết với máy tính.</string>
-    <string name="proj_computer_older">Ứng dụng Agent trên máy tính của bạn cũ hơn bản này nên không thể bắt đầu cuộc trò chuyện mới ở đó. Hãy cập nhật trên máy tính rồi thử lại.</string>
+    <string name="proj_computer_older">Ứng dụng Mew trên máy tính của bạn cũ hơn bản này nên không thể bắt đầu cuộc trò chuyện mới ở đó. Hãy cập nhật trên máy tính rồi thử lại.</string>
     <string name="proj_unreachable">Không kết nối được máy tính của bạn. Hãy thử lại khi nó hoạt động.</string>
     <string name="proj_photo_you_sent">Ảnh bạn đã gửi</string>
     <string name="proj_start_chat_failed">Không bắt đầu được cuộc trò chuyện trong %1$s: %2$s.</string>
@@ -367,14 +367,14 @@
     <string name="wake_up_your_computer">máy tính của bạn</string>
     <string name="wake_up_reaches">Liên lạc được điện thoại này</string>
     <string name="wake_up_link_first">Hãy liên kết điện thoại này với máy tính trước (Cài đặt &gt; Thiết bị đã liên kết)</string>
-    <string name="wake_up_lacks">%1$s chưa thể đổ chuông điện thoại này: hãy cập nhật ứng dụng Agent ở đó</string>
+    <string name="wake_up_lacks">%1$s chưa thể đổ chuông điện thoại này: hãy cập nhật ứng dụng Mew ở đó</string>
     <string name="wake_up_connected">Đã kết nối với %1$s</string>
     <string name="wake_up_not_connected">Hiện chưa kết nối. Nó vẫn tiếp tục thử.</string>
     <string name="wake_up_test">Thử báo thức đánh thức</string>
     <string name="wake_up_test_body">Đổ chuông điện thoại này thật. Trả lời để dừng.</string>
     <string name="wake_up_test_sent">Đã gửi thử %1$s.</string>
     <string name="wake_up_not_sent">Chưa gửi được.</string>
-    <string name="wake_up_secure_folder">Hãy cài Agent bình thường (không cài trong Thư mục bảo mật): Thư mục bảo mật đang khóa không đổ chuông được.</string>
+    <string name="wake_up_secure_folder">Hãy cài Mew bình thường (không cài trong Thư mục bảo mật): Thư mục bảo mật đang khóa không đổ chuông được.</string>
     <string name="rec_recording_now">Đang ghi âm</string>
     <string name="rec_cut_off">Bị ngắt</string>
     <string name="rec_partly">Một phần chưa được ghi lại</string>
@@ -403,7 +403,7 @@
     <string name="media_play">Phát nhạc và video</string>
     <string name="media_intro">Khi bạn nhờ trợ lý phát thứ gì đó, nó dùng ứng dụng bạn chọn ở đây. Để tự động thì nó dùng ứng dụng mặc định của điện thoại, rồi đến bất kỳ ứng dụng nào phát được từ tìm kiếm.</string>
     <string name="media_access_off">Quyền truy cập thông báo đang tắt</string>
-    <string name="media_access_body">Android chỉ hiện nội dung đang phát, và cho trợ lý tạm dừng hoặc bỏ qua, khi Agent có quyền truy cập thông báo.</string>
+    <string name="media_access_body">Android chỉ hiện nội dung đang phát, và cho trợ lý tạm dừng hoặc bỏ qua, khi Mew có quyền truy cập thông báo.</string>
     <string name="media_none">Không có ứng dụng nào trên điện thoại này cho biết phát được nhạc hoặc video cho trợ lý của bạn. Hãy cài một ứng dụng nhạc và nó sẽ hiện ở đây.</string>
     <string name="media_music_app">Ứng dụng nhạc</string>
     <string name="media_video_app">Ứng dụng video</string>
@@ -643,7 +643,7 @@
     <string name="main_your_computer">máy tính của bạn</string>
     <string name="main_a_computer">một máy tính</string>
     <string name="main_whatever_agent_runs">Bất cứ nơi nào trợ lý của bạn chạy</string>
-    <string name="rt_clear_computer_older">Cuộc trò chuyện trên điện thoại này đã được xóa. Cuộc trò chuyện trên máy tính thì chưa: ứng dụng Agent trên đó cũ hơn bản này nên không bắt đầu được cuộc trò chuyện mới. Hãy cập nhật ứng dụng trên máy tính, rồi xóa lại.</string>
+    <string name="rt_clear_computer_older">Cuộc trò chuyện trên điện thoại này đã được xóa. Cuộc trò chuyện trên máy tính thì chưa: ứng dụng Mew trên đó cũ hơn bản này nên không bắt đầu được cuộc trò chuyện mới. Hãy cập nhật ứng dụng trên máy tính, rồi xóa lại.</string>
     <string name="rt_clear_unreachable">Cuộc trò chuyện trên điện thoại này đã được xóa. Vừa rồi không kết nối được máy tính nên cuộc trò chuyện ở đó vẫn còn và sẽ hiện lại khi đồng bộ. Hãy xóa lại khi nó hoạt động.</string>
     <string name="assist_type_it_instead">Gõ thay thế</string>
     <string name="assist_unlock_to_carry_on">Mở khóa để tiếp tục</string>
@@ -694,6 +694,10 @@
     <string name="assist_over_lock_line">Tắt: mở khóa điện thoại trước, rồi gọi. Bật: nó mở trên điện thoại đang khóa và gửi yêu cầu của bạn khi bạn mở khóa.</string>
     <string name="assist_live_voice">Giọng nói trực tiếp trong trợ lý</string>
     <string name="assist_live_voice_line">Tắt: bạn nói một yêu cầu và nó trả lời. Bật: nói chuyện tự nhiên, %1$s trả lời bằng giọng nói ngay, bạn có thể nói chen vào, và nó giao việc cho trợ lý rồi báo kết quả cho bạn.</string>
+    <string name="assist_talk">Tiếp tục trò chuyện</string>
+    <string name="assist_talk_line">Như một cuộc gọi: %1$s đọc to từng câu trả lời rồi nghe tiếp, cho đến khi bạn nói tạm biệt hoặc nhấn Kết thúc. Dùng giọng nói đám mây của bạn, hoặc giọng của chính điện thoại nếu chưa thiết lập.</string>
+    <string name="assist_talk_end">Kết thúc</string>
+    <string name="assist_talk_interrupt">Ngắt lời</string>
     <string name="assist_never_reads_money">Nó không bao giờ đọc ứng dụng ngân hàng, thanh toán hay tiền bạc, dù bật công tắc nào. Những gì nó đọc chỉ dùng cho yêu cầu đó.</string>
     <string name="live_bubble_desc">Giọng nói trực tiếp. Nhấn để mở</string>
     <string name="live_end_session">Kết thúc phiên trực tiếp</string>

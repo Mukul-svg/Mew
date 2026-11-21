@@ -66,7 +66,7 @@
     <!-- Watch face data sources -->
     <string name="face_title_approvals">Needs you</string>
     <string name="face_title_task">Next task</string>
-    <string name="face_title_status">Agent</string>
+    <string name="face_title_status">Mew</string>
     <string name="face_nothing_waits">All clear</string>
     <plurals name="face_waiting">
         <item quantity="one">%d needs you</item>
@@ -87,10 +87,10 @@
     <string name="face_talk_label">Talk to the agent</string>
     <string name="face_pending_label">Approvals waiting</string>
     <string name="face_task_label">Next task</string>
-    <string name="face_status_label">Agent status</string>
+    <string name="face_status_label">Mew status</string>
 
     <!-- Home screen -->
-    <string name="home_label">Agent home</string>
+    <string name="home_label">Mew home</string>
     <string name="home_open_agent">Open the agent</string>
     <string name="home_recent">Recent</string>
     <string name="home_apps">Apps</string>
@@ -105,7 +105,7 @@
     <string name="home_no_picker">This watch has no home screen setting. Turning this off always goes back to the stock home.</string>
     <!-- Pairing (docs/wear.md) -->
     <string name="pair_title">Pair with your phone</string>
-    <string name="pair_how">In the Agent app on your phone: Settings, Watch. Scan this, or type the code.</string>
+    <string name="pair_how">In the Mew app on your phone: Settings, Watch. Scan this, or type the code.</string>
     <string name="pair_qr_description">QR code to scan with the phone</string>
     <string name="pair_making">Making a code</string>
     <string name="pair_expired">The code expired.</string>

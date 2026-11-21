@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">或者使用你電腦上的代理</string>
     <string name="onb_use_on_computer">使用我電腦上的代理</string>
-    <string name="onb_use_on_computer_sub">請在電腦或伺服器上的 Agent 應用程式中掃描二維碼。這部手機上不需要金鑰。</string>
+    <string name="onb_use_on_computer_sub">請在電腦或伺服器上的 Mew 應用程式中掃描二維碼。這部手機上不需要金鑰。</string>
     <string name="sub_paste_code_from">貼上來自 %1$s 的程式碼</string>
     <string name="sub_paste_code_body_from">在瀏覽器中：點一下「授權」。%1$s 隨後會顯示一個程式碼。複製它，回到這裡，貼上到下方。</string>
     <string name="sub_code_from">來自 %1$s 的程式碼</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">新增測試號碼</string>
     <string name="browser_test_number_body">你用來測試的 WhatsApp 帳號的號碼。不會向 WhatsApp 傳送任何內容，重新載入頁面即可撤銷。</string>
     <string name="link_cant_reach">無法連線到電腦。</string>
-    <string name="link_bad_answer">電腦的回應無法理解。它的 Agent 應用程式是最新版本嗎？</string>
+    <string name="link_bad_answer">電腦的回應無法理解。它的 Mew 應用程式是最新版本嗎？</string>
     <string name="link_tried_addresses">（已嘗試 %1$d 個地址）</string>
     <string name="link_type_address">請輸入電腦的地址。</string>
     <string name="link_no_certificate">電腦沒有傳送證書。</string>
     <string name="link_failed">關聯失敗。</string>
     <string name="link_your_computer">你的電腦</string>
-    <string name="link_not_a_code">該二維碼不是 Agent 關聯碼。</string>
+    <string name="link_not_a_code">該二維碼不是 Mew 關聯碼。</string>
     <string name="link_subtitle">將這部手機關聯到電腦或伺服器</string>
     <string name="link_linked_to">已關聯到 %1$s</string>
     <string name="link_runs_on">你的代理執行在 %1$s 上。這部手機顯示它的聊天、記憶、任務和例行任務，不為它儲存任何 AI 金鑰。</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">關聯到 %1$s</string>
     <string name="link_keep">保留 %1$s</string>
     <string name="link_linking_to">正在關聯到 %1$s...</string>
-    <string name="link_how_to">在你的電腦上開啟 Agent 應用程式，依次進入設定、裝置、新增裝置。</string>
+    <string name="link_how_to">在你的電腦上開啟 Mew 應用程式，依次進入設定、裝置、新增裝置。</string>
     <string name="link_how_type">輸入它顯示的地址和程式碼。</string>
     <string name="link_how_scan">把相機對準它顯示的二維碼。</string>
     <string name="link_allow_camera">允許使用相機</string>
@@ -272,7 +272,7 @@
     <string name="proj_new_chat_line">到目前為止的內容會儲存到記憶中，此視窗將清空。你電腦上的內容不會被刪除。</string>
     <string name="proj_new_chat">新聊天</string>
     <string name="proj_not_linked_now">目前未關聯到電腦。</string>
-    <string name="proj_computer_older">你電腦上的 Agent 應用程式比這個版本舊，所以無法在那裡開始新聊天。請在電腦上更新後重試。</string>
+    <string name="proj_computer_older">你電腦上的 Mew 應用程式比這個版本舊，所以無法在那裡開始新聊天。請在電腦上更新後重試。</string>
     <string name="proj_unreachable">無法連線到你的電腦。等它恢復後再試。</string>
     <string name="proj_photo_you_sent">你傳送的照片</string>
     <string name="proj_start_chat_failed">無法在 %1$s 中開始聊天：%2$s。</string>
@@ -367,14 +367,14 @@
     <string name="wake_up_your_computer">你的電腦</string>
     <string name="wake_up_reaches">能聯絡到這部手機</string>
     <string name="wake_up_link_first">請先將這部手機關聯到你的電腦（設定 &gt; 已關聯的裝置）</string>
-    <string name="wake_up_lacks">%1$s 還不能讓這部手機響鈴：請更新那邊的 Agent 應用程式</string>
+    <string name="wake_up_lacks">%1$s 還不能讓這部手機響鈴：請更新那邊的 Mew 應用程式</string>
     <string name="wake_up_connected">已連線到 %1$s</string>
     <string name="wake_up_not_connected">目前未連線。它會不斷重試。</string>
     <string name="wake_up_test">測試喚醒</string>
     <string name="wake_up_test_body">會真的讓這部手機響鈴。回應後即停止。</string>
     <string name="wake_up_test_sent">已傳送 %1$s 測試。</string>
     <string name="wake_up_not_sent">沒有發出去。</string>
-    <string name="wake_up_secure_folder">請正常安裝 Agent（不要裝在安全資料夾中）：鎖定的安全資料夾無法響鈴。</string>
+    <string name="wake_up_secure_folder">請正常安裝 Mew（不要裝在安全資料夾中）：鎖定的安全資料夾無法響鈴。</string>
     <string name="rec_recording_now">正在錄音</string>
     <string name="rec_cut_off">已中斷</string>
     <string name="rec_partly">部分內容沒有被記錄下來</string>
@@ -403,7 +403,7 @@
     <string name="media_play">播放音樂和影片</string>
     <string name="media_intro">當你讓代理播放內容時，它會使用你在這裡選的應用程式。保持自動時，它先用手機的預設應用程式，再用任何能透過搜尋播放的應用程式。</string>
     <string name="media_access_off">通知訪問許可權已關閉</string>
-    <string name="media_access_body">只有在 Agent 獲得通知訪問許可權後，Android 才會顯示正在播放的內容，並讓你的代理暫停或跳過。</string>
+    <string name="media_access_body">只有在 Mew 獲得通知訪問許可權後，Android 才會顯示正在播放的內容，並讓你的代理暫停或跳過。</string>
     <string name="media_none">這部手機上沒有應用程式宣告能為你的代理播放音樂或影片。安裝一個音樂應用程式後，它會顯示在這裡。</string>
     <string name="media_music_app">音樂應用程式</string>
     <string name="media_video_app">影片應用程式</string>
@@ -643,7 +643,7 @@
     <string name="main_your_computer">你的電腦</string>
     <string name="main_a_computer">一台電腦</string>
     <string name="main_whatever_agent_runs">你的代理所執行的任何裝置</string>
-    <string name="rt_clear_computer_older">這部手機的聊天已清除。你電腦的聊天沒有清除：它上面的 Agent 應用程式比這個版本舊，所以無法開始新聊天。請在電腦上更新應用程式，然後再次清除。</string>
+    <string name="rt_clear_computer_older">這部手機的聊天已清除。你電腦的聊天沒有清除：它上面的 Mew 應用程式比這個版本舊，所以無法開始新聊天。請在電腦上更新應用程式，然後再次清除。</string>
     <string name="rt_clear_unreachable">這部手機的聊天已清除。剛才無法連線你的電腦，所以它的聊天仍在，同步後會再次顯示。等它恢復後再次清除。</string>
     <string name="assist_type_it_instead">改為輸入</string>
     <string name="assist_unlock_to_carry_on">解鎖以繼續</string>
@@ -694,6 +694,10 @@
     <string name="assist_over_lock_line">關閉：先解鎖手機，再呼叫它。開啟：在鎖定的手機上也會開啟，並在你解鎖後傳送你的請求。</string>
     <string name="assist_live_voice">助手中的實時語音</string>
     <string name="assist_live_voice_line">關閉：你說一個請求，它回答。開啟：自然對話，%1$s 立即語音回答，你可以打斷它，它會把工作交給你的代理並告訴你結果。</string>
+    <string name="assist_talk">持續對話</string>
+    <string name="assist_talk_line">像通話一樣：%1$s 會朗讀每個回答並繼續聆聽，直到你說再見或點按「結束」。使用你的雲端語音，未設定時使用手機本身的語音。</string>
+    <string name="assist_talk_end">結束</string>
+    <string name="assist_talk_interrupt">打斷</string>
     <string name="assist_never_reads_money">無論哪個開關開啟，它都絕不會讀取銀行、支付或金錢類應用程式。讀取到的內容只用於那一次請求。</string>
     <string name="live_bubble_desc">實時語音。點一下開啟</string>
     <string name="live_end_session">結束實時會話</string>

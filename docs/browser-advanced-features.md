@@ -52,7 +52,7 @@ WhatsApp never captured a microphone: in this browser the device list comes back
 WhatsApp found no device (`voip: [AV] No audio device selected.`). With the switch on, on web.whatsapp.com only:
 
 1. `navigator.mediaDevices.enumerateDevices()` lists one microphone,
-   `{kind: 'audioinput', deviceId: 'default', label: 'Agent mic', groupId: 'agent-audio'}`, with an id that stays the
+   `{kind: 'audioinput', deviceId: 'default', label: 'Mew mic', groupId: 'agent-audio'}`, with an id that stays the
    same. Speakers and cameras are handed back as the browser gives them, so WhatsApp keeps its default speaker and
    never asks for one by a made-up id.
 2. `navigator.permissions.query` answers `granted` for `microphone` (a status object WhatsApp can listen to). Every

@@ -13,7 +13,7 @@
     <string name="onb_continue">Gaa n\'ihu</string>
     <string name="onb_name_hint">Aha gị</string>
     <string name="onb_name_agent_q">NA GỊNỊ KA Ị GA-AKPỌ M?</string>
-    <string name="onb_your_agent">Agent gị</string>
+    <string name="onb_your_agent">Mew gị</string>
     <string name="onb_name_optional">Ọ bụghị ihe dị mkpa. Nye m aha ma ọ bụrụ na ịchọrọ.</string>
     <string name="onb_nice_to_meet_named">Obi dị m ụtọ izute gị, %1$s. Abụ m %2$s.</string>
     <string name="onb_nice_to_meet">Obi dị m ụtọ izute gị, %1$s.</string>
@@ -30,7 +30,7 @@
     <string name="onb_your_sidekick">ONYE ENYI GỊ</string>
     <string name="onb_power_eyebrow">Ike</string>
     <string name="onb_power_title">Kedu ka ịchọrọ inye agent gị ike?</string>
-    <string name="onb_power_line">Agent gị na-eche echiche na Ai ị na-akwụ ụgwọ maka ya ugbu a. Ị nwere ike ịgbanwe oge ọ bụla.</string>
+    <string name="onb_power_line">Mew gị na-eche echiche na Ai ị na-akwụ ụgwọ maka ya ugbu a. Ị nwere ike ịgbanwe oge ọ bụla.</string>
     <string name="onb_power_sub_header">JIRI NDEBANYE ANỤ ỊNWERELA</string>
     <string name="onb_power_key_header">MA Ọ BỤ BUTE IGODO API</string>
     <string name="onb_have_key">Enwere m igodo API</string>
@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">Nke ọ bụla dabara na OpenAI</string>
     <string name="onb_key_anthropic_1">Pịa Open n\'okpuru. Ọ na-emeghe console Anthropic n\'ihe nchọgharị gị. Debanye aha ma ọ bụ banye.</string>
     <string name="onb_key_anthropic_2">Gaa na Billing ma tinye obere kredit. Ị na-akwụ ụgwọ dị ka ị na-eji, ma ọtụtụ dọla na-ejide ogologo oge.</string>
-    <string name="onb_key_anthropic_3">Gaa na API keys ma pịa Create key. Kpọọ ya aha ọ bụla, dị ka Agent.</string>
+    <string name="onb_key_anthropic_3">Gaa na API keys ma pịa Create key. Kpọọ ya aha ọ bụla, dị ka Mew.</string>
     <string name="onb_key_anthropic_4">Pịa Copy, laghachi n\'app a, kọpịa igodo ahụ n\'igbe dị n\'elu ma pịa Check key.</string>
     <string name="onb_key_openai_1">Pịa Open n\'okpuru. Ọ na-emeghe ikpo OpenAI n\'ihe nchọgharị gị. Debanye aha ma ọ bụ banye. (Nke a dị iche na ChatGPT subscription.)</string>
     <string name="onb_key_openai_2">Gaa na Billing ma tinye obere kredit. Ọtụtụ dọla na-ejide ogologo oge.</string>
-    <string name="onb_key_openai_3">Gaa na API keys ma pịa Create new secret key. Kpọọ ya aha ọ bụla, dị ka Agent.</string>
+    <string name="onb_key_openai_3">Gaa na API keys ma pịa Create new secret key. Kpọọ ya aha ọ bụla, dị ka Mew.</string>
     <string name="onb_key_step_copy_once">Pịa Copy (ị na-ahụ igodo otu ugboro naanị), laghachi ebe a, kọpịa ya n\'elu ma pịa Check key.</string>
     <string name="onb_key_gemini_1">Pịa Open n\'okpuru. Ọ na-emeghe Google AI Studio. Banye na akaụntụ Google ọ bụla.</string>
     <string name="onb_key_gemini_2">Pịa Create API key. Ọ bụrụ na ọ rịọ gị ka ịhọrọ project, họrọ nke ọ tụrụ aro.</string>
@@ -120,7 +120,7 @@
     <string name="sub_setup_stopped">Nhazi akwụsịrị.</string>
     <string name="sub_try_again">Nwaa ọzọ</string>
     <string name="sub_signed_in">Ị banyere na %1$s</string>
-    <string name="sub_runs_on_plan">Agent gị na-arụ ọrụ ugbu a n\'atụmatụ %1$s gị.</string>
+    <string name="sub_runs_on_plan">Mew gị na-arụ ọrụ ugbu a n\'atụmatụ %1$s gị.</string>
     <string name="sub_model">MODELU</string>
     <string name="sub_default">Ndabara</string>
     <string name="sub_change">Gbanwee</string>
@@ -231,7 +231,7 @@
     <string name="rel_calendar_on">Ịdọ aka ntị tupu nzukọ, ihe a ga-eme mgbe ya gasịrị</string>
     <string name="rel_calendar_off">Ọ bụghị ihe dị mkpa: pịa maka ịdọ aka ntị nzukọ na ihe a ga-eme</string>
     <string name="rel_quiet_hours">Awa udo</string>
-    <string name="rel_quiet_body">Agent gị agaghị ewetara gị ihe n\'onwe ya n\'awa ndị a. Ncheta ị debere maka oge ka na-ada.</string>
+    <string name="rel_quiet_body">Mew gị agaghị ewetara gị ihe n\'onwe ya n\'awa ndị a. Ncheta ị debere maka oge ka na-ada.</string>
     <string name="rel_off">Emechiri</string>
     <string name="rel_quiet_range">%1$s ruo %2$s</string>
     <string name="rel_samsung_title">Na Samsung, na nke a:</string>

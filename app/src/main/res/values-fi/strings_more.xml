@@ -1,7 +1,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">TAI KÄYTÄ AGENTTIA TIETOKONEELLASI</string>
     <string name="onb_use_on_computer">Käytä agenttia tietokoneellani</string>
-    <string name="onb_use_on_computer_sub">Skannaa koodi tietokoneesi tai palvelimesi Agent-sovelluksessa. Ei avaimia tässä puhelimessa.</string>
+    <string name="onb_use_on_computer_sub">Skannaa koodi tietokoneesi tai palvelimesi Mew-sovelluksessa. Ei avaimia tässä puhelimessa.</string>
     <string name="sub_paste_code_from">Liitä koodi kohteesta %1$s</string>
     <string name="sub_paste_code_body_from">Selaimessa: napauta Valtuuta. %1$s näyttää sitten koodin. Kopioi se, palaa tänne ja liitä se alle.</string>
     <string name="sub_code_from">Koodi kohteesta %1$s</string>
@@ -72,7 +72,7 @@
     <string name="browser_add_test_number">Lisää testinumero</string>
     <string name="browser_test_number_body">Sen WhatsApp-tilin numero, jolla testaat. WhatsAppille ei lähetetä mitään, ja sivun lataaminen uudelleen kumoaa muutoksen.</string>
     <string name="link_cant_reach">Tietokoneeseen ei saatu yhteyttä.</string>
-    <string name="link_bad_answer">Tietokoneen vastaus ei ollut järkevä. Onko sen Agent-sovellus ajan tasalla?</string>
+    <string name="link_bad_answer">Tietokoneen vastaus ei ollut järkevä. Onko sen Mew-sovellus ajan tasalla?</string>
     <string name="link_tried_addresses">(kokeiltiin %1$d osoitetta)</string>
     <string name="link_type_address">Kirjoita tietokoneen osoite.</string>
     <string name="link_no_certificate">Tietokone ei lähettänyt varmennetta.</string>
@@ -90,7 +90,7 @@
     <string name="link_link_to">Linkitä: %1$s</string>
     <string name="link_keep">Säilytä %1$s</string>
     <string name="link_linking_to">Linkitetään: %1$s...</string>
-    <string name="link_how_to">Avaa tietokoneellasi Agent-sovellus ja siirry kohtaan Asetukset, Laitteet, Lisää laite.</string>
+    <string name="link_how_to">Avaa tietokoneellasi Mew-sovellus ja siirry kohtaan Asetukset, Laitteet, Lisää laite.</string>
     <string name="link_how_type">Kirjoita osoite ja sen näyttämä koodi.</string>
     <string name="link_how_scan">Osoita kamera sen näyttämään koodiin.</string>
     <string name="link_allow_camera">Salli kamera</string>
@@ -272,7 +272,7 @@
     <string name="proj_new_chat_line">Tähän mennessä sanottu tallennetaan muistiin ja tämä ikkuna alkaa tyhjänä. Tietokoneeltasi ei poisteta mitään.</string>
     <string name="proj_new_chat">Uusi keskustelu</string>
     <string name="proj_not_linked_now">Ei linkitetty tietokoneeseen juuri nyt.</string>
-    <string name="proj_computer_older">Tietokoneesi Agent-sovellus on tätä vanhempi, joten se ei voi aloittaa siellä uutta keskustelua. Päivitä se tietokoneellasi ja yritä uudelleen.</string>
+    <string name="proj_computer_older">Tietokoneesi Mew-sovellus on tätä vanhempi, joten se ei voi aloittaa siellä uutta keskustelua. Päivitä se tietokoneellasi ja yritä uudelleen.</string>
     <string name="proj_unreachable">Tietokonettasi ei tavoitettu. Yritä uudelleen, kun se on takaisin.</string>
     <string name="proj_photo_you_sent">Lähettämäsi kuva</string>
     <string name="proj_start_chat_failed">Keskustelua ei voitu aloittaa: %1$s: %2$s.</string>
@@ -370,14 +370,14 @@
     <string name="wake_up_your_computer">tietokoneesi</string>
     <string name="wake_up_reaches">Tavoittaa tämän puhelimen</string>
     <string name="wake_up_link_first">Linkitä ensin tämä puhelin tietokoneeseesi (Asetukset > Linkitetyt laitteet)</string>
-    <string name="wake_up_lacks">%1$s ei voi vielä soittaa tähän puhelimeen: päivitä siellä Agent-sovellus</string>
+    <string name="wake_up_lacks">%1$s ei voi vielä soittaa tähän puhelimeen: päivitä siellä Mew-sovellus</string>
     <string name="wake_up_connected">Yhdistetty: %1$s</string>
     <string name="wake_up_not_connected">Ei yhdistetty juuri nyt. Se yrittää edelleen.</string>
     <string name="wake_up_test">Testaa herätys</string>
     <string name="wake_up_test_body">Soittaa tähän puhelimeen oikeasti. Vastaa pysäyttääksesi sen.</string>
     <string name="wake_up_test_sent">%1$s-testi lähetetty.</string>
     <string name="wake_up_not_sent">Se ei lähtenyt.</string>
-    <string name="wake_up_secure_folder">Asenna Agent normaalisti (ei Suojattuun kansioon): lukittu Suojattu kansio ei voi soida.</string>
+    <string name="wake_up_secure_folder">Asenna Mew normaalisti (ei Suojattuun kansioon): lukittu Suojattu kansio ei voi soida.</string>
     <string name="rec_recording_now">Tallentaa nyt</string>
     <string name="rec_cut_off">Katkesi</string>
     <string name="rec_partly">Osaa ei kirjoitettu ylös</string>
@@ -652,7 +652,7 @@
     <string name="main_your_computer">tietokoneesi</string>
     <string name="main_a_computer">tietokone</string>
     <string name="main_whatever_agent_runs">Missä agenttisi sitten toimiikin</string>
-    <string name="rt_clear_computer_older">Tämän puhelimen keskustelu on tyhjennetty. Tietokoneesi keskustelua ei ole: sen Agent-sovellus on tätä vanhempi, joten se ei voi aloittaa uutta keskustelua. Päivitä sovellus tietokoneellasi ja tyhjennä sitten uudelleen.</string>
+    <string name="rt_clear_computer_older">Tämän puhelimen keskustelu on tyhjennetty. Tietokoneesi keskustelua ei ole: sen Mew-sovellus on tätä vanhempi, joten se ei voi aloittaa uutta keskustelua. Päivitä sovellus tietokoneellasi ja tyhjennä sitten uudelleen.</string>
     <string name="rt_clear_unreachable">Tämän puhelimen keskustelu on tyhjennetty. Tietokonettasi ei juuri nyt tavoitettu, joten sen keskustelu on yhä olemassa ja näkyy taas synkronoinnin jälkeen. Tyhjennä uudelleen, kun se on takaisin.</string>
     <string name="assist_type_it_instead">Kirjoita se sen sijaan</string>
     <string name="assist_unlock_to_carry_on">Avaa lukitus jatkaaksesi</string>
@@ -703,6 +703,10 @@
     <string name="assist_over_lock_line">Pois: avaa ensin puhelimen lukitus ja kutsu sitten. Päällä: se avautuu lukitussa puhelimessa ja lähettää pyyntösi, kun avaat lukituksen.</string>
     <string name="assist_live_voice">Live-ääni avustajassa</string>
     <string name="assist_live_voice_line">Pois: sanot yhden pyynnön ja se vastaa. Päällä: puhu luontevasti, %1$s vastaa heti ääneen, voit puhua sen päälle, ja se antaa työt agentillesi ja kertoo tuloksen.</string>
+    <string name="assist_talk">Jatka keskustelua</string>
+    <string name="assist_talk_line">Kuten puhelu: %1$s lukee jokaisen vastauksen ääneen ja kuuntelee taas, kunnes sanot hyvästi tai napautat Lopeta. Käyttää pilvääntäsi, tai puhelimen omaa ääntä, jos mitään ei ole asetettu.</string>
+    <string name="assist_talk_end">Lopeta</string>
+    <string name="assist_talk_interrupt">Keskeytä</string>
     <string name="assist_never_reads_money">Se ei koskaan lue pankki-, maksu- tai rahasovelluksia, kumpikin kytkin päällä. Mitä se lukee, käytetään vain kyseiseen pyyntöön.</string>
     <string name="live_bubble_desc">Live-ääni. Avaa napauttamalla</string>
     <string name="live_end_session">Lopeta live-istunto</string>

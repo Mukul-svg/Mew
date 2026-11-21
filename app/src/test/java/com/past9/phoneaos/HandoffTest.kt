@@ -40,6 +40,8 @@ class HandoffTest {
     private var host: Process? = null
 
     @Before fun up() {
+        // The fixture starts a real /bin/bash over SSH and uploads through POSIX SFTP paths; CI runs it on Linux.
+        assumeTrue("the Handoff fixture needs a Unix shell", !System.getProperty("os.name").startsWith("Windows", ignoreCase = true))
         tmp = Files.createTempDirectory("handoff").toFile()
         // A stand-in for the user's sync service: keeps pushed rows, serves them back on pull, records every path it was asked for.
         sync = MockWebServer().apply {
@@ -69,7 +71,13 @@ class HandoffTest {
             start()
         }
     }
-    @After fun down() { File(tmp, "setup/host.pid").takeIf { it.exists() }?.readText()?.trim()?.let { runCatching { ProcessBuilder("kill", it).start().waitFor() } }; host?.destroy(); sshd.stop(true); sync.shutdown(); tmp.deleteRecursively() }
+    @After fun down() {
+        if (this::tmp.isInitialized) File(tmp, "setup/host.pid").takeIf { it.exists() }?.readText()?.trim()?.let { runCatching { ProcessBuilder("kill", it).start().waitFor() } }
+        host?.destroy()
+        if (this::sshd.isInitialized) sshd.stop(true)
+        if (this::sync.isInitialized) sync.shutdown()
+        if (this::tmp.isInitialized) tmp.deleteRecursively()
+    }
 
     private fun machine() = Machine("m1", "Test PC", "127.0.0.1", sshd.port, "sam", MachineAuth.PASSWORD)
     private fun svc(): MachineService {
@@ -158,8 +166,8 @@ class HandoffTest {
         val spot = HostSpot(port, File(tmp, "setup").path, useService = false)
         val ctx = Ctx()
         val r = MachineHostSetupTool(svc(), { js }, { "http://127.0.0.1:${sync.port}" to "tok-host" }, spot).run(JSONObject().put("machine", "Test PC"), ctx)
-        assertTrue(r, r.contains("The Agent Host is running on Test PC") && r.contains("linked to the user's sync service"))
-        assertTrue(ctx.asked.single().startsWith("APPROVAL|Install the Agent Host"))
+        assertTrue(r, r.contains("The Mew Host is running on Test PC") && r.contains("linked to the user's sync service"))
+        assertTrue(ctx.asked.single().startsWith("APPROVAL|Install the Mew Host"))
         val cfg = JSONObject(File(tmp, "setup/sync.json").readText())
         assertEquals("tok-host", cfg.getString("token")); assertEquals("host-test-pc", cfg.getString("device")); assertEquals("http://127.0.0.1:${sync.port}", cfg.getString("url"))
         assertEquals("the sync token must not be world readable", 0, java.nio.file.Files.getPosixFilePermissions(File(tmp, "setup/sync.json").toPath()).count { it.name.startsWith("GROUP") || it.name.startsWith("OTHERS") })

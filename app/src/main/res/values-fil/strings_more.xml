@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">O GAMITIN ANG AGENT SA COMPUTER MO</string>
     <string name="onb_use_on_computer">Gamitin ang agent sa computer ko</string>
-    <string name="onb_use_on_computer_sub">I-scan ang code sa Agent app sa computer o server mo. Walang key sa telepono mong ito.</string>
+    <string name="onb_use_on_computer_sub">I-scan ang code sa Mew app sa computer o server mo. Walang key sa telepono mong ito.</string>
     <string name="sub_paste_code_from">I-paste ang code mula sa %1$s</string>
     <string name="sub_paste_code_body_from">Sa browser: pindutin ang Authorize. Magpapakita ang %1$s ng code. Kopyahin ito, bumalik dito, at i-paste sa ibaba.</string>
     <string name="sub_code_from">Code mula sa %1$s</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">Magdagdag ng test number</string>
     <string name="browser_test_number_body">Ang numero ng WhatsApp account na ginagamit mo sa pagsubok. Walang ipinapadala sa WhatsApp, at mawawala ito kapag nag-reload ng page.</string>
     <string name="link_cant_reach">Hindi maabot ang computer.</string>
-    <string name="link_bad_answer">Hindi maintindihan ang sagot ng computer. Updated ba ang Agent app nito?</string>
+    <string name="link_bad_answer">Hindi maintindihan ang sagot ng computer. Updated ba ang Mew app nito?</string>
     <string name="link_tried_addresses">(sinubukan ang %1$d address)</string>
     <string name="link_type_address">I-type ang address ng computer.</string>
     <string name="link_no_certificate">Walang ipinadalang certificate ang computer.</string>
     <string name="link_failed">Nabigo ang pag-link.</string>
     <string name="link_your_computer">iyong computer</string>
-    <string name="link_not_a_code">Hindi Agent link code ang QR code na iyon.</string>
+    <string name="link_not_a_code">Hindi Mew link code ang QR code na iyon.</string>
     <string name="link_subtitle">I-link ang telepono na ito sa computer o server</string>
     <string name="link_linked_to">Naka-link sa %1$s</string>
     <string name="link_runs_on">Tumatakbo ang iyong agent sa %1$s. Ipinapakita ng telepono na ito ang chat, memorya, mga gawain at routine nito, at walang hawak na AI key para rito.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">I-link sa %1$s</string>
     <string name="link_keep">Panatilihin ang %1$s</string>
     <string name="link_linking_to">Nagli-link sa %1$s...</string>
-    <string name="link_how_to">Sa computer mo, buksan ang Agent app at pumunta sa Settings, Devices, Add a device.</string>
+    <string name="link_how_to">Sa computer mo, buksan ang Mew app at pumunta sa Settings, Devices, Add a device.</string>
     <string name="link_how_type">I-type ang address at ang code na ipinapakita nito.</string>
     <string name="link_how_scan">Itutok ang camera na ito sa code na ipinapakita nito.</string>
     <string name="link_allow_camera">Payagan ang camera</string>
@@ -273,7 +273,7 @@
     <string name="proj_new_chat_line">Ang mga nasabi na ay mase-save sa memorya at magsisimulang walang laman ang window na ito. Walang buburahin sa computer mo.</string>
     <string name="proj_new_chat">Bagong chat</string>
     <string name="proj_not_linked_now">Hindi naka-link sa computer ngayon.</string>
-    <string name="proj_computer_older">Mas luma ang Agent app ng computer mo kaysa rito, kaya hindi ito makapagsimula ng bagong chat doon. I-update ito sa computer mo, saka subukan muli.</string>
+    <string name="proj_computer_older">Mas luma ang Mew app ng computer mo kaysa rito, kaya hindi ito makapagsimula ng bagong chat doon. I-update ito sa computer mo, saka subukan muli.</string>
     <string name="proj_unreachable">Hindi maabot ang computer mo. Subukan muli kapag bumalik na ito.</string>
     <string name="proj_photo_you_sent">Larawang ipinadala mo</string>
     <string name="proj_start_chat_failed">Hindi makapagsimula ng chat sa %1$s: %2$s.</string>
@@ -371,14 +371,14 @@
     <string name="wake_up_your_computer">iyong computer</string>
     <string name="wake_up_reaches">Naaabot ang telepono na ito</string>
     <string name="wake_up_link_first">I-link muna ang telepono na ito sa computer mo (Settings &gt; Linked devices)</string>
-    <string name="wake_up_lacks">Hindi pa kayang patunugin ng %1$s ang telepono na ito: i-update ang Agent app doon</string>
+    <string name="wake_up_lacks">Hindi pa kayang patunugin ng %1$s ang telepono na ito: i-update ang Mew app doon</string>
     <string name="wake_up_connected">Nakakonekta sa %1$s</string>
     <string name="wake_up_not_connected">Hindi nakakonekta ngayon. Patuloy itong sumusubok.</string>
     <string name="wake_up_test">Subukan ang wake-up</string>
     <string name="wake_up_test_body">Tutunog ito nang totoo sa telepono na ito. Sagutin para huminto.</string>
     <string name="wake_up_test_sent">Naipadala ang test ng %1$s.</string>
     <string name="wake_up_not_sent">Hindi ito naipadala.</string>
-    <string name="wake_up_secure_folder">I-install ang Agent nang normal (hindi sa loob ng Secure Folder): hindi makakatunog ang naka-lock na Secure Folder.</string>
+    <string name="wake_up_secure_folder">I-install ang Mew nang normal (hindi sa loob ng Secure Folder): hindi makakatunog ang naka-lock na Secure Folder.</string>
     <string name="rec_recording_now">Nagre-record ngayon</string>
     <string name="rec_cut_off">Naputol</string>
     <string name="rec_partly">Hindi naisulat ang ilan dito</string>
@@ -407,7 +407,7 @@
     <string name="media_play">Magpatugtog ng musika at video</string>
     <string name="media_intro">Kapag hiniling mong magpatugtog ng kung ano ang iyong agent, gagamitin nito ang app na pipiliin mo rito. Kapag awtomatiko, gagamitin nito ang default ng telepono mo, saka anumang app na makapagpapatugtog mula sa paghahanap.</string>
     <string name="media_access_off">Naka-off ang notification access</string>
-    <string name="media_access_body">Ipinapakita lang ng Android kung ano ang pinapatugtog, at hinahayaan ang iyong agent na mag-pause o mag-skip, kapag may notification access na ang Agent.</string>
+    <string name="media_access_body">Ipinapakita lang ng Android kung ano ang pinapatugtog, at hinahayaan ang iyong agent na mag-pause o mag-skip, kapag may notification access na ang Mew.</string>
     <string name="media_none">Walang app sa telepono na ito na nagsasabing makapagpapatugtog ito ng musika o video para sa iyong agent. Mag-install ng music app at lalabas ito rito.</string>
     <string name="media_music_app">Music app</string>
     <string name="media_video_app">Video app</string>
@@ -653,7 +653,7 @@
     <string name="main_your_computer">iyong computer</string>
     <string name="main_a_computer">isang computer</string>
     <string name="main_whatever_agent_runs">Kung saan man tumatakbo ang iyong agent</string>
-    <string name="rt_clear_computer_older">Na-clear ang chat ng telepono na ito. Hindi pa ang sa computer mo: mas luma ang Agent app doon kaysa rito, kaya hindi ito makapagsimula ng bagong chat. I-update ang app sa computer mo, saka i-clear ulit.</string>
+    <string name="rt_clear_computer_older">Na-clear ang chat ng telepono na ito. Hindi pa ang sa computer mo: mas luma ang Mew app doon kaysa rito, kaya hindi ito makapagsimula ng bagong chat. I-update ang app sa computer mo, saka i-clear ulit.</string>
     <string name="rt_clear_unreachable">Na-clear ang chat ng telepono na ito. Hindi maabot ang computer mo ngayon, kaya nandoon pa rin ang chat nito at lalabas ulit kapag nag-sync. I-clear ulit kapag bumalik na ito.</string>
     <string name="assist_type_it_instead">I-type na lang</string>
     <string name="assist_unlock_to_carry_on">I-unlock para magpatuloy</string>
@@ -704,6 +704,10 @@
     <string name="assist_over_lock_line">Naka-off: i-unlock muna ang telepono, saka tawagin. Naka-on: bubukas ito sa naka-lock na telepono at ipapadala ang request mo pagka-unlock mo.</string>
     <string name="assist_live_voice">Live voice sa assistant</string>
     <string name="assist_live_voice_line">Naka-off: nagsasalita ka ng isang request at sumasagot ito. Naka-on: natural na makipag-usap, sumasagot nang malakas ang %1$s agad, puwede mo itong sabayan, at ipinapasa nito ang mga gawain sa iyong agent at sinasabi sa iyo ang resulta.</string>
+    <string name="assist_talk">Ipagpatuloy ang usapan</string>
+    <string name="assist_talk_line">Parang tawag: binabasa nang malakas ni %1$s ang bawat sagot at nakikinig muli, hanggang magpaalam ka o i-tap ang Tapusin. Ginagamit ang cloud voice mo, o ang boses ng telepono kung walang naka-set up.</string>
+    <string name="assist_talk_end">Tapusin</string>
+    <string name="assist_talk_interrupt">Putulin</string>
     <string name="assist_never_reads_money">Hindi ito kailanman nagbabasa ng banking, payment o money app, naka-on man ang alinmang switch. Ang binabasa nito ay para sa request na iyon lang.</string>
     <string name="live_bubble_desc">Live voice. Pindutin para buksan</string>
     <string name="live_end_session">Tapusin ang live session</string>

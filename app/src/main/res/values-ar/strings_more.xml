@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">أو استخدم الوكيل على حاسوبك</string>
     <string name="onb_use_on_computer">استخدام الوكيل على حاسوبي</string>
-    <string name="onb_use_on_computer_sub">امسح الرمز في تطبيق Agent على حاسوبك أو خادمك. لا مفاتيح على هذا الهاتف.</string>
+    <string name="onb_use_on_computer_sub">امسح الرمز في تطبيق Mew على حاسوبك أو خادمك. لا مفاتيح على هذا الهاتف.</string>
     <string name="sub_paste_code_from">الصق الرمز من %1$s</string>
     <string name="sub_paste_code_body_from">في المتصفح: اضغط تفويض. سيعرض %1$s رمزًا. انسخه وعد إلى هنا والصقه أدناه.</string>
     <string name="sub_code_from">الرمز من %1$s</string>
@@ -18,7 +18,7 @@
     <string name="settings_automation_not_listening">لا يستمع بعد: افتح التطبيق مرة واحدة</string>
     <string name="settings_automation_on">مفعّل · %1$s</string>
     <string name="settings_automation_off">متوقف · اضغط لإعداده</string>
-    <string name="settings_macro_title">Agent يتحدث إلى تطبيقاتك</string>
+    <string name="settings_macro_title">Mew يتحدث إلى تطبيقاتك</string>
     <string name="settings_media_apps">تطبيقات الوسائط</string>
     <string name="settings_bg_screen">الشاشة الخلفية</string>
     <string name="settings_bg_screen_sub">تطبيقات أخرى، بينما تحتفظ بشاشتك</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">إضافة رقم تجريبي</string>
     <string name="browser_test_number_body">رقم حساب WhatsApp الذي تجرّب به. لا يُرسل شيء إلى WhatsApp، وإعادة تحميل الصفحة تتراجع عنه.</string>
     <string name="link_cant_reach">تعذّر الوصول إلى الحاسوب.</string>
-    <string name="link_bad_answer">ردّ الحاسوب غير مفهوم. هل تطبيق Agent عليه محدَّث؟</string>
+    <string name="link_bad_answer">ردّ الحاسوب غير مفهوم. هل تطبيق Mew عليه محدَّث؟</string>
     <string name="link_tried_addresses">(جُرّبت %1$d عناوين)</string>
     <string name="link_type_address">اكتب عنوان الحاسوب.</string>
     <string name="link_no_certificate">لم يرسل الحاسوب شهادة.</string>
     <string name="link_failed">فشل الربط.</string>
     <string name="link_your_computer">حاسوبك</string>
-    <string name="link_not_a_code">رمز QR هذا ليس رمز ربط لـ Agent.</string>
+    <string name="link_not_a_code">رمز QR هذا ليس رمز ربط لـ Mew.</string>
     <string name="link_subtitle">اربط هذا الهاتف بحاسوب أو خادم</string>
     <string name="link_linked_to">مرتبط بـ %1$s</string>
     <string name="link_runs_on">يعمل وكيلك على %1$s. يعرض هذا الهاتف محادثته وذاكرته ومهامه وروتيناته، ولا يحمل أي مفاتيح ذكاء اصطناعي له.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">الربط بـ %1$s</string>
     <string name="link_keep">إبقاء %1$s</string>
     <string name="link_linking_to">جارٍ الربط بـ %1$s...</string>
-    <string name="link_how_to">على حاسوبك، افتح تطبيق Agent وانتقل إلى الإعدادات، الأجهزة، إضافة جهاز.</string>
+    <string name="link_how_to">على حاسوبك، افتح تطبيق Mew وانتقل إلى الإعدادات، الأجهزة، إضافة جهاز.</string>
     <string name="link_how_type">اكتب العنوان والرمز المعروضين.</string>
     <string name="link_how_scan">وجّه هذه الكاميرا نحو الرمز المعروض.</string>
     <string name="link_allow_camera">السماح بالكاميرا</string>
@@ -277,7 +277,7 @@
     <string name="proj_new_chat_line">يُحفظ ما قيل حتى الآن في الذاكرة وتبدأ هذه النافذة فارغة. لا يُحذف شيء من حاسوبك.</string>
     <string name="proj_new_chat">محادثة جديدة</string>
     <string name="proj_not_linked_now">غير مرتبط بحاسوب الآن.</string>
-    <string name="proj_computer_older">تطبيق Agent على حاسوبك أقدم من هذا، لذا لا يستطيع بدء محادثة جديدة هناك. حدّثه على حاسوبك ثم حاول مرة أخرى.</string>
+    <string name="proj_computer_older">تطبيق Mew على حاسوبك أقدم من هذا، لذا لا يستطيع بدء محادثة جديدة هناك. حدّثه على حاسوبك ثم حاول مرة أخرى.</string>
     <string name="proj_unreachable">تعذّر الوصول إلى حاسوبك. حاول مرة أخرى عندما يعود.</string>
     <string name="proj_photo_you_sent">صورة أرسلتها</string>
     <string name="proj_start_chat_failed">تعذّر بدء محادثة في %1$s: %2$s.</string>
@@ -387,14 +387,14 @@
     <string name="wake_up_your_computer">حاسوبك</string>
     <string name="wake_up_reaches">يصل إلى هذا الهاتف</string>
     <string name="wake_up_link_first">اربط هذا الهاتف بحاسوبك أولًا (الإعدادات > الأجهزة المرتبطة)</string>
-    <string name="wake_up_lacks">لا يستطيع %1$s جعل هذا الهاتف يرنّ بعد: حدّث تطبيق Agent هناك</string>
+    <string name="wake_up_lacks">لا يستطيع %1$s جعل هذا الهاتف يرنّ بعد: حدّث تطبيق Mew هناك</string>
     <string name="wake_up_connected">متصل بـ %1$s</string>
     <string name="wake_up_not_connected">غير متصل الآن. يواصل المحاولة.</string>
     <string name="wake_up_test">اختبار منبّه</string>
     <string name="wake_up_test_body">يجعل هذا الهاتف يرنّ فعلًا. أجب لإيقافه.</string>
     <string name="wake_up_test_sent">أُرسل اختبار %1$s.</string>
     <string name="wake_up_not_sent">لم يُرسَل.</string>
-    <string name="wake_up_secure_folder">ثبّت Agent بشكل عادي (وليس داخل المجلد الآمن): المجلد الآمن المقفل لا يستطيع الرنين.</string>
+    <string name="wake_up_secure_folder">ثبّت Mew بشكل عادي (وليس داخل المجلد الآمن): المجلد الآمن المقفل لا يستطيع الرنين.</string>
     <string name="rec_recording_now">جارٍ التسجيل</string>
     <string name="rec_cut_off">انقطع</string>
     <string name="rec_partly">لم تُكتب بعض الأجزاء</string>
@@ -423,7 +423,7 @@
     <string name="media_play">تشغيل الموسيقى والفيديو</string>
     <string name="media_intro">عندما تطلب من وكيلك تشغيل شيء، يستخدم التطبيق الذي تختاره هنا. وعند ترك الخيار تلقائيًا، يستخدم الافتراضي في هاتفك، ثم أي تطبيق يستطيع التشغيل من البحث.</string>
     <string name="media_access_off">الوصول إلى الإشعارات متوقف</string>
-    <string name="media_access_body">لا يعرض أندرويد ما يُشغَّل ولا يتيح لوكيلك الإيقاف المؤقت أو التخطي إلا بعد منح Agent الوصول إلى الإشعارات.</string>
+    <string name="media_access_body">لا يعرض أندرويد ما يُشغَّل ولا يتيح لوكيلك الإيقاف المؤقت أو التخطي إلا بعد منح Mew الوصول إلى الإشعارات.</string>
     <string name="media_none">لا يوجد تطبيق على هذا الهاتف يعلن قدرته على تشغيل الموسيقى أو الفيديو لوكيلك. ثبّت تطبيق موسيقى وسيظهر هنا.</string>
     <string name="media_music_app">تطبيق الموسيقى</string>
     <string name="media_video_app">تطبيق الفيديو</string>
@@ -432,7 +432,7 @@
     <string name="macro_and">%1$s و%2$s</string>
     <string name="macro_line_some">يمكن لـ%1$s العمل دون سؤال؛ والبقية تسأل</string>
     <string name="macro_eyebrow">الأتمتة</string>
-    <string name="macro_title">Agent يتحدث إلى تطبيقاتك</string>
+    <string name="macro_title">Mew يتحدث إلى تطبيقاتك</string>
     <string name="macro_intro">يستطيع وكيلك إرسال Android intent إلى أي تطبيق على هذا الهاتف: فتح مكان في Maps، أو المشاركة إلى تطبيق، أو تشغيل ماكرو MacroDroid أو Tasker. فتح الشاشة لا يسأل أبدًا. أي شيء آخر يسألك أولًا، إلا إذا كان مدرجًا هنا. لا يغادر شيء الهاتف.</string>
     <string name="macro_intents">Intents التطبيقات المسموح بها</string>
     <string name="macro_intents_hint">الإجراء | الحزمة، واحد في كل سطر</string>
@@ -693,7 +693,7 @@
     <string name="main_your_computer">حاسوبك</string>
     <string name="main_a_computer">حاسوب</string>
     <string name="main_whatever_agent_runs">أيًّا كان ما يعمل عليه وكيلك</string>
-    <string name="rt_clear_computer_older">مُسحت محادثة هذا الهاتف. أما محادثة حاسوبك فلم تُمسح: تطبيق Agent عليه أقدم من هذا، لذا لا يستطيع بدء محادثة جديدة. حدّث التطبيق على حاسوبك ثم امسح مرة أخرى.</string>
+    <string name="rt_clear_computer_older">مُسحت محادثة هذا الهاتف. أما محادثة حاسوبك فلم تُمسح: تطبيق Mew عليه أقدم من هذا، لذا لا يستطيع بدء محادثة جديدة. حدّث التطبيق على حاسوبك ثم امسح مرة أخرى.</string>
     <string name="rt_clear_unreachable">مُسحت محادثة هذا الهاتف. تعذّر الوصول إلى حاسوبك الآن، لذا لا تزال محادثته موجودة وستظهر مجددًا عند المزامنة. امسح مرة أخرى عند عودته.</string>
     <string name="assist_type_it_instead">اكتبه بدلًا من ذلك</string>
     <string name="assist_unlock_to_carry_on">افتح القفل للمتابعة</string>
@@ -744,6 +744,10 @@
     <string name="assist_over_lock_line">متوقف: افتح قفل الهاتف أولًا ثم استدعه. مفعّل: يُفتح على هاتف مقفل ويرسل طلبك عندما تفتح القفل.</string>
     <string name="assist_live_voice">الصوت المباشر في المساعد</string>
     <string name="assist_live_voice_line">متوقف: تقول طلبًا واحدًا فيجيب. مفعّل: تحدّث بشكل طبيعي، ويجيب %1$s بصوت عالٍ فورًا، ويمكنك مقاطعته، ويُسند المهام إلى وكيلك ويخبرك بالنتيجة.</string>
+    <string name="assist_talk">أبقِ المحادثة مستمرة</string>
+    <string name="assist_talk_line">مثل مكالمة: %1$s يقرأ كل إجابة بصوت عالٍ ويستمع من جديد، حتى تقول وداعًا أو تضغط على إنهاء. يستخدم صوتك السحابي، أو صوت الهاتف نفسه إذا لم يُعدّ أي صوت.</string>
+    <string name="assist_talk_end">إنهاء</string>
+    <string name="assist_talk_interrupt">مقاطعة</string>
     <string name="assist_never_reads_money">لا يقرأ تطبيقات المصارف أو الدفع أو المال أبدًا، مع تفعيل أي من المفتاحين. ما يقرؤه يُستخدم لذلك الطلب فقط.</string>
     <string name="live_bubble_desc">صوت مباشر. اضغط للفتح</string>
     <string name="live_end_session">إنهاء الجلسة المباشرة</string>

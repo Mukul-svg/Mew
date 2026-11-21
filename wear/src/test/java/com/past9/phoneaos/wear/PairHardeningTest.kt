@@ -166,6 +166,6 @@ class PairHardeningTest {
 
     @Test fun withNothingToWarnAboutTheUsualHintShows() {
         rule.setContent { AgentWatchTheme { PairFlowScreen(PairStage.SCAN, "agentwatch://pair?n=w&s=0123456789ABCDEFGHJK", "0123-4567", 0, "", MascotKind.Scout, onStart = {}) } }
-        rule.onNodeWithText("Phone: Agent, Watch, Scan").assertIsDisplayed()
+        rule.onNodeWithText("Phone: Mew, Watch, Scan").assertIsDisplayed()
     }
 }

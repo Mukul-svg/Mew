@@ -648,7 +648,8 @@ class ScreenSession(
     suspend fun close(keepApp: Boolean = false): String = mutex.withLock {
         if (displayId == 0 && !_state.value.open) return "The background screen was already closed."
         // An app that was only in their recents is closed with the display: putting it back would bring it up over what they are doing.
-        val back = LinkedHashSet<String>()
+        // A task borrowed from their own screen was moved here, so it goes back; keepApp also keeps a fresh app.
+        val back = LinkedHashSet(borrowed)
         if (keepApp) _state.value.pkg.takeIf { it.isNotBlank() }?.let { back += it }
         note("close", "Closed the background screen")
         val r = runCatching { backend.call(op("release").put("move_back", JSONArray(back.toList())).put("why", if (back.isEmpty()) "close" else "keep_app")) }.getOrNull()

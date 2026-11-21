@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">כל שירות תואם OpenAI</string>
     <string name="onb_key_anthropic_1">הקש פתח למטה. זה פותח את הקונסולה של Anthropic בדפדפן. הירשם או התחבר.</string>
     <string name="onb_key_anthropic_2">עבור לחיוב והוסף מעט קרדיט. התשלום לפי שימוש, וכמה דולרים מספיקים לזמן רב.</string>
-    <string name="onb_key_anthropic_3">עבור למפתחות API והקש צור מפתח. תן לו כל שם, כמו Agent.</string>
+    <string name="onb_key_anthropic_3">עבור למפתחות API והקש צור מפתח. תן לו כל שם, כמו Mew.</string>
     <string name="onb_key_anthropic_4">הקש העתק, חזור לאפליקציה הזו, הדבק את המפתח בתיבה למעלה והקש בדוק מפתח.</string>
     <string name="onb_key_openai_1">הקש פתח למטה. זה פותח את הפלטפורמה של OpenAI בדפדפן. הירשם או התחבר. (זה נפרד ממנוי ChatGPT.)</string>
     <string name="onb_key_openai_2">עבור לחיוב והוסף מעט קרדיט. כמה דולרים מספיקים לזמן רב.</string>
-    <string name="onb_key_openai_3">עבור למפתחות API והקש צור מפתח סודי חדש. תן לו כל שם, כמו Agent.</string>
+    <string name="onb_key_openai_3">עבור למפתחות API והקש צור מפתח סודי חדש. תן לו כל שם, כמו Mew.</string>
     <string name="onb_key_step_copy_once">הקש העתק (אפשר לראות את המפתח רק פעם אחת), חזור לכאן, הדבק אותו למעלה והקש בדוק מפתח.</string>
     <string name="onb_key_gemini_1">הקש פתח למטה. זה פותח את Google AI Studio. התחבר עם כל חשבון Google.</string>
     <string name="onb_key_gemini_2">הקש צור מפתח API. אם הוא מבקש לבחור פרויקט, בחר את זה שהוא מציע.</string>

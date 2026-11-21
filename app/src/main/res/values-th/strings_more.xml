@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">หรือใช้เอเจนต์บนคอมพิวเตอร์ของคุณ</string>
     <string name="onb_use_on_computer">ใช้เอเจนต์บนคอมพิวเตอร์ของฉัน</string>
-    <string name="onb_use_on_computer_sub">สแกนโค้ดในแอป Agent บนคอมพิวเตอร์หรือเซิร์ฟเวอร์ของคุณ ไม่ต้องมีคีย์บนโทรศัพท์เครื่องนี้</string>
+    <string name="onb_use_on_computer_sub">สแกนโค้ดในแอป Mew บนคอมพิวเตอร์หรือเซิร์ฟเวอร์ของคุณ ไม่ต้องมีคีย์บนโทรศัพท์เครื่องนี้</string>
     <string name="sub_paste_code_from">วางโค้ดจาก %1$s</string>
     <string name="sub_paste_code_body_from">ในเบราว์เซอร์: แตะอนุญาต จากนั้น %1$s จะแสดงโค้ด คัดลอกแล้วกลับมาที่นี่ แล้ววางด้านล่าง</string>
     <string name="sub_code_from">โค้ดจาก %1$s</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">เพิ่มหมายเลขทดสอบ</string>
     <string name="browser_test_number_body">หมายเลขของบัญชี WhatsApp ที่คุณใช้ทดสอบ ไม่มีอะไรถูกส่งไปที่ WhatsApp และการโหลดหน้าใหม่จะยกเลิกการตั้งค่านี้</string>
     <string name="link_cant_reach">เชื่อมต่อคอมพิวเตอร์ไม่ได้</string>
-    <string name="link_bad_answer">คำตอบจากคอมพิวเตอร์ไม่สมเหตุสมผล แอป Agent บนเครื่องนั้นอัปเดตแล้วหรือยัง</string>
+    <string name="link_bad_answer">คำตอบจากคอมพิวเตอร์ไม่สมเหตุสมผล แอป Mew บนเครื่องนั้นอัปเดตแล้วหรือยัง</string>
     <string name="link_tried_addresses">(ลองแล้ว %1$d ที่อยู่)</string>
     <string name="link_type_address">พิมพ์ที่อยู่ของคอมพิวเตอร์</string>
     <string name="link_no_certificate">คอมพิวเตอร์ไม่ได้ส่งใบรับรองมา</string>
     <string name="link_failed">เชื่อมโยงไม่สำเร็จ</string>
     <string name="link_your_computer">คอมพิวเตอร์ของคุณ</string>
-    <string name="link_not_a_code">QR โค้ดนั้นไม่ใช่โค้ดเชื่อมโยงของ Agent</string>
+    <string name="link_not_a_code">QR โค้ดนั้นไม่ใช่โค้ดเชื่อมโยงของ Mew</string>
     <string name="link_subtitle">เชื่อมโยงโทรศัพท์เครื่องนี้กับคอมพิวเตอร์หรือเซิร์ฟเวอร์</string>
     <string name="link_linked_to">เชื่อมโยงกับ %1$s แล้ว</string>
     <string name="link_runs_on">เอเจนต์ของคุณทำงานบน %1$s โทรศัพท์เครื่องนี้แสดงแชท ความทรงจำ งาน และกิจวัตรของมัน และไม่เก็บคีย์ AI ใด ๆ ให้มัน</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">เชื่อมโยงกับ %1$s</string>
     <string name="link_keep">คง %1$s ไว้</string>
     <string name="link_linking_to">กำลังเชื่อมโยงกับ %1$s...</string>
-    <string name="link_how_to">บนคอมพิวเตอร์ เปิดแอป Agent แล้วไปที่การตั้งค่า อุปกรณ์ เพิ่มอุปกรณ์</string>
+    <string name="link_how_to">บนคอมพิวเตอร์ เปิดแอป Mew แล้วไปที่การตั้งค่า อุปกรณ์ เพิ่มอุปกรณ์</string>
     <string name="link_how_type">พิมพ์ที่อยู่และโค้ดที่แสดง</string>
     <string name="link_how_scan">หันกล้องไปที่โค้ดที่แสดง</string>
     <string name="link_allow_camera">อนุญาตกล้อง</string>
@@ -272,7 +272,7 @@
     <string name="proj_new_chat_line">สิ่งที่พูดกันมาถึงตอนนี้จะถูกบันทึกลงความทรงจำ และหน้าต่างนี้จะว่างเปล่า ไม่มีอะไรบนคอมพิวเตอร์ของคุณถูกลบ</string>
     <string name="proj_new_chat">แชทใหม่</string>
     <string name="proj_not_linked_now">ตอนนี้ไม่ได้เชื่อมโยงกับคอมพิวเตอร์</string>
-    <string name="proj_computer_older">แอป Agent บนคอมพิวเตอร์ของคุณเก่ากว่าเวอร์ชันนี้ จึงเริ่มแชทใหม่ที่นั่นไม่ได้ อัปเดตบนคอมพิวเตอร์แล้วลองอีกครั้ง</string>
+    <string name="proj_computer_older">แอป Mew บนคอมพิวเตอร์ของคุณเก่ากว่าเวอร์ชันนี้ จึงเริ่มแชทใหม่ที่นั่นไม่ได้ อัปเดตบนคอมพิวเตอร์แล้วลองอีกครั้ง</string>
     <string name="proj_unreachable">ติดต่อคอมพิวเตอร์ของคุณไม่ได้ ลองอีกครั้งเมื่อกลับมา</string>
     <string name="proj_photo_you_sent">รูปที่คุณส่ง</string>
     <string name="proj_start_chat_failed">เริ่มแชทใน %1$s ไม่ได้: %2$s</string>
@@ -367,14 +367,14 @@
     <string name="wake_up_your_computer">คอมพิวเตอร์ของคุณ</string>
     <string name="wake_up_reaches">ติดต่อโทรศัพท์เครื่องนี้ได้</string>
     <string name="wake_up_link_first">เชื่อมโยงโทรศัพท์เครื่องนี้กับคอมพิวเตอร์ของคุณก่อน (การตั้งค่า &gt; อุปกรณ์ที่เชื่อมโยง)</string>
-    <string name="wake_up_lacks">%1$s ยังเรียกโทรศัพท์เครื่องนี้ไม่ได้: อัปเดตแอป Agent ที่นั่น</string>
+    <string name="wake_up_lacks">%1$s ยังเรียกโทรศัพท์เครื่องนี้ไม่ได้: อัปเดตแอป Mew ที่นั่น</string>
     <string name="wake_up_connected">เชื่อมต่อกับ %1$s แล้ว</string>
     <string name="wake_up_not_connected">ตอนนี้ยังไม่ได้เชื่อมต่อ มันยังพยายามต่อไป</string>
     <string name="wake_up_test">ทดสอบการปลุก</string>
     <string name="wake_up_test_body">เรียกโทรศัพท์เครื่องนี้จริง ๆ ตอบเพื่อหยุด</string>
     <string name="wake_up_test_sent">ส่งการทดสอบ %1$s แล้ว</string>
     <string name="wake_up_not_sent">ส่งไม่สำเร็จ</string>
-    <string name="wake_up_secure_folder">ติดตั้ง Agent ตามปกติ (ไม่ใช่ในโฟลเดอร์ปลอดภัย): โฟลเดอร์ปลอดภัยที่ล็อกอยู่ส่งเสียงเรียกไม่ได้</string>
+    <string name="wake_up_secure_folder">ติดตั้ง Mew ตามปกติ (ไม่ใช่ในโฟลเดอร์ปลอดภัย): โฟลเดอร์ปลอดภัยที่ล็อกอยู่ส่งเสียงเรียกไม่ได้</string>
     <string name="rec_recording_now">กำลังบันทึกอยู่</string>
     <string name="rec_cut_off">ถูกตัด</string>
     <string name="rec_partly">บางส่วนไม่ได้ถูกจดไว้</string>
@@ -403,7 +403,7 @@
     <string name="media_play">เล่นเพลงและวิดีโอ</string>
     <string name="media_intro">เมื่อคุณขอให้เอเจนต์เล่นอะไรสักอย่าง มันจะใช้แอปที่คุณเลือกที่นี่ หากตั้งเป็นอัตโนมัติ จะใช้แอปเริ่มต้นของโทรศัพท์ แล้วจึงแอปใดก็ได้ที่เล่นจากการค้นหาได้</string>
     <string name="media_access_off">การเข้าถึงการแจ้งเตือนปิดอยู่</string>
-    <string name="media_access_body">Android จะแสดงสิ่งที่กำลังเล่น และให้เอเจนต์หยุดชั่วคราวหรือข้ามได้ ก็ต่อเมื่อ Agent มีสิทธิ์เข้าถึงการแจ้งเตือน</string>
+    <string name="media_access_body">Android จะแสดงสิ่งที่กำลังเล่น และให้เอเจนต์หยุดชั่วคราวหรือข้ามได้ ก็ต่อเมื่อ Mew มีสิทธิ์เข้าถึงการแจ้งเตือน</string>
     <string name="media_none">ไม่มีแอปบนโทรศัพท์เครื่องนี้ที่แจ้งว่าเล่นเพลงหรือวิดีโอให้เอเจนต์ของคุณได้ ติดตั้งแอปเพลงแล้วมันจะปรากฏที่นี่</string>
     <string name="media_music_app">แอปเพลง</string>
     <string name="media_video_app">แอปวิดีโอ</string>
@@ -643,7 +643,7 @@
     <string name="main_your_computer">คอมพิวเตอร์ของคุณ</string>
     <string name="main_a_computer">คอมพิวเตอร์เครื่องหนึ่ง</string>
     <string name="main_whatever_agent_runs">ที่ที่เอเจนต์ของคุณทำงานอยู่</string>
-    <string name="rt_clear_computer_older">ล้างแชทของโทรศัพท์เครื่องนี้แล้ว แต่แชทของคอมพิวเตอร์ไม่ถูกล้าง: แอป Agent บนนั้นเก่ากว่าเวอร์ชันนี้ จึงเริ่มแชทใหม่ไม่ได้ อัปเดตแอปบนคอมพิวเตอร์ แล้วล้างอีกครั้ง</string>
+    <string name="rt_clear_computer_older">ล้างแชทของโทรศัพท์เครื่องนี้แล้ว แต่แชทของคอมพิวเตอร์ไม่ถูกล้าง: แอป Mew บนนั้นเก่ากว่าเวอร์ชันนี้ จึงเริ่มแชทใหม่ไม่ได้ อัปเดตแอปบนคอมพิวเตอร์ แล้วล้างอีกครั้ง</string>
     <string name="rt_clear_unreachable">ล้างแชทของโทรศัพท์เครื่องนี้แล้ว เมื่อครู่ติดต่อคอมพิวเตอร์ของคุณไม่ได้ แชทของมันจึงยังอยู่และจะแสดงอีกเมื่อซิงก์ ล้างอีกครั้งเมื่อมันกลับมา</string>
     <string name="assist_type_it_instead">พิมพ์แทน</string>
     <string name="assist_unlock_to_carry_on">ปลดล็อกเพื่อทำต่อ</string>
@@ -694,6 +694,10 @@
     <string name="assist_over_lock_line">ปิด: ปลดล็อกโทรศัพท์ก่อนแล้วค่อยเรียก เปิด: เปิดได้บนโทรศัพท์ที่ล็อกอยู่ และส่งคำขอของคุณเมื่อคุณปลดล็อก</string>
     <string name="assist_live_voice">เสียงสดในผู้ช่วย</string>
     <string name="assist_live_voice_line">ปิด: คุณพูดหนึ่งคำขอแล้วมันตอบ เปิด: คุยได้เป็นธรรมชาติ %1$s ตอบด้วยเสียงทันที คุณพูดแทรกได้ และมันส่งงานให้เอเจนต์ของคุณแล้วบอกผลลัพธ์</string>
+    <string name="assist_talk">สนทนาต่อ</string>
+    <string name="assist_talk_line">เหมือนการโทร: %1$s จะอ่านทุกคำตอบออกเสียงแล้วฟังอีกครั้ง จนกว่าคุณจะพูดลาหรือแตะจบ ใช้เสียงคลาวด์ของคุณ หรือเสียงของโทรศัพท์เองหากยังไม่ได้ตั้งค่า</string>
+    <string name="assist_talk_end">จบ</string>
+    <string name="assist_talk_interrupt">ขัดจังหวะ</string>
     <string name="assist_never_reads_money">มันไม่อ่านแอปธนาคาร การชำระเงิน หรือการเงินเด็ดขาด ไม่ว่าสวิตช์ใดเปิด สิ่งที่อ่านใช้กับคำขอนั้นเท่านั้น</string>
     <string name="live_bubble_desc">เสียงสด แตะเพื่อเปิด</string>
     <string name="live_end_session">จบเซสชันสด</string>

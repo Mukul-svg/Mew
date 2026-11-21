@@ -1,4 +1,4 @@
-# Agent on the wrist, v2 (mocks, 12 Nov 2026)
+# Mew on the wrist, v2 (mocks, 12 Nov 2026)
 
 Design only. Nothing installed on any watch or phone. Every image is rendered from real Compose code on branch `feat/wear-v2-design` (`wear/src/main/java/com/past9/phoneaos/wear/v2/`), so the mock is the build.
 
@@ -38,6 +38,6 @@ Per size folder (`round-227`, `round-192`, `square-192`, `rect-180x220`), same 3
 
 ## Notes
 - Names and the mascot come from settings; "Nova" and the demo texts are placeholders. App icons in the grid are stand-ins: the real grid shows each app's own icon.
-- Launcher mode is optional and never forced. Whether a watch lets the user pick another home app is still being checked by the engine helper; if a watch refuses, the Agent stays a normal app and the choose sheet explains it in plain words.
+- Launcher mode is optional and never forced. Whether a watch lets the user pick another home app is still being checked by the engine helper; if a watch refuses, the Mew stays a normal app and the choose sheet explains it in plain words.
 - Watch face build: Watch Face Format is XML, so the agent is baked as images per mood with Transform animation for the breath and blink, and shapes and gradients for the rest. The ambient look is a separate variant. The faces here are drawn in Compose to show the final picture, not as WFF yet.
 - Not shown as motion: the crown scroll feel, haptics, and the real mic and speaker.

@@ -19,7 +19,7 @@ import java.util.Locale
  * silently, so this reads one string in every language and fails on English.
  */
 @RunWith(RobolectricTestRunner::class)
-@Config(sdk = [28, 34])
+@Config(sdk = [34])
 class LocaleResolutionTest {
     private val ctx get() = ApplicationProvider.getApplicationContext<android.content.Context>()
     private fun text(tag: String, id: Int): String {

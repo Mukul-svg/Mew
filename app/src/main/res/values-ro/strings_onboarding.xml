@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">Orice compatibil cu OpenAI</string>
     <string name="onb_key_anthropic_1">Atinge Deschide mai jos. Se deschide consola Anthropic în browser. Creează un cont sau autentifică-te.</string>
     <string name="onb_key_anthropic_2">Mergi la Billing și adaugă puțin credit. Se plătește după consum, iar câțiva dolari țin mult timp.</string>
-    <string name="onb_key_anthropic_3">Mergi la API keys și atinge Create key. Numește-o oricum, de exemplu Agent.</string>
+    <string name="onb_key_anthropic_3">Mergi la API keys și atinge Create key. Numește-o oricum, de exemplu Mew.</string>
     <string name="onb_key_anthropic_4">Atinge Copiază, revino în această aplicație, lipește cheia în câmpul de mai sus și atinge Verifică cheia.</string>
     <string name="onb_key_openai_1">Atinge Deschide mai jos. Se deschide platforma OpenAI în browser. Creează un cont sau autentifică-te. (Este separat de un abonament ChatGPT.)</string>
     <string name="onb_key_openai_2">Mergi la Billing și adaugă puțin credit. Câțiva dolari țin mult timp.</string>
-    <string name="onb_key_openai_3">Mergi la API keys și atinge Create new secret key. Numește-o oricum, de exemplu Agent.</string>
+    <string name="onb_key_openai_3">Mergi la API keys și atinge Create new secret key. Numește-o oricum, de exemplu Mew.</string>
     <string name="onb_key_step_copy_once">Atinge Copiază (cheia o vezi o singură dată), revino aici, lipește-o mai sus și atinge Verifică cheia.</string>
     <string name="onb_key_gemini_1">Atinge Deschide mai jos. Se deschide Google AI Studio. Autentifică-te cu orice cont Google.</string>
     <string name="onb_key_gemini_2">Atinge Create API key. Dacă te roagă să alegi un proiect, alege-l pe cel sugerat.</string>

@@ -87,7 +87,7 @@ const val ASLEEP = "the phone is asleep, the background screen can't draw, so on
 /** How long to look at the media session for after a replay that stopped, before it is called stale. */
 const val SETTLE_MS = 2_500L
 
-const val NO_ACCESS_HELP = "Turn on notification access for Agent: Settings > Notifications > Device & app notifications > Notification access (the notifications_allow tool opens it)."
+const val NO_ACCESS_HELP = "Turn on notification access for Mew: Settings > Notifications > Device & app notifications > Notification access (the notifications_allow tool opens it)."
 
 /**
  * play_media: play music or a video on this phone, in the app the user already uses. The app is found at run time
@@ -142,7 +142,7 @@ class PlayMediaTool(private val deps: MediaDeps, private val waitMs: Long = 8_00
             s != null -> { runCatching { s.playFromSearch(query, MediaIntents.bundle(query, kind)) }.onFailure { log += "asking $label's session to play it failed (${it.message})" }; true }
             else -> deps.askViaBrowser(chosen.pkg, query, kind)
         }
-        if (!asked) { log += "$label has no media session, and no media browser service that let the Agent app in, to ask directly"; return null }
+        if (!asked) { log += "$label has no media session, and no media browser service that let the Mew app in, to ask directly"; return null }
         var o = MediaVerify.await(deps::sessions, chosen.pkg, query, waitMs, stale, sleep = { deps.sleep(it) })
         // A session that is in error, stopped or paused ON THE RIGHT TRACK: its transport Play is the cheapest way back before any screen route.
         if (o is MediaVerify.Outcome.NotPlaying && MediaVerify.retryable(o.s) && MediaVerify.matches(query, o.s)) {
@@ -265,7 +265,7 @@ class PlayMediaTool(private val deps: MediaDeps, private val waitMs: Long = 8_00
 
         // A file on the phone (music only: a video is not looked for in the music files).
         if (!video && !(chosen != null && !localOnly && inFront)) when (val r = deps.local(query, kind)) {
-            LocalResult.Denied -> log += "the phone's music files could not be read (Agent needs storage access: allow it in the phone's app settings for Agent)"
+            LocalResult.Denied -> log += "the phone's music files could not be read (Mew needs storage access: allow it in the phone's app settings for Mew)"
             is LocalResult.Found -> {
                 val t = LocalRank.best(r.tracks, query)
                 if (t == null) log += "no file on the phone matches \"$query\""
@@ -297,7 +297,7 @@ class PlayMediaTool(private val deps: MediaDeps, private val waitMs: Long = 8_00
 class MediaControlTool(private val deps: MediaDeps) : Tool {
     override val spec = ToolSpec("media_control",
         "Control what is playing on this phone, in any media app (music or video): play, pause, next, previous, seek to a position, or now_playing (title, artist, album, app, state, position and length). " +
-            "Acts on the app that is playing, else the one that played most recently; name an app with app to pick another. To START something use play_media. Needs notification access for Agent: the answer says so when it is missing.",
+            "Acts on the app that is playing, else the one that played most recently; name an app with app to pick another. To START something use play_media. Needs notification access for Mew: the answer says so when it is missing.",
         schema(listOf("action"),
             "action" to enumOf("What to do", "play", "pause", "next", "previous", "seek", "now_playing"),
             "position_ms" to int("For seek: where to go, in milliseconds from the start"),
@@ -385,12 +385,12 @@ class AndroidMediaDeps(private val context: Context) : MediaDeps {
 
     override fun sessions(): Sessions {
         if (context.packageName !in NotificationManagerCompat.getEnabledListenerPackages(context))
-            return Sessions.NoAccess("Agent does not have notification access, which Android requires to see media sessions.")
+            return Sessions.NoAccess("Mew does not have notification access, which Android requires to see media sessions.")
         return try {
             val msm = context.getSystemService(MediaSessionManager::class.java) ?: return Sessions.NoAccess("This phone has no media session service.")
             Sessions.Ok(msm.getActiveSessions(ComponentName(context, NotificationReader::class.java)).map { ControllerView(it, label(it.packageName)) })
         } catch (e: SecurityException) {
-            Sessions.NoAccess("Android refused Agent the media sessions.")
+            Sessions.NoAccess("Android refused Mew the media sessions.")
         }
     }
 

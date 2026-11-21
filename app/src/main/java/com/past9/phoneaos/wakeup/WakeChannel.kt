@@ -42,7 +42,7 @@ object WakeChannel {
         private set
     /** Which link the open channel belongs to (mesh, device, pass): a new link must not keep the old computer's channel. */
     @Volatile private var openKey: String = ""
-    /** The computer it reached has no wake-ups yet (an older Agent app): it cannot ring this phone. */
+    /** The computer it reached has no wake-ups yet (an older Mew app): it cannot ring this phone. */
     @Volatile var lacksWakeups: Boolean = false
         private set
 

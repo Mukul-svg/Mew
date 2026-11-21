@@ -1,7 +1,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">OF GEBRUIK DIE AGENT OP JOU REKENAAR</string>
     <string name="onb_use_on_computer">Gebruik die agent op my rekenaar</string>
-    <string name="onb_use_on_computer_sub">Skandeer die kode in die Agent-program op jou rekenaar of bediener. Geen sleutels op hierdie foon nie.</string>
+    <string name="onb_use_on_computer_sub">Skandeer die kode in die Mew-program op jou rekenaar of bediener. Geen sleutels op hierdie foon nie.</string>
     <string name="sub_paste_code_from">Plak die kode van %1$s</string>
     <string name="sub_paste_code_body_from">In die blaaier: tik op Magtig. %1$s wys dan \'n kode. Kopieer dit, kom terug hierheen en plak dit hieronder.</string>
     <string name="sub_code_from">Kode van %1$s</string>
@@ -17,7 +17,7 @@
     <string name="settings_automation_not_listening">Luister nog nie: maak die program een keer oop</string>
     <string name="settings_automation_on">Aan · %1$s</string>
     <string name="settings_automation_off">Af · tik om op te stel</string>
-    <string name="settings_macro_title">Agent praat met jou programme</string>
+    <string name="settings_macro_title">Mew praat met jou programme</string>
     <string name="settings_media_apps">Media-programme</string>
     <string name="settings_bg_screen">Agtergrondskerm</string>
     <string name="settings_bg_screen_sub">Ander programme, terwyl jy jou skerm hou</string>
@@ -72,13 +72,13 @@
     <string name="browser_add_test_number">Voeg toetsnommer by</string>
     <string name="browser_test_number_body">Die nommer van die WhatsApp-rekening waarmee jy toets. Niks word na WhatsApp gestuur nie, en om die bladsy te herlaai maak dit ongedaan.</string>
     <string name="link_cant_reach">Kon nie die rekenaar bereik nie.</string>
-    <string name="link_bad_answer">Die rekenaar se antwoord het nie sin gemaak nie. Is sy Agent-program op datum?</string>
+    <string name="link_bad_answer">Die rekenaar se antwoord het nie sin gemaak nie. Is sy Mew-program op datum?</string>
     <string name="link_tried_addresses">(het %1$d adresse probeer)</string>
     <string name="link_type_address">Tik die rekenaar se adres.</string>
     <string name="link_no_certificate">Die rekenaar het geen sertifikaat gestuur nie.</string>
     <string name="link_failed">Koppeling het misluk.</string>
     <string name="link_your_computer">jou rekenaar</string>
-    <string name="link_not_a_code">Daardie QR-kode is nie \'n Agent-koppelkode nie.</string>
+    <string name="link_not_a_code">Daardie QR-kode is nie \'n Mew-koppelkode nie.</string>
     <string name="link_subtitle">Koppel hierdie foon aan \'n rekenaar of bediener</string>
     <string name="link_linked_to">Gekoppel aan %1$s</string>
     <string name="link_runs_on">Jou agent loop op %1$s. Hierdie foon wys sy klets, geheue, take en roetines, en hou geen KI-sleutels daarvoor nie.</string>
@@ -90,7 +90,7 @@
     <string name="link_link_to">Koppel aan %1$s</string>
     <string name="link_keep">Behou %1$s</string>
     <string name="link_linking_to">Koppel tans aan %1$s...</string>
-    <string name="link_how_to">Maak op jou rekenaar die Agent-program oop en gaan na Instellings, Toestelle, Voeg \'n toestel by.</string>
+    <string name="link_how_to">Maak op jou rekenaar die Mew-program oop en gaan na Instellings, Toestelle, Voeg \'n toestel by.</string>
     <string name="link_how_type">Tik die adres en die kode wat dit wys.</string>
     <string name="link_how_scan">Rig hierdie kamera op die kode wat dit wys.</string>
     <string name="link_allow_camera">Laat die kamera toe</string>
@@ -272,7 +272,7 @@
     <string name="proj_new_chat_line">Wat tot dusver gesê is, word in geheue gestoor en hierdie venster begin leeg. Niks op jou rekenaar word uitgevee nie.</string>
     <string name="proj_new_chat">Nuwe klets</string>
     <string name="proj_not_linked_now">Tans nie aan \'n rekenaar gekoppel nie.</string>
-    <string name="proj_computer_older">Jou rekenaar se Agent-program is ouer as hierdie een, so dit kan nie daar \'n nuwe klets begin nie. Dateer dit op jou rekenaar op en probeer weer.</string>
+    <string name="proj_computer_older">Jou rekenaar se Mew-program is ouer as hierdie een, so dit kan nie daar \'n nuwe klets begin nie. Dateer dit op jou rekenaar op en probeer weer.</string>
     <string name="proj_unreachable">Jou rekenaar kon nie bereik word nie. Probeer weer wanneer dit terug is.</string>
     <string name="proj_photo_you_sent">Foto wat jy gestuur het</string>
     <string name="proj_start_chat_failed">Kon nie \'n klets in %1$s begin nie: %2$s.</string>
@@ -370,14 +370,14 @@
     <string name="wake_up_your_computer">jou rekenaar</string>
     <string name="wake_up_reaches">Bereik hierdie foon</string>
     <string name="wake_up_link_first">Koppel eers hierdie foon aan jou rekenaar (Instellings > Gekoppelde toestelle)</string>
-    <string name="wake_up_lacks">%1$s kan hierdie foon nog nie lui nie: dateer die Agent-program daar op</string>
+    <string name="wake_up_lacks">%1$s kan hierdie foon nog nie lui nie: dateer die Mew-program daar op</string>
     <string name="wake_up_connected">Gekoppel aan %1$s</string>
     <string name="wake_up_not_connected">Tans nie gekoppel nie. Dit bly probeer.</string>
     <string name="wake_up_test">Toets \'n wekker</string>
     <string name="wake_up_test_body">Lui hierdie foon regtig. Antwoord om dit te stop.</string>
     <string name="wake_up_test_sent">%1$s-toets gestuur.</string>
     <string name="wake_up_not_sent">Dit het nie gegaan nie.</string>
-    <string name="wake_up_secure_folder">Installeer Agent normaal (nie in Secure Folder nie): \'n gesluite Secure Folder kan nie lui nie.</string>
+    <string name="wake_up_secure_folder">Installeer Mew normaal (nie in Secure Folder nie): \'n gesluite Secure Folder kan nie lui nie.</string>
     <string name="rec_recording_now">Neem nou op</string>
     <string name="rec_cut_off">Afgesny</string>
     <string name="rec_partly">Sommige daarvan is nie neergeskryf nie</string>
@@ -406,7 +406,7 @@
     <string name="media_play">Speel musiek en video</string>
     <string name="media_intro">Wanneer jy jou agent vra om iets te speel, gebruik dit die program wat jy hier kies. Op outomaties gelaat, gebruik dit jou foon se verstek, dan enige program wat vanaf \'n soektog kan speel.</string>
     <string name="media_access_off">Kennisgewingtoegang is af</string>
-    <string name="media_access_body">Android wys net wat speel, en laat jou agent net onderbreek of oorslaan, sodra Agent kennisgewingtoegang het.</string>
+    <string name="media_access_body">Android wys net wat speel, en laat jou agent net onderbreek of oorslaan, sodra Mew kennisgewingtoegang het.</string>
     <string name="media_none">Geen program op hierdie foon sê dit kan musiek of video vir jou agent speel nie. Installeer \'n musiekprogram en dit verskyn hier.</string>
     <string name="media_music_app">Musiekprogram</string>
     <string name="media_video_app">Videoprogram</string>
@@ -415,7 +415,7 @@
     <string name="macro_and">%1$s en %2$s</string>
     <string name="macro_line_some">%1$s kan loop sonder om te vra; ander vra</string>
     <string name="macro_eyebrow">Outomatisering</string>
-    <string name="macro_title">Agent praat met jou programme</string>
+    <string name="macro_title">Mew praat met jou programme</string>
     <string name="macro_intro">Jou agent kan enige program op hierdie foon \'n Android-intent stuur: \'n plek in Maps oopmaak, in \'n program inbring, \'n MacroDroid- of Tasker-makro laat loop. \'n Skerm oopmaak vra nooit nie. Enigiets anders vra jou eers, tensy dit hier gelys is. Niks verlaat die foon nie.</string>
     <string name="macro_intents">Toegelate program-intents</string>
     <string name="macro_intents_hint">aksie | pakket, een per reël</string>
@@ -652,7 +652,7 @@
     <string name="main_your_computer">jou rekenaar</string>
     <string name="main_a_computer">\'n rekenaar</string>
     <string name="main_whatever_agent_runs">Waarop jou agent ook al loop</string>
-    <string name="rt_clear_computer_older">Hierdie foon se klets is skoongemaak. Jou rekenaar s\'n nie: die Agent-program daarop is ouer as hierdie een, so dit kan nie \'n nuwe klets begin nie. Dateer die program op jou rekenaar op en maak dan weer skoon.</string>
+    <string name="rt_clear_computer_older">Hierdie foon se klets is skoongemaak. Jou rekenaar s\'n nie: die Mew-program daarop is ouer as hierdie een, so dit kan nie \'n nuwe klets begin nie. Dateer die program op jou rekenaar op en maak dan weer skoon.</string>
     <string name="rt_clear_unreachable">Hierdie foon se klets is skoongemaak. Jou rekenaar kon nou net nie bereik word nie, so sy klets is nog daar en sal weer wys wanneer dit sinkroniseer. Maak weer skoon sodra dit terug is.</string>
     <string name="assist_type_it_instead">Tik dit eerder</string>
     <string name="assist_unlock_to_carry_on">Sluit oop om voort te gaan</string>
@@ -703,6 +703,10 @@
     <string name="assist_over_lock_line">Af: sluit die foon eers oop, en roep dit dan. Aan: dit maak op \'n gesluite foon oop en stuur jou versoek sodra jy oopsluit.</string>
     <string name="assist_live_voice">Regstreekse stem in die assistent</string>
     <string name="assist_live_voice_line">Af: jy sê een versoek en dit antwoord. Aan: praat natuurlik, %1$s antwoord dadelik hardop, jy kan inpraat, en dit gee take aan jou agent en vertel jou die resultaat.</string>
+    <string name="assist_talk">Hou die gesprek aan die gang</string>
+    <string name="assist_talk_line">Soos \'n oproep: %1$s lees elke antwoord hardop en luister weer, tot jy totsiens sê of Eindig tik. Gebruik jou wolkstem, of die foon se eie stem as geen een opgestel is nie.</string>
+    <string name="assist_talk_end">Eindig</string>
+    <string name="assist_talk_interrupt">Onderbreek</string>
     <string name="assist_never_reads_money">Dit lees nooit bank-, betaal- of geldprogramme nie, met enige skakelaar aan. Wat dit lees, word net vir daardie versoek gebruik.</string>
     <string name="live_bubble_desc">Regstreekse stem. Tik om oop te maak</string>
     <string name="live_end_session">Beëindig die regstreekse sessie</string>

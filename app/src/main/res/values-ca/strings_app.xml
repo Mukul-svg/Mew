@@ -70,7 +70,7 @@
     <string name="svc_weekly_every">Cada %1$s a les %2$02d:%3$02d</string>
     <string name="svc_weekly_weekday">dia laborable</string>
     <string name="svc_weekly_weekend">dia de cap de setmana</string>
-    <string name="svc_work_channel">Agent treballant</string>
+    <string name="svc_work_channel">Mew treballant</string>
     <plurals name="svc_work_helpers">
         <item quantity="one">Treballant: %1$d ajudant</item>
         <item quantity="many">Treballant: %1$d ajudants</item>

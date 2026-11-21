@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">YA DA AJANI BİLGİSAYARINDA KULLAN</string>
     <string name="onb_use_on_computer">Ajanı bilgisayarımda kullan</string>
-    <string name="onb_use_on_computer_sub">Bilgisayarında veya sunucunda Agent uygulamasındaki kodu tara. Bu telefonda anahtar yok.</string>
+    <string name="onb_use_on_computer_sub">Bilgisayarında veya sunucunda Mew uygulamasındaki kodu tara. Bu telefonda anahtar yok.</string>
     <string name="sub_paste_code_from">%1$s kodunu yapıştır</string>
     <string name="sub_paste_code_body_from">Tarayıcıda: Authorize\'a dokun. %1$s sonra bir kod gösterir. Kopyala, buraya dön ve aşağıya yapıştır.</string>
     <string name="sub_code_from">%1$s kodu</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">Test numarası ekle</string>
     <string name="browser_test_number_body">Test ettiğin WhatsApp hesabının numarası. WhatsApp\'a hiçbir şey gönderilmez ve sayfayı yeniden yüklemek bunu geri alır.</string>
     <string name="link_cant_reach">Bilgisayara ulaşılamadı.</string>
-    <string name="link_bad_answer">Bilgisayarın yanıtı anlamlı değildi. Üzerindeki Agent uygulaması güncel mi?</string>
+    <string name="link_bad_answer">Bilgisayarın yanıtı anlamlı değildi. Üzerindeki Mew uygulaması güncel mi?</string>
     <string name="link_tried_addresses">(%1$d adres denendi)</string>
     <string name="link_type_address">Bilgisayarın adresini yaz.</string>
     <string name="link_no_certificate">Bilgisayar sertifika göndermedi.</string>
     <string name="link_failed">Eşleştirme başarısız oldu.</string>
     <string name="link_your_computer">bilgisayarın</string>
-    <string name="link_not_a_code">Bu QR kodu bir Agent eşleştirme kodu değil.</string>
+    <string name="link_not_a_code">Bu QR kodu bir Mew eşleştirme kodu değil.</string>
     <string name="link_subtitle">Bu telefonu bir bilgisayar veya sunucuyla eşleştir</string>
     <string name="link_linked_to">%1$s ile eşleşti</string>
     <string name="link_runs_on">Ajanın %1$s üzerinde çalışıyor. Bu telefon onun sohbetini, belleğini, görevlerini ve rutinlerini gösterir ve onun için hiçbir yapay zekâ anahtarı tutmaz.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">%1$s ile eşleştir</string>
     <string name="link_keep">%1$s bağlantısını koru</string>
     <string name="link_linking_to">%1$s ile eşleştiriliyor...</string>
-    <string name="link_how_to">Bilgisayarında Agent uygulamasını aç ve Ayarlar, Cihazlar, Cihaz ekle\'ye git.</string>
+    <string name="link_how_to">Bilgisayarında Mew uygulamasını aç ve Ayarlar, Cihazlar, Cihaz ekle\'ye git.</string>
     <string name="link_how_type">Gösterdiği adresi ve kodu yaz.</string>
     <string name="link_how_scan">Bu kamerayı gösterdiği koda doğrult.</string>
     <string name="link_allow_camera">Kameraya izin ver</string>
@@ -273,7 +273,7 @@
     <string name="proj_new_chat_line">Şimdiye kadar söylenenler belleğe kaydedilir ve bu pencere boş başlar. Bilgisayarında hiçbir şey silinmez.</string>
     <string name="proj_new_chat">Yeni sohbet</string>
     <string name="proj_not_linked_now">Şu an bir bilgisayarla eşleşmemiş.</string>
-    <string name="proj_computer_older">Bilgisayarındaki Agent uygulaması bundan eski, bu yüzden orada yeni bir sohbet başlatamaz. Bilgisayarında güncelle, sonra tekrar dene.</string>
+    <string name="proj_computer_older">Bilgisayarındaki Mew uygulaması bundan eski, bu yüzden orada yeni bir sohbet başlatamaz. Bilgisayarında güncelle, sonra tekrar dene.</string>
     <string name="proj_unreachable">Bilgisayarına ulaşılamadı. Geri geldiğinde tekrar dene.</string>
     <string name="proj_photo_you_sent">Gönderdiğin fotoğraf</string>
     <string name="proj_start_chat_failed">«%1$s» içinde sohbet başlatılamadı: %2$s.</string>
@@ -371,14 +371,14 @@
     <string name="wake_up_your_computer">bilgisayarın</string>
     <string name="wake_up_reaches">Bu telefona ulaşır</string>
     <string name="wake_up_link_first">Önce bu telefonu bilgisayarınla eşleştir (Ayarlar > Bağlı cihazlar)</string>
-    <string name="wake_up_lacks">%1$s henüz bu telefonu çaldıramıyor: orada Agent uygulamasını güncelle</string>
+    <string name="wake_up_lacks">%1$s henüz bu telefonu çaldıramıyor: orada Mew uygulamasını güncelle</string>
     <string name="wake_up_connected">%1$s ile bağlı</string>
     <string name="wake_up_not_connected">Şu an bağlı değil. Denemeye devam ediyor.</string>
     <string name="wake_up_test">Bir uyandırmayı dene</string>
     <string name="wake_up_test_body">Bu telefonu gerçekten çaldırır. Durdurmak için yanıtla.</string>
     <string name="wake_up_test_sent">%1$s testi gönderildi.</string>
     <string name="wake_up_not_sent">Gitmedi.</string>
-    <string name="wake_up_secure_folder">Agent\'ı normal şekilde kur (Güvenli Klasör içine değil): kilitli bir Güvenli Klasör çalamaz.</string>
+    <string name="wake_up_secure_folder">Mew\'ı normal şekilde kur (Güvenli Klasör içine değil): kilitli bir Güvenli Klasör çalamaz.</string>
     <string name="rec_recording_now">Şu an kaydediyor</string>
     <string name="rec_cut_off">Kesildi</string>
     <string name="rec_partly">Bir kısmı yazılmadı</string>
@@ -407,7 +407,7 @@
     <string name="media_play">Müzik ve video oynat</string>
     <string name="media_intro">Ajanından bir şey oynatmasını istediğinde burada seçtiğin uygulamayı kullanır. Otomatikte telefonunun varsayılanını, sonra aramadan oynatabilen herhangi bir uygulamayı kullanır.</string>
     <string name="media_access_off">Bildirim erişimi kapalı</string>
-    <string name="media_access_body">Android, Agent\'ın bildirim erişimi olduktan sonra neyin çaldığını gösterir ve ajanının duraklatmasına veya atlamasına izin verir.</string>
+    <string name="media_access_body">Android, Mew\'ın bildirim erişimi olduktan sonra neyin çaldığını gösterir ve ajanının duraklatmasına veya atlamasına izin verir.</string>
     <string name="media_none">Bu telefondaki hiçbir uygulama ajanın için müzik veya video oynatabildiğini söylemiyor. Bir müzik uygulaması kur, burada görünür.</string>
     <string name="media_music_app">Müzik uygulaması</string>
     <string name="media_video_app">Video uygulaması</string>
@@ -653,7 +653,7 @@
     <string name="main_your_computer">bilgisayarın</string>
     <string name="main_a_computer">bir bilgisayar</string>
     <string name="main_whatever_agent_runs">Ajanının üzerinde çalıştığı her şey</string>
-    <string name="rt_clear_computer_older">Bu telefonun sohbeti temizlendi. Bilgisayarının sohbeti temizlenmedi: üzerindeki Agent uygulaması bundan eski, bu yüzden yeni bir sohbet başlatamaz. Uygulamayı bilgisayarında güncelle, sonra tekrar temizle.</string>
+    <string name="rt_clear_computer_older">Bu telefonun sohbeti temizlendi. Bilgisayarının sohbeti temizlenmedi: üzerindeki Mew uygulaması bundan eski, bu yüzden yeni bir sohbet başlatamaz. Uygulamayı bilgisayarında güncelle, sonra tekrar temizle.</string>
     <string name="rt_clear_unreachable">Bu telefonun sohbeti temizlendi. Bilgisayarına şu an ulaşılamadı, bu yüzden onun sohbeti duruyor ve eşitlendiğinde tekrar görünecek. Geri geldiğinde yeniden temizle.</string>
     <string name="assist_type_it_instead">Bunun yerine yaz</string>
     <string name="assist_unlock_to_carry_on">Devam etmek için kilidi aç</string>
@@ -704,6 +704,10 @@
     <string name="assist_over_lock_line">Kapalı: önce telefonun kilidini aç, sonra çağır. Açık: kilitli bir telefonda açılır ve kilidi açtığında isteğini gönderir.</string>
     <string name="assist_live_voice">Asistanda canlı ses</string>
     <string name="assist_live_voice_line">Kapalı: tek bir istek söylersin ve yanıtlar. Açık: doğal konuş, %1$s hemen sesli yanıtlar, sözünü kesebilirsin, işleri ajanına verir ve sonucu sana söyler.</string>
+    <string name="assist_talk">Sohbeti sürdür</string>
+    <string name="assist_talk_line">Bir arama gibi: %1$s her yanıtı sesli okur ve yeniden dinler; siz hoşça kal diyene veya Bitir\'e dokunana kadar. Bulut sesinizi kullanır, hiçbiri ayarlı değilse telefonun kendi sesini.</string>
+    <string name="assist_talk_end">Bitir</string>
+    <string name="assist_talk_interrupt">Kes</string>
     <string name="assist_never_reads_money">İki anahtar da açıkken bile bankacılık, ödeme veya para uygulamalarını asla okumaz. Okuduğu şey yalnızca o istek için kullanılır.</string>
     <string name="live_bubble_desc">Canlı ses. Açmak için dokun</string>
     <string name="live_end_session">Canlı oturumu bitir</string>

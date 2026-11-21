@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">OR USE THE AGENT ON YOUR COMPUTER</string>
     <string name="onb_use_on_computer">Use the agent on my computer</string>
-    <string name="onb_use_on_computer_sub">Scan the code in the Agent app on your computer or server. No keys on this phone.</string>
+    <string name="onb_use_on_computer_sub">Scan the code in the Mew app on your computer or server. No keys on this phone.</string>
     <string name="sub_paste_code_from">Paste the code from %1$s</string>
     <string name="sub_paste_code_body_from">In the browser: tap Authorize. %1$s then shows a code. Copy it, come back here, and paste it below.</string>
     <string name="sub_code_from">Code from %1$s</string>
@@ -18,7 +18,7 @@
     <string name="settings_automation_not_listening">Not listening yet: open the app once</string>
     <string name="settings_automation_on">On · %1$s</string>
     <string name="settings_automation_off">Off · tap to set it up</string>
-    <string name="settings_macro_title">Agent talks to your apps</string>
+    <string name="settings_macro_title">Mew talks to your apps</string>
     <string name="settings_media_apps">Media apps</string>
     <string name="settings_bg_screen">Background screen</string>
     <string name="settings_bg_screen_sub">Other apps, while you keep your screen</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">Add test number</string>
     <string name="browser_test_number_body">The number of the WhatsApp account you test with. Nothing is sent to WhatsApp, and reloading the page undoes it.</string>
     <string name="link_cant_reach">Couldn\'t reach the computer.</string>
-    <string name="link_bad_answer">The computer\'s answer didn\'t make sense. Is its Agent app up to date?</string>
+    <string name="link_bad_answer">The computer\'s answer didn\'t make sense. Is its Mew app up to date?</string>
     <string name="link_tried_addresses">(tried %1$d addresses)</string>
     <string name="link_type_address">Type the computer\'s address.</string>
     <string name="link_no_certificate">The computer sent no certificate.</string>
     <string name="link_failed">Linking failed.</string>
     <string name="link_your_computer">your computer</string>
-    <string name="link_not_a_code">That QR code isn\'t an Agent link code.</string>
+    <string name="link_not_a_code">That QR code isn\'t an Mew link code.</string>
     <string name="link_subtitle">Link this phone to a computer or server</string>
     <string name="link_linked_to">Linked to %1$s</string>
     <string name="link_runs_on">Your agent runs on %1$s. This phone shows its chat, memory, tasks and routines, and holds no AI keys for it.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">Link to %1$s</string>
     <string name="link_keep">Keep %1$s</string>
     <string name="link_linking_to">Linking to %1$s...</string>
-    <string name="link_how_to">On your computer, open the Agent app and go to Settings, Devices, Add a device.</string>
+    <string name="link_how_to">On your computer, open the Mew app and go to Settings, Devices, Add a device.</string>
     <string name="link_how_type">Type the address and the code it shows.</string>
     <string name="link_how_scan">Point this camera at the code it shows.</string>
     <string name="link_allow_camera">Allow the camera</string>
@@ -273,7 +273,7 @@
     <string name="proj_new_chat_line">What was said so far is saved to memory and this window starts empty. Nothing on your computer is deleted.</string>
     <string name="proj_new_chat">New chat</string>
     <string name="proj_not_linked_now">Not linked to a computer right now.</string>
-    <string name="proj_computer_older">Your computer\'s Agent app is older than this one, so it cannot start a new chat there. Update it on your computer, then try again.</string>
+    <string name="proj_computer_older">Your computer\'s Mew app is older than this one, so it cannot start a new chat there. Update it on your computer, then try again.</string>
     <string name="proj_unreachable">Your computer could not be reached. Try again when it is back.</string>
     <string name="proj_photo_you_sent">Photo you sent</string>
     <string name="proj_start_chat_failed">Couldn\'t start a chat in %1$s: %2$s.</string>
@@ -371,14 +371,14 @@
     <string name="wake_up_your_computer">your computer</string>
     <string name="wake_up_reaches">Reaches this phone</string>
     <string name="wake_up_link_first">Link this phone to your computer first (Settings > Linked devices)</string>
-    <string name="wake_up_lacks">%1$s can\'t ring this phone yet: update the Agent app there</string>
+    <string name="wake_up_lacks">%1$s can\'t ring this phone yet: update the Mew app there</string>
     <string name="wake_up_connected">Connected to %1$s</string>
     <string name="wake_up_not_connected">Not connected right now. It keeps trying.</string>
     <string name="wake_up_test">Test a wake-up</string>
     <string name="wake_up_test_body">Rings this phone for real. Answer it to stop it.</string>
     <string name="wake_up_test_sent">%1$s test sent.</string>
     <string name="wake_up_not_sent">It did not go.</string>
-    <string name="wake_up_secure_folder">Install Agent normally (not inside Secure Folder): a locked Secure Folder cannot ring.</string>
+    <string name="wake_up_secure_folder">Install Mew normally (not inside Secure Folder): a locked Secure Folder cannot ring.</string>
     <string name="rec_recording_now">Recording now</string>
     <string name="rec_cut_off">Cut off</string>
     <string name="rec_partly">Some of it was not written down</string>
@@ -407,7 +407,7 @@
     <string name="media_play">Play music and video</string>
     <string name="media_intro">When you ask your agent to play something, it uses the app you pick here. Left on automatic, it uses your phone\'s default, then any app that can play from a search.</string>
     <string name="media_access_off">Notification access is off</string>
-    <string name="media_access_body">Android only shows what is playing, and lets your agent pause or skip, once Agent has notification access.</string>
+    <string name="media_access_body">Android only shows what is playing, and lets your agent pause or skip, once Mew has notification access.</string>
     <string name="media_none">No app on this phone says it can play music or video for your agent. Install a music app and it shows up here.</string>
     <string name="media_music_app">Music app</string>
     <string name="media_video_app">Video app</string>
@@ -416,7 +416,7 @@
     <string name="macro_and">%1$s and %2$s</string>
     <string name="macro_line_some">%1$s can run without asking; others ask</string>
     <string name="macro_eyebrow">Automation</string>
-    <string name="macro_title">Agent talks to your apps</string>
+    <string name="macro_title">Mew talks to your apps</string>
     <string name="macro_intro">Your agent can send any app on this phone an Android intent: open a place in Maps, share into an app, run a MacroDroid or Tasker macro. Opening a screen never asks. Anything else asks you first, unless it is listed here. Nothing leaves the phone.</string>
     <string name="macro_intents">Allowed app intents</string>
     <string name="macro_intents_hint">action | package, one per line</string>
@@ -653,7 +653,7 @@
     <string name="main_your_computer">your computer</string>
     <string name="main_a_computer">a computer</string>
     <string name="main_whatever_agent_runs">Whatever your agent runs on</string>
-    <string name="rt_clear_computer_older">This phone\'s chat is cleared. Your computer\'s chat is not: the Agent app on it is older than this one, so it cannot start a new chat. Update the app on your computer, then clear again.</string>
+    <string name="rt_clear_computer_older">This phone\'s chat is cleared. Your computer\'s chat is not: the Mew app on it is older than this one, so it cannot start a new chat. Update the app on your computer, then clear again.</string>
     <string name="rt_clear_unreachable">This phone\'s chat is cleared. Your computer could not be reached just now, so its chat is still there and will show again when it syncs. Clear again once it is back.</string>
     <string name="assist_type_it_instead">Type it instead</string>
     <string name="assist_unlock_to_carry_on">Unlock to carry on</string>
@@ -704,6 +704,10 @@
     <string name="assist_over_lock_line">Off: unlock the phone first, then call it. On: it opens on a locked phone and sends your request once you unlock.</string>
     <string name="assist_live_voice">Live voice in the assistant</string>
     <string name="assist_live_voice_line">Off: you speak one request and it answers. On: talk naturally, %1$s answers aloud at once, you can talk over it, and it hands jobs to your agent and tells you the result.</string>
+    <string name="assist_talk">Keep the conversation going</string>
+    <string name="assist_talk_line">Like a call: %1$s reads each answer aloud and listens again, until you say goodbye or tap End. Uses your cloud voice, or the phone\'s own voice when none is set up.</string>
+    <string name="assist_talk_end">End</string>
+    <string name="assist_talk_interrupt">Interrupt</string>
     <string name="assist_never_reads_money">It never reads banking, payment or money apps, with either switch on. What it reads is used for that request only.</string>
     <string name="live_bubble_desc">Live voice. Tap to open</string>
     <string name="live_end_session">End the live session</string>

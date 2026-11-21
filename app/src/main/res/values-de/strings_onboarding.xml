@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="onb_back">Zurück</string>
-    <string name="onb_hello_bubble">Hallo! Ich bin dein Agent.</string>
+    <string name="onb_hello_bubble">Hallo! Ich bin dein Mew.</string>
     <string name="onb_hello_eyebrow">LERN DEINEN AGENT KENNEN</string>
     <string name="onb_hello_title">Er erledigt den Kleinkram.\nDu bekommst deinen Tag zurück.</string>
     <string name="onb_hello_body">Er surft, plant, merkt sich Dinge und hakt nach, direkt hier auf deinem Handy. Auch während du in anderen Apps bist.</string>
@@ -13,7 +13,7 @@
     <string name="onb_continue">Weiter</string>
     <string name="onb_name_hint">Dein Name</string>
     <string name="onb_name_agent_q">UND WIE SOLLST DU MICH NENNEN?</string>
-    <string name="onb_your_agent">Dein Agent</string>
+    <string name="onb_your_agent">Dein Mew</string>
     <string name="onb_name_optional">Optional. Gib mir einen Namen, wenn du magst.</string>
     <string name="onb_nice_to_meet_named">Schön, dich kennenzulernen, %1$s. Ich bin %2$s.</string>
     <string name="onb_nice_to_meet">Schön, dich kennenzulernen, %1$s.</string>
@@ -29,8 +29,8 @@
     <string name="onb_selected">%1$s, gewählt</string>
     <string name="onb_your_sidekick">DEIN BEGLEITER</string>
     <string name="onb_power_eyebrow">Antrieb</string>
-    <string name="onb_power_title">Womit soll dein Agent laufen?</string>
-    <string name="onb_power_line">Dein Agent denkt mit einer KI, für die du schon zahlst. Du kannst jederzeit wechseln.</string>
+    <string name="onb_power_title">Womit soll dein Mew laufen?</string>
+    <string name="onb_power_line">Dein Mew denkt mit einer KI, für die du schon zahlst. Du kannst jederzeit wechseln.</string>
     <string name="onb_power_sub_header">EIN BESTEHENDES ABO NUTZEN</string>
     <string name="onb_power_key_header">ODER EINEN API-SCHLÜSSEL MITBRINGEN</string>
     <string name="onb_have_key">Ich habe einen API-Schlüssel</string>
@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">Beliebig OpenAI-kompatibel</string>
     <string name="onb_key_anthropic_1">Tippe unten auf Öffnen. Die Anthropic-Konsole öffnet sich im Browser. Registriere dich oder melde dich an.</string>
     <string name="onb_key_anthropic_2">Gehe zu Billing und füge etwas Guthaben hinzu. Es wird nach Verbrauch abgerechnet, und ein paar Dollar reichen lange.</string>
-    <string name="onb_key_anthropic_3">Gehe zu API keys und tippe auf Create key. Nenne ihn beliebig, z. B. Agent.</string>
+    <string name="onb_key_anthropic_3">Gehe zu API keys und tippe auf Create key. Nenne ihn beliebig, z. B. Mew.</string>
     <string name="onb_key_anthropic_4">Tippe auf Kopieren, komm zurück in diese App, füge den Schlüssel oben ins Feld ein und tippe auf Schlüssel prüfen.</string>
     <string name="onb_key_openai_1">Tippe unten auf Öffnen. Die OpenAI-Plattform öffnet sich im Browser. Registriere dich oder melde dich an. (Das ist getrennt von einem ChatGPT-Abo.)</string>
     <string name="onb_key_openai_2">Gehe zu Billing und füge etwas Guthaben hinzu. Ein paar Dollar reichen lange.</string>
-    <string name="onb_key_openai_3">Gehe zu API keys und tippe auf Create new secret key. Nenne ihn beliebig, z. B. Agent.</string>
+    <string name="onb_key_openai_3">Gehe zu API keys und tippe auf Create new secret key. Nenne ihn beliebig, z. B. Mew.</string>
     <string name="onb_key_step_copy_once">Tippe auf Kopieren (den Schlüssel siehst du nur einmal), komm hierher zurück, füge ihn oben ein und tippe auf Schlüssel prüfen.</string>
     <string name="onb_key_gemini_1">Tippe unten auf Öffnen. Google AI Studio öffnet sich. Melde dich mit einem beliebigen Google-Konto an.</string>
     <string name="onb_key_gemini_2">Tippe auf Create API key. Wenn du ein Projekt wählen sollst, nimm das vorgeschlagene.</string>
@@ -94,7 +94,7 @@
     <string name="onb_continue_anyway">Trotzdem weiter</string>
     <string name="onb_what_happens">SO LÄUFT ES AB</string>
     <string name="onb_sub_step_1">Wir entpacken eine kleine Laufzeit in die App. Sonst ist nichts herunterzuladen.</string>
-    <string name="onb_sub_step_2">Der Agent von %1$s wird darin installiert.</string>
+    <string name="onb_sub_step_2">Der Mew von %1$s wird darin installiert.</string>
     <string name="onb_sub_step_3">Du meldest dich mit deinem %1$s-Konto an.</string>
     <string name="onb_sub_step_4">Wechselst du später zu einem API-Schlüssel, löschen wir die Laufzeit, um Platz freizugeben.</string>
     <string name="onb_sub_unavailable">Dieser Build enthält das %1$s-Laufzeitpaket noch nicht. Nutze vorerst einen API-Schlüssel; Gedächtnis, Aufgaben und Routinen bleiben beim Wechsel erhalten.</string>
@@ -120,7 +120,7 @@
     <string name="sub_setup_stopped">Einrichtung gestoppt.</string>
     <string name="sub_try_again">Erneut versuchen</string>
     <string name="sub_signed_in">Du bist bei %1$s angemeldet</string>
-    <string name="sub_runs_on_plan">Dein Agent läuft jetzt mit deinem %1$s-Tarif.</string>
+    <string name="sub_runs_on_plan">Dein Mew läuft jetzt mit deinem %1$s-Tarif.</string>
     <string name="sub_model">MODELL</string>
     <string name="sub_default">Standard</string>
     <string name="sub_change">Ändern</string>
@@ -150,7 +150,7 @@
     <string name="sub_details">Details</string>
     <string name="settings_title">Einstellungen</string>
     <string name="settings_you">Du</string>
-    <string name="settings_you_sub">Woher dein Agent dich kennt</string>
+    <string name="settings_you_sub">Woher dein Mew dich kennt</string>
     <string name="settings_your_name">Dein Name</string>
     <string name="settings_agent_name">Name deines Agents</string>
     <string name="settings_not_set">Nicht festgelegt</string>
@@ -161,7 +161,7 @@
     <string name="settings_language_phone">Sprache des Handys</string>
     <string name="settings_language_machine">Maschinell übersetzt, hilf mit, es auf GitHub zu verbessern</string>
     <string name="settings_power">Antrieb</string>
-    <string name="settings_power_sub">Womit dein Agent denkt</string>
+    <string name="settings_power_sub">Womit dein Mew denkt</string>
     <string name="settings_api_key">API-Schlüssel</string>
     <string name="settings_key_saved">Schlüssel gespeichert</string>
     <string name="settings_no_key">noch kein Schlüssel</string>
@@ -172,7 +172,7 @@
     <string name="settings_model">Modell</string>
     <string name="settings_tap_to_switch">%1$s · tippen zum Wechseln</string>
     <string name="settings_helpers">Helfer</string>
-    <string name="settings_same_as_agent">Wie dein Agent</string>
+    <string name="settings_same_as_agent">Wie dein Mew</string>
     <string name="settings_change_key">Schlüssel ändern</string>
     <string name="settings_change_key_sub">Neuen Schlüssel einfügen oder Anbieter wechseln</string>
     <string name="settings_runtime">%1$s-Laufzeit</string>
@@ -219,7 +219,7 @@
     <string name="rel_done">Fertig</string>
     <string name="rel_fix_it">Beheben</string>
     <string name="rel_close">Schließen</string>
-    <string name="rel_intro">Damit dein Agent sich von selbst melden kann: deine Erinnerungen klingeln lassen, dich vor einem Termin warnen und nachher zurückbringen, was vereinbart wurde.</string>
+    <string name="rel_intro">Damit dein Mew sich von selbst melden kann: deine Erinnerungen klingeln lassen, dich vor einem Termin warnen und nachher zurückbringen, was vereinbart wurde.</string>
     <string name="rel_notifications">Benachrichtigungen</string>
     <string name="rel_on">An</string>
     <string name="rel_notifications_off">Aus: Nichts erreicht dich</string>
@@ -232,7 +232,7 @@
     <string name="rel_calendar_on">Ein Hinweis vor Terminen, Aufgaben danach</string>
     <string name="rel_calendar_off">Optional: tippen für Terminhinweise und Aufgaben</string>
     <string name="rel_quiet_hours">Ruhezeiten</string>
-    <string name="rel_quiet_body">Dein Agent meldet sich in diesen Stunden nicht von selbst. Erinnerungen, die du für eine Uhrzeit gesetzt hast, klingeln trotzdem.</string>
+    <string name="rel_quiet_body">Dein Mew meldet sich in diesen Stunden nicht von selbst. Erinnerungen, die du für eine Uhrzeit gesetzt hast, klingeln trotzdem.</string>
     <string name="rel_off">Aus</string>
     <string name="rel_quiet_range">%1$s bis %2$s</string>
     <string name="rel_samsung_title">Auf einem Samsung außerdem:</string>
@@ -246,7 +246,7 @@
     <string name="data_sub_codex_line">OpenAIs Codex läuft in der App mit deinem ChatGPT-Tarif.</string>
     <string name="data_sub_codex_needs_pack">OpenAIs Codex läuft in der App mit deinem Tarif. Braucht das Laufzeitpaket.</string>
     <string name="data_sub_opencode_plan">Zen oder Go</string>
-    <string name="data_sub_opencode_line">Füge deinen OpenCode-Schlüssel ein, und dein Agent läuft mit deinem OpenCode-Tarif.</string>
+    <string name="data_sub_opencode_line">Füge deinen OpenCode-Schlüssel ein, und dein Mew läuft mit deinem OpenCode-Tarif.</string>
     <string name="data_sub_antigravity_plan">Kostenlos oder Google AI</string>
     <string name="data_sub_antigravity_line">Antigravity CLI läuft in der App mit deinem Google-Konto.</string>
 </resources>

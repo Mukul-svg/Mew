@@ -111,7 +111,7 @@ object Wakes {
         return apps.any { a -> transcriptApps.any { it in a } }
     }
 
-    private class Agent(private val context: Context) : WakeAgent {
+    private class Mew(private val context: Context) : WakeAgent {
         override suspend fun run(title: String, prompt: String): String {
             ExactAlarms.holdProcess(context)
             val g = App.graph(context)
@@ -129,7 +129,7 @@ object Wakes {
         }
     }
 
-    fun engine(context: Context) = WakeEngine(Store(context), Probes(context), Agent(context), Notifier(context), Alarm(context)) { quiet(context) }
+    fun engine(context: Context) = WakeEngine(Store(context), Probes(context), Mew(context), Notifier(context), Alarm(context)) { quiet(context) }
 
     /** The alarm went off. */
     suspend fun fire(context: Context) = lock.withLock {

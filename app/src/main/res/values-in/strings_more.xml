@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">ATAU PAKAI AGEN DI KOMPUTER ANDA</string>
     <string name="onb_use_on_computer">Pakai agen di komputer saya</string>
-    <string name="onb_use_on_computer_sub">Pindai kode di aplikasi Agent di komputer atau server Anda. Tidak ada kunci di ponsel ini.</string>
+    <string name="onb_use_on_computer_sub">Pindai kode di aplikasi Mew di komputer atau server Anda. Tidak ada kunci di ponsel ini.</string>
     <string name="sub_paste_code_from">Tempel kode dari %1$s</string>
     <string name="sub_paste_code_body_from">Di browser: ketuk Authorize. %1$s lalu menampilkan kode. Salin, kembali ke sini, dan tempel di bawah.</string>
     <string name="sub_code_from">Kode dari %1$s</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">Tambah nomor uji</string>
     <string name="browser_test_number_body">Nomor akun WhatsApp yang Anda pakai untuk menguji. Tidak ada yang dikirim ke WhatsApp, dan memuat ulang halaman akan membatalkannya.</string>
     <string name="link_cant_reach">Tidak dapat menjangkau komputer.</string>
-    <string name="link_bad_answer">Jawaban komputer tidak dapat dipahami. Apakah aplikasi Agent-nya sudah diperbarui?</string>
+    <string name="link_bad_answer">Jawaban komputer tidak dapat dipahami. Apakah aplikasi Mew-nya sudah diperbarui?</string>
     <string name="link_tried_addresses">(mencoba %1$d alamat)</string>
     <string name="link_type_address">Ketik alamat komputer.</string>
     <string name="link_no_certificate">Komputer tidak mengirim sertifikat.</string>
     <string name="link_failed">Penautan gagal.</string>
     <string name="link_your_computer">komputer Anda</string>
-    <string name="link_not_a_code">Kode QR itu bukan kode tautan Agent.</string>
+    <string name="link_not_a_code">Kode QR itu bukan kode tautan Mew.</string>
     <string name="link_subtitle">Tautkan ponsel ini ke komputer atau server</string>
     <string name="link_linked_to">Tertaut ke %1$s</string>
     <string name="link_runs_on">Agen Anda berjalan di %1$s. Ponsel ini menampilkan obrolan, memori, tugas, dan rutinitasnya, dan tidak menyimpan kunci AI untuknya.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">Tautkan ke %1$s</string>
     <string name="link_keep">Pertahankan %1$s</string>
     <string name="link_linking_to">Menautkan ke %1$s...</string>
-    <string name="link_how_to">Di komputer Anda, buka aplikasi Agent lalu masuk ke Pengaturan, Perangkat, Tambah perangkat.</string>
+    <string name="link_how_to">Di komputer Anda, buka aplikasi Mew lalu masuk ke Pengaturan, Perangkat, Tambah perangkat.</string>
     <string name="link_how_type">Ketik alamat dan kode yang ditampilkan.</string>
     <string name="link_how_scan">Arahkan kamera ini ke kode yang ditampilkan.</string>
     <string name="link_allow_camera">Izinkan kamera</string>
@@ -272,7 +272,7 @@
     <string name="proj_new_chat_line">Isi percakapan sejauh ini disimpan ke memori dan jendela ini dimulai kosong. Tidak ada yang dihapus dari komputer Anda.</string>
     <string name="proj_new_chat">Obrolan baru</string>
     <string name="proj_not_linked_now">Saat ini tidak tertaut ke komputer.</string>
-    <string name="proj_computer_older">Aplikasi Agent di komputer Anda lebih lama dari ini, jadi tidak bisa memulai obrolan baru di sana. Perbarui di komputer Anda, lalu coba lagi.</string>
+    <string name="proj_computer_older">Aplikasi Mew di komputer Anda lebih lama dari ini, jadi tidak bisa memulai obrolan baru di sana. Perbarui di komputer Anda, lalu coba lagi.</string>
     <string name="proj_unreachable">Komputer Anda tidak dapat dijangkau. Coba lagi saat sudah aktif kembali.</string>
     <string name="proj_photo_you_sent">Foto yang Anda kirim</string>
     <string name="proj_start_chat_failed">Tidak dapat memulai obrolan di %1$s: %2$s.</string>
@@ -367,14 +367,14 @@
     <string name="wake_up_your_computer">komputer Anda</string>
     <string name="wake_up_reaches">Menjangkau ponsel ini</string>
     <string name="wake_up_link_first">Tautkan ponsel ini ke komputer Anda dulu (Pengaturan &gt; Perangkat tertaut)</string>
-    <string name="wake_up_lacks">%1$s belum bisa membunyikan ponsel ini: perbarui aplikasi Agent di sana</string>
+    <string name="wake_up_lacks">%1$s belum bisa membunyikan ponsel ini: perbarui aplikasi Mew di sana</string>
     <string name="wake_up_connected">Terhubung ke %1$s</string>
     <string name="wake_up_not_connected">Saat ini tidak terhubung. Terus mencoba.</string>
     <string name="wake_up_test">Uji alarm bangun</string>
     <string name="wake_up_test_body">Benar-benar membunyikan ponsel ini. Jawab untuk menghentikannya.</string>
     <string name="wake_up_test_sent">Uji coba %1$s terkirim.</string>
     <string name="wake_up_not_sent">Tidak terkirim.</string>
-    <string name="wake_up_secure_folder">Pasang Agent secara normal (bukan di dalam Secure Folder): Secure Folder yang terkunci tidak bisa berdering.</string>
+    <string name="wake_up_secure_folder">Pasang Mew secara normal (bukan di dalam Secure Folder): Secure Folder yang terkunci tidak bisa berdering.</string>
     <string name="rec_recording_now">Sedang merekam</string>
     <string name="rec_cut_off">Terputus</string>
     <string name="rec_partly">Sebagian tidak tertulis</string>
@@ -403,7 +403,7 @@
     <string name="media_play">Putar musik dan video</string>
     <string name="media_intro">Saat Anda meminta agen memutar sesuatu, agen memakai aplikasi yang Anda pilih di sini. Jika otomatis, agen memakai default ponsel Anda, lalu aplikasi apa pun yang bisa memutar dari pencarian.</string>
     <string name="media_access_off">Akses notifikasi mati</string>
-    <string name="media_access_body">Android hanya menampilkan yang sedang diputar, dan membiarkan agen Anda menjeda atau melewati, setelah Agent memiliki akses notifikasi.</string>
+    <string name="media_access_body">Android hanya menampilkan yang sedang diputar, dan membiarkan agen Anda menjeda atau melewati, setelah Mew memiliki akses notifikasi.</string>
     <string name="media_none">Tidak ada aplikasi di ponsel ini yang menyatakan bisa memutar musik atau video untuk agen Anda. Pasang aplikasi musik dan akan muncul di sini.</string>
     <string name="media_music_app">Aplikasi musik</string>
     <string name="media_video_app">Aplikasi video</string>
@@ -643,7 +643,7 @@
     <string name="main_your_computer">komputer Anda</string>
     <string name="main_a_computer">sebuah komputer</string>
     <string name="main_whatever_agent_runs">Di mana pun agen Anda berjalan</string>
-    <string name="rt_clear_computer_older">Obrolan di ponsel ini sudah dibersihkan. Obrolan di komputer Anda belum: aplikasi Agent di sana lebih lama dari ini, jadi tidak bisa memulai obrolan baru. Perbarui aplikasi di komputer Anda, lalu bersihkan lagi.</string>
+    <string name="rt_clear_computer_older">Obrolan di ponsel ini sudah dibersihkan. Obrolan di komputer Anda belum: aplikasi Mew di sana lebih lama dari ini, jadi tidak bisa memulai obrolan baru. Perbarui aplikasi di komputer Anda, lalu bersihkan lagi.</string>
     <string name="rt_clear_unreachable">Obrolan di ponsel ini sudah dibersihkan. Komputer Anda tidak dapat dijangkau saat ini, jadi obrolannya masih ada dan akan muncul lagi saat sinkron. Bersihkan lagi setelah komputer aktif kembali.</string>
     <string name="assist_type_it_instead">Ketik saja</string>
     <string name="assist_unlock_to_carry_on">Buka kunci untuk melanjutkan</string>
@@ -694,6 +694,10 @@
     <string name="assist_over_lock_line">Mati: buka kunci ponsel dulu, baru panggil. Aktif: terbuka di ponsel terkunci dan mengirim permintaan Anda setelah Anda membuka kunci.</string>
     <string name="assist_live_voice">Suara langsung di asisten</string>
     <string name="assist_live_voice_line">Mati: Anda mengucapkan satu permintaan dan ia menjawab. Aktif: bicara secara alami, %1$s menjawab dengan suara langsung, Anda bisa memotongnya, dan ia menyerahkan pekerjaan ke agen Anda lalu memberi tahu hasilnya.</string>
+    <string name="assist_talk">Lanjutkan percakapan</string>
+    <string name="assist_talk_line">Seperti panggilan: %1$s membacakan setiap jawaban dengan suara lalu mendengar lagi, sampai Anda mengucapkan selamat tinggal atau mengetuk Selesai. Memakai suara cloud Anda, atau suara ponsel sendiri jika belum ada yang diatur.</string>
+    <string name="assist_talk_end">Selesai</string>
+    <string name="assist_talk_interrupt">Sela</string>
     <string name="assist_never_reads_money">Tidak pernah membaca aplikasi perbankan, pembayaran, atau keuangan, meskipun kedua sakelar aktif. Yang dibaca hanya dipakai untuk permintaan itu.</string>
     <string name="live_bubble_desc">Suara langsung. Ketuk untuk membuka</string>
     <string name="live_end_session">Akhiri sesi langsung</string>

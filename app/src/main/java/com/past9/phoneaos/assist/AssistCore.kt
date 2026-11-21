@@ -18,6 +18,8 @@ enum class AssistPhase {
     /** The agent is doing something; [AssistView.label] says what. */
     ACTING,
     ANSWERING,
+    /** The answer is being read aloud (conversation mode); the microphone is closed while it speaks. */
+    SPEAKING,
     /** Something waits for his yes before it goes out: the app's own approval, inside the sheet. */
     APPROVAL,
     /** The agent asked him something with buttons. */
@@ -48,7 +50,7 @@ data class AssistView(
  * agent as it is.
  */
 class AssistCore(private val micAvailable: Boolean = true) {
-    private enum class Mode { LISTENING, TYPING, LOCKED, SENDING, SENT, ROUTED }
+    private enum class Mode { LISTENING, TYPING, LOCKED, SENDING, SENT, SPEAKING, ROUTED }
 
     private var mode = if (micAvailable) Mode.LISTENING else Mode.TYPING
     private var heard = ""
@@ -58,6 +60,11 @@ class AssistCore(private val micAvailable: Boolean = true) {
     private var sawWorking = false
     private var typed = false
     private var routedNote = ""
+    /** Conversation mode: the answer being read aloud, and its chat row. */
+    private var spokenAnswer = ""
+    private var spokenId: Long? = null
+    /** Conversation mode: listening rounds in a row that heard nothing. Two end the conversation. */
+    private var quietRounds = 0
 
     /** True while the microphone should be open. */
     val listening get() = mode == Mode.LISTENING
@@ -85,7 +92,7 @@ class AssistCore(private val micAvailable: Boolean = true) {
         if (mode != Mode.LISTENING && mode != Mode.TYPING) return null
         val clean = text.trim()
         if (clean.isEmpty()) { if (mode == Mode.LISTENING) { mode = Mode.TYPING; problem = "I didn't catch anything. Tap the mic to try again, or type." }; return null }
-        heard = clean; typed = byKeyboard; problem = ""
+        heard = clean; typed = byKeyboard; problem = ""; quietRounds = 0
         if (locked) { mode = Mode.LOCKED; return null }
         mode = Mode.SENDING
         return clean
@@ -114,6 +121,29 @@ class AssistCore(private val micAvailable: Boolean = true) {
      */
     fun routed(note: String) { if (mode == Mode.SENDING) { mode = Mode.ROUTED; routedNote = note } }
 
+    // ---- conversation mode (the sheet reads the answer aloud and listens again, like a call) ----
+
+    /** True while the answer is being read aloud. */
+    val speaking get() = mode == Mode.SPEAKING
+
+    /** The answer arrived and is about to be read aloud. The microphone stays closed until it is done. */
+    fun startSpeaking(answer: String, id: Long?) {
+        if (mode != Mode.SENT) return
+        spokenAnswer = answer; spokenId = id; mode = Mode.SPEAKING
+    }
+
+    /** The voice finished (or there was nothing to read): listen again. */
+    fun finishedSpeaking() { if (mode == Mode.SPEAKING || mode == Mode.SENT || mode == Mode.ROUTED) listen() }
+
+    /**
+     * A listening round heard nothing. Returns true when the conversation should end: two quiet rounds in a row.
+     * Any words sent reset the count ([finished]); a deliberate mic tap resets it too ([resetQuiet]).
+     */
+    fun quiet(): Boolean { quietRounds++; return quietRounds >= 2 }
+
+    /** He tapped the mic on purpose: the quiet count starts over. */
+    fun resetQuiet() { quietRounds = 0 }
+
     fun sendFailed(reason: String) { if (mode == Mode.SENDING) { mode = Mode.TYPING; typed = true; problem = reason } }
 
     /** What to draw, from the chat rows and whether the agent is at work. */
@@ -123,6 +153,7 @@ class AssistCore(private val micAvailable: Boolean = true) {
         Mode.LOCKED -> AssistView(AssistPhase.LOCKED, heard)
         Mode.SENDING -> AssistView(AssistPhase.SENDING, heard)
         Mode.SENT -> turn(rows.filter { it.id > afterId }, working)
+        Mode.SPEAKING -> AssistView(AssistPhase.SPEAKING, heard, answer = spokenAnswer, answerId = spokenId)
         Mode.ROUTED -> AssistView(AssistPhase.ANSWERING, heard, answer = routedNote)
     }
 
@@ -152,6 +183,24 @@ class AssistCore(private val micAvailable: Boolean = true) {
 
     companion object {
         fun meta(item: ChatItem): JSONObject = runCatching { JSONObject(item.meta) }.getOrNull() ?: JSONObject()
+
+        /** Words that end a conversation instead of going to the agent. Whole phrases only, never a substring. */
+        private val EXIT = setOf(
+            "bye", "bye bye", "goodbye", "good bye", "end call", "end the call", "hang up",
+            "that's all", "that is all", "stop listening", "end conversation", "end the conversation",
+        )
+        private val EXIT_LEAD = Regex("^(?:ok(?:ay)?|thanks|thank you|alright)[, ]+", RegexOption.IGNORE_CASE)
+
+        /**
+         * Whether what he said ends the conversation ("goodbye", "ok bye", "that's all", "bye Mew").
+         * [name] is the agent's name, allowed at the end. A lead like "ok" or "thanks" is allowed in front.
+         */
+        fun isExit(words: String, name: String = ""): Boolean {
+            var w = words.lowercase().trim().trimEnd('.', '!', ',').trim()
+            w = EXIT_LEAD.replace(w, "")
+            if (name.isNotBlank()) w = w.removeSuffix(name.lowercase().trim()).trimEnd(',', ' ').trim()
+            return w in EXIT
+        }
 
         /** An approval or a question nobody answered yet. */
         fun waits(item: ChatItem): Boolean = (item.kind == "question" || item.kind == "approval") && meta(item).optString("answer").isEmpty()

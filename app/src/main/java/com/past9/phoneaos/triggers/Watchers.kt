@@ -35,7 +35,9 @@ object Watchers {
     data class Outcome(val ok: Boolean, val fire: Boolean, val message: String, val state: String, val raw: String, val json: JSONObject? = null)
 
     suspend fun execute(context: Context, script: String, state: String, extraEnv: Map<String, String> = emptyMap()): Outcome = withContext(Dispatchers.IO) {
-        val rt = SubscriptionRuntime(context, SubKind.CLAUDE)
+        // Watchers only need the bundled Node runtime, not a model or a CLI pack. OPENCODE is the
+        // supported product path and its env() leaves out the old CLI proxy setup.
+        val rt = SubscriptionRuntime(context, SubKind.OPENCODE)
         if (!rt.nodeAvailable) {
             runCatching { rt.ensureNode() }
             if (!rt.nodeAvailable) return@withContext Outcome(false, false, "", state, "The code runtime isn't downloaded yet (needs a connection).")

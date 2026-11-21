@@ -5,14 +5,14 @@
     <string name="machines_eyebrow">Ọrụ dị arọ</string>
     <string name="machines_your">Igwe gị</string>
     <string name="machines_add">Tinye igwe</string>
-    <string name="machines_empty">Jikọọ sava ma ọ bụ kọmputa ị nwere ike ịbanye na ya. Agent gị na-ezigara ya ọrụ ekwentị gị na-ekwesịghị ime: ịrụ webụsaịtị, ịhazi data, ihe odide ogologo.</string>
+    <string name="machines_empty">Jikọọ sava ma ọ bụ kọmputa ị nwere ike ịbanye na ya. Mew gị na-ezigara ya ọrụ ekwentị gị na-ekwesịghị ime: ịrụ webụsaịtị, ịhazi data, ihe odide ogologo.</string>
     <string name="machines_hint_vps">Sava ị bụ onye ị kwụ ụgwọ</string>
     <string name="machines_hint_vps_sub">VPS site n\'onye na-enye ọrụ ọ bụla</string>
     <string name="machines_hint_uni">Sava mahadum ma ọ bụ ọrụ</string>
     <string name="machines_hint_uni_sub">Site na sava ntinye ya ma ọ bụrụ na o nwere</string>
     <string name="machines_hint_own">Kọmputa gị</string>
     <string name="machines_hint_own_sub">Site na Tailscale ma ọ bụ netwọk ụlọ gị</string>
-    <string name="machines_privacy">Agent gị na-ahụ aha naanị. Adreesị, paswọdụ na igodo na-adị zoo ezo n\'ekwentị a.</string>
+    <string name="machines_privacy">Mew gị na-ahụ aha naanị. Adreesị, paswọdụ na igodo na-adị zoo ezo n\'ekwentị a.</string>
     <string name="machines_runs_without_asking">Na-arụ ọrụ na-ajụghị</string>
     <string name="machines_not_checked">Enyochabeghị</string>
     <string name="machines_online">Dị n\'ịntanetị</string>
@@ -48,13 +48,13 @@
     <string name="machines_through">Site na %1$s</string>
     <string name="machines_reach_it">Gbaso ya</string>
     <string name="machines_run_without_asking">Rụọ ọrụ na-ajụghị</string>
-    <string name="machines_trusted_on">Agent gị nwere ike ịgbanwe ihe ọ bụla ebe a n\'onwe ya.</string>
+    <string name="machines_trusted_on">Mew gị nwere ike ịgbanwe ihe ọ bụla ebe a n\'onwe ya.</string>
     <string name="machines_trusted_off">Mgbanwe na-eche ikwenye gị. Ilele anaghị ajụ.</string>
     <string name="machines_connected">Ejikọọla</string>
     <string name="machines_identity">Njirimara %1$s…</string>
     <string name="machines_couldnt_connect">Enweghị ike ijikọ</string>
     <string name="machines_remove_confirm">Wepụ %1$s?</string>
-    <string name="machines_remove_confirm_body">Agent gị na-efunahụ ohere, a na-ehichapụkwa paswọdụ ma ọ bụ igodo echekwara n\'ekwentị a.</string>
+    <string name="machines_remove_confirm_body">Mew gị na-efunahụ ohere, a na-ehichapụkwa paswọdụ ma ọ bụ igodo echekwara n\'ekwentị a.</string>
     <string name="machines_remove">Wepụ</string>
     <string name="machines_cancel">Kagbuo</string>
     <string name="machines_one_step">NTỊ NTỌALA OTU N\'IGWE ỌHA</string>
@@ -79,10 +79,10 @@
     <string name="conn_read_notifications">Gụọ ọkwa m</string>
     <string name="conn_read_notifications_sub">Họrọ app ndị agent gị nwere ike ịmụta site na ha</string>
     <string name="conn_files">Faịlụ dị n\'ekwentị a</string>
-    <string name="conn_files_on">Agent gị nwere ike ịchọta ma bulite faịlụ gị</string>
+    <string name="conn_files_on">Mew gị nwere ike ịchọta ma bulite faịlụ gị</string>
     <string name="conn_files_off">Kwe ka agent gị chọta faịlụ iji bulite ma ọ bụ zipu</string>
     <string name="conn_your_apps">App gị</string>
-    <string name="conn_your_apps_consumer">Pịa Jikọọ ma banye. Agent gị nwere ike iji ya ozugbo.</string>
+    <string name="conn_your_apps_consumer">Pịa Jikọọ ma banye. Mew gị nwere ike iji ya ozugbo.</string>
     <string name="conn_your_apps_key">Gmail, Calendar, Drive, Slack na ihe karịrị 250 ọzọ, site na Composio na igodo nke gị</string>
     <string name="conn_dupe_title">%1$s ejikọọla ugboro %2$d</string>
     <string name="conn_same_sign_in">Dị ka otu ntinye</string>
@@ -146,7 +146,7 @@
     <string name="profiles_account_rules">Iwu akaụntụ</string>
     <string name="profiles_done">Emechaala</string>
     <string name="profiles_disconnect">Kwụsị njikọ akaụntụ a</string>
-    <string name="profiles_rules_note">Agent gị na ndị enyemaka ya na-agbaso iwu ndị a ebe a, n\'agbanyeghị onye na-ajụ.</string>
+    <string name="profiles_rules_note">Mew gị na ndị enyemaka ya na-agbaso iwu ndị a ebe a, n\'agbanyeghị onye na-ajụ.</string>
     <string name="profiles_may_do">IHE O NWERE IKE ME</string>
     <string name="profiles_read">Gụọ</string>
     <string name="profiles_read_sub">Chọọ, meghe ma depụta ihe</string>
@@ -157,14 +157,14 @@
     <string name="profiles_just_connected">Ejikọọrọ ọhụrụ</string>
     <string name="profiles_not_now">Ọ bụghị ugbu a</string>
     <string name="profiles_which_part">Akụkụ ndụ gị ọ bụ maka?</string>
-    <string name="profiles_change_ask">Agent gị ọ nwere ike izipu, bipụta ma ọ bụ hichapụ ebe a na-ajụghị gị?</string>
+    <string name="profiles_change_ask">Mew gị ọ nwere ike izipu, bipụta ma ọ bụ hichapụ ebe a na-ajụghị gị?</string>
     <string name="profiles_off_limits">Ekweghị</string>
     <string name="profiles_sends_without_asking">Na-eziga na-ajụghị</string>
     <string name="profiles_never_sends">Anaghị eziga</string>
     <string name="profiles_asks_to_read">Na-ajụ ịgụ</string>
     <string name="profile_back">Laghachi</string>
     <string name="profile_change_look">Gbanwee agba na ọdịdị</string>
-    <string name="profile_your_agent">Agent gị</string>
+    <string name="profile_your_agent">Mew gị</string>
     <string name="profile_talk_to">Gwa %1$s okwu</string>
     <string name="profile_talk_to_your_agent">Gwa agent gị okwu</string>
     <plurals name="profile_stat_goals">
@@ -201,7 +201,7 @@
     <string name="profile_you">Gị</string>
     <string name="helpers_eyebrow">NDỊ ENYEMAKA</string>
     <string name="helpers_title">Ndị agent gị na-enye ọrụ</string>
-    <string name="helpers_body">Họrọ ruo modelu %1$d ma kaa ihe nke ọ bụla dị mma na ya. Agent gị na-eziga ọrụ ọ bụla n\'onye enyemaka kwesịrị ya ma na-ede nkọwa zuru ezu maka ndị nta. Nke mbụ ị họọrọ bụ nke ndabara.</string>
+    <string name="helpers_body">Họrọ ruo modelu %1$d ma kaa ihe nke ọ bụla dị mma na ya. Mew gị na-eziga ọrụ ọ bụla n\'onye enyemaka kwesịrị ya ma na-ede nkọwa zuru ezu maka ndị nta. Nke mbụ ị họọrọ bụ nke ndabara.</string>
     <string name="helpers_search">Chọọ modelu</string>
     <string name="helpers_no_models">Enweghị modelu laghachiri maka akaụntụ a.</string>
     <string name="helpers_use_agent_only">Jiri modelu agent gị naanị</string>
@@ -222,7 +222,7 @@
     <string name="models_sees_images">Na-ahụ foto</string>
     <string name="models_selected">Ahọpụtara</string>
     <string name="helpers_kept_eyebrow">AGENT GỊ NA-ECHEKWA</string>
-    <string name="helpers_kept_sub">Ndị enyemaka chọtara ụzọ, echekwara maka ọrụ yiri ya. Agent gị na-elekọta ha n\'onwe ya.</string>
+    <string name="helpers_kept_sub">Ndị enyemaka chọtara ụzọ, echekwara maka ọrụ yiri ya. Mew gị na-elekọta ha n\'onwe ya.</string>
     <plurals name="helpers_kept_jobs">
         <item quantity="other">Ọrụ: %1$d</item>
     </plurals>
@@ -232,7 +232,7 @@
     <string name="conn_learned_sub">Webụsaịtị agent gị na-amụta otu ugboro, ma jiri ha na-apịaghị</string>
     <string name="conn_learned_sheet_sub">Webụsaịtị agent gị maara</string>
     <string name="conn_learned_teach">Kụziere agent gị app a</string>
-    <string name="conn_learned_empty">Kpọọ aha webụsaịtị ma ọ bụ app ị na-eji mgbe niile. Agent gị na-emeghe ya, na-amụta otu o si arụ ọrụ, ma na-ede ngwaọrụ maka ya n\'onwe ya, ka mgbe ọzọ ọ kpọọ ngwaọrụ kama ịpị app niile.</string>
+    <string name="conn_learned_empty">Kpọọ aha webụsaịtị ma ọ bụ app ị na-eji mgbe niile. Mew gị na-emeghe ya, na-amụta otu o si arụ ọrụ, ma na-ede ngwaọrụ maka ya n\'onwe ya, ka mgbe ọzọ ọ kpọọ ngwaọrụ kama ịpị app niile.</string>
     <string name="conn_learned_teach_new">Kụziere nke ọhụrụ</string>
     <string name="conn_learned_teach_hint">WhatsApp Web, ọnụ ụzọ ụlọ akwụkwọ gị, ụlọ akụ gị</string>
     <plurals name="conn_learned_tools">
@@ -267,7 +267,7 @@
     <string name="camera_none">Enweghị igwefoto n\'ngwaọrụ a.</string>
     <string name="camera_none_sub">I nwere ike ịgbakwunye foto site na ihe ngosi gị.</string>
     <string name="camera_off">Igwefoto emechiri.</string>
-    <string name="camera_off_sub">Agent gị na-ahụ foto naanị mgbe ị ṅomere ya ma pịa Zipu.</string>
+    <string name="camera_off_sub">Mew gị na-ahụ foto naanị mgbe ị ṅomere ya ma pịa Zipu.</string>
     <string name="camera_open_settings">Meghe ntọala</string>
     <string name="camera_close_camera">Mechie igwefoto</string>
     <string name="camera_try_again">Nwaa ọzọ</string>

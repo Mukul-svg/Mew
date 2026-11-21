@@ -22,7 +22,7 @@
     <string name="chat_switch_model">മോഡൽ മാറ്റുക</string>
     <string name="chat_stop_reading_aloud">ഉറക്കെ വായിക്കുന്നത് നിർത്തുക</string>
     <string name="chat_call_your_agent">നിങ്ങളുടെ ഏജന്റിനെ വിളിക്കുക</string>
-    <string name="chat_watch_browser">Agent-ന്റെ ബ്രൗസർ കാണുക</string>
+    <string name="chat_watch_browser">Mew-ന്റെ ബ്രൗസർ കാണുക</string>
     <string name="chat_hi_name">ഹായ് %1$s.</string>
     <string name="chat_hi_there">ഹായ്.</string>
     <string name="chat_welcome_line">നിങ്ങളുടെ ജോലികളിൽ ഞാൻ എന്ത് ഏറ്റെടുക്കണം?</string>

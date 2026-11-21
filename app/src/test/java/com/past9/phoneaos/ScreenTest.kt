@@ -167,7 +167,17 @@ private class ScreenFakePhone(private val blocklist: ScreenBlocklist) : ScreenBa
                 when (f.res) { "title" -> { title = t; focus = "title" }; "body" -> { body = t; focus = "body" }; "pin" -> { pin = t; focus = "pin" } }
                 reply(ok().put("text", if (f.res == "pin") "(hidden)" else t))
             }
-            "act" -> { if (q.optString("action") == "enter") { pressed += "enter"; screen = "sent" }; reply(ok()) }
+            "act" -> {
+                // A learned step uses act(click) on the element itself; the real helper presses it there.
+                // Without this, replay silently reports success and the next step finds the old screen.
+                val all = ScreenTree.parse(JSONObject().put("nodes", JSONArray(nodes())))
+                val node = q.optInt("node", -1)
+                when (q.optString("action")) {
+                    "enter" -> { pressed += "enter"; screen = "sent" }
+                    "click", "long" -> all.firstOrNull { it.id == node }?.let { press(it.label) }
+                }
+                reply(ok())
+            }
             "key" -> { pressed += "key" + q.optInt("code"); if (q.optInt("code") == 4 && screen == "edit") screen = "list"; reply(ok()) }
             "swipe" -> { pressed += "swipe"; reply(ok()) }
             "touch" -> {
@@ -336,7 +346,7 @@ class ScreenSessionTest {
     @Test fun withoutTheHelperTheToolsSayWhyAndShowTheSetupAndNothingCrashes() = runBlocking {
         phone.alive = false
         for (tool in screenTools { session }.filter { it.spec.name != "screen_close" && it.spec.name != "screen_wait" }) {
-            val args = JSONObject().put("app", "Notes").put("text", "x").put("element", 1).put("key", "back").put("direction", "up")
+            val args = JSONObject().put("app", "Notes").put("package", "Notes").put("text", "x").put("element", 1).put("key", "back").put("direction", "up")
             val out = tool.run(args, ScreenCtx())
             assertTrue("${tool.spec.name}: $out", out.contains("not ready on this phone") || out.contains("Nothing is open on the background screen"))
         }
@@ -401,7 +411,7 @@ class ScreenSessionTest {
         ctx.answer = "Decline"
         assertTrue(session.tap(ctx, null, "Send", null, null, false).contains("declined"))
         ctx.answer = null
-        assertTrue(session.tap(ctx, null, "Send", null, null, false).contains("nobody answered"))
+        assertTrue(session.tap(ctx, null, "Send", null, null, false).contains("no answer came in time"))
         assertFalse("Send" in phone.pressed)
         assertTrue(ctx.asked.last(), ctx.asked.last().startsWith("APPROVAL|Press \"Send\" in Notes|") && ctx.asked.last().contains("Hello there"))
         ctx.answer = "Approve"
@@ -451,13 +461,15 @@ class ScreenSessionTest {
         assertTrue(session.tap(ctx, null, "Save", null, null, false).contains("\"Bread\""))
     }
 
-    @Test fun anAppOpenOnThePersonsOwnScreenIsOnlyMovedWithTheirYesAndGoesBack() = runBlocking {
+    @Test fun aVisibleAppIsLeftAloneAndABackgroundTaskIsBorrowedAndGoesBack() = runBlocking {
+        // What the person has in front is theirs and is never moved.
         phone.tasks[NOTES] = 0 to true
         val no = ScreenCtx(answer = "Decline")
-        assertTrue(session.open(no, "Notes").contains("keep Notes on their own screen")); assertEquals(0, phone.did("move"))
+        assertTrue(session.open(no, "Notes").contains("open on the user's own screen")); assertEquals(0, phone.did("move"))
+        // A task of the app that is not in front may be borrowed for the background screen.
+        phone.tasks[NOTES] = 0 to false
         val yes = ScreenCtx()
         assertTrue(session.open(yes, "Notes").contains("is open on the background screen"))
-        assertTrue(yes.asked.single().startsWith("APPROVAL|Move Notes to the background screen|"))
         val out = session.close()
         assertTrue(out, out.contains("went back to the user's own screen")); assertEquals(0 to true, phone.tasks[NOTES])
     }
@@ -529,7 +541,7 @@ class ScreenSessionTest {
         // It is a learned app like the web ones: same store, same list, its own tool name.
         val app = store.apps.value.single()
         assertTrue(app.isScreen); assertEquals(NOTES, app.pkg); assertEquals(listOf("title"), app.tools.single().required)
-        assertEquals(listOf("open", "tap", "type", "tap"), (0 until app.tools[0].steps.length()).map { app.tools[0].steps.getJSONObject(it).optString("do") })
+        assertEquals(listOf("open", "tap", "type", "tap", "check"), (0 until app.tools[0].steps.length()).map { app.tools[0].steps.getJSONObject(it).optString("do") })
         val tool = learnedTools(store, l.runner).first { it.spec.name == "app_notes_add_note" }
         // Run it with another title, on a screen whose rows have moved: every element is found again by what it is.
         phone.listFirst = true
@@ -578,23 +590,24 @@ class ScreenSessionTest {
         ScreenLearned.save(session, store, apps, config().blocklist, ctx, "add_note", "Adds a note.", mapOf("title" to "Milk"), false)
         session.close()
         fun tool() = store.apps.value.single().tools.single()
-        assertEquals(5, tool().steps.length())
+        assertEquals(6, tool().steps.length())
         // 1. The tip no longer comes: the step is skipped, the run works, and the tool drops the dead step.
         phone.tip = false
         val first = WebAppRun.call(store.apps.value.single(), tool(), JSONObject().put("title", "Tea"), ctx, l.runner)
         assertTrue(first, first.startsWith("Done the learned way") && first.contains("no longer needed"))
-        assertEquals(4, tool().steps.length()); assertEquals(1, tool().versions.length())
+        assertEquals(5, tool().steps.length()); assertEquals(1, tool().versions.length())
         session.close()
         // 2. The app changes: Save is gone. The run stops there, says so, and leaves the app open for the agent.
         val broken = JSONArray(tool().steps.toString()).apply { getJSONObject(3).getJSONObject("sel").put("res", "gone").put("text", "Keep it"); for (i in 0 until length()) getJSONObject(i).put("ms", 400) }
         store.replaceTool("notes", "add_note", tool().copy(steps = broken))
         val stopped = WebAppRun.call(store.apps.value.single(), tool(), JSONObject().put("title", "Jam"), ctx, l.runner)
-        assertTrue(stopped, stopped.contains("Step 4 of 4") && stopped.contains("not on the screen") && stopped.contains("screen_skill_save") && stopped.contains("\"Save\""))
+        assertTrue(stopped, stopped.contains("Step 4 of 5") && stopped.contains("not on the screen") && stopped.contains("screen_skill_save") && stopped.contains("\"Save\""))
         assertTrue(session.state.value.open); assertEquals(1, tool().stats.optInt("fails"))
         // 3. The agent finishes by hand from there and saves again: that is the repair, and the old steps are kept.
         session.tap(ctx, null, "Save", null, null, false)
         assertTrue(ScreenLearned.save(session, store, apps, config().blocklist, ctx, "add_note", "Adds a note.", mapOf("title" to "Jam"), false).contains("can be undone"))
-        assertEquals("save", tool().steps.getJSONObject(tool().steps.length() - 1).getJSONObject("sel").optString("res"))
+        val lastPress = (0 until tool().steps.length()).map { tool().steps.getJSONObject(it) }.last { it.has("sel") }
+        assertEquals("save", lastPress.getJSONObject("sel").optString("res"))
         val versions = tool().versions.length(); assertTrue(versions >= 2)
         session.close()
         // 4. Undo brings the steps before the repair back.

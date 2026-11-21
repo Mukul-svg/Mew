@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">SAU FOLOSEȘTE AGENTUL PE COMPUTERUL TĂU</string>
     <string name="onb_use_on_computer">Folosește agentul pe computerul meu</string>
-    <string name="onb_use_on_computer_sub">Scanează codul din aplicația Agent de pe computerul sau serverul tău. Fără chei pe acest telefon.</string>
+    <string name="onb_use_on_computer_sub">Scanează codul din aplicația Mew de pe computerul sau serverul tău. Fără chei pe acest telefon.</string>
     <string name="sub_paste_code_from">Lipește codul de la %1$s</string>
     <string name="sub_paste_code_body_from">În browser: atinge Authorize. %1$s arată apoi un cod. Copiază-l, revino aici și lipește-l mai jos.</string>
     <string name="sub_code_from">Cod de la %1$s</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">Adaugă număr de test</string>
     <string name="browser_test_number_body">Numărul contului WhatsApp cu care testezi. Nu se trimite nimic către WhatsApp, iar reîncărcarea paginii anulează modificarea.</string>
     <string name="link_cant_reach">Nu s-a putut contacta computerul.</string>
-    <string name="link_bad_answer">Răspunsul computerului nu avea sens. Este aplicația Agent de pe el actualizată?</string>
+    <string name="link_bad_answer">Răspunsul computerului nu avea sens. Este aplicația Mew de pe el actualizată?</string>
     <string name="link_tried_addresses">(s-au încercat %1$d adrese)</string>
     <string name="link_type_address">Introdu adresa computerului.</string>
     <string name="link_no_certificate">Computerul nu a trimis niciun certificat.</string>
     <string name="link_failed">Conectarea a eșuat.</string>
     <string name="link_your_computer">computerul tău</string>
-    <string name="link_not_a_code">Acest cod QR nu este un cod de conectare Agent.</string>
+    <string name="link_not_a_code">Acest cod QR nu este un cod de conectare Mew.</string>
     <string name="link_subtitle">Conectează acest telefon la un computer sau un server</string>
     <string name="link_linked_to">Conectat la %1$s</string>
     <string name="link_runs_on">Agentul tău rulează pe %1$s. Acest telefon îi arată chatul, memoria, sarcinile și rutinele și nu păstrează chei AI pentru el.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">Conectează la %1$s</string>
     <string name="link_keep">Păstrează %1$s</string>
     <string name="link_linking_to">Se conectează la %1$s...</string>
-    <string name="link_how_to">Pe computer, deschide aplicația Agent și mergi la Setări, Dispozitive, Adaugă un dispozitiv.</string>
+    <string name="link_how_to">Pe computer, deschide aplicația Mew și mergi la Setări, Dispozitive, Adaugă un dispozitiv.</string>
     <string name="link_how_type">Introdu adresa și codul pe care îl arată.</string>
     <string name="link_how_scan">Îndreaptă această cameră spre codul afișat.</string>
     <string name="link_allow_camera">Permite camera</string>
@@ -274,7 +274,7 @@
     <string name="proj_new_chat_line">Ce s-a spus până acum se salvează în memorie, iar această fereastră rămâne goală. Nimic de pe computerul tău nu se șterge.</string>
     <string name="proj_new_chat">Chat nou</string>
     <string name="proj_not_linked_now">Nu este conectat acum la un computer.</string>
-    <string name="proj_computer_older">Aplicația Agent de pe computerul tău este mai veche decât aceasta, deci nu poate începe acolo un chat nou. Actualizează aplicația pe computer, apoi încearcă din nou.</string>
+    <string name="proj_computer_older">Aplicația Mew de pe computerul tău este mai veche decât aceasta, deci nu poate începe acolo un chat nou. Actualizează aplicația pe computer, apoi încearcă din nou.</string>
     <string name="proj_unreachable">Computerul tău nu a putut fi contactat. Încearcă din nou când revine.</string>
     <string name="proj_photo_you_sent">Fotografia pe care ai trimis-o</string>
     <string name="proj_start_chat_failed">Nu s-a putut începe un chat în „%1$s”: %2$s.</string>
@@ -375,14 +375,14 @@
     <string name="wake_up_your_computer">computerul tău</string>
     <string name="wake_up_reaches">Ajunge la acest telefon</string>
     <string name="wake_up_link_first">Conectează mai întâi acest telefon la computer (Setări > Dispozitive conectate)</string>
-    <string name="wake_up_lacks">%1$s nu poate suna încă acest telefon: actualizează acolo aplicația Agent</string>
+    <string name="wake_up_lacks">%1$s nu poate suna încă acest telefon: actualizează acolo aplicația Mew</string>
     <string name="wake_up_connected">Conectat la %1$s</string>
     <string name="wake_up_not_connected">Neconectat acum. Continuă să încerce.</string>
     <string name="wake_up_test">Testează o trezire</string>
     <string name="wake_up_test_body">Sună telefonul pe bune. Răspunde pentru a o opri.</string>
     <string name="wake_up_test_sent">Testul %1$s a fost trimis.</string>
     <string name="wake_up_not_sent">Nu a plecat.</string>
-    <string name="wake_up_secure_folder">Instalează Agent normal (nu în Folder securizat): un Folder securizat blocat nu poate suna.</string>
+    <string name="wake_up_secure_folder">Instalează Mew normal (nu în Folder securizat): un Folder securizat blocat nu poate suna.</string>
     <string name="rec_recording_now">Se înregistrează acum</string>
     <string name="rec_cut_off">Întreruptă</string>
     <string name="rec_partly">O parte nu a fost scrisă</string>
@@ -411,7 +411,7 @@
     <string name="media_play">Redă muzică și video</string>
     <string name="media_intro">Când îi ceri agentului să redea ceva, folosește aplicația aleasă aici. Pe automat, folosește aplicația implicită a telefonului, apoi orice aplicație care poate reda dintr-o căutare.</string>
     <string name="media_access_off">Accesul la notificări este dezactivat</string>
-    <string name="media_access_body">Android arată ce se redă și lasă agentul să pună pauză sau să sară peste doar după ce Agent are acces la notificări.</string>
+    <string name="media_access_body">Android arată ce se redă și lasă agentul să pună pauză sau să sară peste doar după ce Mew are acces la notificări.</string>
     <string name="media_none">Nicio aplicație de pe acest telefon nu spune că poate reda muzică sau video pentru agentul tău. Instalează o aplicație de muzică și apare aici.</string>
     <string name="media_music_app">Aplicație de muzică</string>
     <string name="media_video_app">Aplicație video</string>
@@ -663,7 +663,7 @@
     <string name="main_your_computer">computerul tău</string>
     <string name="main_a_computer">un computer</string>
     <string name="main_whatever_agent_runs">Pe orice rulează agentul tău</string>
-    <string name="rt_clear_computer_older">Chatul acestui telefon este șters. Cel al computerului tău nu: aplicația Agent de pe el este mai veche decât aceasta, deci nu poate începe un chat nou. Actualizează aplicația pe computer, apoi șterge din nou.</string>
+    <string name="rt_clear_computer_older">Chatul acestui telefon este șters. Cel al computerului tău nu: aplicația Mew de pe el este mai veche decât aceasta, deci nu poate începe un chat nou. Actualizează aplicația pe computer, apoi șterge din nou.</string>
     <string name="rt_clear_unreachable">Chatul acestui telefon este șters. Computerul tău nu a putut fi contactat acum, deci chatul lui rămâne și va apărea din nou la sincronizare. Șterge din nou când revine.</string>
     <string name="assist_type_it_instead">Scrie în schimb</string>
     <string name="assist_unlock_to_carry_on">Deblochează pentru a continua</string>
@@ -714,6 +714,10 @@
     <string name="assist_over_lock_line">Inactiv: deblochează mai întâi telefonul, apoi cheamă-l. Activ: se deschide pe un telefon blocat și trimite cererea ta după ce deblochezi.</string>
     <string name="assist_live_voice">Voce live în asistent</string>
     <string name="assist_live_voice_line">Inactiv: spui o cerere și el răspunde. Activ: vorbește firesc, %1$s răspunde imediat cu voce tare, îl poți întrerupe, dă sarcini agentului tău și îți spune rezultatul.</string>
+    <string name="assist_talk">Continuă conversația</string>
+    <string name="assist_talk_line">Ca un apel: %1$s citește fiecare răspuns cu voce tare și ascultă din nou, până spui la revedere sau apeși pe Încheiere. Folosește vocea ta din cloud, sau vocea telefonului dacă nu e configurată niciuna.</string>
+    <string name="assist_talk_end">Încheiere</string>
+    <string name="assist_talk_interrupt">Întrerupe</string>
     <string name="assist_never_reads_money">Nu citește niciodată aplicații bancare, de plăți sau financiare, cu oricare comutator activ. Ce citește este folosit doar pentru acea cerere.</string>
     <string name="live_bubble_desc">Voce live. Atinge pentru a deschide</string>
     <string name="live_end_session">Încheie sesiunea live</string>

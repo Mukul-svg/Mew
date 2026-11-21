@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="agent_default">Agent</string>
+    <string name="agent_default">Mew</string>
     <string name="speak_on_phone">Speak on phone</string>
     <string name="type_it">Type</string>
     <string name="talk">Talk</string>
@@ -42,7 +42,7 @@
     <string name="tile_one_waits">1 needs you</string>
     <string name="tile_many_wait">%1$d need you</string>
     <string name="tile_nothing_waits">All clear</string>
-    <string name="complication_label">Agent</string>
+    <string name="complication_label">Mew</string>
     <string name="complication_ask">Ask</string>
     <string name="cd_talk">Talk to your agent</string>
     <string name="cd_waiting">Things that need you</string>

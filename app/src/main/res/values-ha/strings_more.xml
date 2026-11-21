@@ -1,7 +1,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">KO KA YI AMFANI DA WAKILI A KWAMFUTARKA</string>
     <string name="onb_use_on_computer">Yi amfani da wakili a kwamfutata</string>
-    <string name="onb_use_on_computer_sub">Duba lambar a manhajar Agent a kwamfutarka ko sabarka. Babu maɓallai a wannan wayar.</string>
+    <string name="onb_use_on_computer_sub">Duba lambar a manhajar Mew a kwamfutarka ko sabarka. Babu maɓallai a wannan wayar.</string>
     <string name="sub_paste_code_from">Liƙa lambar daga %1$s</string>
     <string name="sub_paste_code_body_from">A burauza: danna Ba da izini. %1$s zai nuna lamba. Kwafe ta, ka dawo nan, ka liƙa ta a ƙasa.</string>
     <string name="sub_code_from">Lamba daga %1$s</string>
@@ -72,13 +72,13 @@
     <string name="browser_add_test_number">Ƙara lambar gwaji</string>
     <string name="browser_test_number_body">Lambar asusun WhatsApp da kake gwaji da shi. Ba a aika komai zuwa WhatsApp ba, kuma sake loda shafin yana warware shi.</string>
     <string name="link_cant_reach">Ba a iya kaiwa ga kwamfutar ba.</string>
-    <string name="link_bad_answer">Amsar kwamfutar ba ta da ma\'ana. Shin manhajar Agent ɗinta na zamani ne?</string>
+    <string name="link_bad_answer">Amsar kwamfutar ba ta da ma\'ana. Shin manhajar Mew ɗinta na zamani ne?</string>
     <string name="link_tried_addresses">(an gwada adireshi %1$d)</string>
     <string name="link_type_address">Rubuta adireshin kwamfutar.</string>
     <string name="link_no_certificate">Kwamfutar ba ta aika takardar shaida ba.</string>
     <string name="link_failed">Haɗawa ya gaza.</string>
     <string name="link_your_computer">kwamfutarka</string>
-    <string name="link_not_a_code">Wannan lambar QR ba lambar haɗa Agent ba ce.</string>
+    <string name="link_not_a_code">Wannan lambar QR ba lambar haɗa Mew ba ce.</string>
     <string name="link_subtitle">Haɗa wannan wayar da kwamfuta ko sabar</string>
     <string name="link_linked_to">An haɗa da %1$s</string>
     <string name="link_runs_on">Wakilinka yana gudana a %1$s. Wannan wayar tana nuna taɗinsa, ƙwaƙwalwarsa, ayyukansa da tsare-tsarensa, kuma ba ta riƙe maɓallan AI nasa.</string>
@@ -90,7 +90,7 @@
     <string name="link_link_to">Haɗa da %1$s</string>
     <string name="link_keep">Riƙe %1$s</string>
     <string name="link_linking_to">Ana haɗawa da %1$s...</string>
-    <string name="link_how_to">A kwamfutarka, buɗe manhajar Agent ka je Saituna, Na\'urori, Ƙara na\'ura.</string>
+    <string name="link_how_to">A kwamfutarka, buɗe manhajar Mew ka je Saituna, Na\'urori, Ƙara na\'ura.</string>
     <string name="link_how_type">Rubuta adireshin da lambar da yake nunawa.</string>
     <string name="link_how_scan">Nuna wannan kyamarar ga lambar da yake nunawa.</string>
     <string name="link_allow_camera">Ba da izinin kyamara</string>
@@ -272,7 +272,7 @@
     <string name="proj_new_chat_line">Abin da aka faɗa har yanzu ana ajiye shi a ƙwaƙwalwa kuma wannan taga tana farawa babu komai. Ba a share komai a kwamfutarka ba.</string>
     <string name="proj_new_chat">Sabon taɗi</string>
     <string name="proj_not_linked_now">Ba a haɗa da kwamfuta a yanzu ba.</string>
-    <string name="proj_computer_older">Manhajar Agent ta kwamfutarka ta girmi wannan, don haka ba za ta iya fara sabon taɗi a can ba. Sabunta ta a kwamfutarka, sannan ka sake gwadawa.</string>
+    <string name="proj_computer_older">Manhajar Mew ta kwamfutarka ta girmi wannan, don haka ba za ta iya fara sabon taɗi a can ba. Sabunta ta a kwamfutarka, sannan ka sake gwadawa.</string>
     <string name="proj_unreachable">Ba a iya kaiwa ga kwamfutarka ba. Sake gwadawa idan ta dawo.</string>
     <string name="proj_photo_you_sent">Hoton da ka aika</string>
     <string name="proj_start_chat_failed">Ba a iya fara taɗi a %1$s ba: %2$s.</string>
@@ -370,14 +370,14 @@
     <string name="wake_up_your_computer">kwamfutarka</string>
     <string name="wake_up_reaches">Yana isa ga wannan wayar</string>
     <string name="wake_up_link_first">Fara haɗa wannan wayar da kwamfutarka (Saituna > Na\'urorin da aka haɗa)</string>
-    <string name="wake_up_lacks">%1$s ba zai iya ƙara a wannan wayar ba tukuna: sabunta manhajar Agent a can</string>
+    <string name="wake_up_lacks">%1$s ba zai iya ƙara a wannan wayar ba tukuna: sabunta manhajar Mew a can</string>
     <string name="wake_up_connected">An haɗa da %1$s</string>
     <string name="wake_up_not_connected">Ba a haɗe a yanzu ba. Yana ci gaba da ƙoƙari.</string>
     <string name="wake_up_test">Gwada tashin ƙararrawa</string>
     <string name="wake_up_test_body">Yana ƙara a wannan wayar da gaske. Amsa don tsayar da shi.</string>
     <string name="wake_up_test_sent">An aika gwajin %1$s.</string>
     <string name="wake_up_not_sent">Bai tafi ba.</string>
-    <string name="wake_up_secure_folder">Shigar da Agent kamar yadda aka saba (ba a cikin Secure Folder ba): Secure Folder da aka kulle ba zai iya ƙara ba.</string>
+    <string name="wake_up_secure_folder">Shigar da Mew kamar yadda aka saba (ba a cikin Secure Folder ba): Secure Folder da aka kulle ba zai iya ƙara ba.</string>
     <string name="rec_recording_now">Ana rikodi yanzu</string>
     <string name="rec_cut_off">An yanke</string>
     <string name="rec_partly">Ba a rubuta wasu ɓangarori ba</string>
@@ -406,7 +406,7 @@
     <string name="media_play">Kunna kiɗa da bidiyo</string>
     <string name="media_intro">Idan ka roƙi wakilinka ya kunna wani abu, yana amfani da manhajar da ka zaɓa a nan. Idan aka bar shi a atomatik, yana amfani da ta asali ta wayarka, sannan kowace manhaja da za ta iya kunnawa daga bincike.</string>
     <string name="media_access_off">Damar shiga sanarwa a kashe take</string>
-    <string name="media_access_body">Android tana nuna abin da ake kunnawa ne kawai, kuma tana bari wakilinka ya dakata ko ya tsallaka, bayan Agent ya samu damar shiga sanarwa.</string>
+    <string name="media_access_body">Android tana nuna abin da ake kunnawa ne kawai, kuma tana bari wakilinka ya dakata ko ya tsallaka, bayan Mew ya samu damar shiga sanarwa.</string>
     <string name="media_none">Babu manhajar da ke wannan wayar da ta ce za ta iya kunna kiɗa ko bidiyo ga wakilinka. Shigar da manhajar kiɗa kuma za ta bayyana a nan.</string>
     <string name="media_music_app">Manhajar kiɗa</string>
     <string name="media_video_app">Manhajar bidiyo</string>
@@ -652,7 +652,7 @@
     <string name="main_your_computer">kwamfutarka</string>
     <string name="main_a_computer">kwamfuta</string>
     <string name="main_whatever_agent_runs">Duk inda wakilinka ke gudana</string>
-    <string name="rt_clear_computer_older">An share taɗin wannan wayar. Na kwamfutarka ba a share ba: manhajar Agent a ciki ta girmi wannan, don haka ba za ta iya fara sabon taɗi ba. Sabunta manhajar a kwamfutarka, sannan ka sake sharewa.</string>
+    <string name="rt_clear_computer_older">An share taɗin wannan wayar. Na kwamfutarka ba a share ba: manhajar Mew a ciki ta girmi wannan, don haka ba za ta iya fara sabon taɗi ba. Sabunta manhajar a kwamfutarka, sannan ka sake sharewa.</string>
     <string name="rt_clear_unreachable">An share taɗin wannan wayar. Ba a iya kaiwa ga kwamfutarka yanzu ba, don haka taɗinta yana nan kuma zai sake bayyana idan ta daidaita. Sake sharewa idan ta dawo.</string>
     <string name="assist_type_it_instead">Rubuta shi maimakon haka</string>
     <string name="assist_unlock_to_carry_on">Buɗe kulle don ci gaba</string>
@@ -703,6 +703,10 @@
     <string name="assist_over_lock_line">A kashe: buɗe kulle wayar tukuna, sannan ka kira shi. A kunne: yana buɗewa a wayar da aka kulle kuma yana aika buƙatarka da zarar ka buɗe kulle.</string>
     <string name="assist_live_voice">Murya kai tsaye a mataimaki</string>
     <string name="assist_live_voice_line">A kashe: kana faɗin buƙata ɗaya kuma yana amsawa. A kunne: yi magana a zahiri, %1$s yana amsawa da ƙarfi nan take, za ka iya yin magana a kansa, kuma yana ba wakilinka ayyuka ya gaya maka sakamakon.</string>
+    <string name="assist_talk">Ci gaba da hira</string>
+    <string name="assist_talk_line">Kamar kira: %1$s yana karanta kowane amsa da ƙarfi sannan ya sake sauraro, har sai ka ce sai an juma ka kuma danna Ƙarshe. Yana amfani da muryar girgijarka, ko muryar wayar idan babu wacce aka saita.</string>
+    <string name="assist_talk_end">Ƙarshe</string>
+    <string name="assist_talk_interrupt">Tsaya</string>
     <string name="assist_never_reads_money">Ba ya taɓa karanta manhajojin banki, biyan kuɗi ko kuɗi, ko da duka maɓallan a kunne. Abin da yake karantawa ana amfani da shi ne don wannan buƙatar kawai.</string>
     <string name="live_bubble_desc">Murya kai tsaye. Danna don buɗewa</string>
     <string name="live_end_session">Ƙare zaman kai tsaye</string>

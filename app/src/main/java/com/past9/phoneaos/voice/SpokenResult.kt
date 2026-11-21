@@ -16,8 +16,8 @@ package com.past9.phoneaos.voice
  * returned, so the answer is sent as a client turn.
  */
 object SpokenResult {
-    const val HEAD = "[Agent result, speak as written]"
-    const val END = "[End of agent result]"
+    const val HEAD = "[Mew result, speak as written]"
+    const val END = "[End of Mew result]"
     /** About four minutes of speech. Longer than this is cut at a sentence and the rest stays in the chat. */
     const val MAX_CHARS = 4000
     const val REST = "(The rest is in the chat.)"

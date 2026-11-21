@@ -9,7 +9,7 @@ import org.json.JSONObject
  * this mirrors word for word) or by this phone. The chat draws those as not his (22 Oct 2026).
  */
 data class Sender(val from: String, val name: String, val chat: String, val title: String) {
-    /** The line above the message: "From your call", "From Hina, the main agent", "From Agent Desktop App". */
+    /** The line above the message: "From your call", "From Hina, the main agent", "From Mew Desktop App". */
     val line: String get() = when (from) {
         "main" -> "From $name, the main agent"
         "project" -> "From $name" + if (title.isBlank()) "" else " · $title"

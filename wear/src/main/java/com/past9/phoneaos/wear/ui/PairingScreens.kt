@@ -47,7 +47,7 @@ object QrImage {
 }
 
 /**
- * What the watch shows until a phone has paired: the QR (scan it with the Agent app on the phone), the short code under it (type it there
+ * What the watch shows until a phone has paired: the QR (scan it with the Mew app on the phone), the short code under it (type it there
  * instead), and a new code when this one has expired. Nothing else on the watch works before this is done. [qr] is kept for callers that
  * draw their own; the screen draws the code from the offer itself, as the rounded tile of the expressive look.
  */

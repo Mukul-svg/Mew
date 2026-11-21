@@ -1,6 +1,6 @@
-![Agent finding the cheapest 5 lb bag of bread flour: it checked Walmart and Target on its own, sped up 12x](docs/demo-flour.gif)
+![Mew finding the cheapest 5 lb bag of bread flour: it checked Walmart and Target on its own, sped up 12x](docs/demo-flour.gif)
 
-# Agent
+# Mew
 
 An autonomous, always-on agent that is yours alone. It has its own browser, keeps a wiki memory of everything it learns
 about you, and hands the heavy jobs to your own machines.
@@ -8,7 +8,7 @@ about you, and hands the heavy jobs to your own machines.
 It lives in two places, and you can use either or both: **on your phone**, or **on your computer with the phone as the
 window**. Same agent, same memory, same approvals; the heavy work and the keys stay where you put them.
 
-You bring the model. Paste an API key, or sign in with the ChatGPT or Claude plan you already pay for.
+You bring the model. Paste an OpenCode Zen/Go API key, or run the agent on your own computer.
 
 [Get the APK](https://github.com/Past-da-king/agent/releases/latest) | [Get the desktop app](https://github.com/Past-da-king/agent-desktop-app/releases/latest) | [Build it from source](#build-from-source)
 
@@ -24,13 +24,14 @@ Home, chat, memory, routines. The two demo recordings are on the [project page](
 
 It is not on the Play Store. You sideload the APK.
 
-1. Open [Releases](https://github.com/Past-da-king/agent/releases/latest) and download the latest `Agent-*.apk` on your phone.
+1. Open [Releases](https://github.com/Past-da-king/agent/releases/latest) and download the latest `Agent-*.apk` on your phone (the app installs as Mew).
 2. Tap the file and allow the install when Android asks. That is the whole sideload.
-3. Open Agent, give it a name, pick how it looks, then pick how to power it. See [Setup](#setup).
+3. Open Mew, give it a name, pick how it looks, then pick how to power it. See [Setup](#setup).
 4. On a Samsung, Xiaomi or OnePlus phone, set the app's battery to **Unrestricted** under Settings, or Android will kill the browser and the routines while they work.
 
-You need Android 8 or newer on an arm64 phone, which is every phone sold in the last few years. The APK is about 36 MB
-without the bundled subscription runtimes, and about 360 MB with them, so leave room for it and for its data.
+You need **Android 14 or newer** on an arm64 phone. Android 9 to 13 are no longer supported as of 0.16.0. The release
+APK is about 83 MB: it includes the Node runtime that powers `run_code`, watchers and card scripts. Leave room for it
+and for its data.
 
 ## Two ways to run it
 
@@ -66,11 +67,11 @@ accounts, its files and its bigger keys. It behaves like one agent, not two:
 
 **It hands heavy work to a real computer.** Any server or PC you can SSH into becomes a machine it can use. Run a command, start a long job that keeps going in the background, move files both ways. Looking around just runs. Anything that changes the machine shows you the exact command first.
 
-**It answers in voice, and reads your files.** Voice notes in and out, live calls if you add a Gemini key, photos and documents in chat, including scanned PDFs read on the device.
+**It answers in voice, and reads your files.** As your phone's assistant (hold the power button), it holds a conversation: it reads each answer aloud and listens again, like a call, using the phone's own voice until you add a cloud one. Say goodbye or tap End to stop. Voice notes in and out, live calls if you add a Gemini key, photos and documents in chat, including scanned PDFs read on the device.
 
 **It tidies up overnight.** At 02:00, and only while charging and online, it sorts its memory, writes notes from the day and builds your morning screen.
 
-**It waits for your yes.** Anything that spends money or sends something in your name stops at an approve button.
+**It asks before it acts in your name.** Connected apps, machine commands and app intents stop at an approve button before they send, spend or change something. Browser clicks and `run_code` are open-ended, so they are not automatically gated: watch those while they run.
 
 ## What it is not
 
@@ -92,7 +93,7 @@ Nothing is read until you allow it. Location, files, notifications and the rest 
 
 ## Star it if you want it to exist
 
-If an agent that lives on your own hardware and answers to you is something you want to keep existing, [give the repo a star](https://github.com/Past-da-king/agent). It is the only signal this project has, and it is what puts Agent in front of the next person looking for it.
+If an agent that lives on your own hardware and answers to you is something you want to keep existing, [give the repo a star](https://github.com/Past-da-king/agent). It is the only signal this project has, and it is what puts Mew in front of the next person looking for it.
 
 ## Setup
 
@@ -103,20 +104,18 @@ Onboarding walks you through this. In order:
 
    | Option | What you need | Notes |
    |---|---|---|
-   | Your own computer | The Agent desktop app with Devices turned on | The phone becomes the window; nothing to pay, keys stay on the computer |
-   | API key | A key from DeepSeek, OpenRouter, Gemini, Claude, OpenAI or OpenCode (Zen or Go) | Runs in the app's own agent loop. Quickest to set up. |
+   | Your own computer | The Mew desktop app with Devices turned on | The phone becomes the window; nothing to pay, keys stay on the computer |
+   | OpenCode Zen/Go | An OpenCode API key | The supported default. Runs in the app's own agent loop. |
    | Any OpenAI-compatible endpoint | Base URL, model name and a key | Hosted services, or your own server. See [Self-hosted servers](#self-hosted-servers-ollama-lm-studio-vllm). |
-   | ChatGPT subscription | A ChatGPT account (the free tier worked in testing) | Runs Codex on the phone through the bundled runtime. Sign in inside the app. |
-   | Claude subscription | Claude Pro or Max | Runs Claude Code on the phone through the bundled runtime. Read [Risks](#risks) first. |
 
    Once a key is checked you can pick the model, and switch from the chip at the top of the chat at any time.
 3. **Connections, if you want them.** Paste your Composio API key under **Connections**, then connect the apps you use. The agent can also ask for one mid-job, and that sign-in opens inside the app's browser.
-4. **Voice, if you want it.** Under **Settings, Voice**, add a Gemini, OpenAI or ElevenLabs key for spoken replies. A Gemini key also turns on live calls.
+4. **Voice, if you want it.** The assistant's conversation works with no voice key: it uses the phone's own voice. Under **Settings, Voice**, add a Gemini, OpenAI or ElevenLabs key for a nicer voice. A Gemini key also turns on live calls.
 5. **Notifications, if you want them.** Choose which apps the agent may read. Nothing is read until you pick.
 
 ## Languages
 
-Agent speaks English and Spanish (written by people) and **53 more languages, translated by machine**. Pick one in Settings > You > Language, or in Android's own per-app language page (Android 13 and later). "Phone's language" follows the phone. The machine translated ones say so in the picker.
+Mew speaks English and Spanish (written by people) and **53 more languages, translated by machine**. Pick one in Settings > You > Language, or in Android's own per-app language page (Android 13 and later). "Phone's language" follows the phone. The machine translated ones say so in the picker.
 
 **English**, **Spanish** (Magarto), and, machine translated: Afrikaans (Afrikaans), Amharic (አማርኛ), Arabic (العربية), Bengali (বাংলা), Catalan (Català), Chinese, Simplified (中文 (简体)), Chinese, Traditional (中文 (繁體)), Czech (Čeština), Danish (Dansk), Dutch (Nederlands), Filipino (Filipino), Finnish (Suomi), French (Français), German (Deutsch), Greek (Ελληνικά), Gujarati (ગુજરાતી), Hausa (Hausa), Hebrew (עברית), Hindi (हिन्दी), Hungarian (Magyar), Igbo (Igbo), Indonesian (Bahasa Indonesia), Italian (Italiano), Japanese (日本語), Kannada (ಕನ್ನಡ), Khmer (ខ្មែរ), Korean (한국어), Malay (Bahasa Melayu), Malayalam (മലയാളം), Marathi (मराठी), Nepali (नेपाली), Norwegian (Norsk bokmål), Persian (فارسی), Polish (Polski), Portuguese (Brazil) (Português (Brasil)), Portuguese (Portugal) (Português (Portugal)), Punjabi (ਪੰਜਾਬੀ), Romanian (Română), Russian (Русский), Sesotho (Sesotho), Swahili (Kiswahili), Swedish (Svenska), Tamil (தமிழ்), Telugu (తెలుగు), Thai (ไทย), Tswana (Setswana), Turkish (Türkçe), Ukrainian (Українська), Urdu (اردو), Vietnamese (Tiếng Việt), Xhosa (isiXhosa), Yoruba (Yorùbá), Zulu (isiZulu).
 
@@ -154,7 +153,7 @@ Your phone can be the remote, not the engine. Under **Connections, Machines** yo
 
 The agent talks to the other apps on your phone the way Android apps talk to each other, with intents, and other apps can talk to it the same way. Everything stays on the phone.
 
-### Agent to any app
+### Mew to any app
 
 Two tools do this.
 
@@ -171,12 +170,12 @@ What asks first:
 
 - An intent that only opens a screen goes straight away: view a link or a place, open an app, the dialler with a number filled in, a search, a settings page.
 - Anything else asks you first: sharing into an app, a broadcast, a service.
-- To stop being asked for one, add its action and app to Settings, Automation, *Agent talks to your apps*, **Allowed app intents**, one per line: `android.intent.action.SEND | com.whatsapp`. Use `*` for any app. The approval card shows the exact line.
+- To stop being asked for one, add its action and app to Settings, Automation, *Mew talks to your apps*, **Allowed app intents**, one per line: `android.intent.action.SEND | com.whatsapp`. Use `*` for any app. The approval card shows the exact line.
 - When nobody is there to answer, as in a routine at night, it is not sent.
 
-Android does not let an app open a screen from the background. If the Agent app is not on screen, the intent arrives as a notification you tap. Allow *Display over other apps* for Agent to skip that.
+Android does not let an app open a screen from the background. If the Mew app is not on screen, the intent arrives as a notification you tap. Allow *Display over other apps* for Mew to skip that.
 
-### Agent to MacroDroid or Tasker
+### Mew to MacroDroid or Tasker
 
 `macrodroid_run` is a preset over the same thing: one broadcast your macro listens for.
 
@@ -184,7 +183,7 @@ Android does not let an app open a screen from the background. If the Agent app 
 2. Action: `com.past9.phoneaos.MACRO`, exactly. It is case-sensitive.
 3. Add one extra. Name: `macro`, in small letters. Value: the macro's name, for example `demo`, with nothing after it, not even a space.
 4. Optional: `v1`, `v2`, `v3` and `params` = `*`, each saved to a variable. The agent always sends all of them as text.
-5. In the Agent app, open Settings, Automation, *Agent talks to your apps*, and add `demo` to **Allowed macros**. Macros on that list run without asking. Any other macro asks first.
+5. In the Mew app, open Settings, Automation, *Mew talks to your apps*, and add `demo` to **Allowed macros**. Macros on that list run without asking. Any other macro asks first.
 6. Tap **Send** under *Test a macro*. It sends the first macro on your list.
 
 If the macro does not run, MacroDroid gives no error. Check these, in order:
@@ -198,11 +197,11 @@ Tasker catches the same broadcast: Profile, Event, *Intent Received*, Action `co
 
 The **MacroDroid webhook** is optional and off by default. It lets an agent that is not on this phone reach MacroDroid's own server, `trigger.macrodroid.com`. Your values then pass through MacroDroid's server, so leave it off unless you need it.
 
-### Any app to Agent
+### Any app to Mew
 
 Two doors, with the same token and the same switch (Settings, Automation, *Automation from other apps*, **Allow outside runs**). A run started from outside has nobody watching, so anything that needs your approval is refused.
 
-- **By intent.** Send a broadcast to package `com.past9.phoneaos` with action `com.past9.phoneaos.RUN_ROUTINE` and the extras `token` and `routine` (its name or id), plus an optional `note`. Or action `com.past9.phoneaos.INSTRUCT` with `token` and `text`. This works when the Agent app is closed. The package is required, because Android does not deliver a broadcast to a closed app without it. The sheet has a recipe to copy, with your token in it.
+- **By intent.** Send a broadcast to package `com.past9.phoneaos` with action `com.past9.phoneaos.RUN_ROUTINE` and the extras `token` and `routine` (its name or id), plus an optional `note`. Or action `com.past9.phoneaos.INSTRUCT` with `token` and `text`. This works when the Mew app is closed. The package is required, because Android does not deliver a broadcast to a closed app without it. The sheet has a recipe to copy, with your token in it.
 - **Over HTTP.** `http://127.0.0.1:47321` with the token as a Bearer header, only while the app is running. This one can also read the result back. Steps: [docs/automation-macrodroid.md](docs/automation-macrodroid.md).
 
 ### From your computer
@@ -215,34 +214,42 @@ WhatsApp Web calls, in-browser editors and models that run in the page need shar
 
 ## Build from source
 
-You need JDK 17, the Android SDK (compileSdk 37), and for the runtime pack `curl`, `ar`, `patchelf` and Node/npm.
+You need JDK 17 and the Android SDK (compileSdk 37), plus network access on the first build: the build stages Node 24
+from the hash-pinned pack in `app/src/main/assets/runtime/native-manifest.json`. The legacy
+`tools/build-runtime-pack.sh` is not part of a normal build.
 
 ```bash
 git clone https://github.com/Past-da-king/agent
 cd agent
-# Downloads Termux's Node build, Codex and ripgrep and packs them as jniLibs plus assets,
-# which are git-ignored. Only needed for the subscription paths. API keys work without it.
-./tools/build-runtime-pack.sh
 ./gradlew assembleDebug
 adb install -r app/build/outputs/apk/debug/app-debug.apk
 ```
 
+The default build is the **phone app only**, and it requires Android 14 or newer. The Wear OS app and watch faces remain
+in the repository but are configured only on demand:
+
+```bash
+./gradlew -PwithWear :wear:assembleDebug
+./gradlew -PwithWear assembleDebug   # phone and watch modules
+```
+
 Release builds are signed from a properties file that is never in this repository: pass `-PsigningProps=<file>`.
 
-Tests: `./gradlew testDebugUnitTest`, which runs the unit tests plus Robolectric and Roborazzi screenshots in light and dark.
+Tests: `./gradlew testDebugUnitTest`, which runs the phone app's unit tests plus Robolectric and Roborazzi screenshots
+in light and dark. Watch tests are not part of the default verification; use `-PwithWear` when working on them.
 
 ## How it works, in short
 
 - Kotlin and Jetpack Compose (Material 3 Expressive), Room, WorkManager.
-- On the API key path, a provider-neutral agent loop in Kotlin that speaks both chat formats.
-- On the subscription path, Node 24 (Termux's Android build) ships inside the APK as `lib*.so` files, because Android only lets an app execute files from its native library folder, and the Agent SDK runs on it. Codex and Claude Code ship the same way as their arm64 musl builds; Claude Code gets the musl loader as `libldmusl.so`, and a local proxy resolves DNS for both. The app's own tools are served to them over a local MCP server on `127.0.0.1` with a per-install token.
+- A provider-neutral agent loop in Kotlin that speaks the OpenAI-compatible chat format used by OpenCode Zen/Go and other compatible endpoints.
+- Node 24 (Termux's Android build) ships inside the APK as `lib*.so` files and runs from the native library folder. It powers `run_code`, watchers and card scripts. There are no downloaded Claude, Codex or Antigravity runtimes.
 - The browser is an Android WebView hosted in a foreground service.
 - With a computer paired, the phone and the computer replicate chats, tasks and memory over an encrypted link of their own: no relay of ours, no account.
 
 ## Risks
 
-- **Your own risk.** The agent can browse, fill in forms, read the notifications you allow and act in the apps you connect. Approvals guard payments and sends, so check what you approve.
-- **The Claude subscription login is not officially sanctioned.** The option is there because it works. Using it is a call you make about your own account. A Claude API key is the safe way to use those models here.
+- **Your own risk.** The agent can browse, fill in forms, read the notifications you allow and act in the apps you connect. Approvals cover connected-app sends, machine commands and app intents; browser actions and code you ask it to run are not automatically gated, so check what it does.
+- **Your OpenCode key is a secret.** It is stored in Keystore-encrypted preferences and sent only to the OpenCode endpoint you configure. Do not share it.
 - **Sideloaded.** It is not reviewed by Google.
 - **Battery.** Background browsing and routines use battery. The overnight routine only runs while charging.
 - **Early software.** Tested mainly on one Samsung phone.

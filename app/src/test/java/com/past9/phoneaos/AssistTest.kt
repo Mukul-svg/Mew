@@ -139,6 +139,71 @@ class AssistTest {
         assertEquals(AssistPhase.THINKING, c.view(listOf(row(1, "agent", "old")), false).phase)
     }
 
+    // ---- conversation mode: read the answer aloud, listen again, like a call ---------------------
+
+    @Test fun theAnswerIsReadAloudAndThenItListensAgain() {
+        val c = AssistCore()
+        c.finished("what is the time"); c.sent(0)
+        val rows = listOf(row(1, "user", "what is the time"), row(2, "agent", "It is six."))
+        val done = c.view(rows, false)
+        assertEquals(AssistPhase.ANSWERING, done.phase)
+        c.startSpeaking(done.answer, done.answerId)
+        assertTrue(c.speaking)
+        val speaking = c.view(rows, false)
+        assertEquals(AssistPhase.SPEAKING, speaking.phase)
+        assertEquals("It is six.", speaking.answer); assertEquals(2L, speaking.answerId)
+        assertEquals("what is the time", speaking.heard)
+        assertFalse(c.listening)
+        c.finishedSpeaking()
+        assertTrue(c.listening)
+        assertEquals("", c.view(rows, false).heard)
+        // The next turn works the same way.
+        assertEquals("and the date", c.finished("and the date")); c.sent(2)
+        val next = c.view(rows + row(3, "user", "and the date") + row(4, "agent", "The 19th."), false)
+        assertEquals(AssistPhase.ANSWERING, next.phase); assertEquals(4L, next.answerId)
+    }
+
+    @Test fun readingAloudOnlyFitsATurnThatIsDone() {
+        val c = AssistCore()
+        c.startSpeaking("not yet", 1L)
+        assertFalse(c.speaking)
+        assertEquals(AssistPhase.LISTENING, c.view(emptyList(), false).phase)
+    }
+
+    @Test fun twoQuietRoundsEndTheConversationAndWordsResetTheCount() {
+        val c = AssistCore()
+        assertFalse(c.quiet())
+        assertTrue(c.quiet())
+        // Words sent start the count over.
+        c.listen(); c.finished("one more thing"); c.sent(0)
+        assertFalse(c.quiet())
+        // A deliberate mic tap starts it over too.
+        assertTrue(c.quiet())
+        c.resetQuiet()
+        assertFalse(c.quiet())
+    }
+
+    @Test fun aRoutedNoteStillLeadsBackToListening() {
+        val c = AssistCore()
+        c.finished("482917")
+        // Routing happens instead of sent(): the words went to a waiting helper, not the main agent.
+        c.routed("Sent to the payroll helper: 482917")
+        assertEquals(AssistPhase.ANSWERING, c.view(emptyList(), false).phase)
+        c.finishedSpeaking()
+        assertTrue(c.listening)
+    }
+
+    @Test fun goodbyeEndsTheConversationInsteadOfGoingToTheAgent() {
+        listOf("bye", "Bye!", "goodbye", "ok bye", "okay, goodbye", "thanks, bye", "that's all", "that is all", "end call", "hang up", "stop listening", "end the conversation")
+            .forEach { assertTrue(it, AssistCore.isExit(it)) }
+        assertTrue(AssistCore.isExit("bye Mew", name = "Mew"))
+        assertTrue(AssistCore.isExit("goodbye, Mew", name = "Mew"))
+        // Whole phrases only: a request that happens to contain one is still a request.
+        listOf("call mom", "say bye to Sam", "bye bye computer, play music", "what is the end call button for", "set a reminder to hang up the laundry", "")
+            .forEach { assertFalse(it, AssistCore.isExit(it)) }
+        assertFalse(AssistCore.isExit("bye Sam", name = "Mew"))
+    }
+
     // ---- what a turn may know about the screen --------------------------------------------------
 
     @Test fun bankingAndMoneyAppsGiveNothing() {

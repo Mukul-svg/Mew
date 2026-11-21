@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">ማንኛውም ከOpenAI ጋር ተስማሚ</string>
     <string name="onb_key_anthropic_1">ከታች ክፈትን ይንኩ። የAnthropic ኮንሶልን በአሳሽዎ ውስጥ ይከፍታል። ይመዝገቡ ወይም ይግቡ።</string>
     <string name="onb_key_anthropic_2">ወደ ክፍያ ይሂዱና ትንሽ ክሬዲት ያክሉ። ክፍያው በአጠቃቀም ነው፣ ጥቂት ዶላሮችም ለረጅም ጊዜ ይበቃሉ።</string>
-    <string name="onb_key_anthropic_3">ወደ API keys ይሂዱና Create key ይንኩ። እንደ Agent ያለ ማንኛውንም ስም ይስጡት።</string>
+    <string name="onb_key_anthropic_3">ወደ API keys ይሂዱና Create key ይንኩ። እንደ Mew ያለ ማንኛውንም ስም ይስጡት።</string>
     <string name="onb_key_anthropic_4">ቅዳን ይንኩ፣ ወደዚህ መተግበሪያ ተመልሰው ቁልፉን ከላይ ባለው ሳጥን ውስጥ ይለጥፉና ቁልፍን ፈትሽ ይንኩ።</string>
     <string name="onb_key_openai_1">ከታች ክፈትን ይንኩ። የOpenAI መድረክን በአሳሽዎ ውስጥ ይከፍታል። ይመዝገቡ ወይም ይግቡ። (ይህ ከChatGPT ምዝገባ የተለየ ነው።)</string>
     <string name="onb_key_openai_2">ወደ ክፍያ ይሂዱና ትንሽ ክሬዲት ያክሉ። ጥቂት ዶላሮች ለረጅም ጊዜ ይበቃሉ።</string>
-    <string name="onb_key_openai_3">ወደ API keys ይሂዱና Create new secret key ይንኩ። እንደ Agent ያለ ማንኛውንም ስም ይስጡት።</string>
+    <string name="onb_key_openai_3">ወደ API keys ይሂዱና Create new secret key ይንኩ። እንደ Mew ያለ ማንኛውንም ስም ይስጡት።</string>
     <string name="onb_key_step_copy_once">ቅዳን ይንኩ (ቁልፉን አንድ ጊዜ ብቻ ማየት ይችላሉ)፣ ወደዚህ ተመልሰው ከላይ ይለጥፉትና ቁልፍን ፈትሽ ይንኩ።</string>
     <string name="onb_key_gemini_1">ከታች ክፈትን ይንኩ። Google AI Studioን ይከፍታል። በማንኛውም የGoogle መለያ ይግቡ።</string>
     <string name="onb_key_gemini_2">Create API key ይንኩ። ፕሮጀክት እንዲመርጡ ከጠየቀ የሚጠቁመውን ይምረጡ።</string>

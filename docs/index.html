@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Agent: a free, open-source AI agent for your Android phone</title>
+<title>Mew: a free, open-source AI agent for your Android phone</title>
 <meta name="description" content="Free, open-source Android app: an AI agent on your phone with its own browser. It can teach itself a website you use, and it keeps a memory you can read.">
 <link rel="canonical" href="https://past-da-king.github.io/agent/">
 <!-- Search Console: add <meta name="google-site-verification" content="TOKEN"> here -->
@@ -14,21 +14,21 @@
 <link rel="shortcut icon" href="favicon.ico">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Agent">
+<meta property="og:site_name" content="Mew">
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://past-da-king.github.io/agent/">
-<meta property="og:title" content="Agent: a free, open-source AI agent for your Android phone">
+<meta property="og:title" content="Mew: a free, open-source AI agent for your Android phone">
 <meta property="og:description" content="An agent that lives on your phone, browses with its own browser and can teach itself a website you use. Free and open source.">
 <meta property="og:image" content="https://past-da-king.github.io/agent/social-preview.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1280">
 <meta property="og:image:height" content="640">
-<meta property="og:image:alt" content="The word Agent in large letters beside the app's home screen on a phone">
+<meta property="og:image:alt" content="The word Mew in large letters beside the app's home screen on a phone">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Agent: a free, open-source AI agent for your Android phone">
+<meta name="twitter:title" content="Mew: a free, open-source AI agent for your Android phone">
 <meta name="twitter:description" content="An agent that lives on your phone, browses with its own browser and can teach itself a website you use. Free and open source.">
 <meta name="twitter:image" content="https://past-da-king.github.io/agent/social-preview.png">
-<meta name="twitter:image:alt" content="The word Agent in large letters beside the app's home screen on a phone">
+<meta name="twitter:image:alt" content="The word Mew in large letters beside the app's home screen on a phone">
 <link rel="preload" as="image" href="hero.webp" type="image/webp" fetchpriority="high">
 <script type="application/ld+json">
 {
@@ -38,22 +38,22 @@
       "@type": "WebSite",
       "@id": "https://past-da-king.github.io/agent/#website",
       "url": "https://past-da-king.github.io/agent/",
-      "name": "Agent",
+      "name": "Mew",
       "inLanguage": "en"
     },
     {
       "@type": "SoftwareApplication",
       "@id": "https://past-da-king.github.io/agent/#app",
-      "name": "Agent",
+      "name": "Mew",
       "description": "A free, open-source Android app: an AI agent that lives on your phone, browses with its own browser, can teach itself a website you use, and keeps a memory you can read.",
       "url": "https://past-da-king.github.io/agent/",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "Android",
-      "requirements": "Android 10 or newer, 64-bit only, about 2 GB of free space to install",
-      "softwareVersion": "0.11.22",
-      "downloadUrl": "https://github.com/Past-da-king/agent/releases/download/v0.11.22/Agent-0.11.22.apk",
-      "installUrl": "https://github.com/Past-da-king/agent/releases/tag/v0.11.22",
-      "releaseNotes": "https://github.com/Past-da-king/agent/releases/tag/v0.11.22",
+      "requirements": "Android 14 or newer, arm64 only, about 1 GB of free space to install",
+      "softwareVersion": "0.16.0",
+      "downloadUrl": "https://github.com/Past-da-king/agent/releases/latest",
+      "installUrl": "https://github.com/Past-da-king/agent/releases/latest",
+      "releaseNotes": "https://github.com/Past-da-king/agent/releases/latest",
       "license": "https://opensource.org/licenses/MIT",
       "isAccessibleForFree": true,
       "offers": {
@@ -280,10 +280,10 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:8
 <body>
 
 <header class="topbar"><nav aria-label="Main"><div class="wrap">
-  <a class="brand" href="#top"><svg class="" viewBox="-2 -2 104 104" aria-hidden="true"><path d="M42.75,0.00 L40.41,0.68 L38.44,2.42 L36.93,4.68 L35.73,7.18 L34.52,9.59 L32.93,11.63 L30.97,12.99 L28.63,13.52 L26.13,13.37 L23.64,12.92 L21.15,12.46 L18.66,12.31 L16.31,12.69 L14.50,13.82 L13.37,15.63 L13.07,17.98 L13.22,20.47 L13.67,22.96 L14.12,25.45 L14.05,27.95 L13.29,30.36 L11.71,32.40 L9.52,34.06 L7.02,35.35 L4.53,36.40 L2.27,37.92 L0.68,39.80 L0.00,42.07 L0.68,44.56 L2.27,47.05 L4.53,49.55 L6.80,52.04 L8.31,54.53 L8.84,57.02 L8.31,59.52 L7.10,62.01 L5.74,64.50 L4.61,66.99 L4.00,69.49 L4.38,71.90 L5.74,73.87 L7.85,75.23 L10.35,75.91 L12.84,76.21 L15.33,76.51 L17.82,77.42 L20.02,79.00 L21.60,81.12 L22.51,83.61 L22.81,86.10 L22.96,88.60 L23.49,91.09 L24.62,93.35 L26.44,94.86 L28.63,95.47 L31.12,94.94 L33.61,93.88 L36.10,92.52 L38.60,91.39 L41.09,90.71 L43.58,91.01 L46.07,92.37 L48.41,94.41 L50.68,96.83 L52.95,98.87 L55.21,100.00 L57.70,100.00 L59.89,98.79 L61.63,96.83 L63.07,94.41 L64.20,91.92 L65.56,89.58 L67.30,87.76 L69.41,86.63 L71.83,86.33 L74.32,86.56 L76.81,87.01 L79.31,87.46 L81.80,87.54 L84.14,86.93 L85.95,85.57 L86.93,83.53 L87.08,81.12 L86.71,78.63 L86.10,76.13 L85.73,73.64 L85.88,71.15 L86.78,68.73 L88.60,66.77 L90.94,65.11 L93.43,63.90 L95.92,62.69 L98.11,61.18 L99.47,59.29 L99.85,57.02 L99.02,54.53 L97.28,52.19 L95.09,49.92 L92.82,47.66 L91.24,45.39 L90.63,42.90 L91.09,40.41 L92.15,37.92 L93.58,35.42 L94.79,32.93 L95.47,30.44 L95.39,28.02 L94.26,25.98 L92.45,24.62 L90.11,23.87 L87.61,23.49 L85.12,23.26 L82.63,22.66 L80.29,21.68 L78.47,20.09 L77.34,17.90 L76.66,15.48 L76.36,12.99 L75.98,10.50 L75.38,8.01 L74.24,5.97 L72.43,4.68 L70.17,4.31 L67.67,4.98 L65.18,6.12 L62.69,7.48 L60.20,8.61 L57.70,9.21 L55.21,8.84 L52.95,7.48 L50.68,5.44 L48.41,3.10 L46.07,1.13 L43.58,0.08 Z" fill="#4A3FD1"/><rect x="44.92447129909366" y="43" width="6.5" height="14" rx="3.25" fill="#15112E"/><rect x="58.42447129909366" y="43" width="6.5" height="14" rx="3.25" fill="#15112E"/></svg>Agent</a>
+  <a class="brand" href="#top"><svg class="" viewBox="-2 -2 104 104" aria-hidden="true"><path d="M42.75,0.00 L40.41,0.68 L38.44,2.42 L36.93,4.68 L35.73,7.18 L34.52,9.59 L32.93,11.63 L30.97,12.99 L28.63,13.52 L26.13,13.37 L23.64,12.92 L21.15,12.46 L18.66,12.31 L16.31,12.69 L14.50,13.82 L13.37,15.63 L13.07,17.98 L13.22,20.47 L13.67,22.96 L14.12,25.45 L14.05,27.95 L13.29,30.36 L11.71,32.40 L9.52,34.06 L7.02,35.35 L4.53,36.40 L2.27,37.92 L0.68,39.80 L0.00,42.07 L0.68,44.56 L2.27,47.05 L4.53,49.55 L6.80,52.04 L8.31,54.53 L8.84,57.02 L8.31,59.52 L7.10,62.01 L5.74,64.50 L4.61,66.99 L4.00,69.49 L4.38,71.90 L5.74,73.87 L7.85,75.23 L10.35,75.91 L12.84,76.21 L15.33,76.51 L17.82,77.42 L20.02,79.00 L21.60,81.12 L22.51,83.61 L22.81,86.10 L22.96,88.60 L23.49,91.09 L24.62,93.35 L26.44,94.86 L28.63,95.47 L31.12,94.94 L33.61,93.88 L36.10,92.52 L38.60,91.39 L41.09,90.71 L43.58,91.01 L46.07,92.37 L48.41,94.41 L50.68,96.83 L52.95,98.87 L55.21,100.00 L57.70,100.00 L59.89,98.79 L61.63,96.83 L63.07,94.41 L64.20,91.92 L65.56,89.58 L67.30,87.76 L69.41,86.63 L71.83,86.33 L74.32,86.56 L76.81,87.01 L79.31,87.46 L81.80,87.54 L84.14,86.93 L85.95,85.57 L86.93,83.53 L87.08,81.12 L86.71,78.63 L86.10,76.13 L85.73,73.64 L85.88,71.15 L86.78,68.73 L88.60,66.77 L90.94,65.11 L93.43,63.90 L95.92,62.69 L98.11,61.18 L99.47,59.29 L99.85,57.02 L99.02,54.53 L97.28,52.19 L95.09,49.92 L92.82,47.66 L91.24,45.39 L90.63,42.90 L91.09,40.41 L92.15,37.92 L93.58,35.42 L94.79,32.93 L95.47,30.44 L95.39,28.02 L94.26,25.98 L92.45,24.62 L90.11,23.87 L87.61,23.49 L85.12,23.26 L82.63,22.66 L80.29,21.68 L78.47,20.09 L77.34,17.90 L76.66,15.48 L76.36,12.99 L75.98,10.50 L75.38,8.01 L74.24,5.97 L72.43,4.68 L70.17,4.31 L67.67,4.98 L65.18,6.12 L62.69,7.48 L60.20,8.61 L57.70,9.21 L55.21,8.84 L52.95,7.48 L50.68,5.44 L48.41,3.10 L46.07,1.13 L43.58,0.08 Z" fill="#4A3FD1"/><rect x="44.92447129909366" y="43" width="6.5" height="14" rx="3.25" fill="#15112E"/><rect x="58.42447129909366" y="43" width="6.5" height="14" rx="3.25" fill="#15112E"/></svg>Mew</a>
   <div class="navlinks">
     <a class="pill ghost small" href="https://github.com/Past-da-king/agent">GitHub</a>
-    <a class="pill solid small" href="https://github.com/Past-da-king/agent/releases/download/v0.11.22/Agent-0.11.22.apk">Download</a>
+    <a class="pill solid small" href="https://github.com/Past-da-king/agent/releases/latest">Download</a>
   </div>
 </div></nav></header>
 
@@ -292,18 +292,18 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:8
   <div class="wrap">
     <div class="copy">
       <div class="eyebrow">Free and open source, for Android</div>
-      <h1 class="display">Agent</h1>
+      <h1 class="display">Mew</h1>
       <p class="line">An autonomous agent that's always on, right on your phone.</p>
       <p class="since">The best thing since Hermes.</p>
       <div class="ctas">
-        <a class="pill solid" href="https://github.com/Past-da-king/agent/releases/download/v0.11.22/Agent-0.11.22.apk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12m0 0-5-5m5 5 5-5M5 20h14"/></svg>Get the APK</a>
+        <a class="pill solid" href="https://github.com/Past-da-king/agent/releases/latest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12m0 0-5-5m5 5 5-5M5 20h14"/></svg>Get the APK</a>
         <a class="pill ghost" href="#watch">Watch it work</a>
       </div>
     </div>
     <div class="stage">
       <svg class="peek" viewBox="-2 -2 104 104" aria-hidden="true"><path d="M42.75,0.00 L40.41,0.68 L38.44,2.42 L36.93,4.68 L35.73,7.18 L34.52,9.59 L32.93,11.63 L30.97,12.99 L28.63,13.52 L26.13,13.37 L23.64,12.92 L21.15,12.46 L18.66,12.31 L16.31,12.69 L14.50,13.82 L13.37,15.63 L13.07,17.98 L13.22,20.47 L13.67,22.96 L14.12,25.45 L14.05,27.95 L13.29,30.36 L11.71,32.40 L9.52,34.06 L7.02,35.35 L4.53,36.40 L2.27,37.92 L0.68,39.80 L0.00,42.07 L0.68,44.56 L2.27,47.05 L4.53,49.55 L6.80,52.04 L8.31,54.53 L8.84,57.02 L8.31,59.52 L7.10,62.01 L5.74,64.50 L4.61,66.99 L4.00,69.49 L4.38,71.90 L5.74,73.87 L7.85,75.23 L10.35,75.91 L12.84,76.21 L15.33,76.51 L17.82,77.42 L20.02,79.00 L21.60,81.12 L22.51,83.61 L22.81,86.10 L22.96,88.60 L23.49,91.09 L24.62,93.35 L26.44,94.86 L28.63,95.47 L31.12,94.94 L33.61,93.88 L36.10,92.52 L38.60,91.39 L41.09,90.71 L43.58,91.01 L46.07,92.37 L48.41,94.41 L50.68,96.83 L52.95,98.87 L55.21,100.00 L57.70,100.00 L59.89,98.79 L61.63,96.83 L63.07,94.41 L64.20,91.92 L65.56,89.58 L67.30,87.76 L69.41,86.63 L71.83,86.33 L74.32,86.56 L76.81,87.01 L79.31,87.46 L81.80,87.54 L84.14,86.93 L85.95,85.57 L86.93,83.53 L87.08,81.12 L86.71,78.63 L86.10,76.13 L85.73,73.64 L85.88,71.15 L86.78,68.73 L88.60,66.77 L90.94,65.11 L93.43,63.90 L95.92,62.69 L98.11,61.18 L99.47,59.29 L99.85,57.02 L99.02,54.53 L97.28,52.19 L95.09,49.92 L92.82,47.66 L91.24,45.39 L90.63,42.90 L91.09,40.41 L92.15,37.92 L93.58,35.42 L94.79,32.93 L95.47,30.44 L95.39,28.02 L94.26,25.98 L92.45,24.62 L90.11,23.87 L87.61,23.49 L85.12,23.26 L82.63,22.66 L80.29,21.68 L78.47,20.09 L77.34,17.90 L76.66,15.48 L76.36,12.99 L75.98,10.50 L75.38,8.01 L74.24,5.97 L72.43,4.68 L70.17,4.31 L67.67,4.98 L65.18,6.12 L62.69,7.48 L60.20,8.61 L57.70,9.21 L55.21,8.84 L52.95,7.48 L50.68,5.44 L48.41,3.10 L46.07,1.13 L43.58,0.08 Z" fill="#4A3FD1"/><rect x="44.92447129909366" y="43" width="6.5" height="14" rx="3.25" fill="#15112E"/><rect x="58.42447129909366" y="43" width="6.5" height="14" rx="3.25" fill="#15112E"/></svg>
       <div class="chip"><small>Juno · just now</small>Found it. Walmart has the 5 lb bag for $3.98.</div>
-      <div class="phone shot wide"><img src="hero.webp" alt="Agent's home screen: what it's working on, what needs you, and your to-dos" width="3840" height="2160" fetchpriority="high" decoding="async"></div>
+      <div class="phone shot wide"><img src="hero.webp" alt="Mew's home screen: what it's working on, what needs you, and your to-dos" width="3840" height="2160" fetchpriority="high" decoding="async"></div>
     </div>
   </div>
 </section>
@@ -314,11 +314,11 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:8
     <div class="eyebrow" style="color:var(--light)">Real recording, sped up</div>
     <h2>I asked for the cheapest bag of bread flour. It went and found it.</h2>
     <p class="lead">Straight off a phone. It searched Walmart and Target by itself, compared the 5 lb bags and came back with prices and links to buy.</p>
-    <div class="vid"><img src="demo-flour.gif" alt="Agent searching Walmart and Target for the cheapest 5 lb bag of bread flour, sped up" width="1000" height="563" loading="lazy" decoding="async"></div>
+    <div class="vid"><img src="demo-flour.gif" alt="Mew searching Walmart and Target for the cheapest 5 lb bag of bread flour, sped up" width="1000" height="563" loading="lazy" decoding="async"></div>
     <div class="vidcap"><span><b>Walmart $3.98</b>, Target $3.99, both with links</span><span>Sped up 12x, running on DeepSeek V4.1 Flash</span></div>
     <div class="grid2">
       <div><h3>Everything on one screen.</h3><p>What it's working on, what needs you, and your to-dos. Open the app and you see where things stand.</p></div>
-      <div class="vid"><img src="hero.webp" alt="Agent's home screen next to the app's name and tagline" width="3840" height="2160" loading="lazy" decoding="async"></div>
+      <div class="vid"><img src="hero.webp" alt="Mew's home screen next to the app's name and tagline" width="3840" height="2160" loading="lazy" decoding="async"></div>
     </div>
   </div>
 </section>
@@ -328,12 +328,12 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:8
   <div class="wrap">
     <div class="text">
       <div class="eyebrow" style="color:#E4E0FF">Bring your own model</div>
-      <h2 style="color:#FBFAFF">Sign in with the plan you already pay for.</h2>
-      <p class="lead" style="color:#E4E0FF">ChatGPT and Claude subscriptions run right on the phone. Or paste a key from DeepSeek, Gemini, OpenRouter, OpenCode, or point it at your own server.</p>
+      <h2 style="color:#FBFAFF">Bring your own OpenCode key.</h2>
+      <p class="lead" style="color:#E4E0FF">OpenCode Zen/Go runs in the app's own agent loop. Or point it at any OpenAI-compatible server you control.</p>
     </div>
     <div class="stage">
       <svg class="peek" viewBox="-2 -2 104 104" aria-hidden="true"><path d="M42.75,0.00 L40.41,0.68 L38.44,2.42 L36.93,4.68 L35.73,7.18 L34.52,9.59 L32.93,11.63 L30.97,12.99 L28.63,13.52 L26.13,13.37 L23.64,12.92 L21.15,12.46 L18.66,12.31 L16.31,12.69 L14.50,13.82 L13.37,15.63 L13.07,17.98 L13.22,20.47 L13.67,22.96 L14.12,25.45 L14.05,27.95 L13.29,30.36 L11.71,32.40 L9.52,34.06 L7.02,35.35 L4.53,36.40 L2.27,37.92 L0.68,39.80 L0.00,42.07 L0.68,44.56 L2.27,47.05 L4.53,49.55 L6.80,52.04 L8.31,54.53 L8.84,57.02 L8.31,59.52 L7.10,62.01 L5.74,64.50 L4.61,66.99 L4.00,69.49 L4.38,71.90 L5.74,73.87 L7.85,75.23 L10.35,75.91 L12.84,76.21 L15.33,76.51 L17.82,77.42 L20.02,79.00 L21.60,81.12 L22.51,83.61 L22.81,86.10 L22.96,88.60 L23.49,91.09 L24.62,93.35 L26.44,94.86 L28.63,95.47 L31.12,94.94 L33.61,93.88 L36.10,92.52 L38.60,91.39 L41.09,90.71 L43.58,91.01 L46.07,92.37 L48.41,94.41 L50.68,96.83 L52.95,98.87 L55.21,100.00 L57.70,100.00 L59.89,98.79 L61.63,96.83 L63.07,94.41 L64.20,91.92 L65.56,89.58 L67.30,87.76 L69.41,86.63 L71.83,86.33 L74.32,86.56 L76.81,87.01 L79.31,87.46 L81.80,87.54 L84.14,86.93 L85.95,85.57 L86.93,83.53 L87.08,81.12 L86.71,78.63 L86.10,76.13 L85.73,73.64 L85.88,71.15 L86.78,68.73 L88.60,66.77 L90.94,65.11 L93.43,63.90 L95.92,62.69 L98.11,61.18 L99.47,59.29 L99.85,57.02 L99.02,54.53 L97.28,52.19 L95.09,49.92 L92.82,47.66 L91.24,45.39 L90.63,42.90 L91.09,40.41 L92.15,37.92 L93.58,35.42 L94.79,32.93 L95.47,30.44 L95.39,28.02 L94.26,25.98 L92.45,24.62 L90.11,23.87 L87.61,23.49 L85.12,23.26 L82.63,22.66 L80.29,21.68 L78.47,20.09 L77.34,17.90 L76.66,15.48 L76.36,12.99 L75.98,10.50 L75.38,8.01 L74.24,5.97 L72.43,4.68 L70.17,4.31 L67.67,4.98 L65.18,6.12 L62.69,7.48 L60.20,8.61 L57.70,9.21 L55.21,8.84 L52.95,7.48 L50.68,5.44 L48.41,3.10 L46.07,1.13 L43.58,0.08 Z" fill="#E4E0FF"/><rect x="44.92447129909366" y="43" width="6.5" height="14" rx="3.25" fill="#1B1A1F"/><rect x="58.42447129909366" y="43" width="6.5" height="14" rx="3.25" fill="#1B1A1F"/></svg>
-      <div class="phone shot card"><img src="card-1-power.webp" alt="Agent's power screen: sign in with a Claude or ChatGPT plan you already pay for, or paste an API key" width="2160" height="2700" loading="lazy" decoding="async"></div>
+      <div class="phone shot card"><img src="card-1-power.webp" alt="Mew's power screen: paste an OpenCode API key or run the agent on your own computer" width="2160" height="2700" loading="lazy" decoding="async"></div>
     </div>
   </div>
 </section>
@@ -342,7 +342,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:8
     <div class="text">
       <div class="eyebrow" style="color:#4A4852">Its own browser</div>
       <h2 style="color:#1B1A1F">Ask it to find something. It goes and looks.</h2>
-      <p class="lead" style="color:#4A4852">It has a browser of its own that keeps working while you use other apps. Helpers split the job up, and anything that costs money waits for your yes.</p>
+      <p class="lead" style="color:#4A4852">It has a browser of its own that keeps working while you use other apps. Helpers split the job up, and connected-app sends, machine commands and app intents wait for your yes. Browser clicks and code are open-ended and are not automatically gated.</p>
     </div>
     <div class="stage">
       <svg class="peek" viewBox="-2 -2 104 104" aria-hidden="true"><path d="M44.35,0.40 L41.74,0.79 L39.13,1.34 L36.52,1.90 L33.91,2.77 L31.30,3.72 L28.70,4.90 L26.09,6.25 L23.48,7.75 L20.87,9.57 L18.26,11.62 L15.65,13.99 L13.20,16.52 L10.99,19.13 L9.01,21.74 L7.43,24.35 L5.93,26.96 L4.66,29.57 L3.56,32.17 L2.61,34.78 L1.82,37.39 L1.19,40.00 L0.63,42.61 L0.32,45.22 L0.08,47.83 L0.00,50.43 L0.00,53.04 L0.00,55.65 L0.00,58.26 L0.00,60.87 L0.00,63.48 L0.00,66.09 L0.00,68.70 L0.00,71.30 L0.00,73.91 L0.00,76.52 L0.00,79.13 L0.24,81.74 L0.63,84.35 L1.42,86.96 L2.61,89.57 L4.27,92.02 L6.32,94.31 L8.70,96.21 L11.30,97.63 L13.91,98.81 L16.52,99.45 L19.13,99.84 L21.74,99.84 L24.35,99.45 L26.96,98.66 L29.57,97.55 L32.17,96.28 L34.78,95.02 L37.39,93.75 L40.00,92.65 L42.61,91.86 L45.22,91.23 L47.83,90.83 L50.43,90.75 L53.04,90.83 L55.65,91.23 L58.26,91.94 L60.87,92.73 L63.48,93.91 L66.09,95.18 L68.70,96.52 L71.30,97.87 L73.91,98.89 L76.52,99.53 L79.13,99.92 L81.74,99.84 L84.35,99.45 L86.96,98.66 L89.57,97.39 L92.02,95.73 L94.31,93.68 L96.21,91.30 L97.63,88.70 L98.74,86.09 L99.37,83.48 L99.76,80.87 L100.00,78.26 L100.00,75.65 L100.00,73.04 L100.00,70.43 L100.00,67.83 L100.00,65.22 L100.00,62.61 L100.00,60.00 L100.00,57.39 L100.00,54.78 L100.00,52.17 L100.00,49.57 L99.92,46.96 L99.68,44.35 L99.29,41.74 L98.74,39.13 L98.10,36.52 L97.31,33.91 L96.44,31.30 L95.26,28.70 L93.91,26.09 L92.25,23.48 L90.43,20.87 L88.38,18.26 L86.01,15.65 L83.48,13.20 L80.87,10.99 L78.26,9.01 L75.65,7.43 L73.04,5.93 L70.43,4.66 L67.83,3.56 L65.22,2.69 L62.61,1.90 L60.00,1.34 L57.39,0.79 L54.78,0.40 L52.17,0.16 L49.57,0.00 L46.96,0.16 Z" fill="#4A3FD1"/><rect x="35" y="42.9604743083004" width="6.5" height="14" rx="3.25" fill="#1B1A1F"/><rect x="48.5" y="42.9604743083004" width="6.5" height="14" rx="3.25" fill="#1B1A1F"/></svg>
@@ -384,7 +384,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:8
 <section class="also" id="also">
   <div class="wrap">
     <div class="eyebrow" style="color:var(--iris)">In this release</div>
-    <h2>Also new in 0.11.22.</h2>
+    <h2>Also in this release.</h2>
     <div class="row">
       <div>
         <h3>Memory goes in and out as one zip.</h3>
@@ -446,26 +446,17 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:8
     <h2>Put it on your phone.</h2>
     <p class="lead">No account and no server of ours. Nothing leaves the phone except calls to the model you choose.</p>
     <div class="ctas">
-      <a class="pill solid" href="https://github.com/Past-da-king/agent/releases/download/v0.11.22/Agent-0.11.22.apk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12m0 0-5-5m5 5 5-5M5 20h14"/></svg>Download the APK</a>
+      <a class="pill solid" href="https://github.com/Past-da-king/agent/releases/latest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12m0 0-5-5m5 5 5-5M5 20h14"/></svg>Download the APK</a>
       <a class="pill ghost" href="https://github.com/Past-da-king/agent">Read the code</a>
     </div>
-    <p class="ver">This build is version 0.11.22, <a href="https://github.com/Past-da-king/agent/releases/tag/v0.11.22">release notes on GitHub</a>. The file is Agent-0.11.22.apk, 360,664,243 bytes, about 360 MB.</p>
+    <p class="ver">This build is version 0.16.0. See <a href="https://github.com/Past-da-king/agent/releases/latest">release notes on GitHub</a>. The release APK is about 83 MB.</p>
     <div class="steps">
-      <div class="step"><b>Install</b><span>Android 10 or newer, 64-bit only. Allow the install from your browser when it asks.</span></div>
+      <div class="step"><b>Install</b><span>Android 14 or newer, arm64 only. Allow the install from your browser when it asks.</span></div>
       <div class="step"><b>Name it</b><span>Give your agent a name and pick how it looks.</span></div>
-      <div class="step"><b>Power it</b><span>Sign in with ChatGPT or Claude, or paste an API key.</span></div>
+      <div class="step"><b>Power it</b><span>Paste an OpenCode Zen/Go API key, or run the agent on your own computer.</span></div>
     </div>
-    <p class="note"><b>Space.</b> It needs about 2 GB of free space to install. If Android says "App not installed", free some space or uninstall an older Agent first. Uninstalling removes the old one's data, so back up anything you need first.</p>
-    <details class="verify">
-      <summary>Check the file you downloaded</summary>
-      <dl>
-        <dt>APK SHA-256</dt>
-        <dd>21918f6c126c6c9070da90724dba159f78f6d83527d18795d8c8c962e5e0ab8b</dd>
-        <dt>Signing certificate SHA-256</dt>
-        <dd>2564b86434c75ba4f5dd6862bebc2d736c0375f658583bfa5fc5baa5df91ff6d</dd>
-      </dl>
-      <p>On a computer, <code>sha256sum Agent-0.11.22.apk</code> should print the first value. The second is the app's signing certificate; <code>apksigner verify --print-certs Agent-0.11.22.apk</code> prints it.</p>
-    </details>
+    <p class="note"><b>Space.</b> It needs about 1 GB of free space to install. If Android says "App not installed", free some space or uninstall an older Mew first. Uninstalling removes the old one's data, so back up anything you need first.</p>
+    <p class="note"><b>Verify.</b> The current APK SHA-256 and signing certificate are listed on its <a href="https://github.com/Past-da-king/agent/releases/latest">release page</a>.</p>
   </div>
 </section>
 </main>

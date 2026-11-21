@@ -5,14 +5,14 @@
     <string name="machines_eyebrow">Iṣẹ́ tó wúwo</string>
     <string name="machines_your">Àwọn ẹ̀rọ rẹ</string>
     <string name="machines_add">Fi ẹ̀rọ kún un</string>
-    <string name="machines_empty">Sopọ̀ mọ́ sáfà tàbí kọ̀ǹpútà tí o lè wọlé sí. Agent rẹ yóò fi iṣẹ́ tí fóònù rẹ kò yẹ kó ṣe ránṣẹ́ sí i: kíkọ́ ojú-òpó wẹ́ẹ̀bù, ṣíṣe ìṣirò dátà, àwọn àkọsílẹ̀ ìlànà gígùn.</string>
+    <string name="machines_empty">Sopọ̀ mọ́ sáfà tàbí kọ̀ǹpútà tí o lè wọlé sí. Mew rẹ yóò fi iṣẹ́ tí fóònù rẹ kò yẹ kó ṣe ránṣẹ́ sí i: kíkọ́ ojú-òpó wẹ́ẹ̀bù, ṣíṣe ìṣirò dátà, àwọn àkọsílẹ̀ ìlànà gígùn.</string>
     <string name="machines_hint_vps">Sáfà tí o háyà</string>
     <string name="machines_hint_vps_sub">VPS láti ọ̀dọ̀ olùpèsè èyíkéyìí</string>
     <string name="machines_hint_uni">Sáfà ilé-ẹ̀kọ́ gíga tàbí ti iṣẹ́</string>
     <string name="machines_hint_uni_sub">Nípasẹ̀ sáfà ìwọlé rẹ̀ tí ó bá ní ọ̀kan</string>
     <string name="machines_hint_own">Kọ̀ǹpútà rẹ</string>
     <string name="machines_hint_own_sub">Lórí Tailscale tàbí nẹ́tíwọ́ọ̀kì ilé rẹ</string>
-    <string name="machines_privacy">Agent rẹ ń rí àwọn orúkọ nìkan. Àwọn àdírẹ́sì, ọ̀rọ̀ aṣínà àti kọ́kọ́rọ́ wà ní fífi pamọ́ lórí fóònù yìí.</string>
+    <string name="machines_privacy">Mew rẹ ń rí àwọn orúkọ nìkan. Àwọn àdírẹ́sì, ọ̀rọ̀ aṣínà àti kọ́kọ́rọ́ wà ní fífi pamọ́ lórí fóònù yìí.</string>
     <string name="machines_runs_without_asking">Ó ń ṣiṣẹ́ láì béèrè</string>
     <string name="machines_not_checked">A kò ì ṣàyẹ̀wò rẹ̀</string>
     <string name="machines_online">Ó wà lórí íńtánẹ́ẹ̀tì</string>
@@ -48,13 +48,13 @@
     <string name="machines_through">Nípasẹ̀ %1$s</string>
     <string name="machines_reach_it">Dé ọ̀dọ̀ rẹ̀</string>
     <string name="machines_run_without_asking">Ṣiṣẹ́ láì béèrè</string>
-    <string name="machines_trusted_on">Agent rẹ lè yí ohunkóhun padà níbí fúnra rẹ̀.</string>
+    <string name="machines_trusted_on">Mew rẹ lè yí ohunkóhun padà níbí fúnra rẹ̀.</string>
     <string name="machines_trusted_off">Àwọn àyípadà dúró de ìfohùnsí rẹ. Wíwò kò béèrè.</string>
     <string name="machines_connected">A ti sopọ̀</string>
     <string name="machines_identity">Ìdánimọ̀ %1$s…</string>
     <string name="machines_couldnt_connect">Kò lè sopọ̀</string>
     <string name="machines_remove_confirm">Yọ %1$s kúrò?</string>
-    <string name="machines_remove_confirm_body">Agent rẹ pàdánù ìwọlé, a sì pa ọ̀rọ̀ aṣínà tàbí kọ́kọ́rọ́ tí a fipamọ́ rẹ́ kúrò lórí fóònù yìí.</string>
+    <string name="machines_remove_confirm_body">Mew rẹ pàdánù ìwọlé, a sì pa ọ̀rọ̀ aṣínà tàbí kọ́kọ́rọ́ tí a fipamọ́ rẹ́ kúrò lórí fóònù yìí.</string>
     <string name="machines_remove">Yọ kúrò</string>
     <string name="machines_cancel">Fagilé</string>
     <string name="machines_one_step">ÌGBÉSẸ̀ KAN LÓRÍ Ẹ̀RỌ NÁÀ</string>
@@ -79,10 +79,10 @@
     <string name="conn_read_notifications">Ka àwọn ìkìlọ̀ mi</string>
     <string name="conn_read_notifications_sub">Yan àwọn app tí agent rẹ lè kọ́ ẹ̀kọ́ láti inú wọn</string>
     <string name="conn_files">Àwọn fáìlì lórí fóònù yìí</string>
-    <string name="conn_files_on">Agent rẹ lè rí àwọn fáìlì rẹ kí ó sì gbé wọn sókè</string>
+    <string name="conn_files_on">Mew rẹ lè rí àwọn fáìlì rẹ kí ó sì gbé wọn sókè</string>
     <string name="conn_files_off">Jẹ́ kí agent rẹ rí àwọn fáìlì láti gbé sókè tàbí láti fi ránṣẹ́</string>
     <string name="conn_your_apps">Àwọn app rẹ</string>
-    <string name="conn_your_apps_consumer">Tẹ Sopọ̀ kí o sì wọlé. Agent rẹ lè lò ó lẹ́sẹ̀kẹsẹ̀.</string>
+    <string name="conn_your_apps_consumer">Tẹ Sopọ̀ kí o sì wọlé. Mew rẹ lè lò ó lẹ́sẹ̀kẹsẹ̀.</string>
     <string name="conn_your_apps_key">Gmail, Calendar, Drive, Slack àti ju 250 lọ, nípasẹ̀ Composio pẹ̀lú kọ́kọ́rọ́ tìrẹ</string>
     <string name="conn_dupe_title">A ti sopọ̀ %1$s ní ìgbà %2$d</string>
     <string name="conn_same_sign_in">Gẹ́gẹ́ bí ìwọlé kan náà</string>
@@ -146,7 +146,7 @@
     <string name="profiles_account_rules">Àwọn òfin àkáǹtì</string>
     <string name="profiles_done">Ti parí</string>
     <string name="profiles_disconnect">Ge àkáǹtì yìí kúrò</string>
-    <string name="profiles_rules_note">Agent rẹ àti àwọn olùrànlọ́wọ́ rẹ̀ ń tẹ̀lé àwọn òfin wọ̀nyí níbí, láìka ẹni tí ó ń béèrè sí.</string>
+    <string name="profiles_rules_note">Mew rẹ àti àwọn olùrànlọ́wọ́ rẹ̀ ń tẹ̀lé àwọn òfin wọ̀nyí níbí, láìka ẹni tí ó ń béèrè sí.</string>
     <string name="profiles_may_do">OHUN TÍ Ó LÈ ṢE</string>
     <string name="profiles_read">Ka</string>
     <string name="profiles_read_sub">Wá, ṣí àti ṣàtòjọ àwọn nǹkan</string>
@@ -164,7 +164,7 @@
     <string name="profiles_asks_to_read">Ń béèrè láti ka</string>
     <string name="profile_back">Padà</string>
     <string name="profile_change_look">Yí àwọ̀ àti ìrísí padà</string>
-    <string name="profile_your_agent">Agent rẹ</string>
+    <string name="profile_your_agent">Mew rẹ</string>
     <string name="profile_talk_to">Bá %1$s sọ̀rọ̀</string>
     <string name="profile_talk_to_your_agent">Bá agent rẹ sọ̀rọ̀</string>
     <plurals name="profile_stat_goals">
@@ -201,7 +201,7 @@
     <string name="profile_you">Ìwọ</string>
     <string name="helpers_eyebrow">ÀWỌN OLÙRÀNLỌ́WỌ́</string>
     <string name="helpers_title">Àwọn tí agent rẹ fi iṣẹ́ lé lọ́wọ́</string>
-    <string name="helpers_body">Yan àwọn àwòṣe tó tó %1$d kí o sì ṣàmì ohun tí ọ̀kọ̀ọ̀kan dára fún. Agent rẹ ń fi iṣẹ́ kọ̀ọ̀kan ránṣẹ́ sí olùrànlọ́wọ́ tó bá a mu, ó sì ń kọ àlàyé kíkún fún àwọn kéékèèké. Èyí tí o kọ́kọ́ yàn ni ìpìlẹ̀.</string>
+    <string name="helpers_body">Yan àwọn àwòṣe tó tó %1$d kí o sì ṣàmì ohun tí ọ̀kọ̀ọ̀kan dára fún. Mew rẹ ń fi iṣẹ́ kọ̀ọ̀kan ránṣẹ́ sí olùrànlọ́wọ́ tó bá a mu, ó sì ń kọ àlàyé kíkún fún àwọn kéékèèké. Èyí tí o kọ́kọ́ yàn ni ìpìlẹ̀.</string>
     <string name="helpers_search">Wá àwọn àwòṣe</string>
     <string name="helpers_no_models">Kò sí àwòṣe tó padà wá fún àkáǹtì yìí.</string>
     <string name="helpers_use_agent_only">Lo àwòṣe agent rẹ nìkan</string>
@@ -222,7 +222,7 @@
     <string name="models_sees_images">Ó ń rí àwọn àwòrán</string>
     <string name="models_selected">A yàn án</string>
     <string name="helpers_kept_eyebrow">AGENT RẸ Ń PA Á MỌ́</string>
-    <string name="helpers_kept_sub">Àwọn olùrànlọ́wọ́ tó rí ọ̀nà, tí a pamọ́ fún àwọn iṣẹ́ tó jọra. Agent rẹ ń tọ́jú wọn fúnra rẹ̀.</string>
+    <string name="helpers_kept_sub">Àwọn olùrànlọ́wọ́ tó rí ọ̀nà, tí a pamọ́ fún àwọn iṣẹ́ tó jọra. Mew rẹ ń tọ́jú wọn fúnra rẹ̀.</string>
     <plurals name="helpers_kept_jobs">
         <item quantity="other">Iṣẹ́ %1$d</item>
     </plurals>
@@ -232,7 +232,7 @@
     <string name="conn_learned_sub">Àwọn ojú-òpó tí agent rẹ ń kọ́ lẹ́ẹ̀kan, lẹ́yìn náà á lò wọ́n láì tẹ̀</string>
     <string name="conn_learned_sheet_sub">Àwọn ojú-òpó tí agent rẹ mọ̀</string>
     <string name="conn_learned_teach">Kọ́ agent rẹ ní app yìí</string>
-    <string name="conn_learned_empty">Dárúkọ ojú-òpó tàbí app tí o ń lò nígbà gbogbo. Agent rẹ yóò ṣí i, yóò kọ́ bó ṣe ń ṣiṣẹ́, yóò sì kọ àwọn irinṣẹ́ fún un fúnra rẹ̀, kí ó lè pe irinṣẹ́ ní ìgbà tó ń bọ̀ dípò títẹ gbogbo app.</string>
+    <string name="conn_learned_empty">Dárúkọ ojú-òpó tàbí app tí o ń lò nígbà gbogbo. Mew rẹ yóò ṣí i, yóò kọ́ bó ṣe ń ṣiṣẹ́, yóò sì kọ àwọn irinṣẹ́ fún un fúnra rẹ̀, kí ó lè pe irinṣẹ́ ní ìgbà tó ń bọ̀ dípò títẹ gbogbo app.</string>
     <string name="conn_learned_teach_new">Kọ́ ọ̀tun</string>
     <string name="conn_learned_teach_hint">WhatsApp Web, ọ̀nà ilé-ẹ̀kọ́ rẹ, báńkì rẹ</string>
     <plurals name="conn_learned_tools">
@@ -267,7 +267,7 @@
     <string name="camera_none">Kò sí kámẹ́rà lórí ẹ̀rọ yìí.</string>
     <string name="camera_none_sub">O ṣì lè so fọ́tò kan láti inú àwòrán rẹ.</string>
     <string name="camera_off">Kámẹ́rà wà ní pípa.</string>
-    <string name="camera_off_sub">Agent rẹ ń rí fọ́tò nìkan nígbà tí o bá yà á tí o sì tẹ Fi ránṣẹ́.</string>
+    <string name="camera_off_sub">Mew rẹ ń rí fọ́tò nìkan nígbà tí o bá yà á tí o sì tẹ Fi ránṣẹ́.</string>
     <string name="camera_open_settings">Ṣí àwọn ètò</string>
     <string name="camera_close_camera">Ti kámẹ́rà</string>
     <string name="camera_try_again">Gbìyànjú lẹ́ẹ̀kan sí i</string>

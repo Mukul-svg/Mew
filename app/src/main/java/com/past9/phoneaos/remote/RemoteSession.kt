@@ -83,7 +83,7 @@ internal fun backoffMs(failures: Int, random: Double = Math.random()): Long {
 internal fun linkReason(problem: LinkProblem, name: String): String = when (problem) {
     LinkProblem.Unpaired -> "$name no longer knows this phone. Scan its QR code again: Settings, Linked devices, Link to a different computer."
     LinkProblem.CertChanged -> "$name's certificate changed since this phone was linked. Scan its QR code again to trust it."
-    LinkProblem.Unreachable -> "Can't reach $name. Is the Agent app open there, with Devices on, on the same network?"
+    LinkProblem.Unreachable -> "Can't reach $name. Is the Mew app open there, with Devices on, on the same network?"
     LinkProblem.Dropped -> "The link to $name dropped."
 }
 
@@ -291,7 +291,7 @@ class RemoteSession(private val app: Context, link: Link, val db: AppDb) : Remot
                     brains.size <= 1 -> LinkState.NoAgents(reasonFor(LinkProblem.Unreachable, brains.firstOrNull()?.name?.ifBlank { null } ?: nameOf(null)))
                     // A message on its way: he hears that it is safe, and that the computers are the problem (an overloaded server is one).
                     pendingSends.get() > 0 -> LinkState.NoAgents("None of your computers are answering right now. Still trying; your message is safe.")
-                    else -> LinkState.NoAgents("None of your computers answered. Are the Agent apps open there, with Devices on, on the same network?")
+                    else -> LinkState.NoAgents("None of your computers answered. Are the Mew apps open there, with Devices on, on the same network?")
                 }
                 _status.value = AgentStatus()
             }
@@ -1556,12 +1556,12 @@ class RemoteSession(private val app: Context, link: Link, val db: AppDb) : Remot
 
     /**
      * "not available on this device" is what the device link answers when the computer has no such RPC at all, which
-     * means its Agent is older than this app: 0.2.118 drew the card but shipped no media.fetch. Say what to do about it
+     * means its Mew is older than this app: 0.2.118 drew the card but shipped no media.fetch. Say what to do about it
      * instead of showing a phrase that reads like the file is missing.
      */
     private fun oldComputer(error: String): String =
         if (error.contains("not available on this device", ignoreCase = true)) {
-            "This file is on your computer, and the Agent there is too old to send it. Update Agent on the computer (0.2.119 or newer) and it plays here."
+            "This file is on your computer, and the Mew there is too old to send it. Update Mew on the computer (0.2.119 or newer) and it plays here."
         } else {
             error.trim()
         }

@@ -86,7 +86,7 @@
     </plurals>
     <string name="tasks_add_todo">Voeg doenlysitem by</string>
     <string name="tasks_tab_mine">Jou doenlys</string>
-    <string name="tasks_tab_agent">Agent se werk</string>
+    <string name="tasks_tab_agent">Mew se werk</string>
     <string name="tasks_empty_body">Voeg \'n doenlysitem by, of sê vir jou agent “herinner my om…”. Alles wat jy moet doen, woon hier.</string>
     <string name="tasks_done">Klaar</string>
     <string name="tasks_done_sub">Onlangs afgemerk</string>

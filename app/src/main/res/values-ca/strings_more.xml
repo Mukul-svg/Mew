@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">O FES SERVIR L\'AGENT AL TEU ORDINADOR</string>
     <string name="onb_use_on_computer">Fes servir l\'agent al meu ordinador</string>
-    <string name="onb_use_on_computer_sub">Escaneja el codi a l\'app Agent del teu ordinador o servidor. Cap clau en aquest telèfon.</string>
+    <string name="onb_use_on_computer_sub">Escaneja el codi a l\'app Mew del teu ordinador o servidor. Cap clau en aquest telèfon.</string>
     <string name="sub_paste_code_from">Enganxa el codi de %1$s</string>
     <string name="sub_paste_code_body_from">Al navegador: toca Authorize. %1$s et mostra un codi. Copia\'l, torna aquí i enganxa\'l a sota.</string>
     <string name="sub_code_from">Codi de %1$s</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">Afegeix un número de prova</string>
     <string name="browser_test_number_body">El número del compte de WhatsApp amb què proves. No s\'envia res a WhatsApp, i tornar a carregar la pàgina ho desfà.</string>
     <string name="link_cant_reach">No s\'ha pogut accedir a l\'ordinador.</string>
-    <string name="link_bad_answer">La resposta de l\'ordinador no tenia sentit. La seva app Agent està actualitzada?</string>
+    <string name="link_bad_answer">La resposta de l\'ordinador no tenia sentit. La seva app Mew està actualitzada?</string>
     <string name="link_tried_addresses">(provades %1$d adreces)</string>
     <string name="link_type_address">Escriu l\'adreça de l\'ordinador.</string>
     <string name="link_no_certificate">L\'ordinador no ha enviat cap certificat.</string>
     <string name="link_failed">La vinculació ha fallat.</string>
     <string name="link_your_computer">el teu ordinador</string>
-    <string name="link_not_a_code">Aquest codi QR no és un codi de vinculació d\'Agent.</string>
+    <string name="link_not_a_code">Aquest codi QR no és un codi de vinculació d\'Mew.</string>
     <string name="link_subtitle">Vincula aquest telèfon a un ordinador o servidor</string>
     <string name="link_linked_to">Vinculat amb %1$s</string>
     <string name="link_runs_on">El teu agent s\'executa a %1$s. Aquest telèfon en mostra el xat, la memòria, les tasques i les rutines, i no hi té claus d\'IA.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">Vincula amb %1$s</string>
     <string name="link_keep">Mantén %1$s</string>
     <string name="link_linking_to">Vinculant amb %1$s...</string>
-    <string name="link_how_to">Al teu ordinador, obre l\'app Agent i ves a Configuració, Dispositius, Afegeix un dispositiu.</string>
+    <string name="link_how_to">Al teu ordinador, obre l\'app Mew i ves a Configuració, Dispositius, Afegeix un dispositiu.</string>
     <string name="link_how_type">Escriu l\'adreça i el codi que mostra.</string>
     <string name="link_how_scan">Apunta aquesta càmera al codi que mostra.</string>
     <string name="link_allow_camera">Permet la càmera</string>
@@ -274,7 +274,7 @@
     <string name="proj_new_chat_line">El que s\'ha dit fins ara es desa a la memòria i aquesta finestra torna a començar buida. No se suprimeix res del teu ordinador.</string>
     <string name="proj_new_chat">Xat nou</string>
     <string name="proj_not_linked_now">Ara mateix no vinculat a cap ordinador.</string>
-    <string name="proj_computer_older">L\'app Agent del teu ordinador és més antiga que aquesta i no hi pot iniciar un xat nou. Actualitza-la al teu ordinador i torna-ho a provar.</string>
+    <string name="proj_computer_older">L\'app Mew del teu ordinador és més antiga que aquesta i no hi pot iniciar un xat nou. Actualitza-la al teu ordinador i torna-ho a provar.</string>
     <string name="proj_unreachable">No s\'ha pogut accedir al teu ordinador. Torna-ho a provar quan hi sigui de nou.</string>
     <string name="proj_photo_you_sent">Foto que has enviat</string>
     <string name="proj_start_chat_failed">No s\'ha pogut iniciar un xat a %1$s: %2$s.</string>
@@ -375,14 +375,14 @@
     <string name="wake_up_your_computer">el teu ordinador</string>
     <string name="wake_up_reaches">Arriba a aquest telèfon</string>
     <string name="wake_up_link_first">Vincula primer aquest telèfon al teu ordinador (Configuració &gt; Dispositius vinculats)</string>
-    <string name="wake_up_lacks">%1$s encara no pot fer sonar aquest telèfon: actualitza l\'app Agent allà</string>
+    <string name="wake_up_lacks">%1$s encara no pot fer sonar aquest telèfon: actualitza l\'app Mew allà</string>
     <string name="wake_up_connected">Connectat a %1$s</string>
     <string name="wake_up_not_connected">Ara no connectat. Continua provant.</string>
     <string name="wake_up_test">Prova una alarma</string>
     <string name="wake_up_test_body">Fa sonar aquest telèfon de debò. Respon per aturar-la.</string>
     <string name="wake_up_test_sent">Prova de %1$s enviada.</string>
     <string name="wake_up_not_sent">No ha sortit.</string>
-    <string name="wake_up_secure_folder">Instal·la Agent amb normalitat (no dins la Carpeta segura): una Carpeta segura bloquejada no pot sonar.</string>
+    <string name="wake_up_secure_folder">Instal·la Mew amb normalitat (no dins la Carpeta segura): una Carpeta segura bloquejada no pot sonar.</string>
     <string name="rec_recording_now">Gravant ara</string>
     <string name="rec_cut_off">Interrompuda</string>
     <string name="rec_partly">Una part no s\'ha transcrit</string>
@@ -411,7 +411,7 @@
     <string name="media_play">Reprodueix música i vídeo</string>
     <string name="media_intro">Quan demanes al teu agent que reprodueixi alguna cosa, fa servir l\'app que triïs aquí. En automàtic, fa servir la predeterminada del telèfon i després qualsevol app que pugui reproduir des d\'una cerca.</string>
     <string name="media_access_off">L\'accés a les notificacions està desactivat</string>
-    <string name="media_access_body">Android només mostra què s\'està reproduint, i deixa que el teu agent posi en pausa o salti, quan Agent té accés a les notificacions.</string>
+    <string name="media_access_body">Android només mostra què s\'està reproduint, i deixa que el teu agent posi en pausa o salti, quan Mew té accés a les notificacions.</string>
     <string name="media_none">Cap app d\'aquest telèfon diu que pugui reproduir música o vídeo per al teu agent. Instal·la una app de música i apareixerà aquí.</string>
     <string name="media_music_app">App de música</string>
     <string name="media_video_app">App de vídeo</string>
@@ -663,7 +663,7 @@
     <string name="main_your_computer">el teu ordinador</string>
     <string name="main_a_computer">un ordinador</string>
     <string name="main_whatever_agent_runs">Allà on s\'executi el teu agent</string>
-    <string name="rt_clear_computer_older">El xat d\'aquest telèfon s\'ha esborrat. El del teu ordinador no: l\'app Agent d\'allà és més antiga que aquesta i no pot iniciar un xat nou. Actualitza l\'app al teu ordinador i torna a esborrar.</string>
+    <string name="rt_clear_computer_older">El xat d\'aquest telèfon s\'ha esborrat. El del teu ordinador no: l\'app Mew d\'allà és més antiga que aquesta i no pot iniciar un xat nou. Actualitza l\'app al teu ordinador i torna a esborrar.</string>
     <string name="rt_clear_unreachable">El xat d\'aquest telèfon s\'ha esborrat. No s\'ha pogut accedir al teu ordinador ara mateix, així que el seu xat encara hi és i tornarà a aparèixer en sincronitzar. Torna a esborrar quan hi sigui de nou.</string>
     <string name="assist_type_it_instead">Escriu-ho en lloc d\'això</string>
     <string name="assist_unlock_to_carry_on">Desbloqueja per continuar</string>
@@ -714,6 +714,10 @@
     <string name="assist_over_lock_line">Desactivat: desbloqueja primer el telèfon i després crida\'l. Activat: s\'obre amb el telèfon bloquejat i envia la teva petició quan desbloquegis.</string>
     <string name="assist_live_voice">Veu en directe a l\'assistent</string>
     <string name="assist_live_voice_line">Desactivat: dius una petició i respon. Activat: parla amb naturalitat, %1$s respon en veu alta a l\'instant, pots parlar per sobre, i passa feines al teu agent i t\'explica el resultat.</string>
+    <string name="assist_talk">Mantenir la conversa</string>
+    <string name="assist_talk_line">Com una trucada: %1$s llegeix cada resposta en veu alta i torna a escoltar, fins que digueu adéu o toqueu Fi. Fa servir el vostre veu al núvol, o la veu del telèfon si no n\'hi ha cap de configurada.</string>
+    <string name="assist_talk_end">Fi</string>
+    <string name="assist_talk_interrupt">Interrompre</string>
     <string name="assist_never_reads_money">Mai no llegeix apps de banca, pagament o diners, amb cap dels dos interruptors. El que llegeix s\'utilitza només per a aquella petició.</string>
     <string name="live_bubble_desc">Veu en directe. Toca per obrir</string>
     <string name="live_end_session">Acaba la sessió en directe</string>

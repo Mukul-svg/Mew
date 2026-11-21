@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">Bármilyen OpenAI-kompatibilis</string>
     <string name="onb_key_anthropic_1">Koppints lent a Megnyitásra. Megnyílik az Anthropic konzolja a böngészőben. Regisztrálj vagy jelentkezz be.</string>
     <string name="onb_key_anthropic_2">Menj a Billingre, és tölts fel egy kis kreditet. Használat szerinti fizetés, pár dollár sokáig elég.</string>
-    <string name="onb_key_anthropic_3">Menj az API keys oldalra, és koppints a Create key gombra. Bárminek elnevezheted, például Agent.</string>
+    <string name="onb_key_anthropic_3">Menj az API keys oldalra, és koppints a Create key gombra. Bárminek elnevezheted, például Mew.</string>
     <string name="onb_key_anthropic_4">Koppints a Másolásra, térj vissza ebbe az alkalmazásba, illeszd be a kulcsot a fenti mezőbe, és koppints a Kulcs ellenőrzése gombra.</string>
     <string name="onb_key_openai_1">Koppints lent a Megnyitásra. Megnyílik az OpenAI platform a böngészőben. Regisztrálj vagy jelentkezz be. (Ez különbözik a ChatGPT-előfizetéstől.)</string>
     <string name="onb_key_openai_2">Menj a Billingre, és tölts fel egy kis kreditet. Pár dollár sokáig elég.</string>
-    <string name="onb_key_openai_3">Menj az API keys oldalra, és koppints a Create new secret key gombra. Bárminek elnevezheted, például Agent.</string>
+    <string name="onb_key_openai_3">Menj az API keys oldalra, és koppints a Create new secret key gombra. Bárminek elnevezheted, például Mew.</string>
     <string name="onb_key_step_copy_once">Koppints a Másolásra (a kulcsot csak egyszer látod), térj vissza ide, illeszd be fent, és koppints a Kulcs ellenőrzése gombra.</string>
     <string name="onb_key_gemini_1">Koppints lent a Megnyitásra. Megnyílik a Google AI Studio. Jelentkezz be bármelyik Google-fiókkal.</string>
     <string name="onb_key_gemini_2">Koppints a Create API key gombra. Ha projektet kér, válaszd a javasoltat.</string>

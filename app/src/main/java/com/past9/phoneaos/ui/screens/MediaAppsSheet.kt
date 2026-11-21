@@ -49,7 +49,7 @@ data class MediaAppsActions(
     val setMusic: (String) -> Unit = {},
     val video: () -> String = { "" },
     val setVideo: (String) -> Unit = {},
-    /** False when Android has not given Agent notification access: it is needed to see what is playing and to pause or skip. */
+    /** False when Android has not given Mew notification access: it is needed to see what is playing and to pause or skip. */
     val hasSessionAccess: () -> Boolean = { true },
     val openSessionAccess: () -> Unit = {},
 )

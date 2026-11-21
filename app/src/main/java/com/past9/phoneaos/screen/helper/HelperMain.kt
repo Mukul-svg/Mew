@@ -30,7 +30,7 @@ import java.io.DataOutputStream
  */
 object HelperMain {
     private const val IDLE_RELEASE_MS = 10 * 60_000L
-    private const val DISPLAY_NAME = "Agent background screen"
+    private const val DISPLAY_NAME = "Mew background screen"
     /** How long the app may be gone (an update, a restart) before its apps are removed from the hidden display. */
     private const val CLIENT_GRACE_MS = 6_000L
     private val watch = ScreenRelease.ClientWatch(CLIENT_GRACE_MS)

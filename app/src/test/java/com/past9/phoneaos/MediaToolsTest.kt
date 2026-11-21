@@ -941,8 +941,8 @@ class MediaToolsTest {
 
     @Test fun controlWithoutAccessOrSessionsOrAnUnknownAppSaysWhy() {
         val d = deps()
-        d.sessions = Sessions.NoAccess("Agent does not have notification access.")
-        assertTrue(control(d, "action" to "pause").startsWith("failed: Agent does not have notification access."))
+        d.sessions = Sessions.NoAccess("Mew does not have notification access.")
+        assertTrue(control(d, "action" to "pause").startsWith("failed: Mew does not have notification access."))
         d.sessions = Sessions.Ok(mutableListOf())
         assertEquals("Nothing is playing: no app has an open media session.", control(d, "action" to "now_playing"))
         assertTrue(control(d, "action" to "pause").contains("Use play_media to start something"))

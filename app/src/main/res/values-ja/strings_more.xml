@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">またはパソコン上のエージェントを使う</string>
     <string name="onb_use_on_computer">パソコン上のエージェントを使う</string>
-    <string name="onb_use_on_computer_sub">パソコンまたはサーバーの Agent アプリでコードをスキャンしてください。このスマホにキーは不要です。</string>
+    <string name="onb_use_on_computer_sub">パソコンまたはサーバーの Mew アプリでコードをスキャンしてください。このスマホにキーは不要です。</string>
     <string name="sub_paste_code_from">%1$s のコードを貼り付け</string>
     <string name="sub_paste_code_body_from">ブラウザで「承認」をタップすると %1$s にコードが表示されます。コピーしてここに戻り、下に貼り付けてください。</string>
     <string name="sub_code_from">%1$s のコード</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">テスト番号を追加</string>
     <string name="browser_test_number_body">テストに使う WhatsApp アカウントの番号です。WhatsApp には何も送信されず、ページを再読み込みすると元に戻ります。</string>
     <string name="link_cant_reach">パソコンに接続できませんでした。</string>
-    <string name="link_bad_answer">パソコンからの応答を解釈できませんでした。Agent アプリは最新ですか？</string>
+    <string name="link_bad_answer">パソコンからの応答を解釈できませんでした。Mew アプリは最新ですか？</string>
     <string name="link_tried_addresses">（%1$d 件のアドレスを試行）</string>
     <string name="link_type_address">パソコンのアドレスを入力してください。</string>
     <string name="link_no_certificate">パソコンから証明書が送られませんでした。</string>
     <string name="link_failed">リンクに失敗しました。</string>
     <string name="link_your_computer">あなたのパソコン</string>
-    <string name="link_not_a_code">その QR コードは Agent のリンクコードではありません。</string>
+    <string name="link_not_a_code">その QR コードは Mew のリンクコードではありません。</string>
     <string name="link_subtitle">このスマホをパソコンまたはサーバーにリンク</string>
     <string name="link_linked_to">%1$s にリンク済み</string>
     <string name="link_runs_on">エージェントは %1$s で動作します。このスマホはそのチャット、メモリ、タスク、ルーティンを表示するだけで、そのための AI キーは保持しません。</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">%1$s にリンク</string>
     <string name="link_keep">%1$s のままにする</string>
     <string name="link_linking_to">%1$s にリンク中...</string>
-    <string name="link_how_to">パソコンで Agent アプリを開き、設定、デバイス、デバイスを追加の順に進んでください。</string>
+    <string name="link_how_to">パソコンで Mew アプリを開き、設定、デバイス、デバイスを追加の順に進んでください。</string>
     <string name="link_how_type">表示されたアドレスとコードを入力してください。</string>
     <string name="link_how_scan">表示されたコードにカメラを向けてください。</string>
     <string name="link_allow_camera">カメラを許可</string>
@@ -272,7 +272,7 @@
     <string name="proj_new_chat_line">これまでの内容はメモリに保存され、このウィンドウは空になります。パソコン上のものは何も削除されません。</string>
     <string name="proj_new_chat">新しいチャット</string>
     <string name="proj_not_linked_now">現在パソコンにリンクされていません。</string>
-    <string name="proj_computer_older">パソコンの Agent アプリがこのバージョンより古いため、そこで新しいチャットを開始できません。パソコンで更新してから、もう一度お試しください。</string>
+    <string name="proj_computer_older">パソコンの Mew アプリがこのバージョンより古いため、そこで新しいチャットを開始できません。パソコンで更新してから、もう一度お試しください。</string>
     <string name="proj_unreachable">パソコンに接続できませんでした。復帰したらもう一度お試しください。</string>
     <string name="proj_photo_you_sent">送信した写真</string>
     <string name="proj_start_chat_failed">%1$s でチャットを開始できませんでした：%2$s。</string>
@@ -367,14 +367,14 @@
     <string name="wake_up_your_computer">あなたのパソコン</string>
     <string name="wake_up_reaches">このスマホに届く</string>
     <string name="wake_up_link_first">先にこのスマホをパソコンにリンクしてください（設定 &gt; リンクしたデバイス）</string>
-    <string name="wake_up_lacks">%1$s はまだこのスマホを鳴らせません：そちらの Agent アプリを更新してください</string>
+    <string name="wake_up_lacks">%1$s はまだこのスマホを鳴らせません：そちらの Mew アプリを更新してください</string>
     <string name="wake_up_connected">%1$s に接続中</string>
     <string name="wake_up_not_connected">現在は接続されていません。再試行を続けます。</string>
     <string name="wake_up_test">ウェイクアップをテスト</string>
     <string name="wake_up_test_body">このスマホを実際に鳴らします。応答すると止まります。</string>
     <string name="wake_up_test_sent">%1$s のテストを送信しました。</string>
     <string name="wake_up_not_sent">送信できませんでした。</string>
-    <string name="wake_up_secure_folder">Agent は通常の場所にインストールしてください（Secure Folder 内は不可）：ロックされた Secure Folder では鳴らせません。</string>
+    <string name="wake_up_secure_folder">Mew は通常の場所にインストールしてください（Secure Folder 内は不可）：ロックされた Secure Folder では鳴らせません。</string>
     <string name="rec_recording_now">録音中</string>
     <string name="rec_cut_off">中断</string>
     <string name="rec_partly">一部は書き起こされませんでした</string>
@@ -403,7 +403,7 @@
     <string name="media_play">音楽と動画を再生</string>
     <string name="media_intro">何かを再生するよう頼むと、ここで選んだアプリを使います。自動のままなら、スマホの既定のアプリ、次に検索から再生できる任意のアプリを使います。</string>
     <string name="media_access_off">通知へのアクセスがオフです</string>
-    <string name="media_access_body">Agent に通知へのアクセスを許可すると、Android が再生中の内容を表示し、エージェントが一時停止やスキップをできるようになります。</string>
+    <string name="media_access_body">Mew に通知へのアクセスを許可すると、Android が再生中の内容を表示し、エージェントが一時停止やスキップをできるようになります。</string>
     <string name="media_none">このスマホには、エージェント向けに音楽や動画を再生できるアプリが見つかりません。音楽アプリをインストールするとここに表示されます。</string>
     <string name="media_music_app">音楽アプリ</string>
     <string name="media_video_app">動画アプリ</string>
@@ -643,7 +643,7 @@
     <string name="main_your_computer">あなたのパソコン</string>
     <string name="main_a_computer">パソコン</string>
     <string name="main_whatever_agent_runs">エージェントが動作しているもの</string>
-    <string name="rt_clear_computer_older">このスマホのチャットは消去されました。パソコンのチャットは消去されていません。そちらの Agent アプリがこのバージョンより古く、新しいチャットを開始できないためです。パソコンでアプリを更新してから、もう一度消去してください。</string>
+    <string name="rt_clear_computer_older">このスマホのチャットは消去されました。パソコンのチャットは消去されていません。そちらの Mew アプリがこのバージョンより古く、新しいチャットを開始できないためです。パソコンでアプリを更新してから、もう一度消去してください。</string>
     <string name="rt_clear_unreachable">このスマホのチャットは消去されました。今はパソコンに接続できなかったため、そちらのチャットは残っており、同期すると再表示されます。復帰したらもう一度消去してください。</string>
     <string name="assist_type_it_instead">代わりに入力</string>
     <string name="assist_unlock_to_carry_on">ロックを解除して続行</string>
@@ -694,6 +694,10 @@
     <string name="assist_over_lock_line">オフ：先にスマホのロックを解除してから呼び出します。オン：ロック中でも開き、ロック解除後に依頼を送信します。</string>
     <string name="assist_live_voice">アシスタントのライブ音声</string>
     <string name="assist_live_voice_line">オフ：1 回の依頼を話すと答えが返ります。オン：自然に会話でき、%1$s がすぐ声で答え、話をさえぎることもでき、作業をエージェントに任せて結果を伝えてくれます。</string>
+    <string name="assist_talk">会話を続ける</string>
+    <string name="assist_talk_line">通話のように：%1$s がそれぞれの回答を読み上げ、再び聞き取ります。「さようなら」と言うか「終了」をタップするまで続きます。クラウド音声を使い、未設定の場合は電話機の音声を使います。</string>
+    <string name="assist_talk_end">終了</string>
+    <string name="assist_talk_interrupt">中断</string>
     <string name="assist_never_reads_money">どちらのスイッチがオンでも、銀行、決済、お金のアプリは一切読み取りません。読み取った内容はその依頼にのみ使われます。</string>
     <string name="live_bubble_desc">ライブ音声。タップして開く</string>
     <string name="live_end_session">ライブセッションを終了</string>

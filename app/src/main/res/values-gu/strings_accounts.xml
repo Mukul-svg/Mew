@@ -149,7 +149,7 @@
     <string name="profiles_account_rules">એકાઉન્ટના નિયમો</string>
     <string name="profiles_done">થયું</string>
     <string name="profiles_disconnect">આ એકાઉન્ટ ડિસ્કનેક્ટ કરો</string>
-    <string name="profiles_rules_note">તમારો Agent અને તેના મદદનીશો અહીં આ નિયમોનું પાલન કરે છે, પછી પૂછનાર કોઈ પણ હોય.</string>
+    <string name="profiles_rules_note">તમારો Mew અને તેના મદદનીશો અહીં આ નિયમોનું પાલન કરે છે, પછી પૂછનાર કોઈ પણ હોય.</string>
     <string name="profiles_may_do">તે શું કરી શકે છે</string>
     <string name="profiles_read">વાંચવું</string>
     <string name="profiles_read_sub">શોધો, ખોલો અને યાદી બનાવો</string>
@@ -160,7 +160,7 @@
     <string name="profiles_just_connected">હમણાં જ કનેક્ટ થયું</string>
     <string name="profiles_not_now">અત્યારે નહીં</string>
     <string name="profiles_which_part">આ તમારા જીવનના કયા ભાગ માટે છે?</string>
-    <string name="profiles_change_ask">શું તમારો Agent તમને પૂછ્યા વિના અહીં મોકલી, પોસ્ટ કે કાઢી શકે?</string>
+    <string name="profiles_change_ask">શું તમારો Mew તમને પૂછ્યા વિના અહીં મોકલી, પોસ્ટ કે કાઢી શકે?</string>
     <string name="profiles_off_limits">પ્રતિબંધિત</string>
     <string name="profiles_sends_without_asking">પૂછ્યા વગર મોકલે છે</string>
     <string name="profiles_never_sends">ક્યારેય મોકલતો નથી</string>

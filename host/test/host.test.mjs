@@ -8,14 +8,25 @@ import http from 'node:http'
 import { Host, Notifier, createServer, MAX_RESUMES } from '../agent-host.mjs'
 
 const here = path.dirname(fileURLToPath(import.meta.url))
-process.env.AGENT_HOST_BIN_CLAUDE = path.join(here, 'fake-claude.mjs')
-fs.chmodSync(process.env.AGENT_HOST_BIN_CLAUDE, 0o755)
+const fakeClaude = path.join(here, 'fake-claude.mjs')
+if (process.platform === 'win32') {
+  // The Host starts an engine through cmd.exe on Windows, and cmd does not run a bare .mjs file.
+  // Wrap the stand-in in a .cmd launcher so the same test runs on Windows and Linux.
+  const wrapper = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'ah-bin-')), 'fake-claude.cmd')
+  fs.writeFileSync(wrapper, `@echo off\r\n"${process.execPath}" "${fakeClaude}" %*\r\n`)
+  process.env.AGENT_HOST_BIN_CLAUDE = wrapper
+} else {
+  process.env.AGENT_HOST_BIN_CLAUDE = fakeClaude
+  fs.chmodSync(fakeClaude, 0o755)
+}
 
 const tmp = () => fs.mkdtempSync(path.join(os.tmpdir(), 'ah-'))
 const until = async (f, ms = 8000) => { const t = Date.now(); for (;;) { const v = await f(); if (v) return v; if (Date.now() - t > ms) throw new Error('timed out'); await new Promise((r) => setTimeout(r, 25)) } }
 async function boot(home = tmp()) {
   const host = new Host({ home }); const srv = createServer(host)
   await new Promise((r) => srv.listen(0, '127.0.0.1', r))
+  // A failed assertion must not leave the listener keeping node --test alive.
+  srv.unref()
   const base = `http://127.0.0.1:${srv.address().port}`
   const call = (method, p, body, token = host.token) => fetch(base + p, { method, headers: { authorization: `Bearer ${token}`, 'content-type': 'application/json' }, body: body ? JSON.stringify(body) : undefined })
   return { host, srv, base, call, home, close: () => new Promise((r) => srv.close(r)) }
@@ -26,7 +37,9 @@ test('refuses a caller without the token', async () => {
   assert.equal((await h.call('GET', '/v1/health', null, 'wrong')).status, 401)
   assert.equal((await fetch(h.base + '/v1/health')).status, 401)
   assert.equal((await h.call('GET', '/v1/health')).status, 200)
-  assert.equal(fs.statSync(path.join(h.home, 'token')).mode & 0o077, 0, 'token file is private')
+  // Windows does not expose Unix permission bits through stat(). The token is still written with
+  // mode 0600, and this assertion remains meaningful on Linux and macOS.
+  if (process.platform !== 'win32') assert.equal(fs.statSync(path.join(h.home, 'token')).mode & 0o077, 0, 'token file is private')
   await h.close()
 })
 

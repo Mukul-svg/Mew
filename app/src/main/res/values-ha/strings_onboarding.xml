@@ -37,11 +37,11 @@
     <string name="onb_any_openai_compatible">Kowane mai dacewa da OpenAI</string>
     <string name="onb_key_anthropic_1">Danna Buɗe a ƙasa. Yana buɗe na\'urar ba da umarni ta Anthropic a burauzarka. Yi rajista ko ka shiga.</string>
     <string name="onb_key_anthropic_2">Je zuwa Billing ka ƙara ɗan kuɗi. Ana biya bisa amfani, kuma ƙaramin kuɗi yana daɗewa.</string>
-    <string name="onb_key_anthropic_3">Je zuwa API keys ka danna Create key. Ba shi kowane suna, kamar Agent.</string>
+    <string name="onb_key_anthropic_3">Je zuwa API keys ka danna Create key. Ba shi kowane suna, kamar Mew.</string>
     <string name="onb_key_anthropic_4">Danna Copy, ka dawo wannan manhajar, ka liƙa maɓallin a akwatin da ke sama ka danna Duba maɓalli.</string>
     <string name="onb_key_openai_1">Danna Buɗe a ƙasa. Yana buɗe dandalin OpenAI a burauzarka. Yi rajista ko ka shiga. (Wannan ya bambanta da biyan kuɗin ChatGPT.)</string>
     <string name="onb_key_openai_2">Je zuwa Billing ka ƙara ɗan kuɗi. Ƙaramin kuɗi yana daɗewa.</string>
-    <string name="onb_key_openai_3">Je zuwa API keys ka danna Create new secret key. Ba shi kowane suna, kamar Agent.</string>
+    <string name="onb_key_openai_3">Je zuwa API keys ka danna Create new secret key. Ba shi kowane suna, kamar Mew.</string>
     <string name="onb_key_step_copy_once">Danna Copy (za ka ga maɓallin sau ɗaya kawai), ka dawo nan, ka liƙa shi a sama ka danna Duba maɓalli.</string>
     <string name="onb_key_gemini_1">Danna Buɗe a ƙasa. Yana buɗe Google AI Studio. Shiga da kowane asusun Google.</string>
     <string name="onb_key_gemini_2">Danna Create API key. Idan ya roƙe ka ka zaɓi aiki, zaɓi wanda ya ba da shawara.</string>

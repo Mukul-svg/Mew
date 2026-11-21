@@ -24,7 +24,7 @@ import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.util.concurrent.ConcurrentHashMap
 
-/** The Claude-subscription engine: runs a whole turn itself (Agent SDK), our tools over MCP. */
+/** The Claude-subscription engine: runs a whole turn itself (Mew SDK), our tools over MCP. */
 interface SubscriptionEngine {
     val ready: Boolean
     /** The stored sign-in was rejected: forget it so Settings asks the user to sign in again. */
@@ -63,7 +63,7 @@ interface PhoneBridge {
      * notification, unless the chat is already on screen in front of them (issue #15).
      */
     fun replyPosted(reply: String) {}
-    /** How many helpers are working now: the "Agent is working" notification shows it, and a safety-net check runs while there are any. */
+    /** How many helpers are working now: the "Mew is working" notification shows it, and a safety-net check runs while there are any. */
     fun helpersChanged(count: Int) {}
 }
 
@@ -1918,7 +1918,7 @@ class GuardedAppsRunTool(private val inner: AppsRunTool, private val guard: com.
 internal fun clearNotice(outcome: NewChatOutcome, context: Context? = null): String? = when (outcome) {
     NewChatOutcome.STARTED, NewChatOutcome.NOT_LINKED -> null
     NewChatOutcome.COMPUTER_OLDER -> context?.getString(com.past9.phoneaos.R.string.rt_clear_computer_older) ?:
-        "This phone's chat is cleared. Your computer's chat is not: the Agent app on it is older than this one, so it cannot start a new chat. Update the app on your computer, then clear again."
+        "This phone's chat is cleared. Your computer's chat is not: the Mew app on it is older than this one, so it cannot start a new chat. Update the app on your computer, then clear again."
     NewChatOutcome.UNREACHABLE -> context?.getString(com.past9.phoneaos.R.string.rt_clear_unreachable) ?:
         "This phone's chat is cleared. Your computer could not be reached just now, so its chat is still there and will show again when it syncs. Clear again once it is back."
 }

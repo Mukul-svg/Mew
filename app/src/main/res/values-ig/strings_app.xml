@@ -4,7 +4,7 @@
     <string name="main_account_already_connected">Ejikọọla akaụntụ %1$s ahụ, ya mere ọ dịghị ihe gbanwere.</string>
     <string name="main_composio_unreachable">Enweghị ike ịgbaso Composio: %1$s</string>
     <string name="main_helper_model">Modelu onye enyemaka</string>
-    <string name="main_helper_picker_sub">Agent gị na-ahazi ma na-enye ndị enyemaka ọrụ. Họrọ ihe ha na-eji arụ ọrụ.</string>
+    <string name="main_helper_picker_sub">Mew gị na-ahazi ma na-enye ndị enyemaka ọrụ. Họrọ ihe ha na-eji arụ ọrụ.</string>
     <string name="main_helpers_use_agent">Ndị enyemaka na-eji ihe agent gị na-eji</string>
     <string name="main_install_failed">Ọ dara: %1$s</string>
     <string name="main_key_check_failed">Enweghị ike ịlele: %1$s</string>
@@ -39,7 +39,7 @@
     <string name="rt_notify_approve">Kwenye?</string>
     <string name="rt_notify_connect">Jikọọ %1$s?</string>
     <string name="rt_notify_needs_you">%1$s chọrọ gị</string>
-    <string name="rt_notify_question">Agent gị nwere ajụjụ</string>
+    <string name="rt_notify_question">Mew gị nwere ajụjụ</string>
     <string name="rt_opencode_signin_unavailable">Ntinye OpenCode adịbeghị</string>
     <plurals name="rt_restart_resumed">
         <item quantity="other">App malitere ọzọ. Ndị enyemaka %1$d gara n\'ihu ebe ha kwụsịrị.</item>
@@ -56,7 +56,7 @@
     <string name="svc_browser_channel">Nchọgharị n\'azụ</string>
     <string name="svc_browser_text">Pịa ilele ma ọ bụ iburu ya</string>
     <string name="svc_browser_title">%1$s na-achọgharị</string>
-    <string name="svc_browser_title_default">Agent gị na-achọgharị</string>
+    <string name="svc_browser_title_default">Mew gị na-achọgharị</string>
     <string name="svc_call_needs_key">Tinye igodo Google (Gemini) na Ntọala, Olu.</string>
     <string name="svc_call_text">Oku na-aga n\'ihu. Pịa ka ịlaghachi na ya.</string>
     <string name="svc_calls_channel">Oku olu</string>
@@ -67,7 +67,7 @@
     <string name="svc_weekly_every">Kwa %1$s n\'elekere %2$02d:%3$02d</string>
     <string name="svc_weekly_weekday">ụbọchị ọrụ</string>
     <string name="svc_weekly_weekend">ụbọchị izu ike</string>
-    <string name="svc_work_channel">Agent na-arụ ọrụ</string>
+    <string name="svc_work_channel">Mew na-arụ ọrụ</string>
     <plurals name="svc_work_helpers">
         <item quantity="other">Na-arụ ọrụ: ndị enyemaka %1$d</item>
     </plurals>
@@ -78,7 +78,7 @@
         <item quantity="other">%1$s na-arụ ọrụ: ndị enyemaka %2$d</item>
     </plurals>
     <string name="svc_you">Gị</string>
-    <string name="svc_your_agent">Agent gị</string>
+    <string name="svc_your_agent">Mew gị</string>
     <string name="main_file_read_failed">Enweghị ike ịgụ faịlụ ahụ</string>
     <string name="main_signin_help_claude">Ma ọ bụ kọpịa token ogologo site na claude setup-token na kọmputa.</string>
     <string name="main_signin_help_codex">Ma ọ bụ kọpịa ọdịnaya auth.json site na codex login na kọmputa.</string>

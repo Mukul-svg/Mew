@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">TÀBÍ LO AGENT LÓRÍ KỌ̀ǸPÚTÀ RẸ</string>
     <string name="onb_use_on_computer">Lo agent lórí kọ̀ǹpútà mi</string>
-    <string name="onb_use_on_computer_sub">Ṣàyẹ̀wò kóòdù náà nínú app Agent lórí kọ̀ǹpútà tàbí sáfà rẹ. Kò sí kọ́kọ́rọ́ lórí fóònù yìí.</string>
+    <string name="onb_use_on_computer_sub">Ṣàyẹ̀wò kóòdù náà nínú app Mew lórí kọ̀ǹpútà tàbí sáfà rẹ. Kò sí kọ́kọ́rọ́ lórí fóònù yìí.</string>
     <string name="sub_paste_code_from">Lẹ kóòdù láti %1$s</string>
     <string name="sub_paste_code_body_from">Nínú aṣàwákiri: tẹ Fọwọ́ sí. %1$s yóò wá fi kóòdù hàn. Ṣe ẹ̀dà rẹ̀, padà wá síbí, kí o sì lẹ̀ ẹ́ sí ìsàlẹ̀.</string>
     <string name="sub_code_from">Kóòdù láti %1$s</string>
@@ -18,14 +18,14 @@
     <string name="settings_automation_not_listening">Kò tíì ń gbọ́: ṣí app lẹ́ẹ̀kan</string>
     <string name="settings_automation_on">Ó wà ní títàn · %1$s</string>
     <string name="settings_automation_off">Ó wà ní pípa · tẹ láti ṣètò rẹ̀</string>
-    <string name="settings_macro_title">Agent ń bá àwọn app rẹ sọ̀rọ̀</string>
+    <string name="settings_macro_title">Mew ń bá àwọn app rẹ sọ̀rọ̀</string>
     <string name="settings_media_apps">Àwọn app ìgbóhùnsáfẹ́fẹ́</string>
     <string name="settings_bg_screen">Ojú-ìwé ẹ̀yìn</string>
     <string name="settings_bg_screen_sub">Àwọn app mìíràn, nígbà tí o ń pa ojú-ìwé rẹ mọ́</string>
     <string name="settings_bg_screen_stopped">O ti dá a dúró. Tẹ láti jẹ́ kí agent rẹ lò ó lẹ́ẹ̀kan sí i</string>
     <string name="settings_bg_screen_on">Ó wà ní títàn. Ìṣètò, àwọn òfin àti àwọn app tí a dènà</string>
     <string name="settings_bg_screen_off">Ó wà ní pípa. Àdánwò: agent rẹ ń lo àwọn app mìíràn lórí ojú-ìwé tí a fi pamọ́ nígbà tí o ń pa tìrẹ mọ́</string>
-    <string name="settings_bg_screen_allowed">Agent rẹ lè lo ojú-ìwé ẹ̀yìn lẹ́ẹ̀kan sí i</string>
+    <string name="settings_bg_screen_allowed">Mew rẹ lè lo ojú-ìwé ẹ̀yìn lẹ́ẹ̀kan sí i</string>
     <string name="settings_bg_screen_runs">Àwọn ìgbasílẹ̀ àti àwọn app tí a ti kọ́</string>
     <string name="settings_bg_screen_runs_sub">Wo ohun tí ó ṣe níbẹ̀, kí o sì kọ́ ọ ní iṣẹ́ kan fúnra rẹ</string>
     <string name="settings_browser">Aṣàwákiri</string>
@@ -61,10 +61,10 @@
     <string name="browser_sites_hint">Àwọn ojú-òpó tó ní ààbò nìkan (https), pẹ̀lú àdírẹ́sì wọn gan-an. Àwọn àyípadà ń ṣiṣẹ́ lórí àwọn táàbù tuntun.</string>
     <string name="browser_call_voice">Jẹ́ kí agent sọ̀rọ̀ nínú àwọn ìpè WhatsApp</string>
     <string name="browser_call_voice_on">Ó wà ní títàn: nínú ìpè WhatsApp Web tí agent rẹ pè láti ibí, ohùn rẹ̀ ń wọ inú ìpè, ó sì ń gbọ́ ẹni kejì.</string>
-    <string name="browser_call_voice_off">Ó wà ní pípa. Agent rẹ kò lè sọ̀rọ̀ nínú ìpè WhatsApp Web.</string>
+    <string name="browser_call_voice_off">Ó wà ní pípa. Mew rẹ kò lè sọ̀rọ̀ nínú ìpè WhatsApp Web.</string>
     <string name="browser_test_calling">Tan ìpè fún àkáǹtì ìdánwò</string>
     <string name="browser_test_calling_on">Ó wà ní títàn: nígbà tí agent rẹ bá pè tí nọ́mbà tí ó wọlé sí WhatsApp Web sì jẹ́ ọ̀kan nínú àwọn tí a ṣàkójọ ní ìsàlẹ̀, a ó tan ìpè lórí ojú-ìwé yẹn. Kì í ṣe fún nọ́mbà mìíràn láé.</string>
-    <string name="browser_test_calling_off">Ó wà ní pípa. Agent rẹ lè pè láti àwọn àkáǹtì tí WhatsApp ti fún ní ìpè nìkan.</string>
+    <string name="browser_test_calling_off">Ó wà ní pípa. Mew rẹ lè pè láti àwọn àkáǹtì tí WhatsApp ti fún ní ìpè nìkan.</string>
     <string name="browser_test_number_first">Kọ́kọ́ fi nọ́mbà àkáǹtì ìdánwò kún un.</string>
     <string name="browser_yes_turn_on">Bẹ́ẹ̀ni, tan án</string>
     <string name="browser_remove_test_number">Yọ nọ́mbà ìdánwò %1$s kúrò</string>
@@ -73,16 +73,16 @@
     <string name="browser_add_test_number">Fi nọ́mbà ìdánwò kún un</string>
     <string name="browser_test_number_body">Nọ́mbà àkáǹtì WhatsApp tí o fi ń dánwò. A kò fi nǹkan kan ránṣẹ́ sí WhatsApp, àti gbígbé ojú-ìwé wọlé lẹ́ẹ̀kan sí i ń fagilé rẹ̀.</string>
     <string name="link_cant_reach">Kò lè dé ọ̀dọ̀ kọ̀ǹpútà náà.</string>
-    <string name="link_bad_answer">Ìdáhùn kọ̀ǹpútà náà kò yé ni. Ǹjẹ́ app Agent rẹ̀ ti di tuntun?</string>
+    <string name="link_bad_answer">Ìdáhùn kọ̀ǹpútà náà kò yé ni. Ǹjẹ́ app Mew rẹ̀ ti di tuntun?</string>
     <string name="link_tried_addresses">(a gbìyànjú àwọn àdírẹ́sì %1$d)</string>
     <string name="link_type_address">Tẹ àdírẹ́sì kọ̀ǹpútà náà.</string>
     <string name="link_no_certificate">Kọ̀ǹpútà náà kò fi ìwé ẹ̀rí ránṣẹ́.</string>
     <string name="link_failed">Ìsopọ̀ kùnà.</string>
     <string name="link_your_computer">kọ̀ǹpútà rẹ</string>
-    <string name="link_not_a_code">Kóòdù QR yẹn kì í ṣe kóòdù ìsopọ̀ Agent.</string>
+    <string name="link_not_a_code">Kóòdù QR yẹn kì í ṣe kóòdù ìsopọ̀ Mew.</string>
     <string name="link_subtitle">So fóònù yìí mọ́ kọ̀ǹpútà tàbí sáfà</string>
     <string name="link_linked_to">A ti sopọ̀ mọ́ %1$s</string>
-    <string name="link_runs_on">Agent rẹ ń ṣiṣẹ́ lórí %1$s. Fóònù yìí ń fi ìjíròrò rẹ̀, ìrántí, àwọn iṣẹ́ àti àwọn routine hàn, kò sì ní kọ́kọ́rọ́ Ai kankan fún un.</string>
+    <string name="link_runs_on">Mew rẹ ń ṣiṣẹ́ lórí %1$s. Fóònù yìí ń fi ìjíròrò rẹ̀, ìrántí, àwọn iṣẹ́ àti àwọn routine hàn, kò sì ní kọ́kọ́rọ́ Ai kankan fún un.</string>
     <string name="link_check_code">Ṣàyẹ̀wò pé %1$s fi kóòdù yìí hàn lẹ́gbẹ̀ẹ́ fóònù yìí:</string>
     <string name="link_unlinked_retry">A ti ge ìsopọ̀. Ṣe kóòdù tuntun lórí kọ̀ǹpútà rẹ, kí o sì gbìyànjú lẹ́ẹ̀kan sí i.</string>
     <string name="link_shows_else">Ó fi nǹkan mìíràn hàn: ge ìsopọ̀</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">Sopọ̀ mọ́ %1$s</string>
     <string name="link_keep">Pa %1$s mọ́</string>
     <string name="link_linking_to">Ó ń sopọ̀ mọ́ %1$s...</string>
-    <string name="link_how_to">Lórí kọ̀ǹpútà rẹ, ṣí app Agent kí o sì lọ sí Ètò, Àwọn ẹ̀rọ, Fi ẹ̀rọ kún un.</string>
+    <string name="link_how_to">Lórí kọ̀ǹpútà rẹ, ṣí app Mew kí o sì lọ sí Ètò, Àwọn ẹ̀rọ, Fi ẹ̀rọ kún un.</string>
     <string name="link_how_type">Tẹ àdírẹ́sì àti kóòdù tí ó fi hàn.</string>
     <string name="link_how_scan">Darí kámẹ́rà yìí sí kóòdù tí ó fi hàn.</string>
     <string name="link_allow_camera">Gba kámẹ́rà láàyè</string>
@@ -138,7 +138,7 @@
     <string name="link_group_location">Ibùdó rẹ (a ó béèrè lẹ́ẹ̀kan)</string>
     <string name="link_group_automation">Àwọn app mìíràn: intents, orin àti fídíò, macros (intents àti macros ń béèrè àyàfi tí a bá gbà wọ́n láàyè)</string>
     <string name="link_ask_approve">Fọwọ́ sí: %1$s?</string>
-    <string name="link_ask_title">Agent rẹ ń béèrè</string>
+    <string name="link_ask_title">Mew rẹ ń béèrè</string>
     <string name="link_saved_downloads">A ti fipamọ́ sí Downloads. Tẹ láti ṣí.</string>
     <string name="link_running">Ń ṢIṢẸ́</string>
     <string name="link_running_show_list">%1$s. Fi àtòjọ hàn</string>
@@ -272,7 +272,7 @@
     <string name="proj_new_chat_line">A fi ohun tí a ti sọ títí di ìsinsìnyí pamọ́ sínú ìrántí ferese yìí sì bẹ̀rẹ̀ ní òfo. A kò pa ohun kankan rẹ́ lórí kọ̀ǹpútà rẹ.</string>
     <string name="proj_new_chat">Ìjíròrò tuntun</string>
     <string name="proj_not_linked_now">A kò sopọ̀ mọ́ kọ̀ǹpútà báyìí.</string>
-    <string name="proj_computer_older">App Agent kọ̀ǹpútà rẹ dàgbà ju èyí lọ, nítorí náà kò lè bẹ̀rẹ̀ ìjíròrò tuntun níbẹ̀. Sọ ọ́ di tuntun lórí kọ̀ǹpútà rẹ, lẹ́yìn náà gbìyànjú lẹ́ẹ̀kan sí i.</string>
+    <string name="proj_computer_older">App Mew kọ̀ǹpútà rẹ dàgbà ju èyí lọ, nítorí náà kò lè bẹ̀rẹ̀ ìjíròrò tuntun níbẹ̀. Sọ ọ́ di tuntun lórí kọ̀ǹpútà rẹ, lẹ́yìn náà gbìyànjú lẹ́ẹ̀kan sí i.</string>
     <string name="proj_unreachable">A kò lè dé ọ̀dọ̀ kọ̀ǹpútà rẹ. Gbìyànjú lẹ́ẹ̀kan sí i nígbà tí ó bá padà.</string>
     <string name="proj_photo_you_sent">Fọ́tò tí o fi ránṣẹ́</string>
     <string name="proj_start_chat_failed">Kò lè bẹ̀rẹ̀ ìjíròrò nínú %1$s: %2$s.</string>
@@ -367,14 +367,14 @@
     <string name="wake_up_your_computer">kọ̀ǹpútà rẹ</string>
     <string name="wake_up_reaches">Ó ń dé ọ̀dọ̀ fóònù yìí</string>
     <string name="wake_up_link_first">Kọ́kọ́ so fóònù yìí mọ́ kọ̀ǹpútà rẹ (Ètò > Àwọn ẹ̀rọ tí a sopọ̀)</string>
-    <string name="wake_up_lacks">%1$s kò lè pe fóònù yìí síbẹ̀: sọ app Agent níbẹ̀ di tuntun</string>
+    <string name="wake_up_lacks">%1$s kò lè pe fóònù yìí síbẹ̀: sọ app Mew níbẹ̀ di tuntun</string>
     <string name="wake_up_connected">A ti sopọ̀ mọ́ %1$s</string>
     <string name="wake_up_not_connected">A kò sopọ̀ báyìí. Ó ń tẹ̀síwájú ní ìgbìyànjú.</string>
     <string name="wake_up_test">Dán jíjí wò</string>
     <string name="wake_up_test_body">Ó ń pe fóònù yìí ní òtítọ́. Dáhùn rẹ̀ láti dá a dúró.</string>
     <string name="wake_up_test_sent">A ti fi ìdánwò %1$s ránṣẹ́.</string>
     <string name="wake_up_not_sent">Kò lọ.</string>
-    <string name="wake_up_secure_folder">Fi Agent sílẹ̀ ní ọ̀nà àbáyọ (kì í ṣe nínú Secure Folder): Secure Folder tí a ti tì kò lè dún.</string>
+    <string name="wake_up_secure_folder">Fi Mew sílẹ̀ ní ọ̀nà àbáyọ (kì í ṣe nínú Secure Folder): Secure Folder tí a ti tì kò lè dún.</string>
     <string name="rec_recording_now">Ó ń ṣe ìgbasílẹ̀ báyìí</string>
     <string name="rec_cut_off">Ó já</string>
     <string name="rec_partly">A kò kọ apá kan rẹ̀ sílẹ̀</string>
@@ -403,7 +403,7 @@
     <string name="media_play">Ṣe orin àti fídíò</string>
     <string name="media_intro">Nígbà tí o bá ní kí agent rẹ ṣe nǹkan kan, ó ń lo app tí o yàn níbí. Tí o bá fi sílẹ̀ ní àìfọwọ́ṣe, ó ń lo ti ìpìlẹ̀ fóònù rẹ, lẹ́yìn náà app èyíkéyìí tó lè ṣeré láti ìwádìí.</string>
     <string name="media_access_off">Ìwọlé sí àwọn ìkìlọ̀ wà ní pípa</string>
-    <string name="media_access_body">Android ń fi ohun tí ń ṣeré hàn nìkan, ó sì ń jẹ́ kí agent rẹ dúró tàbí fò kọjá, nígbà tí Agent bá ní ìwọlé sí àwọn ìkìlọ̀.</string>
+    <string name="media_access_body">Android ń fi ohun tí ń ṣeré hàn nìkan, ó sì ń jẹ́ kí agent rẹ dúró tàbí fò kọjá, nígbà tí Mew bá ní ìwọlé sí àwọn ìkìlọ̀.</string>
     <string name="media_none">Kò sí app lórí fóònù yìí tó sọ pé òun lè ṣe orin tàbí fídíò fún agent rẹ. Fi app orin sílẹ̀ yóò sì farahàn níbí.</string>
     <string name="media_music_app">App orin</string>
     <string name="media_video_app">App fídíò</string>
@@ -412,8 +412,8 @@
     <string name="macro_and">%1$s àti %2$s</string>
     <string name="macro_line_some">%1$s lè ṣiṣẹ́ láì béèrè; àwọn mìíràn ń béèrè</string>
     <string name="macro_eyebrow">Àìfọwọ́ṣe</string>
-    <string name="macro_title">Agent ń bá àwọn app rẹ sọ̀rọ̀</string>
-    <string name="macro_intro">Agent rẹ lè fi Android intent ránṣẹ́ sí app èyíkéyìí lórí fóònù yìí: ṣí ibì kan nínú Maps, pín sínú app, ṣiṣẹ́ macro MacroDroid tàbí Tasker. Ṣíṣí ojú-ìwé kì í béèrè láé. Ohunkóhun mìíràn ń béèrè lọ́wọ́ rẹ ní àkọ́kọ́, àfi tí a bá ṣàkójọ rẹ̀ níbí. Kò sí ohun tó ń kúrò lórí fóònù.</string>
+    <string name="macro_title">Mew ń bá àwọn app rẹ sọ̀rọ̀</string>
+    <string name="macro_intro">Mew rẹ lè fi Android intent ránṣẹ́ sí app èyíkéyìí lórí fóònù yìí: ṣí ibì kan nínú Maps, pín sínú app, ṣiṣẹ́ macro MacroDroid tàbí Tasker. Ṣíṣí ojú-ìwé kì í béèrè láé. Ohunkóhun mìíràn ń béèrè lọ́wọ́ rẹ ní àkọ́kọ́, àfi tí a bá ṣàkójọ rẹ̀ níbí. Kò sí ohun tó ń kúrò lórí fóònù.</string>
     <string name="macro_intents">Àwọn intent app tí a gbà láàyè</string>
     <string name="macro_intents_hint">ìṣe | àpò, ọ̀kan lórí ìlà kọ̀ọ̀kan</string>
     <string name="macro_intents_body">Ìṣe àti app tí ó ń lọ, bíi android.intent.action.SEND | com.whatsapp. Lo * fún app èyíkéyìí. Nígbà tí o bá fọwọ́ sí ọ̀kan, kàádì náà yóò fi ìlà tí o lè fi kún un hàn.</string>
@@ -483,8 +483,8 @@
     <string name="screen_allow_again">Gba láàyè lẹ́ẹ̀kan sí i</string>
     <string name="screen_take_over">Gba àkóso</string>
     <string name="screen_set_up_once">Ṣètò rẹ̀ lẹ́ẹ̀kan</string>
-    <string name="screen_setup_body">Agent rẹ lè lo app mìíràn lórí ojú-ìwé tí a fi pamọ́ nígbà tí o ń lo tìrẹ. Android ń jẹ́ kí shell fóònù nìkan ṣe bẹ́ẹ̀, nítorí náà olùrànlọ́wọ́ kékeré kan láti app yìí gbọ́dọ̀ bẹ̀rẹ̀. Ó ń ṣiṣẹ́ lórí fóònù yìí nìkan, kò sì sí ohun tó ń kúrò níbẹ̀.</string>
-    <string name="screen_tried">Agent rẹ ṣẹ̀ṣẹ̀ gbìyànjú láti lò ó: %1$s.</string>
+    <string name="screen_setup_body">Mew rẹ lè lo app mìíràn lórí ojú-ìwé tí a fi pamọ́ nígbà tí o ń lo tìrẹ. Android ń jẹ́ kí shell fóònù nìkan ṣe bẹ́ẹ̀, nítorí náà olùrànlọ́wọ́ kékeré kan láti app yìí gbọ́dọ̀ bẹ̀rẹ̀. Ó ń ṣiṣẹ́ lórí fóònù yìí nìkan, kò sì sí ohun tó ń kúrò níbẹ̀.</string>
+    <string name="screen_tried">Mew rẹ ṣẹ̀ṣẹ̀ gbìyànjú láti lò ó: %1$s.</string>
     <string name="screen_too_old">Èyí nílò Android 11 tàbí tuntun, nítorí náà a kò lè lò ó lórí fóònù yìí.</string>
     <string name="screen_try_it">Dán an wò</string>
     <string name="screen_try_it_sub">Ó ń ṣí app Settings fóònù rẹ lórí ojú-ìwé tí a fi pamọ́ ó sì fi àwòrán hàn ọ́.</string>
@@ -531,7 +531,7 @@
     <string name="screen_learned_none">Kò tíì sí. Wọ́n ń farahàn pẹ̀lú àwọn app rẹ mìíràn tí a ti kọ́, nínú Àwọn ìsopọ̀.</string>
     <string name="screen_learned_list">%1$s. Ṣí, tún orúkọ wọn pè tàbí yọ wọ́n kúrò nínú Àwọn ìsopọ̀.</string>
     <string name="screen_show_job_yourself">Fi iṣẹ́ kan hàn án fúnra rẹ</string>
-    <string name="screen_show_job_sub">Ṣe é lẹ́ẹ̀kan pẹ̀lú ọwọ́ lórí ojú-ìwé tí a fi pamọ́. Agent rẹ ń kọ́ àwọn ìgbésẹ̀ ó sì lè tún wọn ṣe.</string>
+    <string name="screen_show_job_sub">Ṣe é lẹ́ẹ̀kan pẹ̀lú ọwọ́ lórí ojú-ìwé tí a fi pamọ́. Mew rẹ ń kọ́ àwọn ìgbésẹ̀ ó sì lè tún wọn ṣe.</string>
     <string name="screen_show">Fi hàn</string>
     <string name="screen_keep_recordings">Pa àwọn ìgbasílẹ̀ mọ́</string>
     <string name="screen_keep_recordings_sub">A ń bo àwọn ọ̀rọ̀ aṣínà àti ohunkóhun tí a tẹ̀ gẹ́gẹ́ bí àṣírí. A ń pa àwọn àtijọ́ rẹ́ fúnra wọn.</string>
@@ -565,7 +565,7 @@
     <string name="screen_what_it_does">Ohun tó ń ṣe</string>
     <string name="screen_what_it_does_hint">Ìlà kan tí agent rẹ ń kà láti mọ ìgbà tí yóò lò ó</string>
     <string name="screen_changes_eyebrow">OHUN TÓ Ń YÍPADÀ NÍGBÀ KỌ̀ỌKAN</string>
-    <string name="screen_fills_in">Agent rẹ ń fi èyí kún un ní ìgbà kọ̀ọ̀kan</string>
+    <string name="screen_fills_in">Mew rẹ ń fi èyí kún un ní ìgbà kọ̀ọ̀kan</string>
     <string name="screen_exact_words">Nígbà gbogbo àwọn ọ̀rọ̀ gan-an wọ̀nyí</string>
     <string name="screen_the_steps">ÀWỌN ÌGBÉSẸ̀</string>
     <string name="screen_type_into">Tẹ̀ sínú app náà</string>
@@ -577,7 +577,7 @@
     <string name="screen_which_app">App wo?</string>
     <string name="screen_show_job_line">Ó ṣí lórí ojú-ìwé tí a fi pamọ́ pẹ̀lú àwòrán ní ọwọ́ rẹ. Ṣe iṣẹ́ náà, lẹ́yìn náà fipamọ́ rẹ̀.</string>
     <string name="screen_block_which">Dènà app wo?</string>
-    <string name="screen_block_line">Agent rẹ kò ní ṣí, rí tàbí fọwọ́ kan án lórí ojú-ìwé tí a fi pamọ́.</string>
+    <string name="screen_block_line">Mew rẹ kò ní ṣí, rí tàbí fọwọ́ kan án lórí ojú-ìwé tí a fi pamọ́.</string>
     <string name="screen_saved_learned">A ti fipamọ́ gẹ́gẹ́ bí app tí a ti kọ́</string>
     <string name="screen_not_run_yet">kò tíì ṣiṣẹ́</string>
     <string name="screen_last_took">ìgbà ìkẹyìn gba %1$s</string>
@@ -588,7 +588,7 @@
     <string name="screen_no_earlier">Kò sí ẹ̀yà tẹ́lẹ̀</string>
     <string name="screen_yes_delete">Bẹ́ẹ̀ni, parẹ́</string>
     <string name="handoff_your_computers">Àwọn kọ̀ǹpútà rẹ</string>
-    <string name="camera_off_sub_add">Agent rẹ ń rí fọ́tò nìkan nígbà tí o bá yà á tí o sì fi ránṣẹ́.</string>
+    <string name="camera_off_sub_add">Mew rẹ ń rí fọ́tò nìkan nígbà tí o bá yà á tí o sì fi ránṣẹ́.</string>
     <string name="camera_add_photo">Fi fọ́tò kún un</string>
     <string name="share_that_file">fáìlì yẹn</string>
     <string name="share_send_failed_why">Iyẹn kò lọ: %1$s. Kò sí ohun tó sọnù, gbìyànjú lẹ́ẹ̀kan sí i.</string>
@@ -617,7 +617,7 @@
         <item quantity="other">Àwọn ìgbésẹ̀: %1$d</item>
     </plurals>
     <plurals name="screen_save_body">
-        <item quantity="other">Agent rẹ yóò lè tún àwọn ìgbésẹ̀ %1$d wọ̀nyí ṣe fúnra rẹ̀, láti kọ̀ǹpútà rẹ náà. Ìgbésẹ̀ tó ń fi ránṣẹ́, tó ń sanwó tàbí tó ń parẹ́ ṣì ń béèrè lọ́wọ́ rẹ ní gbogbo ìgbà.</item>
+        <item quantity="other">Mew rẹ yóò lè tún àwọn ìgbésẹ̀ %1$d wọ̀nyí ṣe fúnra rẹ̀, láti kọ̀ǹpútà rẹ náà. Ìgbésẹ̀ tó ń fi ránṣẹ́, tó ń sanwó tàbí tó ń parẹ́ ṣì ń béèrè lọ́wọ́ rẹ ní gbogbo ìgbà.</item>
     </plurals>
     <plurals name="screen_ran_times">
         <item quantity="other">ó ṣiṣẹ́ ní ìgbà %1$d</item>
@@ -643,7 +643,7 @@
     <string name="main_your_computer">kọ̀ǹpútà rẹ</string>
     <string name="main_a_computer">kọ̀ǹpútà kan</string>
     <string name="main_whatever_agent_runs">Ohunkóhun tí agent rẹ ń lò</string>
-    <string name="rt_clear_computer_older">A ti pa ìjíròrò fóònù yìí rẹ́. Ti kọ̀ǹpútà rẹ kò parẹ́: app Agent lórí rẹ̀ dàgbà ju èyí lọ, nítorí náà kò lè bẹ̀rẹ̀ ìjíròrò tuntun. Sọ app náà di tuntun lórí kọ̀ǹpútà rẹ, lẹ́yìn náà pa á rẹ́ lẹ́ẹ̀kan sí i.</string>
+    <string name="rt_clear_computer_older">A ti pa ìjíròrò fóònù yìí rẹ́. Ti kọ̀ǹpútà rẹ kò parẹ́: app Mew lórí rẹ̀ dàgbà ju èyí lọ, nítorí náà kò lè bẹ̀rẹ̀ ìjíròrò tuntun. Sọ app náà di tuntun lórí kọ̀ǹpútà rẹ, lẹ́yìn náà pa á rẹ́ lẹ́ẹ̀kan sí i.</string>
     <string name="rt_clear_unreachable">A ti pa ìjíròrò fóònù yìí rẹ́. A kò lè dé ọ̀dọ̀ kọ̀ǹpútà rẹ ní báyìí, nítorí náà ìjíròrò rẹ̀ ṣì wà yóò sì tún farahàn nígbà tí ó bá ṣe ìṣọ̀kan. Pa á rẹ́ lẹ́ẹ̀kan sí i nígbà tí ó bá padà.</string>
     <string name="assist_type_it_instead">Tẹ̀ ẹ́ dípò</string>
     <string name="assist_unlock_to_carry_on">Ṣí fóònù láti tẹ̀síwájú</string>
@@ -694,6 +694,10 @@
     <string name="assist_over_lock_line">Ní pípa: ṣí fóònù ní àkọ́kọ́, lẹ́yìn náà pè é. Ní títàn: ó ń ṣí lórí fóònù tí a tì ó sì ń fi ìbéèrè rẹ ránṣẹ́ nígbà tí o bá ṣí.</string>
     <string name="assist_live_voice">Ohùn gbígbé nínú olùrànlọ́wọ́</string>
     <string name="assist_live_voice_line">Ní pípa: o sọ ìbéèrè kan ó sì dáhùn. Ní títàn: sọ̀rọ̀ ní àdánidá, %1$s ń dáhùn sókè lẹ́sẹ̀kẹsẹ̀, o lè sọ̀rọ̀ lé e lórí, ó sì ń fi iṣẹ́ lé agent rẹ lọ́wọ́ ó sì ń sọ àbájáde fún ọ.</string>
+    <string name="assist_talk">Tẹ̀síwájú ìfọ̀rọ̀wérọ̀</string>
+    <string name="assist_talk_line">Bí ìpè: %1$s máa ń ka ìdáhùn kọ̀ọ̀kan sókè yóò sì tún gbọ́, títí iwọ yóò fi sọ ọ̀dàbọ̀ tàbí tẹ Ìparí. Ó ń lo ohùn cloud rẹ, tàbí ohùn fóònù fúnra rẹ̀ tí kò bá sí èyí tí a ṣètò.</string>
+    <string name="assist_talk_end">Ìparí</string>
+    <string name="assist_talk_interrupt">Dáwọ́ dúró</string>
     <string name="assist_never_reads_money">Kì í ka báńkì, ìsanwó tàbí àwọn app owó láé, pẹ̀lú ìyípadà èyíkéyìí tí a tàn. Ohun tí ó kà ni a ń lò fún ìbéèrè yẹn nìkan.</string>
     <string name="live_bubble_desc">Ohùn gbígbé. Tẹ láti ṣí</string>
     <string name="live_end_session">Parí ìjókòó gbígbé</string>
@@ -718,7 +722,7 @@
     <string name="wake_heard_text">Tẹ láti sọ̀rọ̀. Gba Appear on top láàyè nínú Ètò &gt; Ọ̀rọ̀ jíjí láti fò ìtẹ̀ yìí.</string>
     <string name="wake_ready">Àwọn jíjí ti ṣetán</string>
     <string name="wake_ready_channel_desc">Ó ń jẹ́ kí àwọn jíjí lè dé fóònù yìí nígbà tí app bá wà ní títì</string>
-    <string name="wake_ready_text">Agent rẹ lè pe fóònù yìí nígbà tí ohun kan bá nílò rẹ báyìí</string>
+    <string name="wake_ready_text">Mew rẹ lè pe fóònù yìí nígbà tí ohun kan bá nílò rẹ báyìí</string>
     <string name="svc_dictation_channel">Ìsọ̀rọ̀ sínú ọ̀rọ̀</string>
     <string name="svc_dictation_text">Àwọn ọ̀rọ̀ rẹ ń wọ inú àpótí ìfiránṣẹ́. Tẹ láti padà.</string>
     <string name="svc_pick_file">Yan fáìlì kan</string>

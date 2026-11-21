@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">ឬប្រើភ្នាក់ងារនៅលើកុំព្យូទ័ររបស់អ្នក</string>
     <string name="onb_use_on_computer">ប្រើភ្នាក់ងារនៅលើកុំព្យូទ័ររបស់ខ្ញុំ</string>
-    <string name="onb_use_on_computer_sub">ស្កេនកូដក្នុងកម្មវិធី Agent នៅលើកុំព្យូទ័រ ឬម៉ាស៊ីនមេរបស់អ្នក។ មិនត្រូវការសោលើទូរសព្ទនេះទេ។</string>
+    <string name="onb_use_on_computer_sub">ស្កេនកូដក្នុងកម្មវិធី Mew នៅលើកុំព្យូទ័រ ឬម៉ាស៊ីនមេរបស់អ្នក។ មិនត្រូវការសោលើទូរសព្ទនេះទេ។</string>
     <string name="sub_paste_code_from">បិទភ្ជាប់កូដពី %1$s</string>
     <string name="sub_paste_code_body_from">ក្នុងកម្មវិធីរុករក៖ ចុចអនុញ្ញាត។ បន្ទាប់មក %1$s បង្ហាញកូដមួយ។ ចម្លងវា ត្រឡប់មកទីនេះ ហើយបិទភ្ជាប់ខាងក្រោម។</string>
     <string name="sub_code_from">កូដពី %1$s</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">បន្ថែមលេខសាកល្បង</string>
     <string name="browser_test_number_body">លេខរបស់គណនី WhatsApp ដែលអ្នកប្រើសាកល្បង។ គ្មានអ្វីត្រូវបានផ្ញើទៅ WhatsApp ទេ ហើយការផ្ទុកទំព័រឡើងវិញនឹងបោះបង់វា។</string>
     <string name="link_cant_reach">ភ្ជាប់ទៅកុំព្យូទ័រមិនបានទេ។</string>
-    <string name="link_bad_answer">ចម្លើយរបស់កុំព្យូទ័រមិនអាចយល់បានទេ។ តើកម្មវិធី Agent របស់វាថ្មីទេ?</string>
+    <string name="link_bad_answer">ចម្លើយរបស់កុំព្យូទ័រមិនអាចយល់បានទេ។ តើកម្មវិធី Mew របស់វាថ្មីទេ?</string>
     <string name="link_tried_addresses">(បានសាក %1$d អាសយដ្ឋាន)</string>
     <string name="link_type_address">វាយអាសយដ្ឋានរបស់កុំព្យូទ័រ។</string>
     <string name="link_no_certificate">កុំព្យូទ័រមិនបានផ្ញើវិញ្ញាបនបត្រទេ។</string>
     <string name="link_failed">ការភ្ជាប់បរាជ័យ។</string>
     <string name="link_your_computer">កុំព្យូទ័ររបស់អ្នក</string>
-    <string name="link_not_a_code">QR កូដនោះមិនមែនជាកូដភ្ជាប់របស់ Agent ទេ។</string>
+    <string name="link_not_a_code">QR កូដនោះមិនមែនជាកូដភ្ជាប់របស់ Mew ទេ។</string>
     <string name="link_subtitle">ភ្ជាប់ទូរសព្ទនេះទៅកុំព្យូទ័រ ឬម៉ាស៊ីនមេ</string>
     <string name="link_linked_to">បានភ្ជាប់ទៅ %1$s</string>
     <string name="link_runs_on">ភ្នាក់ងាររបស់អ្នកដំណើរការលើ %1$s។ ទូរសព្ទនេះបង្ហាញការជជែក ការចងចាំ កិច្ចការ និងកិច្ចការទៀងទាត់របស់វា ហើយមិនកាន់សោ AI ណាសម្រាប់វាទេ។</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">ភ្ជាប់ទៅ %1$s</string>
     <string name="link_keep">រក្សា %1$s</string>
     <string name="link_linking_to">កំពុងភ្ជាប់ទៅ %1$s...</string>
-    <string name="link_how_to">នៅលើកុំព្យូទ័ររបស់អ្នក បើកកម្មវិធី Agent ហើយទៅការកំណត់ ឧបករណ៍ បន្ថែមឧបករណ៍។</string>
+    <string name="link_how_to">នៅលើកុំព្យូទ័ររបស់អ្នក បើកកម្មវិធី Mew ហើយទៅការកំណត់ ឧបករណ៍ បន្ថែមឧបករណ៍។</string>
     <string name="link_how_type">វាយអាសយដ្ឋាន និងកូដដែលវាបង្ហាញ។</string>
     <string name="link_how_scan">ចង្អុលកាមេរ៉ានេះទៅកូដដែលវាបង្ហាញ។</string>
     <string name="link_allow_camera">អនុញ្ញាតកាមេរ៉ា</string>
@@ -272,7 +272,7 @@
     <string name="proj_new_chat_line">អ្វីដែលបាននិយាយរហូតមកដល់ពេលនេះត្រូវបានរក្សាទុកក្នុងការចងចាំ ហើយបង្អួចនេះចាប់ផ្តើមទទេ។ គ្មានអ្វីនៅលើកុំព្យូទ័ររបស់អ្នកត្រូវបានលុបទេ។</string>
     <string name="proj_new_chat">ការជជែកថ្មី</string>
     <string name="proj_not_linked_now">ពេលនេះមិនបានភ្ជាប់ទៅកុំព្យូទ័រទេ។</string>
-    <string name="proj_computer_older">កម្មវិធី Agent របស់កុំព្យូទ័រអ្នកចាស់ជាងកំណែនេះ ដូច្នេះវាមិនអាចចាប់ផ្តើមការជជែកថ្មីនៅទីនោះបានទេ។ ធ្វើបច្ចុប្បន្នភាពលើកុំព្យូទ័រ រួចសាកម្តងទៀត។</string>
+    <string name="proj_computer_older">កម្មវិធី Mew របស់កុំព្យូទ័រអ្នកចាស់ជាងកំណែនេះ ដូច្នេះវាមិនអាចចាប់ផ្តើមការជជែកថ្មីនៅទីនោះបានទេ។ ធ្វើបច្ចុប្បន្នភាពលើកុំព្យូទ័រ រួចសាកម្តងទៀត។</string>
     <string name="proj_unreachable">ទៅដល់កុំព្យូទ័ររបស់អ្នកមិនបាន។ សាកម្តងទៀតនៅពេលវាត្រឡប់មកវិញ។</string>
     <string name="proj_photo_you_sent">រូបថតដែលអ្នកបានផ្ញើ</string>
     <string name="proj_start_chat_failed">ចាប់ផ្តើមការជជែកក្នុង %1$s មិនបាន៖ %2$s។</string>
@@ -367,14 +367,14 @@
     <string name="wake_up_your_computer">កុំព្យូទ័ររបស់អ្នក</string>
     <string name="wake_up_reaches">ទៅដល់ទូរសព្ទនេះ</string>
     <string name="wake_up_link_first">ភ្ជាប់ទូរសព្ទនេះទៅកុំព្យូទ័ររបស់អ្នកជាមុនសិន (ការកំណត់ &gt; ឧបករណ៍ដែលបានភ្ជាប់)</string>
-    <string name="wake_up_lacks">%1$s មិនទាន់អាចរោទ៍ទូរសព្ទនេះបានទេ៖ ធ្វើបច្ចុប្បន្នភាពកម្មវិធី Agent នៅទីនោះ</string>
+    <string name="wake_up_lacks">%1$s មិនទាន់អាចរោទ៍ទូរសព្ទនេះបានទេ៖ ធ្វើបច្ចុប្បន្នភាពកម្មវិធី Mew នៅទីនោះ</string>
     <string name="wake_up_connected">បានភ្ជាប់ទៅ %1$s</string>
     <string name="wake_up_not_connected">ពេលនេះមិនបានភ្ជាប់ទេ។ វានៅតែព្យាយាមបន្ត។</string>
     <string name="wake_up_test">សាកល្បងការដាស់</string>
     <string name="wake_up_test_body">រោទ៍ទូរសព្ទនេះពិតប្រាកដ។ ឆ្លើយដើម្បីបញ្ឈប់។</string>
     <string name="wake_up_test_sent">បានផ្ញើការសាកល្បង %1$s។</string>
     <string name="wake_up_not_sent">មិនបានផ្ញើទេ។</string>
-    <string name="wake_up_secure_folder">ដំឡើង Agent ធម្មតា (មិនមែនក្នុងថតសុវត្ថិភាព)៖ ថតសុវត្ថិភាពដែលចាក់សោរោទ៍មិនបានទេ។</string>
+    <string name="wake_up_secure_folder">ដំឡើង Mew ធម្មតា (មិនមែនក្នុងថតសុវត្ថិភាព)៖ ថតសុវត្ថិភាពដែលចាក់សោរោទ៍មិនបានទេ។</string>
     <string name="rec_recording_now">កំពុងថត</string>
     <string name="rec_cut_off">ត្រូវបានផ្តាច់</string>
     <string name="rec_partly">ផ្នែកខ្លះមិនបានកត់ទុកទេ</string>
@@ -403,7 +403,7 @@
     <string name="media_play">ចាក់តន្ត្រី និងវីដេអូ</string>
     <string name="media_intro">ពេលអ្នកសុំឱ្យភ្នាក់ងារចាក់អ្វីមួយ វាប្រើកម្មវិធីដែលអ្នកជ្រើសនៅទីនេះ។ ប្រសិនបើទុកស្វ័យប្រវត្តិ វាប្រើលំនាំដើមរបស់ទូរសព្ទ បន្ទាប់មកកម្មវិធីណាដែលចាក់ពីការស្វែងរកបាន។</string>
     <string name="media_access_off">ការចូលប្រើការជូនដំណឹងត្រូវបានបិទ</string>
-    <string name="media_access_body">Android បង្ហាញតែអ្វីដែលកំពុងចាក់ ហើយអនុញ្ញាតឱ្យភ្នាក់ងាររបស់អ្នកផ្អាក ឬរំលង នៅពេល Agent មានសិទ្ធិចូលប្រើការជូនដំណឹង។</string>
+    <string name="media_access_body">Android បង្ហាញតែអ្វីដែលកំពុងចាក់ ហើយអនុញ្ញាតឱ្យភ្នាក់ងាររបស់អ្នកផ្អាក ឬរំលង នៅពេល Mew មានសិទ្ធិចូលប្រើការជូនដំណឹង។</string>
     <string name="media_none">គ្មានកម្មវិធីណាលើទូរសព្ទនេះប្រកាសថាអាចចាក់តន្ត្រី ឬវីដេអូសម្រាប់ភ្នាក់ងាររបស់អ្នកទេ។ ដំឡើងកម្មវិធីតន្ត្រី នោះវានឹងបង្ហាញនៅទីនេះ។</string>
     <string name="media_music_app">កម្មវិធីតន្ត្រី</string>
     <string name="media_video_app">កម្មវិធីវីដេអូ</string>
@@ -643,7 +643,7 @@
     <string name="main_your_computer">កុំព្យូទ័ររបស់អ្នក</string>
     <string name="main_a_computer">កុំព្យូទ័រមួយ</string>
     <string name="main_whatever_agent_runs">កន្លែងណាដែលភ្នាក់ងាររបស់អ្នកដំណើរការ</string>
-    <string name="rt_clear_computer_older">ការជជែករបស់ទូរសព្ទនេះត្រូវបានសម្អាត។ ការជជែករបស់កុំព្យូទ័រមិនទេ៖ កម្មវិធី Agent នៅលើនោះចាស់ជាងកំណែនេះ ដូច្នេះវាមិនអាចចាប់ផ្តើមការជជែកថ្មីបានទេ។ ធ្វើបច្ចុប្បន្នភាពកម្មវិធីលើកុំព្យូទ័ររបស់អ្នក រួចសម្អាតម្តងទៀត។</string>
+    <string name="rt_clear_computer_older">ការជជែករបស់ទូរសព្ទនេះត្រូវបានសម្អាត។ ការជជែករបស់កុំព្យូទ័រមិនទេ៖ កម្មវិធី Mew នៅលើនោះចាស់ជាងកំណែនេះ ដូច្នេះវាមិនអាចចាប់ផ្តើមការជជែកថ្មីបានទេ។ ធ្វើបច្ចុប្បន្នភាពកម្មវិធីលើកុំព្យូទ័ររបស់អ្នក រួចសម្អាតម្តងទៀត។</string>
     <string name="rt_clear_unreachable">ការជជែករបស់ទូរសព្ទនេះត្រូវបានសម្អាត។ ទើបតែទៅដល់កុំព្យូទ័ររបស់អ្នកមិនបាន ដូច្នេះការជជែករបស់វានៅនៅឡើយ ហើយនឹងបង្ហាញម្តងទៀតពេលធ្វើសមកាលកម្ម។ សម្អាតម្តងទៀតពេលវាត្រឡប់មកវិញ។</string>
     <string name="assist_type_it_instead">វាយជំនួសវិញ</string>
     <string name="assist_unlock_to_carry_on">ដោះសោដើម្បីបន្ត</string>
@@ -694,6 +694,10 @@
     <string name="assist_over_lock_line">បិទ៖ ដោះសោទូរសព្ទជាមុន រួចហៅវា។ បើក៖ វាបើកលើទូរសព្ទដែលចាក់សោ ហើយផ្ញើសំណើរបស់អ្នកពេលអ្នកដោះសោ។</string>
     <string name="assist_live_voice">សំឡេងផ្ទាល់ក្នុងជំនួយការ</string>
     <string name="assist_live_voice_line">បិទ៖ អ្នកនិយាយសំណើមួយ ហើយវាឆ្លើយ។ បើក៖ និយាយធម្មជាតិ %1$s ឆ្លើយជាសំឡេងភ្លាមៗ អ្នកអាចនិយាយកាត់វាបាន ហើយវាប្រគល់ការងារទៅភ្នាក់ងាររបស់អ្នក និងប្រាប់លទ្ធផល។</string>
+    <string name="assist_talk">បន្តការសន្ទនា</string>
+    <string name="assist_talk_line">ដូចការហៅ៖ %1$s អានចម្លើយនីមួយៗឮៗ ហើយស្តាប់ម្តងទៀត រហូតទាល់តែអ្នកនិយាយលា ឬចុចបញ្ចប់។ ប្រើសំឡេង cloud របស់អ្នក ឬសំឡេងទូរស័ព្ទផ្ទាល់ បើមិនបានកំណត់។</string>
+    <string name="assist_talk_end">បញ្ចប់</string>
+    <string name="assist_talk_interrupt">ផ្អាក</string>
     <string name="assist_never_reads_money">វាមិនដែលអានកម្មវិធីធនាគារ ការទូទាត់ ឬប្រាក់ទេ ទោះកុងតាក់ណាបើកក៏ដោយ។ អ្វីដែលវាអានត្រូវបានប្រើសម្រាប់សំណើនោះតែប៉ុណ្ណោះ។</string>
     <string name="live_bubble_desc">សំឡេងផ្ទាល់។ ចុចដើម្បីបើក</string>
     <string name="live_end_session">បញ្ចប់វគ្គផ្ទាល់</string>

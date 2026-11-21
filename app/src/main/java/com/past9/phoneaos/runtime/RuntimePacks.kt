@@ -167,7 +167,14 @@ object RuntimePacks {
                 val tmp = File(target.parentFile, ".${target.name}.new")
                 tmp.outputStream().use { stream.copyTo(it) }
                 tmp.setExecutable(true, false); tmp.setReadable(true, false)
-                check(tmp.renameTo(target)) { "Couldn't place ${entry.name}" }
+                // Java's renameTo does not replace an existing file on Windows; a pack update
+                // (bin/node v1 -> v2) must overwrite what the previous install left behind.
+                runCatching {
+                    java.nio.file.Files.move(tmp.toPath(), target.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+                }.getOrElse {
+                    target.delete()
+                    check(tmp.renameTo(target)) { "Couldn't place ${entry.name}" }
+                }
                 stream.closeEntry()
             }
         }

@@ -102,7 +102,7 @@ class AlarmReceiver : BroadcastReceiver() {
             }
             ExactAlarms.ACTION_REMINDER, ExactAlarms.ACTION_WAKE -> {
                 // A wake can run the agent for minutes. Holding the broadcast open until it finishes makes Android
-                // time the broadcast out and show "Agent isn't responding" (four ANRs on 19 Oct 2026, all on
+                // time the broadcast out and show "Mew isn't responding" (four ANRs on 19 Oct 2026, all on
                 // com.past9.phoneaos.alarm.WAKE). Start the keep-alive service, hand the work to the process, and
                 // return from onReceive at once: the foreground service is what keeps it alive, not the broadcast.
                 // workStarted() starts the foreground service and counts this job, so the process is kept for the

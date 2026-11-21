@@ -69,7 +69,7 @@
     <string name="svc_weekly_every">દર %1$s %2$02d:%3$02d વાગ્યે</string>
     <string name="svc_weekly_weekday">કાર્યદિવસ</string>
     <string name="svc_weekly_weekend">સપ્તાહાંત દિવસ</string>
-    <string name="svc_work_channel">Agent કામ કરી રહ્યો છે</string>
+    <string name="svc_work_channel">Mew કામ કરી રહ્યો છે</string>
     <plurals name="svc_work_helpers">
         <item quantity="one">કામ ચાલુ: %1$d મદદનીશ</item>
         <item quantity="other">કામ ચાલુ: %1$d મદદનીશો</item>

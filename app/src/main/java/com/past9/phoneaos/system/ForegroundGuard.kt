@@ -99,6 +99,6 @@ object ForegroundGuard {
         context.getSystemService(NotificationManager::class.java)
             ?.createNotificationChannel(NotificationChannel(PLAIN_CHANNEL, context.getString(com.past9.phoneaos.R.string.svc_plain_channel), NotificationManager.IMPORTANCE_MIN))
         return NotificationCompat.Builder(context, PLAIN_CHANNEL).setSmallIcon(android.R.drawable.stat_notify_sync)
-            .setContentTitle("Agent").setContentText(context.getString(com.past9.phoneaos.R.string.chat_working)).setOngoing(true).build()
+            .setContentTitle("Mew").setContentText(context.getString(com.past9.phoneaos.R.string.chat_working)).setOngoing(true).build()
     }
 }

@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">OF GEBRUIK DE AGENT OP JE COMPUTER</string>
     <string name="onb_use_on_computer">De agent op mijn computer gebruiken</string>
-    <string name="onb_use_on_computer_sub">Scan de code in de Agent-app op je computer of server. Geen sleutels op deze telefoon.</string>
+    <string name="onb_use_on_computer_sub">Scan de code in de Mew-app op je computer of server. Geen sleutels op deze telefoon.</string>
     <string name="sub_paste_code_from">Plak de code van %1$s</string>
     <string name="sub_paste_code_body_from">In de browser: tik op Authorize. %1$s toont dan een code. Kopieer hem, kom hier terug en plak hem hieronder.</string>
     <string name="sub_code_from">Code van %1$s</string>
@@ -18,7 +18,7 @@
     <string name="settings_automation_not_listening">Luistert nog niet: open de app één keer</string>
     <string name="settings_automation_on">Aan · %1$s</string>
     <string name="settings_automation_off">Uit · tik om in te stellen</string>
-    <string name="settings_macro_title">Agent praat met je apps</string>
+    <string name="settings_macro_title">Mew praat met je apps</string>
     <string name="settings_media_apps">Media-apps</string>
     <string name="settings_bg_screen">Achtergrondscherm</string>
     <string name="settings_bg_screen_sub">Andere apps, terwijl jij je scherm houdt</string>
@@ -59,7 +59,7 @@
     <string name="browser_remove_site">%1$s verwijderen</string>
     <string name="browser_add_site">Site toevoegen</string>
     <string name="browser_sites_hint">Alleen beveiligde sites (https), met hun exacte adres. Wijzigingen gelden voor nieuwe tabbladen.</string>
-    <string name="browser_call_voice">Agent laten spreken in WhatsApp-gesprekken</string>
+    <string name="browser_call_voice">Mew laten spreken in WhatsApp-gesprekken</string>
     <string name="browser_call_voice_on">Aan: in een WhatsApp Web-gesprek dat je agent hier start, gaat zijn stem het gesprek in en hoort hij de ander.</string>
     <string name="browser_call_voice_off">Uit. Je agent kan niet spreken in een WhatsApp Web-gesprek.</string>
     <string name="browser_test_calling">Bellen aanzetten voor een testaccount</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">Testnummer toevoegen</string>
     <string name="browser_test_number_body">Het nummer van het WhatsApp-account waarmee je test. Er wordt niets naar WhatsApp gestuurd en de pagina herladen maakt het ongedaan.</string>
     <string name="link_cant_reach">Kon de computer niet bereiken.</string>
-    <string name="link_bad_answer">Het antwoord van de computer was onbegrijpelijk. Is de Agent-app daar up-to-date?</string>
+    <string name="link_bad_answer">Het antwoord van de computer was onbegrijpelijk. Is de Mew-app daar up-to-date?</string>
     <string name="link_tried_addresses">(%1$d adressen geprobeerd)</string>
     <string name="link_type_address">Typ het adres van de computer.</string>
     <string name="link_no_certificate">De computer stuurde geen certificaat.</string>
     <string name="link_failed">Koppelen mislukt.</string>
     <string name="link_your_computer">je computer</string>
-    <string name="link_not_a_code">Die QR-code is geen Agent-koppelcode.</string>
+    <string name="link_not_a_code">Die QR-code is geen Mew-koppelcode.</string>
     <string name="link_subtitle">Koppel deze telefoon aan een computer of server</string>
     <string name="link_linked_to">Gekoppeld aan %1$s</string>
     <string name="link_runs_on">Je agent draait op %1$s. Deze telefoon toont de chat, het geheugen, de taken en de routines daarvan en bewaart er geen AI-sleutels voor.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">Koppelen aan %1$s</string>
     <string name="link_keep">%1$s behouden</string>
     <string name="link_linking_to">Koppelen aan %1$s...</string>
-    <string name="link_how_to">Open op je computer de Agent-app en ga naar Instellingen, Apparaten, Apparaat toevoegen.</string>
+    <string name="link_how_to">Open op je computer de Mew-app en ga naar Instellingen, Apparaten, Apparaat toevoegen.</string>
     <string name="link_how_type">Typ het adres en de code die hij toont.</string>
     <string name="link_how_scan">Richt deze camera op de code die hij toont.</string>
     <string name="link_allow_camera">Camera toestaan</string>
@@ -107,7 +107,7 @@
     <string name="link_trying">Opnieuw proberen...</string>
     <string name="link_devices">Apparaten</string>
     <string name="link_retry">Opnieuw proberen</string>
-    <string name="link_use_on">Agent gebruiken op %1$s</string>
+    <string name="link_use_on">Mew gebruiken op %1$s</string>
     <string name="link_my_computer">mijn computer</string>
     <string name="link_on_body">De chat, het geheugen, de taken en de routines hier zijn die van je computer. Die van je telefoon blijven zoals ze waren.</string>
     <string name="link_off_body">Uit: deze telefoon gebruikt zijn eigen agent en gegevens.</string>
@@ -273,7 +273,7 @@
     <string name="proj_new_chat_line">Wat tot nu toe is gezegd, wordt in het geheugen opgeslagen en dit venster begint leeg. Op je computer wordt niets verwijderd.</string>
     <string name="proj_new_chat">Nieuwe chat</string>
     <string name="proj_not_linked_now">Op dit moment niet gekoppeld aan een computer.</string>
-    <string name="proj_computer_older">De Agent-app op je computer is ouder dan deze en kan daar geen nieuwe chat starten. Werk hem bij op je computer en probeer het opnieuw.</string>
+    <string name="proj_computer_older">De Mew-app op je computer is ouder dan deze en kan daar geen nieuwe chat starten. Werk hem bij op je computer en probeer het opnieuw.</string>
     <string name="proj_unreachable">Je computer kon niet worden bereikt. Probeer het opnieuw als hij weer terug is.</string>
     <string name="proj_photo_you_sent">Foto die je hebt gestuurd</string>
     <string name="proj_start_chat_failed">Kon geen chat starten in %1$s: %2$s.</string>
@@ -371,14 +371,14 @@
     <string name="wake_up_your_computer">je computer</string>
     <string name="wake_up_reaches">Bereikt deze telefoon</string>
     <string name="wake_up_link_first">Koppel deze telefoon eerst aan je computer (Instellingen &gt; Gekoppelde apparaten)</string>
-    <string name="wake_up_lacks">%1$s kan deze telefoon nog niet laten rinkelen: werk de Agent-app daar bij</string>
+    <string name="wake_up_lacks">%1$s kan deze telefoon nog niet laten rinkelen: werk de Mew-app daar bij</string>
     <string name="wake_up_connected">Verbonden met %1$s</string>
     <string name="wake_up_not_connected">Nu niet verbonden. Hij blijft het proberen.</string>
     <string name="wake_up_test">Wekker testen</string>
     <string name="wake_up_test_body">Laat deze telefoon echt rinkelen. Beantwoord hem om te stoppen.</string>
     <string name="wake_up_test_sent">%1$s-test verstuurd.</string>
     <string name="wake_up_not_sent">Hij is niet verstuurd.</string>
-    <string name="wake_up_secure_folder">Installeer Agent gewoon (niet in Beveiligde map): een vergrendelde Beveiligde map kan niet rinkelen.</string>
+    <string name="wake_up_secure_folder">Installeer Mew gewoon (niet in Beveiligde map): een vergrendelde Beveiligde map kan niet rinkelen.</string>
     <string name="rec_recording_now">Neemt nu op</string>
     <string name="rec_cut_off">Afgebroken</string>
     <string name="rec_partly">Een deel is niet uitgeschreven</string>
@@ -407,7 +407,7 @@
     <string name="media_play">Muziek en video afspelen</string>
     <string name="media_intro">Als je je agent vraagt iets af te spelen, gebruikt hij de app die je hier kiest. Op automatisch gebruikt hij de standaard van je telefoon, daarna elke app die vanuit een zoekopdracht kan afspelen.</string>
     <string name="media_access_off">Toegang tot meldingen staat uit</string>
-    <string name="media_access_body">Android toont alleen wat er speelt, en laat je agent alleen pauzeren of overslaan, als Agent toegang tot meldingen heeft.</string>
+    <string name="media_access_body">Android toont alleen wat er speelt, en laat je agent alleen pauzeren of overslaan, als Mew toegang tot meldingen heeft.</string>
     <string name="media_none">Geen enkele app op deze telefoon meldt dat hij muziek of video voor je agent kan afspelen. Installeer een muziek-app en hij verschijnt hier.</string>
     <string name="media_music_app">Muziek-app</string>
     <string name="media_video_app">Video-app</string>
@@ -416,7 +416,7 @@
     <string name="macro_and">%1$s en %2$s</string>
     <string name="macro_line_some">%1$s kunnen zonder te vragen draaien; andere vragen het</string>
     <string name="macro_eyebrow">Automatisering</string>
-    <string name="macro_title">Agent praat met je apps</string>
+    <string name="macro_title">Mew praat met je apps</string>
     <string name="macro_intro">Je agent kan elke app op deze telefoon een Android-intent sturen: een plek openen in Maps, delen naar een app, een MacroDroid- of Tasker-macro uitvoeren. Een scherm openen vraagt nooit iets. Al het andere vraagt het je eerst, tenzij het hier staat. Er verlaat niets de telefoon.</string>
     <string name="macro_intents">Toegestane app-intents</string>
     <string name="macro_intents_hint">actie | pakket, één per regel</string>
@@ -653,7 +653,7 @@
     <string name="main_your_computer">je computer</string>
     <string name="main_a_computer">een computer</string>
     <string name="main_whatever_agent_runs">Waarop je agent ook draait</string>
-    <string name="rt_clear_computer_older">De chat van deze telefoon is gewist. Die van je computer niet: de Agent-app daar is ouder dan deze en kan geen nieuwe chat starten. Werk de app bij op je computer en wis dan opnieuw.</string>
+    <string name="rt_clear_computer_older">De chat van deze telefoon is gewist. Die van je computer niet: de Mew-app daar is ouder dan deze en kan geen nieuwe chat starten. Werk de app bij op je computer en wis dan opnieuw.</string>
     <string name="rt_clear_unreachable">De chat van deze telefoon is gewist. Je computer was net niet bereikbaar, dus zijn chat staat er nog en komt terug bij het synchroniseren. Wis opnieuw zodra hij terug is.</string>
     <string name="assist_type_it_instead">Typ het in plaats daarvan</string>
     <string name="assist_unlock_to_carry_on">Ontgrendel om door te gaan</string>
@@ -704,6 +704,10 @@
     <string name="assist_over_lock_line">Uit: ontgrendel eerst de telefoon en roep hem dan aan. Aan: hij opent op een vergrendelde telefoon en verstuurt je verzoek zodra je ontgrendelt.</string>
     <string name="assist_live_voice">Livestem in de assistent</string>
     <string name="assist_live_voice_line">Uit: je spreekt één verzoek in en hij antwoordt. Aan: praat natuurlijk, %1$s antwoordt meteen hardop, je kunt erdoorheen praten, en hij geeft klussen door aan je agent en vertelt je de uitkomst.</string>
+    <string name="assist_talk">Gesprek voortzetten</string>
+    <string name="assist_talk_line">Als een oproep: %1$s leest elk antwoord hardop en luistert opnieuw, tot je gedag zegt of op Einde tikt. Gebruikt je cloudstem, anders de eigen stem van de telefoon.</string>
+    <string name="assist_talk_end">Einde</string>
+    <string name="assist_talk_interrupt">Onderbreken</string>
     <string name="assist_never_reads_money">Hij leest nooit bank-, betaal- of geld-apps, met geen van beide schakelaars aan. Wat hij leest, wordt alleen voor dat verzoek gebruikt.</string>
     <string name="live_bubble_desc">Livestem. Tik om te openen</string>
     <string name="live_end_session">Livesessie beëindigen</string>

@@ -1,6 +1,7 @@
 # Brand, product and technical names that stay as they are in every language (one token per line, any case).
 # "<locale-folder-language> <key>" lines let one value stay identical to English in one language, "* <key>" in all.
 Agent
+Mew
 WhatsApp
 Google
 Gemini

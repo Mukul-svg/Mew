@@ -74,7 +74,7 @@ object IntentTriggers {
 
     /** The recipe the Settings sheet copies. */
     fun recipe(token: String): String = """
-        Any app to Agent, by intent
+        Any app to Mew, by intent
         Send a BROADCAST with:
           Package: com.past9.phoneaos   (needed: without it Android does not deliver it)
           Action:  $RUN_ROUTINE
@@ -86,7 +86,7 @@ object IntentTriggers {
           Extras:  token = $token
                    text = What is on my list today?
         MacroDroid: action Send Intent, Target Broadcast. Tasker: Send Intent, Target Broadcast Receiver.
-        It works even when the Agent app is closed. Anything that needs your approval is refused.
+        It works even when the Mew app is closed. Anything that needs your approval is refused.
     """.trimIndent()
 }
 

@@ -1,7 +1,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">ELLER ANVÄND AGENTEN PÅ DIN DATOR</string>
     <string name="onb_use_on_computer">Använd agenten på min dator</string>
-    <string name="onb_use_on_computer_sub">Skanna koden i Agent-appen på din dator eller server. Inga nycklar på den här telefonen.</string>
+    <string name="onb_use_on_computer_sub">Skanna koden i Mew-appen på din dator eller server. Inga nycklar på den här telefonen.</string>
     <string name="sub_paste_code_from">Klistra in koden från %1$s</string>
     <string name="sub_paste_code_body_from">I webbläsaren: tryck på Auktorisera. %1$s visar då en kod. Kopiera den, kom tillbaka hit och klistra in den nedan.</string>
     <string name="sub_code_from">Kod från %1$s</string>
@@ -72,13 +72,13 @@
     <string name="browser_add_test_number">Lägg till testnummer</string>
     <string name="browser_test_number_body">Numret till det WhatsApp-konto du testar med. Inget skickas till WhatsApp, och att ladda om sidan ångrar det.</string>
     <string name="link_cant_reach">Kunde inte nå datorn.</string>
-    <string name="link_bad_answer">Datorns svar var obegripligt. Är dess Agent-app uppdaterad?</string>
+    <string name="link_bad_answer">Datorns svar var obegripligt. Är dess Mew-app uppdaterad?</string>
     <string name="link_tried_addresses">(försökte %1$d adresser)</string>
     <string name="link_type_address">Skriv datorns adress.</string>
     <string name="link_no_certificate">Datorn skickade inget certifikat.</string>
     <string name="link_failed">Länkningen misslyckades.</string>
     <string name="link_your_computer">din dator</string>
-    <string name="link_not_a_code">Den QR-koden är inte en länkkod för Agent.</string>
+    <string name="link_not_a_code">Den QR-koden är inte en länkkod för Mew.</string>
     <string name="link_subtitle">Länka den här telefonen till en dator eller server</string>
     <string name="link_linked_to">Länkad till %1$s</string>
     <string name="link_runs_on">Din agent körs på %1$s. Den här telefonen visar dess chatt, minne, uppgifter och rutiner och har inga AI-nycklar för den.</string>
@@ -90,7 +90,7 @@
     <string name="link_link_to">Länka till %1$s</string>
     <string name="link_keep">Behåll %1$s</string>
     <string name="link_linking_to">Länkar till %1$s...</string>
-    <string name="link_how_to">Öppna Agent-appen på din dator och gå till Inställningar, Enheter, Lägg till en enhet.</string>
+    <string name="link_how_to">Öppna Mew-appen på din dator och gå till Inställningar, Enheter, Lägg till en enhet.</string>
     <string name="link_how_type">Skriv adressen och koden som den visar.</string>
     <string name="link_how_scan">Rikta kameran mot koden som den visar.</string>
     <string name="link_allow_camera">Tillåt kameran</string>
@@ -272,7 +272,7 @@
     <string name="proj_new_chat_line">Det som har sagts hittills sparas i minnet och det här fönstret börjar tomt. Inget på din dator raderas.</string>
     <string name="proj_new_chat">Ny chatt</string>
     <string name="proj_not_linked_now">Inte länkad till en dator just nu.</string>
-    <string name="proj_computer_older">Agent-appen på din dator är äldre än den här, så den kan inte starta en ny chatt där. Uppdatera den på din dator och försök igen.</string>
+    <string name="proj_computer_older">Mew-appen på din dator är äldre än den här, så den kan inte starta en ny chatt där. Uppdatera den på din dator och försök igen.</string>
     <string name="proj_unreachable">Din dator gick inte att nå. Försök igen när den är tillbaka.</string>
     <string name="proj_photo_you_sent">Foto du skickade</string>
     <string name="proj_start_chat_failed">Kunde inte starta en chatt i %1$s: %2$s.</string>
@@ -370,14 +370,14 @@
     <string name="wake_up_your_computer">din dator</string>
     <string name="wake_up_reaches">Når den här telefonen</string>
     <string name="wake_up_link_first">Länka först den här telefonen till din dator (Inställningar > Länkade enheter)</string>
-    <string name="wake_up_lacks">%1$s kan inte ringa den här telefonen än: uppdatera Agent-appen där</string>
+    <string name="wake_up_lacks">%1$s kan inte ringa den här telefonen än: uppdatera Mew-appen där</string>
     <string name="wake_up_connected">Ansluten till %1$s</string>
     <string name="wake_up_not_connected">Inte ansluten just nu. Den fortsätter försöka.</string>
     <string name="wake_up_test">Testa en väckning</string>
     <string name="wake_up_test_body">Ringer den här telefonen på riktigt. Svara för att stoppa den.</string>
     <string name="wake_up_test_sent">%1$s test skickat.</string>
     <string name="wake_up_not_sent">Det gick inte.</string>
-    <string name="wake_up_secure_folder">Installera Agent på vanligt sätt (inte i Säker mapp): en låst Säker mapp kan inte ringa.</string>
+    <string name="wake_up_secure_folder">Installera Mew på vanligt sätt (inte i Säker mapp): en låst Säker mapp kan inte ringa.</string>
     <string name="rec_recording_now">Spelar in nu</string>
     <string name="rec_cut_off">Avbruten</string>
     <string name="rec_partly">Delar av det skrevs inte ned</string>
@@ -406,7 +406,7 @@
     <string name="media_play">Spela musik och video</string>
     <string name="media_intro">När du ber din agent spela något använder den appen du väljer här. Lämnad på automatiskt använder den telefonens standard, sedan vilken app som helst som kan spela från en sökning.</string>
     <string name="media_access_off">Aviseringsåtkomst är av</string>
-    <string name="media_access_body">Android visar bara vad som spelas, och låter din agent pausa eller hoppa, när Agent har aviseringsåtkomst.</string>
+    <string name="media_access_body">Android visar bara vad som spelas, och låter din agent pausa eller hoppa, när Mew har aviseringsåtkomst.</string>
     <string name="media_none">Ingen app på den här telefonen säger sig kunna spela musik eller video åt din agent. Installera en musikapp så visas den här.</string>
     <string name="media_music_app">Musikapp</string>
     <string name="media_video_app">Videoapp</string>
@@ -652,7 +652,7 @@
     <string name="main_your_computer">din dator</string>
     <string name="main_a_computer">en dator</string>
     <string name="main_whatever_agent_runs">Vad din agent än körs på</string>
-    <string name="rt_clear_computer_older">Den här telefonens chatt är rensad. Datorns chatt är det inte: Agent-appen där är äldre än den här, så den kan inte starta en ny chatt. Uppdatera appen på din dator och rensa sedan igen.</string>
+    <string name="rt_clear_computer_older">Den här telefonens chatt är rensad. Datorns chatt är det inte: Mew-appen där är äldre än den här, så den kan inte starta en ny chatt. Uppdatera appen på din dator och rensa sedan igen.</string>
     <string name="rt_clear_unreachable">Den här telefonens chatt är rensad. Din dator gick inte att nå just nu, så dess chatt finns kvar och visas igen när den synkas. Rensa igen när den är tillbaka.</string>
     <string name="assist_type_it_instead">Skriv det i stället</string>
     <string name="assist_unlock_to_carry_on">Lås upp för att fortsätta</string>
@@ -703,6 +703,10 @@
     <string name="assist_over_lock_line">Av: lås först upp telefonen och anropa den sedan. På: den öppnas på en låst telefon och skickar din förfrågan när du låser upp.</string>
     <string name="assist_live_voice">Live-röst i assistenten</string>
     <string name="assist_live_voice_line">Av: du säger en förfrågan och den svarar. På: prata naturligt, %1$s svarar högt direkt, du kan prata i munnen på den, och den lämnar jobb till din agent och berättar resultatet.</string>
+    <string name="assist_talk">Fortsätt samtalet</string>
+    <string name="assist_talk_line">Som ett samtal: %1$s läser varje svar högt och lyssnar igen, tills du säger hej då eller trycker på Avsluta. Använder din molnröst, annars telefonens egen röst.</string>
+    <string name="assist_talk_end">Avsluta</string>
+    <string name="assist_talk_interrupt">Avbryt</string>
     <string name="assist_never_reads_money">Den läser aldrig bank-, betalnings- eller pengaappar, med något av reglagen på. Det den läser används bara för den förfrågan.</string>
     <string name="live_bubble_desc">Live-röst. Tryck för att öppna</string>
     <string name="live_end_session">Avsluta live-sessionen</string>

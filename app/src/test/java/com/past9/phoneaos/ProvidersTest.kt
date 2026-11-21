@@ -12,11 +12,14 @@ import org.junit.Test
 class ProvidersTest {
     private val tool = ToolSpec("memory_save", "save", schema(listOf("title"), "title" to str("t")))
 
+    /** MockWebServer uses the machine host name; loopback is what HttpPolicy allows without an opt-in. */
+    private fun MockWebServer.base() = url("/v1").newBuilder().host("127.0.0.1").build().toString().trimEnd('/')
+
     @Test fun anthropicToolCallRoundTrip() = runBlocking {
         val server = MockWebServer()
         server.enqueue(MockResponse().setBody("""{"content":[{"type":"text","text":"On it."},{"type":"tool_use","id":"tu_1","name":"memory_save","input":{"title":"Seats"}}],"stop_reason":"tool_use","usage":{"input_tokens":10,"output_tokens":5}}"""))
         server.start()
-        val p = AnthropicProvider("sk-test", server.url("/v1").toString().trimEnd('/'))
+        val p = AnthropicProvider("sk-test", server.base())
         val history = listOf(Msg.user("hi"), Msg(Role.ASSISTANT, listOf(Block.ToolCall("tu_0", "now", JSONObject()))), Msg(Role.USER, listOf(Block.ToolResult("tu_0", "Monday"))))
         val c = p.complete("sys", history, listOf(tool), "claude-sonnet-5-5")
         val req = server.takeRequest()
@@ -36,7 +39,7 @@ class ProvidersTest {
         val server = MockWebServer()
         server.enqueue(MockResponse().setBody("""{"choices":[{"message":{"role":"assistant","content":null,"tool_calls":[{"id":"c1","type":"function","function":{"name":"memory_save","arguments":"{\"title\":\"Seats\"}"}}]},"finish_reason":"tool_calls"}]}"""))
         server.start()
-        val p = OpenAiCompatProvider("openai", "sk-test", server.url("/v1").toString())
+        val p = OpenAiCompatProvider("openai", "sk-test", server.base())
         val history = listOf(Msg.user("hi"), Msg(Role.ASSISTANT, listOf(Block.ToolCall("c0", "now", JSONObject()))), Msg(Role.USER, listOf(Block.ToolResult("c0", "Monday"))))
         val c = p.complete("sys", history, listOf(tool), "gpt-5")
         val req = server.takeRequest()
@@ -55,7 +58,7 @@ class ProvidersTest {
         server.enqueue(MockResponse().setResponseCode(429).setBody("""{"error":{"message":"slow down"}}"""))
         server.enqueue(MockResponse().setBody("""{"content":[{"type":"text","text":"ok"}],"stop_reason":"end_turn"}"""))
         server.start()
-        val c = AnthropicProvider("k", server.url("/v1").toString().trimEnd('/')).complete("s", listOf(Msg.user("x")), emptyList(), "m")
+        val c = AnthropicProvider("k", server.base()).complete("s", listOf(Msg.user("x")), emptyList(), "m")
         assertEquals("ok", c.message.text); assertEquals(2, server.requestCount)
         server.shutdown()
     }
@@ -64,7 +67,7 @@ class ProvidersTest {
         val server = MockWebServer()
         server.enqueue(MockResponse().setResponseCode(401).setBody("""{"error":{"message":"invalid x-api-key"}}"""))
         server.start()
-        val e = runCatching { AnthropicProvider("k", server.url("/v1").toString().trimEnd('/')).complete("s", listOf(Msg.user("x")), emptyList(), "m") }.exceptionOrNull()
+        val e = runCatching { AnthropicProvider("k", server.base()).complete("s", listOf(Msg.user("x")), emptyList(), "m") }.exceptionOrNull()
         assertTrue(e is ProviderException && e.status == 401); assertEquals(1, server.requestCount)
         server.shutdown()
     }

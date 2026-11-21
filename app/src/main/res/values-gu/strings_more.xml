@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">અથવા તમારા કમ્પ્યુટર પર એજન્ટ વાપરો</string>
     <string name="onb_use_on_computer">મારા કમ્પ્યુટર પર એજન્ટ વાપરો</string>
-    <string name="onb_use_on_computer_sub">તમારા કમ્પ્યુટર અથવા સર્વર પરની Agent એપમાં કોડ સ્કેન કરો. આ ફોન પર કોઈ કી નહીં.</string>
+    <string name="onb_use_on_computer_sub">તમારા કમ્પ્યુટર અથવા સર્વર પરની Mew એપમાં કોડ સ્કેન કરો. આ ફોન પર કોઈ કી નહીં.</string>
     <string name="sub_paste_code_from">%1$s પરથી કોડ પેસ્ટ કરો</string>
     <string name="sub_paste_code_body_from">બ્રાઉઝરમાં: Authorize પર ટૅપ કરો. પછી %1$s એક કોડ બતાવશે. તેને કૉપિ કરો, અહીં પાછા આવો અને નીચે પેસ્ટ કરો.</string>
     <string name="sub_code_from">%1$s પરથી કોડ</string>
@@ -18,7 +18,7 @@
     <string name="settings_automation_not_listening">હજી સાંભળતું નથી: એપ એક વાર ખોલો</string>
     <string name="settings_automation_on">ચાલુ · %1$s</string>
     <string name="settings_automation_off">બંધ · સેટ કરવા ટૅપ કરો</string>
-    <string name="settings_macro_title">Agent તમારી એપ સાથે વાત કરે છે</string>
+    <string name="settings_macro_title">Mew તમારી એપ સાથે વાત કરે છે</string>
     <string name="settings_media_apps">મીડિયા એપ</string>
     <string name="settings_bg_screen">બૅકગ્રાઉન્ડ સ્ક્રીન</string>
     <string name="settings_bg_screen_sub">તમે તમારી સ્ક્રીન વાપરો ત્યારે અન્ય એપ</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">ટેસ્ટ નંબર ઉમેરો</string>
     <string name="browser_test_number_body">તમે જેનાથી ટેસ્ટ કરો છો તે WhatsApp એકાઉન્ટનો નંબર. WhatsApp ને કંઈ મોકલાતું નથી, અને પેજ ફરી લોડ કરવાથી તે પાછું ફરે છે.</string>
     <string name="link_cant_reach">કમ્પ્યુટર સુધી પહોંચી શકાયું નહીં.</string>
-    <string name="link_bad_answer">કમ્પ્યુટરનો જવાબ સમજાયો નહીં. શું તેની Agent એપ અપ ટુ ડેટ છે?</string>
+    <string name="link_bad_answer">કમ્પ્યુટરનો જવાબ સમજાયો નહીં. શું તેની Mew એપ અપ ટુ ડેટ છે?</string>
     <string name="link_tried_addresses">(%1$d સરનામા અજમાવ્યા)</string>
     <string name="link_type_address">કમ્પ્યુટરનું સરનામું લખો.</string>
     <string name="link_no_certificate">કમ્પ્યુટરે કોઈ પ્રમાણપત્ર મોકલ્યું નથી.</string>
     <string name="link_failed">લિંક કરવામાં નિષ્ફળ.</string>
     <string name="link_your_computer">તમારું કમ્પ્યુટર</string>
-    <string name="link_not_a_code">તે QR કોડ Agent લિંક કોડ નથી.</string>
+    <string name="link_not_a_code">તે QR કોડ Mew લિંક કોડ નથી.</string>
     <string name="link_subtitle">આ ફોનને કમ્પ્યુટર અથવા સર્વર સાથે લિંક કરો</string>
     <string name="link_linked_to">%1$s સાથે લિંક થયું</string>
     <string name="link_runs_on">તમારો એજન્ટ %1$s પર ચાલે છે. આ ફોન તેની ચેટ, મેમરી, કાર્યો અને રૂટિન બતાવે છે, અને તેની કોઈ Ai કી રાખતો નથી.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">%1$s સાથે લિંક કરો</string>
     <string name="link_keep">%1$s રાખો</string>
     <string name="link_linking_to">%1$s સાથે લિંક થઈ રહ્યું છે...</string>
-    <string name="link_how_to">તમારા કમ્પ્યુટર પર Agent એપ ખોલો અને સેટિંગ્સ, ડિવાઇસ, Add a device પર જાઓ.</string>
+    <string name="link_how_to">તમારા કમ્પ્યુટર પર Mew એપ ખોલો અને સેટિંગ્સ, ડિવાઇસ, Add a device પર જાઓ.</string>
     <string name="link_how_type">સરનામું અને તે બતાવે છે તે કોડ લખો.</string>
     <string name="link_how_scan">આ કૅમેરા તે બતાવે છે તે કોડ તરફ રાખો.</string>
     <string name="link_allow_camera">કૅમેરાની મંજૂરી આપો</string>
@@ -273,7 +273,7 @@
     <string name="proj_new_chat_line">અત્યાર સુધી જે કહેવાયું તે મેમરીમાં સાચવાય છે અને આ વિન્ડો ખાલી શરૂ થાય છે. તમારા કમ્પ્યુટર પર કંઈ ડિલીટ થતું નથી.</string>
     <string name="proj_new_chat">નવી ચેટ</string>
     <string name="proj_not_linked_now">હમણાં કમ્પ્યુટર સાથે લિંક નથી.</string>
-    <string name="proj_computer_older">તમારા કમ્પ્યુટરની Agent એપ આના કરતાં જૂની છે, તેથી ત્યાં નવી ચેટ શરૂ કરી શકાતી નથી. કમ્પ્યુટર પર તેને અપડેટ કરો, પછી ફરી પ્રયત્ન કરો.</string>
+    <string name="proj_computer_older">તમારા કમ્પ્યુટરની Mew એપ આના કરતાં જૂની છે, તેથી ત્યાં નવી ચેટ શરૂ કરી શકાતી નથી. કમ્પ્યુટર પર તેને અપડેટ કરો, પછી ફરી પ્રયત્ન કરો.</string>
     <string name="proj_unreachable">તમારા કમ્પ્યુટર સુધી પહોંચી શકાયું નહીં. તે પાછું ચાલુ થાય ત્યારે ફરી પ્રયત્ન કરો.</string>
     <string name="proj_photo_you_sent">તમે મોકલેલો ફોટો</string>
     <string name="proj_start_chat_failed">%1$s માં ચેટ શરૂ કરી શકાઈ નહીં: %2$s.</string>
@@ -371,14 +371,14 @@
     <string name="wake_up_your_computer">તમારું કમ્પ્યુટર</string>
     <string name="wake_up_reaches">આ ફોન સુધી પહોંચે છે</string>
     <string name="wake_up_link_first">પહેલા આ ફોનને તમારા કમ્પ્યુટર સાથે લિંક કરો (સેટિંગ્સ > લિંક કરેલા ડિવાઇસ)</string>
-    <string name="wake_up_lacks">%1$s હજી આ ફોન વગાડી શકતું નથી: ત્યાં Agent એપ અપડેટ કરો</string>
+    <string name="wake_up_lacks">%1$s હજી આ ફોન વગાડી શકતું નથી: ત્યાં Mew એપ અપડેટ કરો</string>
     <string name="wake_up_connected">%1$s સાથે જોડાયેલ</string>
     <string name="wake_up_not_connected">હમણાં જોડાયેલ નથી. તે પ્રયત્ન કરતું રહે છે.</string>
     <string name="wake_up_test">વેક-અપનો ટેસ્ટ કરો</string>
     <string name="wake_up_test_body">આ ફોનને ખરેખર વગાડે છે. બંધ કરવા જવાબ આપો.</string>
     <string name="wake_up_test_sent">%1$s ટેસ્ટ મોકલ્યો.</string>
     <string name="wake_up_not_sent">તે ગયું નહીં.</string>
-    <string name="wake_up_secure_folder">Agent ને સામાન્ય રીતે ઇન્સ્ટૉલ કરો (Secure Folder ની અંદર નહીં): લૉક કરેલું Secure Folder વાગી શકતું નથી.</string>
+    <string name="wake_up_secure_folder">Mew ને સામાન્ય રીતે ઇન્સ્ટૉલ કરો (Secure Folder ની અંદર નહીં): લૉક કરેલું Secure Folder વાગી શકતું નથી.</string>
     <string name="rec_recording_now">હમણાં રેકોર્ડ થઈ રહ્યું છે</string>
     <string name="rec_cut_off">કપાઈ ગયું</string>
     <string name="rec_partly">તેનો થોડો ભાગ લખાયો નથી</string>
@@ -407,7 +407,7 @@
     <string name="media_play">સંગીત અને વીડિયો ચલાવો</string>
     <string name="media_intro">જ્યારે તમે તમારા એજન્ટને કંઈક ચલાવવા કહો, ત્યારે તે અહીં તમે પસંદ કરેલી એપ વાપરે છે. આપમેળે પર રાખો તો તે તમારા ફોનની ડિફૉલ્ટ એપ વાપરે છે, પછી શોધમાંથી ચલાવી શકે તેવી કોઈ પણ એપ.</string>
     <string name="media_access_off">નોટિફિકેશન ઍક્સેસ બંધ છે</string>
-    <string name="media_access_body">Agent ને નોટિફિકેશન ઍક્સેસ મળે પછી જ Android શું ચાલી રહ્યું છે તે બતાવે છે અને તમારા એજન્ટને થોભાવવા કે છોડવા દે છે.</string>
+    <string name="media_access_body">Mew ને નોટિફિકેશન ઍક્સેસ મળે પછી જ Android શું ચાલી રહ્યું છે તે બતાવે છે અને તમારા એજન્ટને થોભાવવા કે છોડવા દે છે.</string>
     <string name="media_none">આ ફોન પરની કોઈ એપ તમારા એજન્ટ માટે સંગીત કે વીડિયો ચલાવી શકતી નથી. મ્યુઝિક એપ ઇન્સ્ટૉલ કરો તો તે અહીં દેખાશે.</string>
     <string name="media_music_app">મ્યુઝિક એપ</string>
     <string name="media_video_app">વીડિયો એપ</string>
@@ -416,7 +416,7 @@
     <string name="macro_and">%1$s અને %2$s</string>
     <string name="macro_line_some">%1$s પૂછ્યા વિના ચાલી શકે છે; બાકીના પૂછે છે</string>
     <string name="macro_eyebrow">ઑટોમેશન</string>
-    <string name="macro_title">Agent તમારી એપ સાથે વાત કરે છે</string>
+    <string name="macro_title">Mew તમારી એપ સાથે વાત કરે છે</string>
     <string name="macro_intro">તમારો એજન્ટ આ ફોન પરની કોઈ પણ એપને Android intent મોકલી શકે છે: Maps માં સ્થળ ખોલવું, કોઈ એપમાં શેર કરવું, MacroDroid કે Tasker મૅક્રો ચલાવવો. સ્ક્રીન ખોલવા માટે ક્યારેય પૂછતું નથી. બાકી બધું પહેલા તમને પૂછે છે, સિવાય કે તે અહીં સૂચિબદ્ધ હોય. ફોનની બહાર કંઈ જતું નથી.</string>
     <string name="macro_intents">મંજૂર એપ intent</string>
     <string name="macro_intents_hint">action | package, દરેક લીટીમાં એક</string>
@@ -653,7 +653,7 @@
     <string name="main_your_computer">તમારું કમ્પ્યુટર</string>
     <string name="main_a_computer">એક કમ્પ્યુટર</string>
     <string name="main_whatever_agent_runs">તમારો એજન્ટ જેના પર પણ ચાલે</string>
-    <string name="rt_clear_computer_older">આ ફોનની ચેટ સાફ થઈ ગઈ. તમારા કમ્પ્યુટરની ચેટ નથી થઈ: તેના પરની Agent એપ આના કરતાં જૂની છે, તેથી તે નવી ચેટ શરૂ કરી શકતી નથી. તમારા કમ્પ્યુટર પર એપ અપડેટ કરો, પછી ફરી સાફ કરો.</string>
+    <string name="rt_clear_computer_older">આ ફોનની ચેટ સાફ થઈ ગઈ. તમારા કમ્પ્યુટરની ચેટ નથી થઈ: તેના પરની Mew એપ આના કરતાં જૂની છે, તેથી તે નવી ચેટ શરૂ કરી શકતી નથી. તમારા કમ્પ્યુટર પર એપ અપડેટ કરો, પછી ફરી સાફ કરો.</string>
     <string name="rt_clear_unreachable">આ ફોનની ચેટ સાફ થઈ ગઈ. તમારા કમ્પ્યુટર સુધી હમણાં પહોંચી શકાયું નહીં, તેથી તેની ચેટ હજી ત્યાં છે અને સિંક થાય ત્યારે ફરી દેખાશે. તે પાછું ચાલુ થાય ત્યારે ફરી સાફ કરો.</string>
     <string name="assist_type_it_instead">તેના બદલે લખો</string>
     <string name="assist_unlock_to_carry_on">ચાલુ રાખવા અનલૉક કરો</string>
@@ -704,6 +704,10 @@
     <string name="assist_over_lock_line">બંધ: પહેલા ફોન અનલૉક કરો, પછી બોલાવો. ચાલુ: તે લૉક ફોન પર ખૂલે છે અને તમે અનલૉક કરો ત્યારે તમારી વિનંતી મોકલે છે.</string>
     <string name="assist_live_voice">આસિસ્ટન્ટમાં લાઇવ વૉઇસ</string>
     <string name="assist_live_voice_line">બંધ: તમે એક વિનંતી બોલો અને તે જવાબ આપે છે. ચાલુ: સ્વાભાવિક રીતે વાત કરો, %1$s તરત મોટેથી જવાબ આપે છે, તમે વચ્ચે બોલી શકો છો, અને તે કામ તમારા એજન્ટને સોંપે છે અને પરિણામ કહે છે.</string>
+    <string name="assist_talk">વાતચીત ચાલુ રાખો</string>
+    <string name="assist_talk_line">કૉલની જેમ: %1$s દરેક જવાબ મોટેથી વાંચે છે અને ફરી સાંભળે છે, જ્યાં સુધી તમે આવજો કહો અથવા અંત ટૅપ કરો. તમારો ક્લાઉડ અવાજ વાપરે છે, અથવા સેટઅપ ન હોય તો ફોનનો પોતાનો અવાજ.</string>
+    <string name="assist_talk_end">અંત</string>
+    <string name="assist_talk_interrupt">અટકાવો</string>
     <string name="assist_never_reads_money">બંને સ્વિચ ચાલુ હોય ત્યારે પણ તે બૅંકિંગ, પેમેન્ટ કે પૈસાની એપ ક્યારેય વાંચતું નથી. જે વાંચે તે ફક્ત તે વિનંતી માટે જ વપરાય છે.</string>
     <string name="live_bubble_desc">લાઇવ વૉઇસ. ખોલવા ટૅપ કરો</string>
     <string name="live_end_session">લાઇવ સત્ર સમાપ્ત કરો</string>

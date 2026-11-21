@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">MA Ọ BỤ JIRI AGENT NA KỌMPUTA GỊ</string>
     <string name="onb_use_on_computer">Jiri agent na kọmputa m</string>
-    <string name="onb_use_on_computer_sub">Nyochaa koodu ahụ na app Agent dị na kọmputa ma ọ bụ sava gị. Enweghị igodo n\'ekwentị a.</string>
+    <string name="onb_use_on_computer_sub">Nyochaa koodu ahụ na app Mew dị na kọmputa ma ọ bụ sava gị. Enweghị igodo n\'ekwentị a.</string>
     <string name="sub_paste_code_from">Kọpịa koodu site na %1$s</string>
     <string name="sub_paste_code_body_from">Na ihe nchọgharị: pịa Kwe. %1$s ga-egosi koodu. Depụta ya, laghachi ebe a, ma kọpịa ya n\'okpuru.</string>
     <string name="sub_code_from">Koodu site na %1$s</string>
@@ -18,14 +18,14 @@
     <string name="settings_automation_not_listening">Na-ege ntị ugbu a: meghe app otu ugboro</string>
     <string name="settings_automation_on">Meghere · %1$s</string>
     <string name="settings_automation_off">Emechiri · pịa iji hazie ya</string>
-    <string name="settings_macro_title">Agent na-agwa app gị okwu</string>
+    <string name="settings_macro_title">Mew na-agwa app gị okwu</string>
     <string name="settings_media_apps">App mgbasa ozi</string>
     <string name="settings_bg_screen">Ihuenyo azụ</string>
     <string name="settings_bg_screen_sub">App ndị ọzọ, mgbe ị na-edebe ihuenyo gị</string>
     <string name="settings_bg_screen_stopped">I kwụsịrị ya. Pịa ka agent gị jiri ya ọzọ</string>
     <string name="settings_bg_screen_on">Meghere. Nhazi, iwu na app ndị a machibidoro</string>
     <string name="settings_bg_screen_off">Emechiri. Nnwale: agent gị na-eji app ndị ọzọ n\'ihuenyo zoro ezo mgbe ị na-edebe nke gị</string>
-    <string name="settings_bg_screen_allowed">Agent gị nwere ike iji ihuenyo azụ ọzọ</string>
+    <string name="settings_bg_screen_allowed">Mew gị nwere ike iji ihuenyo azụ ọzọ</string>
     <string name="settings_bg_screen_runs">Ndekọ na app amụtara</string>
     <string name="settings_bg_screen_runs_sub">Lelee ihe o mere ebe ahụ, ma kụziere ya ọrụ n\'onwe gị</string>
     <string name="settings_browser">Ihe nchọgharị</string>
@@ -61,10 +61,10 @@
     <string name="browser_sites_hint">Webụsaịtị echekwara echekwa naanị (https), site na adreesị ha ziri ezi. Mgbanwe na-arụ ọrụ na taabụ ọhụrụ.</string>
     <string name="browser_call_voice">Kwe ka agent kwuo okwu n\'oku WhatsApp</string>
     <string name="browser_call_voice_on">Meghere: n\'oku WhatsApp Web agent gị na-ekpọ ebe a, olu ya na-abanye n\'oku ma na-anụ onye ọzọ.</string>
-    <string name="browser_call_voice_off">Emechiri. Agent gị enweghị ike ikwu okwu n\'oku WhatsApp Web.</string>
+    <string name="browser_call_voice_off">Emechiri. Mew gị enweghị ike ikwu okwu n\'oku WhatsApp Web.</string>
     <string name="browser_test_calling">Meghee oku maka akaụntụ nnwale</string>
     <string name="browser_test_calling_on">Meghere: mgbe agent gị kpọrọ oku ma nọmba abanyere na WhatsApp Web bụ otu n\'ime ndị dị n\'okpuru, a na-emeghe oku n\'ibe ahụ. Ọ dịghị mgbe ọ bụ nọmba ọzọ.</string>
-    <string name="browser_test_calling_off">Emechiri. Agent gị nwere ike ịkpọ oku naanị site na akaụntụ WhatsApp enyela oku.</string>
+    <string name="browser_test_calling_off">Emechiri. Mew gị nwere ike ịkpọ oku naanị site na akaụntụ WhatsApp enyela oku.</string>
     <string name="browser_test_number_first">Buru ụzọ tinye nọmba akaụntụ nnwale.</string>
     <string name="browser_yes_turn_on">Ee, meghee ya</string>
     <string name="browser_remove_test_number">Wepụ nọmba nnwale %1$s</string>
@@ -73,16 +73,16 @@
     <string name="browser_add_test_number">Tinye nọmba nnwale</string>
     <string name="browser_test_number_body">Nọmba akaụntụ WhatsApp ị na-anwale na ya. Ọ dịghị ihe a na-eziga WhatsApp, ibugharị ibe ahụ ọzọ na-ewepụ ya.</string>
     <string name="link_cant_reach">Enweghị ike ịgbaso kọmputa ahụ.</string>
-    <string name="link_bad_answer">Nzaghachi kọmputa ahụ aghọtaghị. App Agent ya ọ dị ọhụrụ?</string>
+    <string name="link_bad_answer">Nzaghachi kọmputa ahụ aghọtaghị. App Mew ya ọ dị ọhụrụ?</string>
     <string name="link_tried_addresses">(anwalela adreesị %1$d)</string>
     <string name="link_type_address">Tinye adreesị kọmputa ahụ.</string>
     <string name="link_no_certificate">Kọmputa ahụ ezighị asambodo.</string>
     <string name="link_failed">Njikọ dara.</string>
     <string name="link_your_computer">kọmputa gị</string>
-    <string name="link_not_a_code">Koodu QR ahụ abụghị koodu njikọ Agent.</string>
+    <string name="link_not_a_code">Koodu QR ahụ abụghị koodu njikọ Mew.</string>
     <string name="link_subtitle">Jikọọ ekwentị a na kọmputa ma ọ bụ sava</string>
     <string name="link_linked_to">Ejikọọla na %1$s</string>
-    <string name="link_runs_on">Agent gị na-arụ ọrụ na %1$s. Ekwentị a na-egosi mkparịta ụka ya, ncheta, ọrụ na routine, ọ nweghịkwa igodo Ai ọ bụla maka ya.</string>
+    <string name="link_runs_on">Mew gị na-arụ ọrụ na %1$s. Ekwentị a na-egosi mkparịta ụka ya, ncheta, ọrụ na routine, ọ nweghịkwa igodo Ai ọ bụla maka ya.</string>
     <string name="link_check_code">Lelee na %1$s na-egosi koodu a n\'akụkụ ekwentị a:</string>
     <string name="link_unlinked_retry">Ewepụla njikọ. Mee koodu ọhụrụ na kọmputa gị ma nwaa ọzọ.</string>
     <string name="link_shows_else">Ọ na-egosi ihe ọzọ: wepụ njikọ</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">Jikọọ na %1$s</string>
     <string name="link_keep">Debe %1$s</string>
     <string name="link_linking_to">Na-ejikọ na %1$s...</string>
-    <string name="link_how_to">Na kọmputa gị, meghe app Agent ma gaa na Ntọala, Ngwaọrụ, Tinye ngwaọrụ.</string>
+    <string name="link_how_to">Na kọmputa gị, meghe app Mew ma gaa na Ntọala, Ngwaọrụ, Tinye ngwaọrụ.</string>
     <string name="link_how_type">Tinye adreesị na koodu ọ na-egosi.</string>
     <string name="link_how_scan">Chee igwefoto a n\'ihu koodu ọ na-egosi.</string>
     <string name="link_allow_camera">Kwe igwefoto</string>
@@ -138,7 +138,7 @@
     <string name="link_group_location">Ebe ị nọ (a na-ajụ otu ugboro)</string>
     <string name="link_group_automation">App ndị ọzọ: intents, egwu na vidiyo, macros (intents na macros na-ajụ ma ọ bụghị ma ekwere)</string>
     <string name="link_ask_approve">Kwenye: %1$s?</string>
-    <string name="link_ask_title">Agent gị na-ajụ</string>
+    <string name="link_ask_title">Mew gị na-ajụ</string>
     <string name="link_saved_downloads">Echekwara na Downloads. Pịa ime.</string>
     <string name="link_running">NA-ARỤ ỌRỤ</string>
     <string name="link_running_show_list">%1$s. Gosi ndepụta</string>
@@ -272,7 +272,7 @@
     <string name="proj_new_chat_line">Ihe e kwuru ruo ugbu a na-echekwa na ncheta, windo a na-amalitekwa efu. Ọ dịghị ihe a na-ehichapụ na kọmputa gị.</string>
     <string name="proj_new_chat">Mkparịta ụka ọhụrụ</string>
     <string name="proj_not_linked_now">Ejikọghị na kọmputa ugbu a.</string>
-    <string name="proj_computer_older">App Agent dị na kọmputa gị dị ochie karịa nke a, ya mere ọ nweghị ike ịmalite mkparịta ụka ọhụrụ ebe ahụ. Mee ka ọ dị ọhụrụ na kọmputa gị, ma nwaa ọzọ.</string>
+    <string name="proj_computer_older">App Mew dị na kọmputa gị dị ochie karịa nke a, ya mere ọ nweghị ike ịmalite mkparịta ụka ọhụrụ ebe ahụ. Mee ka ọ dị ọhụrụ na kọmputa gị, ma nwaa ọzọ.</string>
     <string name="proj_unreachable">Enweghị ike ịgbaso kọmputa gị. Nwaa ọzọ mgbe ọ laghachiri.</string>
     <string name="proj_photo_you_sent">Foto ị zipụrụ</string>
     <string name="proj_start_chat_failed">Enweghị ike ịmalite mkparịta ụka na %1$s: %2$s.</string>
@@ -367,14 +367,14 @@
     <string name="wake_up_your_computer">kọmputa gị</string>
     <string name="wake_up_reaches">Na-eru ekwentị a</string>
     <string name="wake_up_link_first">Buru ụzọ jikọọ ekwentị a na kọmputa gị (Ntọala > Ngwaọrụ ejikọrọ)</string>
-    <string name="wake_up_lacks">%1$s enweghị ike ịkpọ ekwentị a ugbu a: mee ka app Agent ebe ahụ dị ọhụrụ</string>
+    <string name="wake_up_lacks">%1$s enweghị ike ịkpọ ekwentị a ugbu a: mee ka app Mew ebe ahụ dị ọhụrụ</string>
     <string name="wake_up_connected">Ejikọọla na %1$s</string>
     <string name="wake_up_not_connected">Ejikọghị ugbu a. Ọ na-aga n\'ihu n\'ịnwa.</string>
     <string name="wake_up_test">Nwalee mkpọte</string>
     <string name="wake_up_test_body">Ọ na-akpọ ekwentị a n\'ezie. Zaa ya ka ọ kwụsị.</string>
     <string name="wake_up_test_sent">Ezigara nnwale %1$s.</string>
     <string name="wake_up_not_sent">Ọ gaghị.</string>
-    <string name="wake_up_secure_folder">Tinye Agent n\'ụzọ nkịtị (ọ bụghị n\'ime Secure Folder): Secure Folder emechiri enweghị ike ịda.</string>
+    <string name="wake_up_secure_folder">Tinye Mew n\'ụzọ nkịtị (ọ bụghị n\'ime Secure Folder): Secure Folder emechiri enweghị ike ịda.</string>
     <string name="rec_recording_now">Na-edekọ ugbu a</string>
     <string name="rec_cut_off">Gbajiri</string>
     <string name="rec_partly">Edeghị akụkụ ya</string>
@@ -403,7 +403,7 @@
     <string name="media_play">Kpọọ egwu na vidiyo</string>
     <string name="media_intro">Mgbe ị rịọrọ agent gị ka ọ kpọọ ihe, ọ na-eji app ị họọrọ ebe a. Ma ọ bụrụ na ahapụrụ ya na nke n\'onwe ya, ọ na-eji nke ndabara ekwentị gị, wee jiri app ọ bụla nwere ike ikpọ site na nchọcha.</string>
     <string name="media_access_off">Ohere ọkwa emechiri</string>
-    <string name="media_access_body">Android na-egosi naanị ihe na-akpọ, ma na-ekwe ka agent gị kwụsị ma ọ bụ gafee, mgbe Agent nwere ohere ọkwa.</string>
+    <string name="media_access_body">Android na-egosi naanị ihe na-akpọ, ma na-ekwe ka agent gị kwụsị ma ọ bụ gafee, mgbe Mew nwere ohere ọkwa.</string>
     <string name="media_none">Enweghị app n\'ekwentị a na-asị na ọ nwere ike ikpọ egwu ma ọ bụ vidiyo maka agent gị. Tinye app egwu ma ọ ga-apụta ebe a.</string>
     <string name="media_music_app">App egwu</string>
     <string name="media_video_app">App vidiyo</string>
@@ -412,8 +412,8 @@
     <string name="macro_and">%1$s na %2$s</string>
     <string name="macro_line_some">%1$s nwere ike ịrụ ọrụ na-ajụghị; ndị ọzọ na-ajụ</string>
     <string name="macro_eyebrow">Nke n\'onwe ya</string>
-    <string name="macro_title">Agent na-agwa app gị okwu</string>
-    <string name="macro_intro">Agent gị nwere ike izipu app ọ bụla dị n\'ekwentị a Android intent: meghe ebe na Maps, kekọrịta n\'ime app, malite macro MacroDroid ma ọ bụ Tasker. Imeghe ihuenyo anaghị ajụ ma ọlị. Ihe ọ bụla ọzọ na-ajụ gị buru ụzọ, belụsọ ma edepụtara ya ebe a. Ọ dịghị ihe na-ahapụ ekwentị.</string>
+    <string name="macro_title">Mew na-agwa app gị okwu</string>
+    <string name="macro_intro">Mew gị nwere ike izipu app ọ bụla dị n\'ekwentị a Android intent: meghe ebe na Maps, kekọrịta n\'ime app, malite macro MacroDroid ma ọ bụ Tasker. Imeghe ihuenyo anaghị ajụ ma ọlị. Ihe ọ bụla ọzọ na-ajụ gị buru ụzọ, belụsọ ma edepụtara ya ebe a. Ọ dịghị ihe na-ahapụ ekwentị.</string>
     <string name="macro_intents">Intent app ndị ekwere</string>
     <string name="macro_intents_hint">omume | ngwugwu, otu n\'ahịrị ọ bụla</string>
     <string name="macro_intents_body">Omume na app o na-aga, dị ka android.intent.action.SEND | com.whatsapp. Jiri * maka app ọ bụla. Mgbe ị kwenyere otu, kaadị ahụ na-egosi ahịrị ị ga-agbakwunye.</string>
@@ -483,8 +483,8 @@
     <string name="screen_allow_again">Kwe ọzọ</string>
     <string name="screen_take_over">Were ya</string>
     <string name="screen_set_up_once">Hazie ya otu ugboro</string>
-    <string name="screen_setup_body">Agent gị nwere ike iji app ọzọ n\'ihuenyo zoro ezo mgbe ị na-eji nke gị. Android na-ekwe naanị shell ekwentị ime nke ahụ, ya mere obere onye enyemaka site na app a ga-amalite. Ọ na-arụ ọrụ n\'ekwentị a naanị ọ dịghịkwa ihe na-ahapụ ya.</string>
-    <string name="screen_tried">Agent gị nwara iji ya ugbu a: %1$s.</string>
+    <string name="screen_setup_body">Mew gị nwere ike iji app ọzọ n\'ihuenyo zoro ezo mgbe ị na-eji nke gị. Android na-ekwe naanị shell ekwentị ime nke ahụ, ya mere obere onye enyemaka site na app a ga-amalite. Ọ na-arụ ọrụ n\'ekwentị a naanị ọ dịghịkwa ihe na-ahapụ ya.</string>
+    <string name="screen_tried">Mew gị nwara iji ya ugbu a: %1$s.</string>
     <string name="screen_too_old">Nke a chọrọ Android 11 ma ọ bụ nke ọhụrụ, ya mere enweghị ike iji ya n\'ekwentị a.</string>
     <string name="screen_try_it">Nwaa ya</string>
     <string name="screen_try_it_sub">Na-emeghe app Settings nke ekwentị gị n\'ihuenyo zoro ezo ma na-egosi gị foto.</string>
@@ -531,7 +531,7 @@
     <string name="screen_learned_none">Ọ dịbeghị. Ha na-apụta n\'ọnụ app ndị ọzọ amụtara, na Njikọ.</string>
     <string name="screen_learned_list">%1$s. Meghe, nye ha aha ọhụrụ ma ọ bụ wepụ ha na Njikọ.</string>
     <string name="screen_show_job_yourself">Gosi ya ọrụ n\'onwe gị</string>
-    <string name="screen_show_job_sub">Mee ya otu ugboro n\'aka n\'ihuenyo zoro ezo. Agent gị na-amụta nzọụkwụ ma nwee ike iṅomegharị ha.</string>
+    <string name="screen_show_job_sub">Mee ya otu ugboro n\'aka n\'ihuenyo zoro ezo. Mew gị na-amụta nzọụkwụ ma nwee ike iṅomegharị ha.</string>
     <string name="screen_show">Gosi</string>
     <string name="screen_keep_recordings">Debe ndekọ</string>
     <string name="screen_keep_recordings_sub">A na-ekpuchi paswọdụ na ihe ọ bụla e dere dị ka nzuzo. Ndị ochie na-ehicha onwe ha.</string>
@@ -565,7 +565,7 @@
     <string name="screen_what_it_does">Ihe o na-eme</string>
     <string name="screen_what_it_does_hint">Otu ahịrị agent gị na-agụ ịmata mgbe ọ ga-eji ya</string>
     <string name="screen_changes_eyebrow">IHE NA-AGBANWE OGE Ọ BỤLA</string>
-    <string name="screen_fills_in">Agent gị na-ejupụta nke a oge ọ bụla</string>
+    <string name="screen_fills_in">Mew gị na-ejupụta nke a oge ọ bụla</string>
     <string name="screen_exact_words">Mgbe niile okwu ndị a kpọmkwem</string>
     <string name="screen_the_steps">NZỌỤKWỤ</string>
     <string name="screen_type_into">Pịnye n\'ime app</string>
@@ -577,7 +577,7 @@
     <string name="screen_which_app">Kedu app?</string>
     <string name="screen_show_job_line">Ọ na-emeghe n\'ihuenyo zoro ezo ya na foto dị n\'aka gị. Rụọ ọrụ ahụ, wee chekwaa ya.</string>
     <string name="screen_block_which">Gbochie kedu app?</string>
-    <string name="screen_block_line">Agent gị agaghị emeghe, ahụ ma ọ bụ metụ ya aka n\'ihuenyo zoro ezo.</string>
+    <string name="screen_block_line">Mew gị agaghị emeghe, ahụ ma ọ bụ metụ ya aka n\'ihuenyo zoro ezo.</string>
     <string name="screen_saved_learned">Echekwara dị ka app amụtara</string>
     <string name="screen_not_run_yet">ọ dịbeghị mgbe ọ rụrụ</string>
     <string name="screen_last_took">nke ikpeazụ were %1$s</string>
@@ -588,7 +588,7 @@
     <string name="screen_no_earlier">Enweghị ụdị mbụ</string>
     <string name="screen_yes_delete">Ee, hichapụ</string>
     <string name="handoff_your_computers">Kọmputa gị</string>
-    <string name="camera_off_sub_add">Agent gị na-ahụ foto naanị mgbe ị ṅomere ya ma zipu ya.</string>
+    <string name="camera_off_sub_add">Mew gị na-ahụ foto naanị mgbe ị ṅomere ya ma zipu ya.</string>
     <string name="camera_add_photo">Tinye foto</string>
     <string name="share_that_file">faịlụ ahụ</string>
     <string name="share_send_failed_why">Nke ahụ ezighị: %1$s. Ọ dịghị ihe efunahụrụ, nwaa ọzọ.</string>
@@ -617,7 +617,7 @@
         <item quantity="other">Nzọụkwụ: %1$d</item>
     </plurals>
     <plurals name="screen_save_body">
-        <item quantity="other">Agent gị ga-enwe ike ịmegharị nzọụkwụ %1$d ndị a n\'onwe ya, ọbụna site na kọmputa gị. Nzọụkwụ na-ezipu, na-akwụ ụgwọ ma ọ bụ na-ehichapụ ka na-ajụ gị oge ọ bụla.</item>
+        <item quantity="other">Mew gị ga-enwe ike ịmegharị nzọụkwụ %1$d ndị a n\'onwe ya, ọbụna site na kọmputa gị. Nzọụkwụ na-ezipu, na-akwụ ụgwọ ma ọ bụ na-ehichapụ ka na-ajụ gị oge ọ bụla.</item>
     </plurals>
     <plurals name="screen_ran_times">
         <item quantity="other">rụrụ ugboro %1$d</item>
@@ -643,7 +643,7 @@
     <string name="main_your_computer">kọmputa gị</string>
     <string name="main_a_computer">kọmputa</string>
     <string name="main_whatever_agent_runs">Ihe agent gị na-eji arụ ọrụ</string>
-    <string name="rt_clear_computer_older">Ehichapụla mkparịta ụka ekwentị a. Nke kọmputa gị ehichapụghị: app Agent dị na ya dị ochie karịa nke a, ya mere ọ nweghị ike ịmalite mkparịta ụka ọhụrụ. Mee ka app dị ọhụrụ na kọmputa gị, ma hichapụ ọzọ.</string>
+    <string name="rt_clear_computer_older">Ehichapụla mkparịta ụka ekwentị a. Nke kọmputa gị ehichapụghị: app Mew dị na ya dị ochie karịa nke a, ya mere ọ nweghị ike ịmalite mkparịta ụka ọhụrụ. Mee ka app dị ọhụrụ na kọmputa gị, ma hichapụ ọzọ.</string>
     <string name="rt_clear_unreachable">Ehichapụla mkparịta ụka ekwentị a. Enweghị ike ịgbaso kọmputa gị ugbu a, ya mere mkparịta ụka ya ka nọ ma ọ ga-apụtaghachi mgbe ọ na-emekọrịta. Hichapụ ọzọ mgbe ọ laghachiri.</string>
     <string name="assist_type_it_instead">Pịnye ya kama</string>
     <string name="assist_unlock_to_carry_on">Meghee ka ịga n\'ihu</string>
@@ -694,6 +694,10 @@
     <string name="assist_over_lock_line">Emechiri: meghee ekwentị buru ụzọ, wee kpọọ ya. Meghere: ọ na-emeghe n\'ekwentị a kpọchiri ma na-ezipu arịrịọ gị mgbe ị meghere.</string>
     <string name="assist_live_voice">Olu dị ndụ n\'onye enyemaka</string>
     <string name="assist_live_voice_line">Emechiri: ị na-ekwu otu arịrịọ ma ọ na-aza. Meghere: kwuo okwu n\'ụzọ okike, %1$s na-aza n\'olu ozugbo, ị nwere ike ikwu okwu n\'elu ya, ọ na-enyekwa agent gị ọrụ ma gwa gị nsonaazụ.</string>
+    <string name="assist_talk">Gaa n\'ihu na mkparịta ụka</string>
+    <string name="assist_talk_line">Dị ka oku: %1$s na-agụta azịza ọ bụla n\'olu dara ụda ma gee ntị ọzọ, ruo mgbe ị sịrị ka ọ dị ma ọ bụ pịa Mwụsị. Ọ na-eji olu cloud gị, ma ọ bụ olu ekwentị ma ọ bụrụ na edobeghị nke ọ bụla.</string>
+    <string name="assist_talk_end">Mwụsị</string>
+    <string name="assist_talk_interrupt">Kwụsị</string>
     <string name="assist_never_reads_money">Ọ naghị agụ ụlọ akụ, ịkwụ ụgwọ ma ọ bụ app ego, ọbụna mgbe mgbanwe ọ bụla dị n\'ọkụ. Ihe o gụrụ na-eje ozi naanị maka arịrịọ ahụ.</string>
     <string name="live_bubble_desc">Olu dị ndụ. Pịa ime</string>
     <string name="live_end_session">Kwụsị oge dị ndụ</string>
@@ -718,7 +722,7 @@
     <string name="wake_heard_text">Pịa ikwu okwu. Kwe Appear on top na Ntọala &gt; Okwu mkpọte ka ị gafee mgbapị a.</string>
     <string name="wake_ready">Mkpọte dị njikere</string>
     <string name="wake_ready_channel_desc">Na-eme ka mkpọte nwee ike iru ekwentị a mgbe app mechiri</string>
-    <string name="wake_ready_text">Agent gị nwere ike ịkpọ ekwentị a mgbe ihe chọrọ gị ugbu a</string>
+    <string name="wake_ready_text">Mew gị nwere ike ịkpọ ekwentị a mgbe ihe chọrọ gị ugbu a</string>
     <string name="svc_dictation_channel">Ide okwu</string>
     <string name="svc_dictation_text">Okwu gị na-abanye n\'igbe ozi. Pịa ịlaghachi.</string>
     <string name="svc_pick_file">Họrọ faịlụ</string>

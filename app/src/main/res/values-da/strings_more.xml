@@ -1,7 +1,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">ELLER BRUG AGENTEN PÅ DIN COMPUTER</string>
     <string name="onb_use_on_computer">Brug agenten på min computer</string>
-    <string name="onb_use_on_computer_sub">Scan koden i Agent-appen på din computer eller server. Ingen nøgler på denne telefon.</string>
+    <string name="onb_use_on_computer_sub">Scan koden i Mew-appen på din computer eller server. Ingen nøgler på denne telefon.</string>
     <string name="sub_paste_code_from">Indsæt koden fra %1$s</string>
     <string name="sub_paste_code_body_from">I browseren: tryk på Godkend. %1$s viser så en kode. Kopiér den, kom tilbage hertil, og indsæt den nedenfor.</string>
     <string name="sub_code_from">Kode fra %1$s</string>
@@ -72,13 +72,13 @@
     <string name="browser_add_test_number">Tilføj testnummer</string>
     <string name="browser_test_number_body">Nummeret på den WhatsApp-konto, du tester med. Der sendes intet til WhatsApp, og en genindlæsning af siden fortryder det.</string>
     <string name="link_cant_reach">Kunne ikke få fat i computeren.</string>
-    <string name="link_bad_answer">Computerens svar gav ikke mening. Er dens Agent-app opdateret?</string>
+    <string name="link_bad_answer">Computerens svar gav ikke mening. Er dens Mew-app opdateret?</string>
     <string name="link_tried_addresses">(prøvede %1$d adresser)</string>
     <string name="link_type_address">Skriv computerens adresse.</string>
     <string name="link_no_certificate">Computeren sendte intet certifikat.</string>
     <string name="link_failed">Koblingen mislykkedes.</string>
     <string name="link_your_computer">din computer</string>
-    <string name="link_not_a_code">Den QR-kode er ikke en koblingskode til Agent.</string>
+    <string name="link_not_a_code">Den QR-kode er ikke en koblingskode til Mew.</string>
     <string name="link_subtitle">Kobl denne telefon til en computer eller server</string>
     <string name="link_linked_to">Koblet til %1$s</string>
     <string name="link_runs_on">Din agent kører på %1$s. Denne telefon viser dens chat, hukommelse, opgaver og rutiner og har ingen AI-nøgler til den.</string>
@@ -90,7 +90,7 @@
     <string name="link_link_to">Kobl til %1$s</string>
     <string name="link_keep">Behold %1$s</string>
     <string name="link_linking_to">Kobler til %1$s...</string>
-    <string name="link_how_to">Åbn Agent-appen på din computer, og gå til Indstillinger, Enheder, Tilføj en enhed.</string>
+    <string name="link_how_to">Åbn Mew-appen på din computer, og gå til Indstillinger, Enheder, Tilføj en enhed.</string>
     <string name="link_how_type">Skriv adressen og den kode, den viser.</string>
     <string name="link_how_scan">Ret kameraet mod den kode, den viser.</string>
     <string name="link_allow_camera">Tillad kameraet</string>
@@ -272,7 +272,7 @@
     <string name="proj_new_chat_line">Det, der er sagt indtil nu, gemmes i hukommelsen, og dette vindue starter tomt. Intet på din computer slettes.</string>
     <string name="proj_new_chat">Ny chat</string>
     <string name="proj_not_linked_now">Ikke koblet til en computer lige nu.</string>
-    <string name="proj_computer_older">Agent-appen på din computer er ældre end denne, så den kan ikke starte en ny chat dér. Opdater den på din computer, og prøv igen.</string>
+    <string name="proj_computer_older">Mew-appen på din computer er ældre end denne, så den kan ikke starte en ny chat dér. Opdater den på din computer, og prøv igen.</string>
     <string name="proj_unreachable">Din computer kunne ikke nås. Prøv igen, når den er tilbage.</string>
     <string name="proj_photo_you_sent">Foto, du sendte</string>
     <string name="proj_start_chat_failed">Kunne ikke starte en chat i %1$s: %2$s.</string>
@@ -370,14 +370,14 @@
     <string name="wake_up_your_computer">din computer</string>
     <string name="wake_up_reaches">Når denne telefon</string>
     <string name="wake_up_link_first">Kobl først denne telefon til din computer (Indstillinger > Forbundne enheder)</string>
-    <string name="wake_up_lacks">%1$s kan ikke ringe til denne telefon endnu: opdater Agent-appen dér</string>
+    <string name="wake_up_lacks">%1$s kan ikke ringe til denne telefon endnu: opdater Mew-appen dér</string>
     <string name="wake_up_connected">Forbundet til %1$s</string>
     <string name="wake_up_not_connected">Ikke forbundet lige nu. Den bliver ved med at prøve.</string>
     <string name="wake_up_test">Test en vækkealarm</string>
     <string name="wake_up_test_body">Ringer rigtigt på denne telefon. Svar for at stoppe den.</string>
     <string name="wake_up_test_sent">%1$s-test sendt.</string>
     <string name="wake_up_not_sent">Den kom ikke af sted.</string>
-    <string name="wake_up_secure_folder">Installer Agent normalt (ikke i Sikker mappe): en låst Sikker mappe kan ikke ringe.</string>
+    <string name="wake_up_secure_folder">Installer Mew normalt (ikke i Sikker mappe): en låst Sikker mappe kan ikke ringe.</string>
     <string name="rec_recording_now">Optager nu</string>
     <string name="rec_cut_off">Afbrudt</string>
     <string name="rec_partly">Noget af det blev ikke skrevet ned</string>
@@ -406,7 +406,7 @@
     <string name="media_play">Afspil musik og video</string>
     <string name="media_intro">Når du beder din agent afspille noget, bruger den den app, du vælger her. Står den på automatisk, bruger den telefonens standard, derefter en hvilken som helst app, der kan afspille fra en søgning.</string>
     <string name="media_access_off">Adgang til notifikationer er slået fra</string>
-    <string name="media_access_body">Android viser kun, hvad der afspilles, og lader først din agent sætte på pause eller springe over, når Agent har adgang til notifikationer.</string>
+    <string name="media_access_body">Android viser kun, hvad der afspilles, og lader først din agent sætte på pause eller springe over, når Mew har adgang til notifikationer.</string>
     <string name="media_none">Ingen app på denne telefon siger, at den kan afspille musik eller video til din agent. Installer en musikapp, så vises den her.</string>
     <string name="media_music_app">Musikapp</string>
     <string name="media_video_app">Videoapp</string>
@@ -652,7 +652,7 @@
     <string name="main_your_computer">din computer</string>
     <string name="main_a_computer">en computer</string>
     <string name="main_whatever_agent_runs">Uanset hvad din agent kører på</string>
-    <string name="rt_clear_computer_older">Denne telefons chat er ryddet. Din computers chat er ikke: Agent-appen dér er ældre end denne, så den kan ikke starte en ny chat. Opdater appen på din computer, og ryd så igen.</string>
+    <string name="rt_clear_computer_older">Denne telefons chat er ryddet. Din computers chat er ikke: Mew-appen dér er ældre end denne, så den kan ikke starte en ny chat. Opdater appen på din computer, og ryd så igen.</string>
     <string name="rt_clear_unreachable">Denne telefons chat er ryddet. Din computer kunne ikke nås lige nu, så dens chat er der stadig og vises igen, når den synkroniserer. Ryd igen, når den er tilbage.</string>
     <string name="assist_type_it_instead">Skriv den i stedet</string>
     <string name="assist_unlock_to_carry_on">Lås op for at fortsætte</string>
@@ -703,6 +703,10 @@
     <string name="assist_over_lock_line">Fra: lås først telefonen op, og kald så på den. Til: den åbner på en låst telefon og sender din forespørgsel, når du låser op.</string>
     <string name="assist_live_voice">Livestemme i assistenten</string>
     <string name="assist_live_voice_line">Fra: du siger én forespørgsel, og den svarer. Til: tal naturligt, %1$s svarer højt med det samme, du kan tale ind over den, og den giver opgaver til din agent og fortæller dig resultatet.</string>
+    <string name="assist_talk">Hold samtalen i gang</string>
+    <string name="assist_talk_line">Som et opkald: %1$s læser hvert svar højt og lytter igen, indtil du siger farvel eller trykker på Slut. Bruger din cloud-stemme, ellers telefonens egen stemme.</string>
+    <string name="assist_talk_end">Slut</string>
+    <string name="assist_talk_interrupt">Afbryd</string>
     <string name="assist_never_reads_money">Den læser aldrig bank-, betalings- eller pengeapps, uanset hvilken kontakt der er slået til. Det, den læser, bruges kun til den forespørgsel.</string>
     <string name="live_bubble_desc">Livestemme. Tryk for at åbne</string>
     <string name="live_end_session">Afslut livesessionen</string>

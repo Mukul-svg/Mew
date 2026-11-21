@@ -21,7 +21,7 @@ import androidx.core.content.ContextCompat
  */
 object Background {
     data class Health(
-        /** Not under battery optimisation (Settings > Apps > Agent > Battery > Unrestricted). */
+        /** Not under battery optimisation (Settings > Apps > Mew > Battery > Unrestricted). */
         val batteryUnrestricted: Boolean,
         /** The user set battery to Restricted: almost nothing runs in the background. */
         val restricted: Boolean,

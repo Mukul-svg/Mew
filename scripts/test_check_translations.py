@@ -36,7 +36,12 @@ def run(files):
             os.makedirs(os.path.join(res, folder))
             with open(os.path.join(res, folder, "strings.xml"), "w", encoding="utf-8") as f:
                 f.write(text)
-        r = subprocess.run([sys.executable, "-I", CHECK, "--res", res], capture_output=True, text=True)
+        # The checker prints the offending translated text, which is not always ASCII. A pipe on
+        # Windows defaults to the ANSI code page and would crash before the details reach us.
+        # -X utf8 is a command-line switch, so it still applies under -I (which ignores env vars).
+        env = {**os.environ, "PYTHONIOENCODING": "utf-8"}
+        r = subprocess.run([sys.executable, "-I", "-X", "utf8", CHECK, "--res", res],
+                           capture_output=True, text=True, encoding="utf-8", errors="replace", env=env)
         return r.returncode, r.stdout
 
 

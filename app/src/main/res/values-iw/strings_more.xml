@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">או השתמש בסוכן שבמחשב שלך</string>
     <string name="onb_use_on_computer">השתמש בסוכן שבמחשב שלי</string>
-    <string name="onb_use_on_computer_sub">סרוק את הקוד באפליקציית Agent במחשב או בשרת שלך. אין מפתחות בטלפון הזה.</string>
+    <string name="onb_use_on_computer_sub">סרוק את הקוד באפליקציית Mew במחשב או בשרת שלך. אין מפתחות בטלפון הזה.</string>
     <string name="sub_paste_code_from">הדבק את הקוד מ-%1$s</string>
     <string name="sub_paste_code_body_from">בדפדפן: הקש אשר. אז %1$s מציג קוד. העתק אותו, חזור לכאן והדבק אותו למטה.</string>
     <string name="sub_code_from">קוד מ-%1$s</string>
@@ -18,7 +18,7 @@
     <string name="settings_automation_not_listening">עדיין לא מאזין: פתח את האפליקציה פעם אחת</string>
     <string name="settings_automation_on">פועל · %1$s</string>
     <string name="settings_automation_off">כבוי · הקש כדי להגדיר</string>
-    <string name="settings_macro_title">Agent מדבר עם האפליקציות שלך</string>
+    <string name="settings_macro_title">Mew מדבר עם האפליקציות שלך</string>
     <string name="settings_media_apps">אפליקציות מדיה</string>
     <string name="settings_bg_screen">מסך רקע</string>
     <string name="settings_bg_screen_sub">אפליקציות אחרות, בזמן שהמסך שלך נשאר שלך</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">הוסף מספר בדיקה</string>
     <string name="browser_test_number_body">המספר של חשבון ה-WhatsApp שאתה בודק איתו. שום דבר לא נשלח ל-WhatsApp, וטעינה מחדש של הדף מבטלת זאת.</string>
     <string name="link_cant_reach">לא הצלחנו להגיע למחשב.</string>
-    <string name="link_bad_answer">התשובה של המחשב לא הייתה מובנת. האם אפליקציית Agent בו מעודכנת?</string>
+    <string name="link_bad_answer">התשובה של המחשב לא הייתה מובנת. האם אפליקציית Mew בו מעודכנת?</string>
     <string name="link_tried_addresses">(נוסו %1$d כתובות)</string>
     <string name="link_type_address">הקלד את כתובת המחשב.</string>
     <string name="link_no_certificate">המחשב לא שלח תעודה.</string>
     <string name="link_failed">החיבור נכשל.</string>
     <string name="link_your_computer">המחשב שלך</string>
-    <string name="link_not_a_code">קוד ה-QR הזה אינו קוד חיבור של Agent.</string>
+    <string name="link_not_a_code">קוד ה-QR הזה אינו קוד חיבור של Mew.</string>
     <string name="link_subtitle">חבר את הטלפון הזה למחשב או לשרת</string>
     <string name="link_linked_to">מקושר ל-%1$s</string>
     <string name="link_runs_on">הסוכן שלך רץ על %1$s. הטלפון הזה מציג את הצ׳אט, הזיכרון, המשימות והשגרות שלו, ואינו מחזיק מפתחות Ai בשבילו.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">חבר ל-%1$s</string>
     <string name="link_keep">השאר את %1$s</string>
     <string name="link_linking_to">מתחבר ל-%1$s...</string>
-    <string name="link_how_to">במחשב שלך, פתח את אפליקציית Agent ועבור להגדרות, מכשירים, הוסף מכשיר.</string>
+    <string name="link_how_to">במחשב שלך, פתח את אפליקציית Mew ועבור להגדרות, מכשירים, הוסף מכשיר.</string>
     <string name="link_how_type">הקלד את הכתובת ואת הקוד שהוא מציג.</string>
     <string name="link_how_scan">כוון את המצלמה הזו לקוד שהוא מציג.</string>
     <string name="link_allow_camera">אפשר מצלמה</string>
@@ -275,7 +275,7 @@
     <string name="proj_new_chat_line">מה שנאמר עד כה נשמר בזיכרון והחלון הזה מתחיל ריק. שום דבר במחשב שלך לא נמחק.</string>
     <string name="proj_new_chat">צ׳אט חדש</string>
     <string name="proj_not_linked_now">לא מקושר למחשב כרגע.</string>
-    <string name="proj_computer_older">אפליקציית Agent במחשב שלך ישנה יותר מזו, ולכן אי אפשר להתחיל שם צ׳אט חדש. עדכן אותה במחשב ונסה שוב.</string>
+    <string name="proj_computer_older">אפליקציית Mew במחשב שלך ישנה יותר מזו, ולכן אי אפשר להתחיל שם צ׳אט חדש. עדכן אותה במחשב ונסה שוב.</string>
     <string name="proj_unreachable">לא הצלחנו להגיע למחשב שלך. נסה שוב כשיחזור.</string>
     <string name="proj_photo_you_sent">תמונה ששלחת</string>
     <string name="proj_start_chat_failed">לא הצלחנו להתחיל צ׳אט ב-%1$s: %2$s.</string>
@@ -379,14 +379,14 @@
     <string name="wake_up_your_computer">המחשב שלך</string>
     <string name="wake_up_reaches">מגיע לטלפון הזה</string>
     <string name="wake_up_link_first">קשר קודם את הטלפון הזה למחשב שלך (הגדרות > מכשירים מקושרים)</string>
-    <string name="wake_up_lacks">%1$s עדיין לא יכול לצלצל בטלפון הזה: עדכן שם את אפליקציית Agent</string>
+    <string name="wake_up_lacks">%1$s עדיין לא יכול לצלצל בטלפון הזה: עדכן שם את אפליקציית Mew</string>
     <string name="wake_up_connected">מחובר ל-%1$s</string>
     <string name="wake_up_not_connected">לא מחובר כרגע. הוא ממשיך לנסות.</string>
     <string name="wake_up_test">בדוק התראה מעירה</string>
     <string name="wake_up_test_body">מצלצל בטלפון הזה באמת. ענה כדי לעצור.</string>
     <string name="wake_up_test_sent">בדיקת %1$s נשלחה.</string>
     <string name="wake_up_not_sent">זה לא יצא.</string>
-    <string name="wake_up_secure_folder">התקן את Agent כרגיל (לא בתוך תיקייה מאובטחת): תיקייה מאובטחת נעולה לא יכולה לצלצל.</string>
+    <string name="wake_up_secure_folder">התקן את Mew כרגיל (לא בתוך תיקייה מאובטחת): תיקייה מאובטחת נעולה לא יכולה לצלצל.</string>
     <string name="rec_recording_now">מקליט עכשיו</string>
     <string name="rec_cut_off">נקטע</string>
     <string name="rec_partly">חלק ממנו לא נכתב</string>
@@ -415,7 +415,7 @@
     <string name="media_play">נגן מוזיקה וידאו</string>
     <string name="media_intro">כשאתה מבקש מהסוכן שלך לנגן משהו, הוא משתמש באפליקציה שתבחר כאן. באוטומטי, הוא משתמש בברירת המחדל של הטלפון, ואז בכל אפליקציה שיכולה לנגן מחיפוש.</string>
     <string name="media_access_off">הגישה להתראות כבויה</string>
-    <string name="media_access_body">אנדרואיד מציג מה מתנגן ומאפשר לסוכן שלך להשהות או לדלג רק אחרי ש-Agent מקבל גישה להתראות.</string>
+    <string name="media_access_body">אנדרואיד מציג מה מתנגן ומאפשר לסוכן שלך להשהות או לדלג רק אחרי ש-Mew מקבל גישה להתראות.</string>
     <string name="media_none">אין בטלפון הזה אפליקציה שמצהירה שהיא יכולה לנגן מוזיקה או וידאו עבור הסוכן שלך. התקן אפליקציית מוזיקה והיא תופיע כאן.</string>
     <string name="media_music_app">אפליקציית מוזיקה</string>
     <string name="media_video_app">אפליקציית וידאו</string>
@@ -424,7 +424,7 @@
     <string name="macro_and">%1$s ו-%2$s</string>
     <string name="macro_line_some">%1$s יכול לרוץ בלי לשאול; האחרים שואלים</string>
     <string name="macro_eyebrow">אוטומציה</string>
-    <string name="macro_title">Agent מדבר עם האפליקציות שלך</string>
+    <string name="macro_title">Mew מדבר עם האפליקציות שלך</string>
     <string name="macro_intro">הסוכן שלך יכול לשלוח לכל אפליקציה בטלפון הזה Android intent: לפתוח מקום ב-Maps, לשתף לאפליקציה, להריץ מאקרו של MacroDroid או Tasker. פתיחת מסך אף פעם לא שואלת. כל דבר אחר שואל אותך קודם, אלא אם הוא רשום כאן. שום דבר לא עוזב את הטלפון.</string>
     <string name="macro_intents">intents מותרים של אפליקציות</string>
     <string name="macro_intents_hint">פעולה | חבילה, אחת בכל שורה</string>
@@ -673,7 +673,7 @@
     <string name="main_your_computer">המחשב שלך</string>
     <string name="main_a_computer">מחשב</string>
     <string name="main_whatever_agent_runs">על מה שהסוכן שלך רץ</string>
-    <string name="rt_clear_computer_older">הצ׳אט של הטלפון הזה נוקה. הצ׳אט של המחשב שלך לא: אפליקציית Agent בו ישנה יותר מזו, ולכן אי אפשר להתחיל צ׳אט חדש. עדכן את האפליקציה במחשב ונקה שוב.</string>
+    <string name="rt_clear_computer_older">הצ׳אט של הטלפון הזה נוקה. הצ׳אט של המחשב שלך לא: אפליקציית Mew בו ישנה יותר מזו, ולכן אי אפשר להתחיל צ׳אט חדש. עדכן את האפליקציה במחשב ונקה שוב.</string>
     <string name="rt_clear_unreachable">הצ׳אט של הטלפון הזה נוקה. לא הצלחנו להגיע למחשב שלך כרגע, ולכן הצ׳אט שלו עדיין שם ויופיע שוב בסנכרון. נקה שוב כשיחזור.</string>
     <string name="assist_type_it_instead">הקלד במקום זה</string>
     <string name="assist_unlock_to_carry_on">בטל נעילה כדי להמשיך</string>
@@ -724,6 +724,10 @@
     <string name="assist_over_lock_line">כבוי: בטל קודם נעילה ואז קרא לו. פועל: הוא נפתח בטלפון נעול ושולח את הבקשה שלך כשתבטל נעילה.</string>
     <string name="assist_live_voice">קול חי בעוזר</string>
     <string name="assist_live_voice_line">כבוי: אתה אומר בקשה אחת והוא עונה. פועל: דבר באופן טבעי, %1$s עונה בקול מיד, אפשר לדבר מעליו, והוא מעביר משימות לסוכן שלך ומספר לך את התוצאה.</string>
+    <string name="assist_talk">המשך את השיחה</string>
+    <string name="assist_talk_line">כמו שיחה: %1$s מקריא כל תשובה בקול ומקשיב שוב, עד שתגידו להתראות או תקישו על סיום. משתמש בקול הענן שלך, או בקול של הטלפון עצמו אם לא הוגדר קול.</string>
+    <string name="assist_talk_end">סיום</string>
+    <string name="assist_talk_interrupt">הפרעה</string>
     <string name="assist_never_reads_money">הוא אף פעם לא קורא אפליקציות בנקאות, תשלום או כסף, עם כל אחד מהמתגים. מה שהוא קורא משמש לבקשה הזו בלבד.</string>
     <string name="live_bubble_desc">קול חי. הקש לפתיחה</string>
     <string name="live_end_session">סיים את המפגש החי</string>

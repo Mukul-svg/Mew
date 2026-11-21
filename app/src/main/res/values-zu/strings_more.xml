@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">NOMA SEBENZISA I-AGENT KUKHOMPYUTHA YAKHO</string>
     <string name="onb_use_on_computer">Sebenzisa i-agent kukhompyutha yami</string>
-    <string name="onb_use_on_computer_sub">Skena ikhodi ku-app ye-Agent kukhompyutha noma kuseva yakho. Akukho zihluthulelo kule foni.</string>
+    <string name="onb_use_on_computer_sub">Skena ikhodi ku-app ye-Mew kukhompyutha noma kuseva yakho. Akukho zihluthulelo kule foni.</string>
     <string name="sub_paste_code_from">Namathisela ikhodi evela ku-%1$s</string>
     <string name="sub_paste_code_body_from">Esiphequluli: thepha u-Gunyaza. I-%1$s bese ikhombisa ikhodi. Yikopishe, ubuyele lapha, bese uyinamathisela ngezansi.</string>
     <string name="sub_code_from">Ikhodi evela ku-%1$s</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">Engeza inombolo yokuhlola</string>
     <string name="browser_test_number_body">Inombolo ye-akhawunti ye-WhatsApp oyihlola ngayo. Akukho okuthunyelwa ku-WhatsApp, futhi ukulayisha kabusha ikhasi kuyikhansela.</string>
     <string name="link_cant_reach">Ayikwazanga ukufinyelela ikhompyutha.</string>
-    <string name="link_bad_answer">Impendulo yekhompyutha ayizwakali. I-app yayo ye-Agent isesikhathini?</string>
+    <string name="link_bad_answer">Impendulo yekhompyutha ayizwakali. I-app yayo ye-Mew isesikhathini?</string>
     <string name="link_tried_addresses">(kuzanywe amakheli angu-%1$d)</string>
     <string name="link_type_address">Faka ikheli lekhompyutha.</string>
     <string name="link_no_certificate">Ikhompyutha ayithumelanga isitifiketi.</string>
     <string name="link_failed">Ukuxhuma akuphumelelanga.</string>
     <string name="link_your_computer">ikhompyutha yakho</string>
-    <string name="link_not_a_code">Leyo khodi ye-QR ayiyona ikhodi yokuxhuma ye-Agent.</string>
+    <string name="link_not_a_code">Leyo khodi ye-QR ayiyona ikhodi yokuxhuma ye-Mew.</string>
     <string name="link_subtitle">Xhuma le foni nekhompyutha noma iseva</string>
     <string name="link_linked_to">Ixhumene ne-%1$s</string>
     <string name="link_runs_on">I-agent yakho isebenza ku-%1$s. Le foni ibonisa ingxoxo yayo, inkumbulo, imisebenzi nama-routine, futhi ayinazo izihluthulelo ze-Ai zayo.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">Xhuma ne-%1$s</string>
     <string name="link_keep">Gcina i-%1$s</string>
     <string name="link_linking_to">Iyaxhuma ne-%1$s...</string>
-    <string name="link_how_to">Kukhompyutha yakho, vula i-app ye-Agent uye ku-Izilungiselelo, Amadivayisi, Engeza idivayisi.</string>
+    <string name="link_how_to">Kukhompyutha yakho, vula i-app ye-Mew uye ku-Izilungiselelo, Amadivayisi, Engeza idivayisi.</string>
     <string name="link_how_type">Faka ikheli nekhodi ekubonisayo.</string>
     <string name="link_how_scan">Khomba le khamera kukhodi ekubonisayo.</string>
     <string name="link_allow_camera">Vumela ikhamera</string>
@@ -273,7 +273,7 @@
     <string name="proj_new_chat_line">Okuthiwe kuze kube manje kugcinwa enkumbulweni bese leli windi liqala lingenalutho. Akukho okususwa kukhompyutha yakho.</string>
     <string name="proj_new_chat">Ingxoxo entsha</string>
     <string name="proj_not_linked_now">Ayixhunyiwe nekhompyutha okwamanje.</string>
-    <string name="proj_computer_older">I-app ye-Agent kukhompyutha yakho iyadala kunale, ngakho ayikwazi ukuqala ingxoxo entsha lapho. Iyibuyekeze kukhompyutha yakho, bese uzama futhi.</string>
+    <string name="proj_computer_older">I-app ye-Mew kukhompyutha yakho iyadala kunale, ngakho ayikwazi ukuqala ingxoxo entsha lapho. Iyibuyekeze kukhompyutha yakho, bese uzama futhi.</string>
     <string name="proj_unreachable">Ikhompyutha yakho ayikwazanga ukufinyelelwa. Zama futhi lapho isibuyile.</string>
     <string name="proj_photo_you_sent">Isithombe osithumele</string>
     <string name="proj_start_chat_failed">Ayikwazanga ukuqala ingxoxo ku-%1$s: %2$s.</string>
@@ -371,14 +371,14 @@
     <string name="wake_up_your_computer">ikhompyutha yakho</string>
     <string name="wake_up_reaches">Ifinyelela le foni</string>
     <string name="wake_up_link_first">Qala ngokuxhuma le foni nekhompyutha yakho (Izilungiselelo > Amadivayisi axhunyiwe)</string>
-    <string name="wake_up_lacks">I-%1$s ayikwazi ukushaya le foni okwamanje: buyekeza i-app ye-Agent lapho</string>
+    <string name="wake_up_lacks">I-%1$s ayikwazi ukushaya le foni okwamanje: buyekeza i-app ye-Mew lapho</string>
     <string name="wake_up_connected">Kuxhunyiwe ku-%1$s</string>
     <string name="wake_up_not_connected">Ayixhunyiwe okwamanje. Iyaqhubeka nokuzama.</string>
     <string name="wake_up_test">Hlola ukuvusa</string>
     <string name="wake_up_test_body">Ishaya le foni ngempela. Yiphendule ukuyimisa.</string>
     <string name="wake_up_test_sent">Ukuhlola kwe-%1$s kuthunyelwe.</string>
     <string name="wake_up_not_sent">Akuhambanga.</string>
-    <string name="wake_up_secure_folder">Faka i-Agent ngokujwayelekile (hhayi ngaphakathi kwe-Secure Folder): i-Secure Folder evaliwe ayikwazi ukushaya.</string>
+    <string name="wake_up_secure_folder">Faka i-Mew ngokujwayelekile (hhayi ngaphakathi kwe-Secure Folder): i-Secure Folder evaliwe ayikwazi ukushaya.</string>
     <string name="rec_recording_now">Iyarekhoda manje</string>
     <string name="rec_cut_off">Inqamukile</string>
     <string name="rec_partly">Ingxenye yayo ayibhalwanga</string>
@@ -407,7 +407,7 @@
     <string name="media_play">Dlala umculo nevidiyo</string>
     <string name="media_intro">Uma ucela i-agent yakho idlale okuthile, isebenzisa i-app oyikhethayo lapha. Uma kushiywe ku-automatic, isebenzisa evamile yefoni yakho, bese noma iyiphi i-app engadlala ngokusesha.</string>
     <string name="media_access_off">Ukufinyelela izaziso kuvaliwe</string>
-    <string name="media_access_body">I-Android ibonisa kuphela okudlalayo, futhi ivumela i-agent yakho imise noma yeqe, uma i-Agent inokufinyelela izaziso.</string>
+    <string name="media_access_body">I-Android ibonisa kuphela okudlalayo, futhi ivumela i-agent yakho imise noma yeqe, uma i-Mew inokufinyelela izaziso.</string>
     <string name="media_none">Alikho i-app kule foni ethi ingadlalela i-agent yakho umculo noma ividiyo. Faka i-app yomculo bese ivela lapha.</string>
     <string name="media_music_app">I-app yomculo</string>
     <string name="media_video_app">I-app yevidiyo</string>
@@ -653,7 +653,7 @@
     <string name="main_your_computer">ikhompyutha yakho</string>
     <string name="main_a_computer">ikhompyutha</string>
     <string name="main_whatever_agent_runs">Noma yini i-agent yakho esebenza ngayo</string>
-    <string name="rt_clear_computer_older">Ingxoxo yale foni isusiwe. Eyekhompyutha yakho ayisusiwe: i-app ye-Agent kuyo iyadala kunale, ngakho ayikwazi ukuqala ingxoxo entsha. Buyekeza i-app kukhompyutha yakho, bese usula futhi.</string>
+    <string name="rt_clear_computer_older">Ingxoxo yale foni isusiwe. Eyekhompyutha yakho ayisusiwe: i-app ye-Mew kuyo iyadala kunale, ngakho ayikwazi ukuqala ingxoxo entsha. Buyekeza i-app kukhompyutha yakho, bese usula futhi.</string>
     <string name="rt_clear_unreachable">Ingxoxo yale foni isusiwe. Ikhompyutha yakho ayikwazanga ukufinyelelwa manje, ngakho ingxoxo yayo isekhona futhi izovela futhi lapho ivumelanisa. Sula futhi lapho isibuyile.</string>
     <string name="assist_type_it_instead">Yibhale esikhundleni</string>
     <string name="assist_unlock_to_carry_on">Vula ukuze uqhubeke</string>
@@ -704,6 +704,10 @@
     <string name="assist_over_lock_line">Kuvaliwe: vula ifoni kuqala, bese uyibiza. Kuvuliwe: ivuleka ifoni ikhiyiwe bese ithumela isicelo sakho uma uvula.</string>
     <string name="assist_live_voice">Izwi bukhoma kumsizi</string>
     <string name="assist_live_voice_line">Kuvaliwe: ukhuluma isicelo esisodwa bese iyaphendula. Kuvuliwe: khuluma ngokwemvelo, i-%1$s iyaphendula ngokuzwakalayo ngaso leso sikhathi, ungakhuluma phezu kwayo, futhi inikeza i-agent yakho imisebenzi bese ikutshela umphumela.</string>
+    <string name="assist_talk">Qhubeka nengxoxo</string>
+    <string name="assist_talk_line">Njengokushaya: u-%1$s ufunda impendulo ngayinye ngokuzwakalayo aphinde alalele, uze uthi valela noma ucindezele u-Phela. Usebenzisa izwi lakho le-cloud, noma izwi lefoni uqobo uma kungekho elisethiwe.</string>
+    <string name="assist_talk_end">Phela</string>
+    <string name="assist_talk_interrupt">Phazamisa</string>
     <string name="assist_never_reads_money">Ayifundi ama-app asebhange, ezinkokhelo noma amali, noma iyiphi iswishi ivuliwe. Lokho ekufundayo kusetshenziselwa lesi sicelo kuphela.</string>
     <string name="live_bubble_desc">Izwi bukhoma. Thepha ukuvula</string>
     <string name="live_end_session">Qeda iseshini yebukhoma</string>

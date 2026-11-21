@@ -81,7 +81,7 @@ object MacroRules {
     const val FROM_AGENT = "agent"
     const val WEBHOOK_BASE = "https://trigger.macrodroid.com"
     /** What the Test button runs. */
-    const val TEST_MACRO = "Agent test"
+    const val TEST_MACRO = "Mew test"
     private const val MAX_NAME = 80
     private const val MAX_VALUE = 2_000
 
@@ -137,14 +137,14 @@ object MacroRules {
 
     /** The recipe the sheet copies for one macro. */
     fun recipe(macro: String = "Wifi off"): String = """
-        MacroDroid: Agent to MacroDroid
+        MacroDroid: Mew to MacroDroid
         1. New macro. Add trigger: search for Intent Received.
         2. Action: $ACTION (exactly, it is case-sensitive).
         3. Add extra. Name: macro (small letters). Value: $macro
            Nothing after the value, not even a space. Or end it with a star: $macro*
            Optional: v1 = * (save to a variable), v2 = *, v3 = *, params = * (JSON text).
         4. Add the actions you want (Wifi off, open an app, anything).
-        5. In the Agent app: Settings > Automation > Allowed macros, add "$macro" so it runs without asking.
+        5. In the Mew app: Settings > Automation > Allowed macros, add "$macro" so it runs without asking.
         Not firing? Remove the extra and test with the action alone. MacroDroid must be switched on and running.
         Tasker: Profile > Event > Intent Received, Action $ACTION; the extras arrive as %macro, %v1, %v2, %v3, %params.
         Optional webhook (goes through MacroDroid's server): trigger Webhook (Url) with identifier ${webhookId(macro)}.

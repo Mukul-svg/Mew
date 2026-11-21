@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">Οποιοδήποτε συμβατό με OpenAI</string>
     <string name="onb_key_anthropic_1">Πάτησε Άνοιγμα παρακάτω. Ανοίγει η κονσόλα της Anthropic στον περιηγητή σου. Κάνε εγγραφή ή σύνδεση.</string>
     <string name="onb_key_anthropic_2">Πήγαινε στο Billing και πρόσθεσε λίγο υπόλοιπο. Πληρώνεις ανάλογα με τη χρήση και μερικά δολάρια κρατούν πολύ.</string>
-    <string name="onb_key_anthropic_3">Πήγαινε στο API keys και πάτησε Create key. Δώσε όποιο όνομα θέλεις, π.χ. Agent.</string>
+    <string name="onb_key_anthropic_3">Πήγαινε στο API keys και πάτησε Create key. Δώσε όποιο όνομα θέλεις, π.χ. Mew.</string>
     <string name="onb_key_anthropic_4">Πάτησε Αντιγραφή, γύρνα σε αυτή την εφαρμογή, επικόλλησε το κλειδί στο πεδίο παραπάνω και πάτησε Έλεγχος κλειδιού.</string>
     <string name="onb_key_openai_1">Πάτησε Άνοιγμα παρακάτω. Ανοίγει η πλατφόρμα της OpenAI στον περιηγητή σου. Κάνε εγγραφή ή σύνδεση. (Είναι ξεχωριστό από μια συνδρομή ChatGPT.)</string>
     <string name="onb_key_openai_2">Πήγαινε στο Billing και πρόσθεσε λίγο υπόλοιπο. Μερικά δολάρια κρατούν πολύ.</string>
-    <string name="onb_key_openai_3">Πήγαινε στο API keys και πάτησε Create new secret key. Δώσε όποιο όνομα θέλεις, π.χ. Agent.</string>
+    <string name="onb_key_openai_3">Πήγαινε στο API keys και πάτησε Create new secret key. Δώσε όποιο όνομα θέλεις, π.χ. Mew.</string>
     <string name="onb_key_step_copy_once">Πάτησε Αντιγραφή (το κλειδί φαίνεται μόνο μία φορά), γύρνα εδώ, επικόλλησέ το παραπάνω και πάτησε Έλεγχος κλειδιού.</string>
     <string name="onb_key_gemini_1">Πάτησε Άνοιγμα παρακάτω. Ανοίγει το Google AI Studio. Συνδέσου με οποιονδήποτε λογαριασμό Google.</string>
     <string name="onb_key_gemini_2">Πάτησε Create API key. Αν σου ζητήσει να διαλέξεις έργο, διάλεξε αυτό που προτείνει.</string>

@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">KAPA SEBELISA MOEMELI K\'HOMPHIEUTHENG EA HAO</string>
     <string name="onb_use_on_computer">Sebelisa moemeli k\'homphieutheng ea ka</string>
-    <string name="onb_use_on_computer_sub">Skena khoutu ho app ea Agent k\'homphieutheng kapa ho server ea hao. Ha ho linotlolo mohaleng ona.</string>
+    <string name="onb_use_on_computer_sub">Skena khoutu ho app ea Mew k\'homphieutheng kapa ho server ea hao. Ha ho linotlolo mohaleng ona.</string>
     <string name="sub_paste_code_from">Kopanya khoutu e tsoang ho %1$s</string>
     <string name="sub_paste_code_body_from">Sebatlining: tobetsa Lumella. %1$s e ntan\'o bontša khoutu. E kopitse, u khutlele mona, \'me u e kopanye ka tlase.</string>
     <string name="sub_code_from">Khoutu e tsoang ho %1$s</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">Eketsa nomoro ea teko</string>
     <string name="browser_test_number_body">Nomoro ea akhaonto ea WhatsApp eo u e hlahlobang ka eona. Ha ho letho le romelloang ho WhatsApp, \'me ho kenya leqephe hape ho e hlakola.</string>
     <string name="link_cant_reach">Ha e a khona ho fihlella k\'homphieutha.</string>
-    <string name="link_bad_answer">Karabo ea k\'homphieutha ha e utloahale. Na app ea eona ea Agent e nchafalitsoe?</string>
+    <string name="link_bad_answer">Karabo ea k\'homphieutha ha e utloahale. Na app ea eona ea Mew e nchafalitsoe?</string>
     <string name="link_tried_addresses">(ho lekiloe liaterese tse %1$d)</string>
     <string name="link_type_address">Kenya aterese ea k\'homphieutha.</string>
     <string name="link_no_certificate">K\'homphieutha ha e a romela setifikeiti.</string>
     <string name="link_failed">Ho hokela ho hlolehile.</string>
     <string name="link_your_computer">k\'homphieutha ea hao</string>
-    <string name="link_not_a_code">Khoutu eo ea QR ha se khoutu ea ho hokela ea Agent.</string>
+    <string name="link_not_a_code">Khoutu eo ea QR ha se khoutu ea ho hokela ea Mew.</string>
     <string name="link_subtitle">Hokela mohala ona le k\'homphieutha kapa server</string>
     <string name="link_linked_to">E hokelitsoe le %1$s</string>
     <string name="link_runs_on">Moemeli oa hao o sebetsa ho %1$s. Mohala ona o bontša moqoqo oa eona, mohopolo, mesebetsi le li-routine, \'me ha o na linotlolo tsa Ai tsa eona.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">Hokela le %1$s</string>
     <string name="link_keep">Boloka %1$s</string>
     <string name="link_linking_to">E ea hokela le %1$s...</string>
-    <string name="link_how_to">K\'homphieutheng ea hao, bula app ea Agent \'me u ee ho Litlhophiso, Lisebelisoa, Eketsa sesebelisoa.</string>
+    <string name="link_how_to">K\'homphieutheng ea hao, bula app ea Mew \'me u ee ho Litlhophiso, Lisebelisoa, Eketsa sesebelisoa.</string>
     <string name="link_how_type">Kenya aterese le khoutu eo e e bontšang.</string>
     <string name="link_how_scan">Lebisa khamera ena ho khoutu eo e e bontšang.</string>
     <string name="link_allow_camera">Lumella khamera</string>
@@ -273,7 +273,7 @@
     <string name="proj_new_chat_line">Seo se boletsoeng ho fihlela joale se bolokoa mohopolong \'me fensetere ena e qala e se na letho. Ha ho letho le hlakolloang k\'homphieutheng ea hao.</string>
     <string name="proj_new_chat">Moqoqo o mocha</string>
     <string name="proj_not_linked_now">Ha e a hokeloa le k\'homphieutha hajoale.</string>
-    <string name="proj_computer_older">App ea Agent k\'homphieutheng ea hao e tsofetse ho feta ena, ka hona e ke ke ea qala moqoqo o mocha moo. E nchafatse k\'homphieutheng ea hao, ebe u leka hape.</string>
+    <string name="proj_computer_older">App ea Mew k\'homphieutheng ea hao e tsofetse ho feta ena, ka hona e ke ke ea qala moqoqo o mocha moo. E nchafatse k\'homphieutheng ea hao, ebe u leka hape.</string>
     <string name="proj_unreachable">K\'homphieutha ea hao ha e a fihlelleha. Leka hape ha e khutlile.</string>
     <string name="proj_photo_you_sent">Setšoantšo seo u se rometseng</string>
     <string name="proj_start_chat_failed">Ha e a khona ho qala moqoqo ho %1$s: %2$s.</string>
@@ -371,14 +371,14 @@
     <string name="wake_up_your_computer">k\'homphieutha ea hao</string>
     <string name="wake_up_reaches">E fihlella mohala ona</string>
     <string name="wake_up_link_first">Qala ka ho hokela mohala ona le k\'homphieutha ea hao (Litlhophiso > Lisebelisoa tse hokelitsoeng)</string>
-    <string name="wake_up_lacks">%1$s ha e khone ho letsetsa mohala ona hajoale: nchafatsa app ea Agent moo</string>
+    <string name="wake_up_lacks">%1$s ha e khone ho letsetsa mohala ona hajoale: nchafatsa app ea Mew moo</string>
     <string name="wake_up_connected">E hokelitsoe le %1$s</string>
     <string name="wake_up_not_connected">Ha e a hokeloa hajoale. E tsoela pele ho leka.</string>
     <string name="wake_up_test">Leka ho tsosa</string>
     <string name="wake_up_test_body">E letsetsa mohala ona ka sebele. E arabe ho e emisa.</string>
     <string name="wake_up_test_sent">Teko ea %1$s e romelloe.</string>
     <string name="wake_up_not_sent">Ha e a ea.</string>
-    <string name="wake_up_secure_folder">Kenya Agent ka mokhoa o tloaelehileng (eseng ka hare ho Secure Folder): Secure Folder e notletsoeng e ke ke ea lla.</string>
+    <string name="wake_up_secure_folder">Kenya Mew ka mokhoa o tloaelehileng (eseng ka hare ho Secure Folder): Secure Folder e notletsoeng e ke ke ea lla.</string>
     <string name="rec_recording_now">E ea rekota hajoale</string>
     <string name="rec_cut_off">E khaotsoe</string>
     <string name="rec_partly">Karolo ea eona ha e a ngoloa</string>
@@ -407,7 +407,7 @@
     <string name="media_play">Bapala mmino le video</string>
     <string name="media_intro">Ha u kopa moemeli oa hao hore a bapale ntho, o sebelisa app eo u e khethang mona. Ha e siuoe e ikemetse, e sebelisa ea mohala oa hao e tloaelehileng, ebe app leha e le efe e ka bapalang ka ho batla.</string>
     <string name="media_access_off">Phihlello ea litsebiso e tima</string>
-    <string name="media_access_body">Android e bontša feela seo se bapalang, \'me e lumella moemeli oa hao hore a eme kapa a tlolele, ha Agent e na le phihlello ea litsebiso.</string>
+    <string name="media_access_body">Android e bontša feela seo se bapalang, \'me e lumella moemeli oa hao hore a eme kapa a tlolele, ha Mew e na le phihlello ea litsebiso.</string>
     <string name="media_none">Ha ho app mohaleng ona e reng e ka bapalela moemeli oa hao mmino kapa video. Kenya app ea mmino \'me e hlaha mona.</string>
     <string name="media_music_app">App ea mmino</string>
     <string name="media_video_app">App ea video</string>
@@ -653,7 +653,7 @@
     <string name="main_your_computer">k\'homphieutha ea hao</string>
     <string name="main_a_computer">k\'homphieutha</string>
     <string name="main_whatever_agent_runs">Seo moemeli oa hao a sebetsang ka sona</string>
-    <string name="rt_clear_computer_older">Moqoqo oa mohala ona o hlakotsoe. Oa k\'homphieutha ea hao ha o a hlakoloa: app ea Agent ho eona e tsofetse ho feta ena, ka hona e ke ke ea qala moqoqo o mocha. Nchafatsa app k\'homphieutheng ea hao, ebe u hlakola hape.</string>
+    <string name="rt_clear_computer_older">Moqoqo oa mohala ona o hlakotsoe. Oa k\'homphieutha ea hao ha o a hlakoloa: app ea Mew ho eona e tsofetse ho feta ena, ka hona e ke ke ea qala moqoqo o mocha. Nchafatsa app k\'homphieutheng ea hao, ebe u hlakola hape.</string>
     <string name="rt_clear_unreachable">Moqoqo oa mohala ona o hlakotsoe. K\'homphieutha ea hao ha e a fihlelleha hona joale, ka hona moqoqo oa eona o ntse o le teng \'me o tla hlaha hape ha e lumellana. Hlakola hape ha e khutlile.</string>
     <string name="assist_type_it_instead">E ngole ho e-na le hoo</string>
     <string name="assist_unlock_to_carry_on">Notlolla ho tsoela pele</string>
@@ -704,6 +704,10 @@
     <string name="assist_over_lock_line">E tima: notlolla mohala pele, ebe u e bitsa. E bulehile: e bulehela mohaleng o notletsoeng \'me e romela kopo ea hao ha u notlolla.</string>
     <string name="assist_live_voice">Lentsoe le phelang ho mothusi</string>
     <string name="assist_live_voice_line">E tima: u bua kopo e le \'ngoe \'me e araba. E bulehile: bua ka tlhaho, %1$s e araba ka lentsoe hang-hang, u ka bua holim\'a eona, \'me e fa moemeli oa hao mesebetsi \'me e u bolella sephetho.</string>
+    <string name="assist_talk">Tswela pele ka puisano</string>
+    <string name="assist_talk_line">Jwalo ka mohala: %1$s e bala karabo e nngwe le e nngwe ka lentswe le phahameng mme e mamela hape, ho fihlela o re sala hantle kapa o tobetsa Qetella. E sebedisa lentswe la hao la cloud, kapa lentswe la founu ha ho le setilweng.</string>
+    <string name="assist_talk_end">Qetella</string>
+    <string name="assist_talk_interrupt">Kgaola</string>
     <string name="assist_never_reads_money">Ha e bale liapp tsa banka, tsa litefo kapa tsa chelete, leha e le efe swichi e bulehile. Seo e se balang se sebelisetsoa kopo eo feela.</string>
     <string name="live_bubble_desc">Lentsoe le phelang. Tobetsa ho bula</string>
     <string name="live_end_session">Qetela seshene e phelang</string>

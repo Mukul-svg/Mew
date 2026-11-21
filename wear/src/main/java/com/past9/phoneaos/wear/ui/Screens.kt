@@ -81,7 +81,7 @@ import kotlinx.coroutines.launch
 import kotlin.math.sin
 
 /*
- * The watch screens in Material 3 Expressive, in the Agent's own tokens (docs/wear.md, "Look"). The agent on screen is the phone's own
+ * The watch screens in Material 3 Expressive, in the Mew's own tokens (docs/wear.md, "Look"). The agent on screen is the phone's own
  * mascot (the one the user picked); the colours come from one seed, the accent the phone syncs. Each screen keeps the signature the
  * v1 screens had, so the navigation and the engine's screens call them unchanged.
  */

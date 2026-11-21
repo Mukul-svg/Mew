@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">Jakékoli kompatibilní s OpenAI</string>
     <string name="onb_key_anthropic_1">Níže klepněte na Otevřít. V prohlížeči se otevře konzole Anthropic. Zaregistrujte se nebo se přihlaste.</string>
     <string name="onb_key_anthropic_2">Přejděte do Billing a přidejte trochu kreditu. Platí se podle spotřeby a pár dolarů vydrží dlouho.</string>
-    <string name="onb_key_anthropic_3">Přejděte do API keys a klepněte na Create key. Pojmenujte ho jakkoli, třeba Agent.</string>
+    <string name="onb_key_anthropic_3">Přejděte do API keys a klepněte na Create key. Pojmenujte ho jakkoli, třeba Mew.</string>
     <string name="onb_key_anthropic_4">Klepněte na Kopírovat, vraťte se do této aplikace, vložte klíč do pole výše a klepněte na Ověřit klíč.</string>
     <string name="onb_key_openai_1">Níže klepněte na Otevřít. V prohlížeči se otevře platforma OpenAI. Zaregistrujte se nebo se přihlaste. (Je to oddělené od předplatného ChatGPT.)</string>
     <string name="onb_key_openai_2">Přejděte do Billing a přidejte trochu kreditu. Pár dolarů vydrží dlouho.</string>
-    <string name="onb_key_openai_3">Přejděte do API keys a klepněte na Create new secret key. Pojmenujte ho jakkoli, třeba Agent.</string>
+    <string name="onb_key_openai_3">Přejděte do API keys a klepněte na Create new secret key. Pojmenujte ho jakkoli, třeba Mew.</string>
     <string name="onb_key_step_copy_once">Klepněte na Kopírovat (klíč uvidíte jen jednou), vraťte se sem, vložte ho výše a klepněte na Ověřit klíč.</string>
     <string name="onb_key_gemini_1">Níže klepněte na Otevřít. Otevře se Google AI Studio. Přihlaste se libovolným účtem Google.</string>
     <string name="onb_key_gemini_2">Klepněte na Create API key. Pokud se zeptá na výběr projektu, vyberte ten navržený.</string>

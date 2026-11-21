@@ -15,6 +15,7 @@ import org.apache.sshd.sftp.server.SftpSubsystemFactory
 import org.json.JSONObject
 import org.junit.After
 import org.junit.Assert.*
+import org.junit.Assume.assumeTrue
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -33,6 +34,8 @@ class MachinesTest {
     private lateinit var priv: String
 
     @Before fun up() {
+        // The SSH fixture runs a real /bin/bash and uses POSIX SFTP paths; CI runs it on Linux.
+        assumeTrue("the SSH fixture needs a Unix shell", !System.getProperty("os.name").startsWith("Windows", ignoreCase = true))
         Crypto.install()
         tmp = Files.createTempDirectory("sshd").toFile()
         val (k, p) = Crypto.newKey("test"); priv = k; pub = p
@@ -48,7 +51,10 @@ class MachinesTest {
             start()
         }
     }
-    @After fun down() { sshd.stop(true); tmp.deleteRecursively() }
+    @After fun down() {
+        if (this::sshd.isInitialized) sshd.stop(true)
+        if (this::tmp.isInitialized) tmp.deleteRecursively()
+    }
 
     private fun m(auth: MachineAuth = MachineAuth.PASSWORD, hostKey: String? = null, via: String? = null, id: String = "m1", trusted: Boolean = false) =
         Machine(id, "Lab box", "127.0.0.1", sshd.port, "sam", auth, via, trusted, hostKey)

@@ -384,7 +384,7 @@ class CallBridge(
  * It also answers the two questions WhatsApp asks before it captures a microphone, because this browser answers
  * them in a way that makes WhatsApp send no sound at all (seen on a real call, 10 Nov 2026): the device list
  * comes back without ids, and the microphone permission reads "prompt". So, on this site and with the switch on:
- * enumerateDevices lists one microphone with a stable id ([MIC_ID], "Agent mic") and leaves speakers as they are,
+ * enumerateDevices lists one microphone with a stable id ([MIC_ID], "Mew mic") and leaves speakers as they are,
  * permissions.query says "granted" for the microphone only, and the made-up microphone is mono at 48 kHz.
  * With the switch off this script is not installed, so nothing is changed.
  *
@@ -398,7 +398,7 @@ class CallBridge(
  */
 object CallBridgeJs {
     const val MIC_ID = "default"
-    const val MIC_LABEL = "Agent mic"
+    const val MIC_LABEL = "Mew mic"
     const val MIC_GROUP = "agent-audio"
     val HOOKS = """
 (() => {
@@ -467,7 +467,7 @@ object CallBridgeJs {
   // ---- what WhatsApp asks before it captures: which microphones are there, and may the page use one ----
   const MIC_ID = 'default';
   H.micInfo = () => {
-    const d = { kind: 'audioinput', deviceId: MIC_ID, label: 'Agent mic', groupId: 'agent-audio' };
+    const d = { kind: 'audioinput', deviceId: MIC_ID, label: 'Mew mic', groupId: 'agent-audio' };
     Object.defineProperty(d, 'toJSON', { value: () => ({ deviceId: d.deviceId, kind: d.kind, label: d.label, groupId: d.groupId }) });
     return d;
   };

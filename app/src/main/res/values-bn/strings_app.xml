@@ -69,7 +69,7 @@
     <string name="svc_weekly_every">প্রতি %1$s %2$02d:%3$02d-এ</string>
     <string name="svc_weekly_weekday">সপ্তাহের কর্মদিবস</string>
     <string name="svc_weekly_weekend">সপ্তাহান্তের দিন</string>
-    <string name="svc_work_channel">Agent কাজ করছে</string>
+    <string name="svc_work_channel">Mew কাজ করছে</string>
     <plurals name="svc_work_helpers">
         <item quantity="one">কাজ চলছে: %1$dটি সহকারী</item>
         <item quantity="other">কাজ চলছে: %1$dটি সহকারী</item>

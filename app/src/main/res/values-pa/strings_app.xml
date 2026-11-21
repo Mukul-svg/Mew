@@ -69,7 +69,7 @@
     <string name="svc_weekly_every">ਹਰ %1$s %2$02d:%3$02d \'ਤੇ</string>
     <string name="svc_weekly_weekday">ਹਫ਼ਤੇ ਦਾ ਦਿਨ</string>
     <string name="svc_weekly_weekend">ਵੀਕੈਂਡ ਦਾ ਦਿਨ</string>
-    <string name="svc_work_channel">Agent ਕੰਮ ਕਰ ਰਿਹਾ ਹੈ</string>
+    <string name="svc_work_channel">Mew ਕੰਮ ਕਰ ਰਿਹਾ ਹੈ</string>
     <plurals name="svc_work_helpers">
         <item quantity="one">ਕੰਮ ਜਾਰੀ: %1$d ਸਹਾਇਕ</item>
         <item quantity="other">ਕੰਮ ਜਾਰੀ: %1$d ਸਹਾਇਕ</item>
@@ -82,7 +82,7 @@
         <item quantity="other">%1$s ਕੰਮ ਕਰ ਰਿਹਾ ਹੈ: %2$d ਸਹਾਇਕ</item>
     </plurals>
     <string name="svc_you">ਤੁਸੀਂ</string>
-    <string name="svc_your_agent">ਤੁਹਾਡਾ Agent</string>
+    <string name="svc_your_agent">ਤੁਹਾਡਾ Mew</string>
     <string name="main_file_read_failed">ਉਹ ਫ਼ਾਈਲ ਪੜ੍ਹੀ ਨਹੀਂ ਜਾ ਸਕੀ</string>
     <string name="main_signin_help_claude">ਜਾਂ ਕਿਸੇ ਕੰਪਿਊਟਰ \'ਤੇ claude setup-token ਤੋਂ ਮਿਲਿਆ ਲੰਮੇ ਸਮੇਂ ਵਾਲਾ ਟੋਕਨ ਇੱਥੇ ਪੇਸਟ ਕਰੋ।</string>
     <string name="main_signin_help_codex">ਜਾਂ ਕਿਸੇ ਕੰਪਿਊਟਰ \'ਤੇ codex login ਤੋਂ ਬਣੀ auth.json ਫ਼ਾਈਲ ਦੀ ਸਮੱਗਰੀ ਪੇਸਟ ਕਰੋ।</string>
@@ -104,7 +104,7 @@
     <string name="svc_routine_overnight_failed">ਰਾਤ ਵਾਲਾ ਕੰਮ ਅਸਫ਼ਲ: %1$s</string>
     <string name="svc_routine_refresh_failed">ਤਾਜ਼ਾ ਕਰਨਾ ਅਸਫ਼ਲ: %1$s</string>
     <string name="svc_wake_starts_in">%1$d ਮਿੰਟਾਂ ਵਿੱਚ ਸ਼ੁਰੂ, %2$s ਵਜੇ।</string>
-    <string name="svc_watch_broke_twice">ਦੋ ਵਾਰ ਟੁੱਟਿਆ, ਤੁਹਾਡੇ Agent ਨੂੰ ਠੀਕ ਕਰਨ ਲਈ ਕਿਹਾ</string>
+    <string name="svc_watch_broke_twice">ਦੋ ਵਾਰ ਟੁੱਟਿਆ, ਤੁਹਾਡੇ Mew ਨੂੰ ਠੀਕ ਕਰਨ ਲਈ ਕਿਹਾ</string>
     <string name="svc_watch_fired">ਚੱਲਿਆ: %1$s</string>
     <string name="svc_watch_no_script">ਅਜੇ ਕੋਈ ਸਕ੍ਰਿਪਟ ਨਹੀਂ।</string>
     <string name="svc_watch_nothing_yet">ਜਾਂਚ ਹੋ ਗਈ, ਅਜੇ ਕੁਝ ਨਹੀਂ ਮਿਲਿਆ</string>

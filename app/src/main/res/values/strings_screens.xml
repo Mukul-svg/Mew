@@ -87,7 +87,7 @@
     </plurals>
     <string name="tasks_add_todo">Add to-do</string>
     <string name="tasks_tab_mine">Your to-dos</string>
-    <string name="tasks_tab_agent">Agent\'s work</string>
+    <string name="tasks_tab_agent">Mew\'s work</string>
     <string name="tasks_empty_body">Add a to-do, or tell your agent \"remind me to…\". Everything you need to do lives here.</string>
     <string name="tasks_done">Done</string>
     <string name="tasks_done_sub">Ticked off recently</string>

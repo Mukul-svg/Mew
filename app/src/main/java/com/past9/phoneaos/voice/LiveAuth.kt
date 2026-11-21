@@ -14,7 +14,7 @@ object LiveAuth {
     private const val GOOGLE = "wss://generativelanguage.googleapis.com/"
 
     const val NEEDS_KEY = "Calls use the Google (Gemini) key on your computer. Add one there in Settings, Voice, then call again."
-    const val OLD_COMPUTER = "Update the Agent app on your computer, then call again. This version can't start a call for your phone."
+    const val OLD_COMPUTER = "Update the Mew app on your computer, then call again. This version can't start a call for your phone."
 
     fun keyUrl(key: String) = "$ENDPOINT?key=$key"
 

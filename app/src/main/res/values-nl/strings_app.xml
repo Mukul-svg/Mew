@@ -68,7 +68,7 @@
     <string name="svc_weekly_every">Elke %1$s om %2$02d:%3$02d</string>
     <string name="svc_weekly_weekday">werkdag</string>
     <string name="svc_weekly_weekend">weekenddag</string>
-    <string name="svc_work_channel">Agent aan het werk</string>
+    <string name="svc_work_channel">Mew aan het werk</string>
     <plurals name="svc_work_helpers">
         <item quantity="one">Bezig: %1$d helper</item>
         <item quantity="other">Bezig: %1$d helpers</item>

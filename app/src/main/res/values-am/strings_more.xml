@@ -18,7 +18,7 @@
     <string name="settings_automation_not_listening">ገና አያዳምጥም፦ መተግበሪያውን አንድ ጊዜ ይክፈቱ</string>
     <string name="settings_automation_on">በርቷል · %1$s</string>
     <string name="settings_automation_off">ጠፍቷል · ለማዋቀር ይንኩ</string>
-    <string name="settings_macro_title">Agent ከመተግበሪያዎችዎ ጋር ይነጋገራል</string>
+    <string name="settings_macro_title">Mew ከመተግበሪያዎችዎ ጋር ይነጋገራል</string>
     <string name="settings_media_apps">የሚዲያ መተግበሪያዎች</string>
     <string name="settings_bg_screen">የጀርባ ማያ ገጽ</string>
     <string name="settings_bg_screen_sub">ሌሎች መተግበሪያዎች፣ ማያ ገጽዎን እንደያዙ</string>
@@ -407,7 +407,7 @@
     <string name="media_play">ሙዚቃና ቪዲዮ አጫውት</string>
     <string name="media_intro">ወኪልዎ አንድ ነገር እንዲያጫውት ሲጠይቁ እዚህ የመረጡትን መተግበሪያ ይጠቀማል። በአውቶማቲክ ሲተው የስልክዎን ነባሪ፣ ከዚያም ከፍለጋ ማጫወት የሚችል ማንኛውንም መተግበሪያ ይጠቀማል።</string>
     <string name="media_access_off">የማሳወቂያ መዳረሻ ጠፍቷል</string>
-    <string name="media_access_body">Android የሚጫወተውን የሚያሳየው፣ ወኪልዎም ባለበት እንዲያቆም ወይም እንዲዘል የሚፈቅደው Agent የማሳወቂያ መዳረሻ ሲኖረው ብቻ ነው።</string>
+    <string name="media_access_body">Android የሚጫወተውን የሚያሳየው፣ ወኪልዎም ባለበት እንዲያቆም ወይም እንዲዘል የሚፈቅደው Mew የማሳወቂያ መዳረሻ ሲኖረው ብቻ ነው።</string>
     <string name="media_none">በዚህ ስልክ ላይ ለወኪልዎ ሙዚቃ ወይም ቪዲዮ ማጫወት እችላለሁ የሚል መተግበሪያ የለም። የሙዚቃ መተግበሪያ ይጫኑና እዚህ ይታያል።</string>
     <string name="media_music_app">የሙዚቃ መተግበሪያ</string>
     <string name="media_video_app">የቪዲዮ መተግበሪያ</string>
@@ -416,7 +416,7 @@
     <string name="macro_and">%1$s እና %2$s</string>
     <string name="macro_line_some">%1$s ሳይጠይቅ ሊሠራ ይችላል፤ ሌሎቹ ይጠይቃሉ</string>
     <string name="macro_eyebrow">አውቶሜሽን</string>
-    <string name="macro_title">Agent ከመተግበሪያዎችዎ ጋር ይነጋገራል</string>
+    <string name="macro_title">Mew ከመተግበሪያዎችዎ ጋር ይነጋገራል</string>
     <string name="macro_intro">ወኪልዎ በዚህ ስልክ ላይ ላለ ማንኛውም መተግበሪያ Android intent መላክ ይችላል፦ በMaps ውስጥ ቦታ መክፈት፣ ወደ መተግበሪያ ማጋራት፣ የMacroDroid ወይም Tasker ማክሮ ማስኬድ። ማያ ገጽ መክፈት በጭራሽ አይጠይቅም። ሌላ ማንኛውም ነገር እዚህ ካልተዘረዘረ መጀመሪያ ይጠይቅዎታል። ምንም ከስልኩ አይወጣም።</string>
     <string name="macro_intents">የተፈቀዱ የመተግበሪያ intents</string>
     <string name="macro_intents_hint">action | package፣ በአንድ መስመር አንድ</string>
@@ -704,6 +704,10 @@
     <string name="assist_over_lock_line">ጠፍቷል፦ መጀመሪያ ስልኩን ይክፈቱ፣ ከዚያ ይጥሩት። በርቷል፦ በተቆለፈ ስልክ ላይ ይከፈታል ሲከፍቱም ጥያቄዎን ይልካል።</string>
     <string name="assist_live_voice">በረዳቱ ውስጥ የቀጥታ ድምፅ</string>
     <string name="assist_live_voice_line">ጠፍቷል፦ አንድ ጥያቄ ይናገራሉ ይመልሳል። በርቷል፦ በተፈጥሮ ይነጋገሩ፣ %1$s ወዲያውኑ ጮክ ብሎ ይመልሳል፣ በላዩ ላይ መናገር ይችላሉ፣ ሥራዎችንም ለወኪልዎ ሰጥቶ ውጤቱን ይነግርዎታል።</string>
+    <string name="assist_talk">ውይይቱን ይቀጥሉ</string>
+    <string name="assist_talk_line">እንደ ጥሪ፦ %1$s እያንዳንዱን መልስ በድምፅ ያነባል እንደገናም ያዳምጣል፣ እርስዎ ደህና ይሁኑ እስኪሉ ወይም አብቃ እስኪጫኑ ድረስ። የእርስዎን የደመና ድምፅ ይጠቀማል፣ ካልተዘጋጀ የስልኩን የራሱን ድምፅ።</string>
+    <string name="assist_talk_end">አብቃ</string>
+    <string name="assist_talk_interrupt">አቋርጥ</string>
     <string name="assist_never_reads_money">ከሁለቱ መቀየሪያዎች ማንኛቸውም ቢበሩ የባንክ፣ የክፍያ ወይም የገንዘብ መተግበሪያዎችን በጭራሽ አያነብም። የሚያነበው ለዚያ ጥያቄ ብቻ ነው የሚውለው።</string>
     <string name="live_bubble_desc">የቀጥታ ድምፅ። ለመክፈት ይንኩ</string>
     <string name="live_end_session">የቀጥታ ክፍለ ጊዜን ጨርስ</string>

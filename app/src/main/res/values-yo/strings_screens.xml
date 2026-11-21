@@ -8,7 +8,7 @@
     <string name="home_call_your_agent">Pe agent rẹ</string>
     <string name="home_watch_browse">Wò ó bí ó ṣe ń wá nǹkan</string>
     <string name="home_needs_you">Ó nílò rẹ</string>
-    <string name="home_needs_you_sub">Agent rẹ kò lè tẹ̀síwájú láìsí àwọn wọ̀nyí</string>
+    <string name="home_needs_you_sub">Mew rẹ kò lè tẹ̀síwájú láìsí àwọn wọ̀nyí</string>
     <string name="home_blocked_eyebrow">A DÈNÀ</string>
     <string name="home_needs">Ó nílò: %1$s</string>
     <string name="home_cards">Àwọn káàdì rẹ</string>
@@ -255,7 +255,7 @@
     <plurals name="notif_sub">
         <item quantity="other">Àwọn app %1$d tí agent rẹ lè kà</item>
     </plurals>
-    <string name="notif_intro">Agent rẹ ń kọ́ ọ̀pọ̀lọpọ̀ láti inú àwọn ìkìlọ̀ rẹ: àwọn ìkìlọ̀ báńkì, àwọn ìfijíṣẹ́, àwọn ìfiránṣẹ́. Ó ń ka àwọn app tí o tàn níbí nìkan, ó sì ń pa ọ̀sẹ̀ kan wọn mọ́ lórí fóònù yìí.</string>
+    <string name="notif_intro">Mew rẹ ń kọ́ ọ̀pọ̀lọpọ̀ láti inú àwọn ìkìlọ̀ rẹ: àwọn ìkìlọ̀ báńkì, àwọn ìfijíṣẹ́, àwọn ìfiránṣẹ́. Ó ń ka àwọn app tí o tàn níbí nìkan, ó sì ń pa ọ̀sẹ̀ kan wọn mọ́ lórí fóònù yìí.</string>
     <string name="notif_access_off">ÌWỌLÉ SÍ ÀWỌN ÌKÌLỌ̀ WÀ NÍ PÍPA</string>
     <string name="notif_access_body">Tan án fún app yìí nínú àwọn ètò Android. Tí Android bá sọ pé ó jẹ́ ètò tí a ní ààlà, ṣí ìwífún app yìí, tẹ àtòjọ ⋮, lẹ́yìn náà Allow restricted settings.</string>
     <string name="notif_open_settings">Ṣí àwọn ètò</string>
@@ -303,7 +303,7 @@
     <string name="voice_mute">Pa lẹ́nu mọ́</string>
     <string name="voice_end_call">Parí ìpè</string>
     <string name="voice_call_again">Pe lẹ́ẹ̀kan sí i</string>
-    <string name="home_your_agent">Agent rẹ</string>
+    <string name="home_your_agent">Mew rẹ</string>
     <string name="routines_wake_once">Lẹ́ẹ̀kan, %1$s, nígbà tí ohun kan bá wà láti ṣe nìkan</string>
     <string name="memory_busy_saving">Ń fi àwọn ìrántí rẹ pamọ́</string>
     <string name="memory_busy_importing">Ń mú àwọn ìrántí rẹ wọlé</string>
@@ -332,7 +332,7 @@
     <plurals name="memory_import_imported">
         <item quantity="other">A mú àwọn ojú-ìwé %1$d wọlé</item>
     </plurals>
-    <string name="memory_import_sub">Agent rẹ lè wá wọn báyìí.</string>
+    <string name="memory_import_sub">Mew rẹ lè wá wọn báyìí.</string>
     <string name="memory_row_new">Tuntun</string>
     <string name="memory_row_updated">A ti ṣe ìmúdójúìwọ̀n</string>
     <string name="memory_row_skipped">Ó ti wà níbẹ̀ tẹ́lẹ̀</string>

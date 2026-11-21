@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">ALBO UŻYJ AGENTA NA SWOIM KOMPUTERZE</string>
     <string name="onb_use_on_computer">Użyj agenta na moim komputerze</string>
-    <string name="onb_use_on_computer_sub">Zeskanuj kod w aplikacji Agent na komputerze lub serwerze. Żadnych kluczy na tym telefonie.</string>
+    <string name="onb_use_on_computer_sub">Zeskanuj kod w aplikacji Mew na komputerze lub serwerze. Żadnych kluczy na tym telefonie.</string>
     <string name="sub_paste_code_from">Wklej kod z %1$s</string>
     <string name="sub_paste_code_body_from">W przeglądarce dotknij Authorize. %1$s pokaże wtedy kod. Skopiuj go, wróć tutaj i wklej poniżej.</string>
     <string name="sub_code_from">Kod z %1$s</string>
@@ -18,14 +18,14 @@
     <string name="settings_automation_not_listening">Jeszcze nie nasłuchuje: otwórz aplikację raz</string>
     <string name="settings_automation_on">Wł. · %1$s</string>
     <string name="settings_automation_off">Wył. · dotknij, aby skonfigurować</string>
-    <string name="settings_macro_title">Agent rozmawia z twoimi aplikacjami</string>
+    <string name="settings_macro_title">Mew rozmawia z twoimi aplikacjami</string>
     <string name="settings_media_apps">Aplikacje multimedialne</string>
     <string name="settings_bg_screen">Ekran w tle</string>
     <string name="settings_bg_screen_sub">Inne aplikacje, a ty zachowujesz swój ekran</string>
     <string name="settings_bg_screen_stopped">Zatrzymane przez ciebie. Dotknij, aby znów pozwolić agentowi z niego korzystać</string>
     <string name="settings_bg_screen_on">Wł. Konfiguracja, reguły i zablokowane aplikacje</string>
     <string name="settings_bg_screen_off">Wył. Eksperymentalne: agent używa innych aplikacji na ukrytym ekranie, a ty zachowujesz swój</string>
-    <string name="settings_bg_screen_allowed">Agent może znowu używać ekranu w tle</string>
+    <string name="settings_bg_screen_allowed">Mew może znowu używać ekranu w tle</string>
     <string name="settings_bg_screen_runs">Nagrania i poznane aplikacje</string>
     <string name="settings_bg_screen_runs_sub">Zobacz, co tam zrobił, i naucz go zadania samodzielnie</string>
     <string name="settings_browser">Przeglądarka</string>
@@ -61,10 +61,10 @@
     <string name="browser_sites_hint">Tylko bezpieczne strony (https), po dokładnym adresie. Zmiany dotyczą nowych kart.</string>
     <string name="browser_call_voice">Pozwól agentowi mówić w rozmowach WhatsApp</string>
     <string name="browser_call_voice_on">Wł.: w rozmowie WhatsApp Web, którą agent tu nawiązuje, jego głos trafia do rozmowy i słyszy drugą osobę.</string>
-    <string name="browser_call_voice_off">Wył. Agent nie może mówić w rozmowie WhatsApp Web.</string>
+    <string name="browser_call_voice_off">Wył. Mew nie może mówić w rozmowie WhatsApp Web.</string>
     <string name="browser_test_calling">Włącz rozmowy dla konta testowego</string>
     <string name="browser_test_calling_on">Wł.: gdy agent nawiązuje rozmowę, a numer zalogowany w WhatsApp Web jest jednym z poniższych, na tej stronie włączane są rozmowy. Nigdy dla żadnego innego numeru.</string>
-    <string name="browser_test_calling_off">Wył. Agent może dzwonić tylko z kont, którym WhatsApp udostępnił rozmowy.</string>
+    <string name="browser_test_calling_off">Wył. Mew może dzwonić tylko z kont, którym WhatsApp udostępnił rozmowy.</string>
     <string name="browser_test_number_first">Najpierw dodaj numer konta testowego.</string>
     <string name="browser_yes_turn_on">Tak, włącz</string>
     <string name="browser_remove_test_number">Usuń numer testowy %1$s</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">Dodaj numer testowy</string>
     <string name="browser_test_number_body">Numer konta WhatsApp, na którym testujesz. Nic nie jest wysyłane do WhatsApp, a przeładowanie strony cofa zmianę.</string>
     <string name="link_cant_reach">Nie udało się połączyć z komputerem.</string>
-    <string name="link_bad_answer">Odpowiedź komputera była niezrozumiała. Czy jego aplikacja Agent jest aktualna?</string>
+    <string name="link_bad_answer">Odpowiedź komputera była niezrozumiała. Czy jego aplikacja Mew jest aktualna?</string>
     <string name="link_tried_addresses">(wypróbowano adresów: %1$d)</string>
     <string name="link_type_address">Wpisz adres komputera.</string>
     <string name="link_no_certificate">Komputer nie przesłał certyfikatu.</string>
     <string name="link_failed">Łączenie nie powiodło się.</string>
     <string name="link_your_computer">twój komputer</string>
-    <string name="link_not_a_code">Ten kod QR nie jest kodem połączenia Agent.</string>
+    <string name="link_not_a_code">Ten kod QR nie jest kodem połączenia Mew.</string>
     <string name="link_subtitle">Połącz ten telefon z komputerem lub serwerem</string>
     <string name="link_linked_to">Połączono z %1$s</string>
     <string name="link_runs_on">Twój agent działa na %1$s. Ten telefon pokazuje jego czat, pamięć, zadania i rutyny i nie przechowuje dla niego żadnych kluczy AI.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">Połącz z %1$s</string>
     <string name="link_keep">Zachowaj %1$s</string>
     <string name="link_linking_to">Łączenie z %1$s...</string>
-    <string name="link_how_to">Na komputerze otwórz aplikację Agent i przejdź do Ustawienia, Urządzenia, Dodaj urządzenie.</string>
+    <string name="link_how_to">Na komputerze otwórz aplikację Mew i przejdź do Ustawienia, Urządzenia, Dodaj urządzenie.</string>
     <string name="link_how_type">Wpisz adres i kod, który pokazuje.</string>
     <string name="link_how_scan">Skieruj aparat na pokazany kod.</string>
     <string name="link_allow_camera">Zezwól na aparat</string>
@@ -275,7 +275,7 @@
     <string name="proj_new_chat_line">To, co dotąd powiedziano, trafi do pamięci, a to okno będzie puste. Nic na twoim komputerze nie jest usuwane.</string>
     <string name="proj_new_chat">Nowy czat</string>
     <string name="proj_not_linked_now">Teraz brak połączenia z komputerem.</string>
-    <string name="proj_computer_older">Aplikacja Agent na twoim komputerze jest starsza niż ta, więc nie może tam rozpocząć nowego czatu. Zaktualizuj ją na komputerze i spróbuj ponownie.</string>
+    <string name="proj_computer_older">Aplikacja Mew na twoim komputerze jest starsza niż ta, więc nie może tam rozpocząć nowego czatu. Zaktualizuj ją na komputerze i spróbuj ponownie.</string>
     <string name="proj_unreachable">Nie udało się połączyć z twoim komputerem. Spróbuj ponownie, gdy będzie dostępny.</string>
     <string name="proj_photo_you_sent">Wysłane przez ciebie zdjęcie</string>
     <string name="proj_start_chat_failed">Nie udało się rozpocząć czatu w „%1$s”: %2$s.</string>
@@ -379,14 +379,14 @@
     <string name="wake_up_your_computer">twój komputer</string>
     <string name="wake_up_reaches">Dociera do tego telefonu</string>
     <string name="wake_up_link_first">Najpierw połącz ten telefon z komputerem (Ustawienia > Połączone urządzenia)</string>
-    <string name="wake_up_lacks">%1$s nie może jeszcze zadzwonić na ten telefon: zaktualizuj tam aplikację Agent</string>
+    <string name="wake_up_lacks">%1$s nie może jeszcze zadzwonić na ten telefon: zaktualizuj tam aplikację Mew</string>
     <string name="wake_up_connected">Połączono z %1$s</string>
     <string name="wake_up_not_connected">Teraz brak połączenia. Próbuje dalej.</string>
     <string name="wake_up_test">Przetestuj budzik</string>
     <string name="wake_up_test_body">Telefon zadzwoni naprawdę. Odpowiedz, aby go zatrzymać.</string>
     <string name="wake_up_test_sent">Wysłano test: %1$s.</string>
     <string name="wake_up_not_sent">Nie poszło.</string>
-    <string name="wake_up_secure_folder">Zainstaluj Agent normalnie (nie w Bezpiecznym folderze): zablokowany Bezpieczny folder nie może dzwonić.</string>
+    <string name="wake_up_secure_folder">Zainstaluj Mew normalnie (nie w Bezpiecznym folderze): zablokowany Bezpieczny folder nie może dzwonić.</string>
     <string name="rec_recording_now">Trwa nagrywanie</string>
     <string name="rec_cut_off">Przerwane</string>
     <string name="rec_partly">Część nie została zapisana</string>
@@ -415,7 +415,7 @@
     <string name="media_play">Odtwarzaj muzykę i wideo</string>
     <string name="media_intro">Gdy prosisz agenta o odtworzenie czegoś, używa aplikacji wybranej tutaj. Na automatycznym używa domyślnej aplikacji telefonu, a potem dowolnej, która potrafi odtwarzać z wyszukiwania.</string>
     <string name="media_access_off">Dostęp do powiadomień jest wyłączony</string>
-    <string name="media_access_body">Android pokazuje, co gra, i pozwala agentowi pauzować lub przewijać dopiero wtedy, gdy Agent ma dostęp do powiadomień.</string>
+    <string name="media_access_body">Android pokazuje, co gra, i pozwala agentowi pauzować lub przewijać dopiero wtedy, gdy Mew ma dostęp do powiadomień.</string>
     <string name="media_none">Żadna aplikacja na tym telefonie nie zgłasza, że potrafi odtwarzać muzykę lub wideo dla twojego agenta. Zainstaluj aplikację muzyczną, a pojawi się tutaj.</string>
     <string name="media_music_app">Aplikacja muzyczna</string>
     <string name="media_video_app">Aplikacja wideo</string>
@@ -424,7 +424,7 @@
     <string name="macro_and">%1$s i %2$s</string>
     <string name="macro_line_some">%1$s mogą działać bez pytania; pozostałe pytają</string>
     <string name="macro_eyebrow">Automatyzacja</string>
-    <string name="macro_title">Agent rozmawia z twoimi aplikacjami</string>
+    <string name="macro_title">Mew rozmawia z twoimi aplikacjami</string>
     <string name="macro_intro">Twój agent może wysłać dowolnej aplikacji na tym telefonie intent Androida: otworzyć miejsce w Mapach, udostępnić do aplikacji, uruchomić makro MacroDroid lub Taskera. Otwarcie ekranu nigdy nie pyta. Wszystko inne najpierw pyta ciebie, chyba że jest tu wymienione. Nic nie opuszcza telefonu.</string>
     <string name="macro_intents">Dozwolone intenty aplikacji</string>
     <string name="macro_intents_hint">działanie | pakiet, po jednym w wierszu</string>
@@ -549,7 +549,7 @@
     <string name="screen_learned_none">Na razie brak. Pokazują się razem z twoimi innymi poznanymi aplikacjami, w Połączeniach.</string>
     <string name="screen_learned_list">%1$s. Otwórz, zmień nazwę lub usuń je w Połączeniach.</string>
     <string name="screen_show_job_yourself">Pokaż mu zadanie samodzielnie</string>
-    <string name="screen_show_job_sub">Wykonaj je raz ręcznie na ukrytym ekranie. Agent pozna kroki i będzie mógł je powtórzyć.</string>
+    <string name="screen_show_job_sub">Wykonaj je raz ręcznie na ukrytym ekranie. Mew pozna kroki i będzie mógł je powtórzyć.</string>
     <string name="screen_show">Pokaż</string>
     <string name="screen_keep_recordings">Zachowuj nagrania</string>
     <string name="screen_keep_recordings_sub">Hasła i wszystko, co wpisano jako prywatne, jest zamalowane. Stare są czyszczone automatycznie.</string>
@@ -583,7 +583,7 @@
     <string name="screen_what_it_does">Co robi</string>
     <string name="screen_what_it_does_hint">Jedna linijka, którą agent czyta, aby wiedzieć, kiedy tego użyć</string>
     <string name="screen_changes_eyebrow">CO ZMIENIA SIĘ ZA KAŻDYM RAZEM</string>
-    <string name="screen_fills_in">Agent uzupełnia to za każdym razem</string>
+    <string name="screen_fills_in">Mew uzupełnia to za każdym razem</string>
     <string name="screen_exact_words">Zawsze dokładnie te słowa</string>
     <string name="screen_the_steps">KROKI</string>
     <string name="screen_type_into">Wpisz w aplikacji</string>
@@ -606,7 +606,7 @@
     <string name="screen_no_earlier">Brak wcześniejszej wersji</string>
     <string name="screen_yes_delete">Tak, usuń</string>
     <string name="handoff_your_computers">Twoje komputery</string>
-    <string name="camera_off_sub_add">Agent widzi zdjęcie tylko wtedy, gdy je zrobisz i wyślesz.</string>
+    <string name="camera_off_sub_add">Mew widzi zdjęcie tylko wtedy, gdy je zrobisz i wyślesz.</string>
     <string name="camera_add_photo">Dodaj zdjęcie</string>
     <string name="share_that_file">ten plik</string>
     <string name="share_send_failed_why">Nie wysłano: %1$s. Nic nie zostało utracone, spróbuj ponownie.</string>
@@ -638,10 +638,10 @@
         <item quantity="other">%1$d kroku</item>
     </plurals>
     <plurals name="screen_save_body">
-        <item quantity="one">Agent będzie mógł sam ponownie wykonać ten %1$d krok, także z twojego komputera. Krok, który wysyła, płaci lub usuwa, nadal za każdym razem pyta ciebie.</item>
-        <item quantity="few">Agent będzie mógł sam ponownie wykonać te %1$d kroki, także z twojego komputera. Krok, który wysyła, płaci lub usuwa, nadal za każdym razem pyta ciebie.</item>
-        <item quantity="many">Agent będzie mógł sam ponownie wykonać tych %1$d kroków, także z twojego komputera. Krok, który wysyła, płaci lub usuwa, nadal za każdym razem pyta ciebie.</item>
-        <item quantity="other">Agent będzie mógł sam ponownie wykonać te %1$d kroku, także z twojego komputera. Krok, który wysyła, płaci lub usuwa, nadal za każdym razem pyta ciebie.</item>
+        <item quantity="one">Mew będzie mógł sam ponownie wykonać ten %1$d krok, także z twojego komputera. Krok, który wysyła, płaci lub usuwa, nadal za każdym razem pyta ciebie.</item>
+        <item quantity="few">Mew będzie mógł sam ponownie wykonać te %1$d kroki, także z twojego komputera. Krok, który wysyła, płaci lub usuwa, nadal za każdym razem pyta ciebie.</item>
+        <item quantity="many">Mew będzie mógł sam ponownie wykonać tych %1$d kroków, także z twojego komputera. Krok, który wysyła, płaci lub usuwa, nadal za każdym razem pyta ciebie.</item>
+        <item quantity="other">Mew będzie mógł sam ponownie wykonać te %1$d kroku, także z twojego komputera. Krok, który wysyła, płaci lub usuwa, nadal za każdym razem pyta ciebie.</item>
     </plurals>
     <plurals name="screen_ran_times">
         <item quantity="one">uruchomiono %1$d raz</item>
@@ -673,7 +673,7 @@
     <string name="main_your_computer">twój komputer</string>
     <string name="main_a_computer">komputer</string>
     <string name="main_whatever_agent_runs">Na czym działa twój agent</string>
-    <string name="rt_clear_computer_older">Czat tego telefonu został wyczyszczony. Czat na twoim komputerze nie: jego aplikacja Agent jest starsza niż ta, więc nie może rozpocząć nowego czatu. Zaktualizuj aplikację na komputerze i wyczyść ponownie.</string>
+    <string name="rt_clear_computer_older">Czat tego telefonu został wyczyszczony. Czat na twoim komputerze nie: jego aplikacja Mew jest starsza niż ta, więc nie może rozpocząć nowego czatu. Zaktualizuj aplikację na komputerze i wyczyść ponownie.</string>
     <string name="rt_clear_unreachable">Czat tego telefonu został wyczyszczony. Nie udało się teraz połączyć z komputerem, więc jego czat nadal tam jest i pojawi się ponownie po synchronizacji. Wyczyść ponownie, gdy wróci.</string>
     <string name="assist_type_it_instead">Wpisz zamiast tego</string>
     <string name="assist_unlock_to_carry_on">Odblokuj, aby kontynuować</string>
@@ -724,6 +724,10 @@
     <string name="assist_over_lock_line">Wył.: najpierw odblokuj telefon, potem go wywołaj. Wł.: otwiera się na zablokowanym telefonie i wysyła twoje żądanie po odblokowaniu.</string>
     <string name="assist_live_voice">Głos na żywo w asystencie</string>
     <string name="assist_live_voice_line">Wył.: mówisz jedno żądanie, a on odpowiada. Wł.: mów naturalnie, %1$s odpowiada od razu na głos, możesz mu przerywać, a zadania przekazuje agentowi i mówi ci wynik.</string>
+    <string name="assist_talk">Kontynuuj rozmowę</string>
+    <string name="assist_talk_line">Jak połączenie: %1$s czyta każdą odpowiedź na głos i słucha ponownie, dopóki nie powiesz do widzenia lub nie dotkniesz Koniec. Używa Twojego głosu w chmurze, a gdy go brak — głosu telefonu.</string>
+    <string name="assist_talk_end">Koniec</string>
+    <string name="assist_talk_interrupt">Przerwij</string>
     <string name="assist_never_reads_money">Nigdy nie czyta aplikacji bankowych, płatniczych ani finansowych, przy żadnym przełączniku. To, co czyta, służy tylko do tego żądania.</string>
     <string name="live_bubble_desc">Głos na żywo. Dotknij, aby otworzyć</string>
     <string name="live_end_session">Zakończ sesję na żywo</string>

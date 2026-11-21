@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">OU UTILISEZ L\'AGENT SUR VOTRE ORDINATEUR</string>
     <string name="onb_use_on_computer">Utiliser l\'agent sur mon ordinateur</string>
-    <string name="onb_use_on_computer_sub">Scannez le code dans l\'appli Agent sur votre ordinateur ou serveur. Aucune clé sur ce téléphone.</string>
+    <string name="onb_use_on_computer_sub">Scannez le code dans l\'appli Mew sur votre ordinateur ou serveur. Aucune clé sur ce téléphone.</string>
     <string name="sub_paste_code_from">Collez le code de %1$s</string>
     <string name="sub_paste_code_body_from">Dans le navigateur : touchez Authorize. %1$s affiche alors un code. Copiez-le, revenez ici et collez-le ci-dessous.</string>
     <string name="sub_code_from">Code de %1$s</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">Ajouter un numéro de test</string>
     <string name="browser_test_number_body">Le numéro du compte WhatsApp avec lequel vous testez. Rien n\'est envoyé à WhatsApp, et recharger la page l\'annule.</string>
     <string name="link_cant_reach">Impossible de joindre l\'ordinateur.</string>
-    <string name="link_bad_answer">La réponse de l\'ordinateur était incompréhensible. Son appli Agent est-elle à jour ?</string>
+    <string name="link_bad_answer">La réponse de l\'ordinateur était incompréhensible. Son appli Mew est-elle à jour ?</string>
     <string name="link_tried_addresses">(%1$d adresses essayées)</string>
     <string name="link_type_address">Saisissez l\'adresse de l\'ordinateur.</string>
     <string name="link_no_certificate">L\'ordinateur n\'a envoyé aucun certificat.</string>
     <string name="link_failed">Échec de la liaison.</string>
     <string name="link_your_computer">votre ordinateur</string>
-    <string name="link_not_a_code">Ce code QR n\'est pas un code de liaison Agent.</string>
+    <string name="link_not_a_code">Ce code QR n\'est pas un code de liaison Mew.</string>
     <string name="link_subtitle">Lier ce téléphone à un ordinateur ou un serveur</string>
     <string name="link_linked_to">Lié à %1$s</string>
     <string name="link_runs_on">Votre agent tourne sur %1$s. Ce téléphone affiche sa discussion, sa mémoire, ses tâches et ses routines, et ne détient aucune clé d\'IA pour lui.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">Lier à %1$s</string>
     <string name="link_keep">Garder %1$s</string>
     <string name="link_linking_to">Liaison à %1$s...</string>
-    <string name="link_how_to">Sur votre ordinateur, ouvrez l\'appli Agent et allez dans Réglages, Appareils, Ajouter un appareil.</string>
+    <string name="link_how_to">Sur votre ordinateur, ouvrez l\'appli Mew et allez dans Réglages, Appareils, Ajouter un appareil.</string>
     <string name="link_how_type">Saisissez l\'adresse et le code affichés.</string>
     <string name="link_how_scan">Pointez cet appareil photo vers le code affiché.</string>
     <string name="link_allow_camera">Autoriser l\'appareil photo</string>
@@ -274,7 +274,7 @@
     <string name="proj_new_chat_line">Ce qui a été dit jusqu\'ici est enregistré en mémoire et cette fenêtre repart vide. Rien n\'est supprimé sur votre ordinateur.</string>
     <string name="proj_new_chat">Nouvelle discussion</string>
     <string name="proj_not_linked_now">Non lié à un ordinateur pour l\'instant.</string>
-    <string name="proj_computer_older">L\'appli Agent de votre ordinateur est plus ancienne que celle-ci et ne peut pas y démarrer une nouvelle discussion. Mettez-la à jour sur votre ordinateur, puis réessayez.</string>
+    <string name="proj_computer_older">L\'appli Mew de votre ordinateur est plus ancienne que celle-ci et ne peut pas y démarrer une nouvelle discussion. Mettez-la à jour sur votre ordinateur, puis réessayez.</string>
     <string name="proj_unreachable">Votre ordinateur est injoignable. Réessayez quand il sera de retour.</string>
     <string name="proj_photo_you_sent">Photo que vous avez envoyée</string>
     <string name="proj_start_chat_failed">Impossible de démarrer une discussion dans %1$s : %2$s.</string>
@@ -375,14 +375,14 @@
     <string name="wake_up_your_computer">votre ordinateur</string>
     <string name="wake_up_reaches">Joint ce téléphone</string>
     <string name="wake_up_link_first">Liez d\'abord ce téléphone à votre ordinateur (Réglages &gt; Appareils liés)</string>
-    <string name="wake_up_lacks">%1$s ne peut pas encore faire sonner ce téléphone : mettez à jour l\'appli Agent là-bas</string>
+    <string name="wake_up_lacks">%1$s ne peut pas encore faire sonner ce téléphone : mettez à jour l\'appli Mew là-bas</string>
     <string name="wake_up_connected">Connecté à %1$s</string>
     <string name="wake_up_not_connected">Non connecté pour l\'instant. Il continue d\'essayer.</string>
     <string name="wake_up_test">Tester un réveil</string>
     <string name="wake_up_test_body">Fait vraiment sonner ce téléphone. Répondez pour l\'arrêter.</string>
     <string name="wake_up_test_sent">Test %1$s envoyé.</string>
     <string name="wake_up_not_sent">Il n\'est pas parti.</string>
-    <string name="wake_up_secure_folder">Installez Agent normalement (pas dans Dossier sécurisé) : un Dossier sécurisé verrouillé ne peut pas sonner.</string>
+    <string name="wake_up_secure_folder">Installez Mew normalement (pas dans Dossier sécurisé) : un Dossier sécurisé verrouillé ne peut pas sonner.</string>
     <string name="rec_recording_now">Enregistrement en cours</string>
     <string name="rec_cut_off">Interrompu</string>
     <string name="rec_partly">Une partie n\'a pas été transcrite</string>
@@ -411,7 +411,7 @@
     <string name="media_play">Lire musique et vidéo</string>
     <string name="media_intro">Quand vous demandez à votre agent de lire quelque chose, il utilise l\'appli choisie ici. En automatique, il utilise celle par défaut de votre téléphone, puis toute appli capable de lire depuis une recherche.</string>
     <string name="media_access_off">L\'accès aux notifications est désactivé</string>
-    <string name="media_access_body">Android n\'affiche ce qui est en lecture, et ne laisse votre agent mettre en pause ou passer, que si Agent a l\'accès aux notifications.</string>
+    <string name="media_access_body">Android n\'affiche ce qui est en lecture, et ne laisse votre agent mettre en pause ou passer, que si Mew a l\'accès aux notifications.</string>
     <string name="media_none">Aucune appli de ce téléphone ne dit pouvoir lire de la musique ou des vidéos pour votre agent. Installez une appli de musique et elle apparaîtra ici.</string>
     <string name="media_music_app">Appli de musique</string>
     <string name="media_video_app">Appli vidéo</string>
@@ -663,7 +663,7 @@
     <string name="main_your_computer">votre ordinateur</string>
     <string name="main_a_computer">un ordinateur</string>
     <string name="main_whatever_agent_runs">Ce sur quoi tourne votre agent</string>
-    <string name="rt_clear_computer_older">La discussion de ce téléphone est effacée. Celle de votre ordinateur ne l\'est pas : l\'appli Agent qui s\'y trouve est plus ancienne que celle-ci et ne peut pas démarrer une nouvelle discussion. Mettez à jour l\'appli sur votre ordinateur, puis effacez à nouveau.</string>
+    <string name="rt_clear_computer_older">La discussion de ce téléphone est effacée. Celle de votre ordinateur ne l\'est pas : l\'appli Mew qui s\'y trouve est plus ancienne que celle-ci et ne peut pas démarrer une nouvelle discussion. Mettez à jour l\'appli sur votre ordinateur, puis effacez à nouveau.</string>
     <string name="rt_clear_unreachable">La discussion de ce téléphone est effacée. Votre ordinateur était injoignable à l\'instant, donc sa discussion est toujours là et réapparaîtra à la synchronisation. Effacez à nouveau quand il sera de retour.</string>
     <string name="assist_type_it_instead">Le saisir à la place</string>
     <string name="assist_unlock_to_carry_on">Déverrouillez pour continuer</string>
@@ -714,6 +714,10 @@
     <string name="assist_over_lock_line">Désactivé : déverrouillez d\'abord le téléphone, puis appelez-le. Activé : il s\'ouvre sur un téléphone verrouillé et envoie votre demande une fois que vous déverrouillez.</string>
     <string name="assist_live_voice">Voix en direct dans l\'assistant</string>
     <string name="assist_live_voice_line">Désactivé : vous dites une demande et il répond. Activé : parlez naturellement, %1$s répond à voix haute tout de suite, vous pouvez parler par-dessus, et il confie des tâches à votre agent et vous donne le résultat.</string>
+    <string name="assist_talk">Poursuivre la conversation</string>
+    <string name="assist_talk_line">Comme un appel : %1$s lit chaque réponse à voix haute puis écoute à nouveau, jusqu\'à ce que vous disiez au revoir ou touchiez Fin. Utilise votre voix cloud, ou la voix du téléphone si aucune n\'est configurée.</string>
+    <string name="assist_talk_end">Fin</string>
+    <string name="assist_talk_interrupt">Interrompre</string>
     <string name="assist_never_reads_money">Il ne lit jamais les applis bancaires, de paiement ou d\'argent, quel que soit l\'interrupteur. Ce qu\'il lit ne sert que pour cette demande.</string>
     <string name="live_bubble_desc">Voix en direct. Touchez pour ouvrir</string>
     <string name="live_end_session">Terminer la session en direct</string>

@@ -22,7 +22,7 @@ android {
     versionCode = 900165
     versionName = "0.15.62"
     // Same rule as the phone: a personal build can bake the owner's agent name in (-PagentName=Hina).
-    resValue("string", "app_name", (project.findProperty("agentName") as String?) ?: "Agent")
+    resValue("string", "app_name", (project.findProperty("agentName") as String?) ?: "Mew")
     (project.findProperty("appIdSuffix") as String?)?.let { applicationIdSuffix = it }
   }
   signingConfigs {

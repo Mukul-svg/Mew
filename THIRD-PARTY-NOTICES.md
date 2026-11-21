@@ -62,3 +62,15 @@ may be placed on it. In this repo: `screen/helper/HelperSystem.kt`, `screen/help
 https://github.com/RikkaApps/Shizuku-API (`dev.rikka.shizuku:api` and `:provider` 13.1.5, MIT licence, Copyright (c) 2021 RikkaW)
 
 A library dependency, used unchanged, to ask Shizuku (when the person has it) to start the screen helper.
+
+## Node.js runtime
+
+The APK bundles Node.js 24 for Android, built from Termux packages, together with the runtime libraries it needs
+(OpenSSL, ICU, SQLite, c-ares, zlib and libc++). Node.js is MIT licensed; the bundled components keep their own
+licences.
+
+- Node.js: https://github.com/nodejs/node/blob/main/LICENSE
+- Termux packages: https://github.com/termux/termux-packages
+- The exact pack and its SHA-256 are pinned in `app/src/main/assets/runtime/native-manifest.json`.
+
+The Claude Code, Codex and Antigravity binaries are no longer bundled or downloaded by the shipped app.

@@ -37,11 +37,11 @@
     <string name="onb_any_openai_compatible">Enige OpenAI-versoenbare</string>
     <string name="onb_key_anthropic_1">Tik hieronder op Maak oop. Dit maak Anthropic se konsole in jou blaaier oop. Registreer of meld aan.</string>
     <string name="onb_key_anthropic_2">Gaan na Billing en voeg \'n bietjie krediet by. Jy betaal soos jy gebruik, en \'n paar dollar hou lank.</string>
-    <string name="onb_key_anthropic_3">Gaan na API keys en tik op Create key. Gee dit enige naam, soos Agent.</string>
+    <string name="onb_key_anthropic_3">Gaan na API keys en tik op Create key. Gee dit enige naam, soos Mew.</string>
     <string name="onb_key_anthropic_4">Tik op Copy, kom terug na hierdie program, plak die sleutel in die kassie hierbo en tik op Kontroleer sleutel.</string>
     <string name="onb_key_openai_1">Tik hieronder op Maak oop. Dit maak OpenAI se platform in jou blaaier oop. Registreer of meld aan. (Dit is apart van \'n ChatGPT-intekening.)</string>
     <string name="onb_key_openai_2">Gaan na Billing en voeg \'n bietjie krediet by. \'n Paar dollar hou lank.</string>
-    <string name="onb_key_openai_3">Gaan na API keys en tik op Create new secret key. Gee dit enige naam, soos Agent.</string>
+    <string name="onb_key_openai_3">Gaan na API keys en tik op Create new secret key. Gee dit enige naam, soos Mew.</string>
     <string name="onb_key_step_copy_once">Tik op Copy (jy kan die sleutel net een keer sien), kom terug hierheen, plak dit hierbo en tik op Kontroleer sleutel.</string>
     <string name="onb_key_gemini_1">Tik hieronder op Maak oop. Dit maak Google AI Studio oop. Meld aan met enige Google-rekening.</string>
     <string name="onb_key_gemini_2">Tik op Create API key. As dit jou vra om \'n projek te kies, kies die een wat dit voorstel.</string>

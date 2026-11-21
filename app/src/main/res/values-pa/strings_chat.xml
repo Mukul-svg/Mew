@@ -21,8 +21,8 @@
     <string name="chat_ready">ਤਿਆਰ</string>
     <string name="chat_switch_model">ਮਾਡਲ ਬਦਲੋ</string>
     <string name="chat_stop_reading_aloud">ਉੱਚੀ ਪੜ੍ਹਨਾ ਬੰਦ ਕਰੋ</string>
-    <string name="chat_call_your_agent">ਆਪਣੇ Agent ਨੂੰ ਕਾਲ ਕਰੋ</string>
-    <string name="chat_watch_browser">Agent ਦਾ ਬ੍ਰਾਊਜ਼ਰ ਦੇਖੋ</string>
+    <string name="chat_call_your_agent">ਆਪਣੇ Mew ਨੂੰ ਕਾਲ ਕਰੋ</string>
+    <string name="chat_watch_browser">Mew ਦਾ ਬ੍ਰਾਊਜ਼ਰ ਦੇਖੋ</string>
     <string name="chat_hi_name">ਹੈਲੋ %1$s।</string>
     <string name="chat_hi_there">ਹੈਲੋ।</string>
     <string name="chat_welcome_line">ਮੈਂ ਤੁਹਾਡਾ ਕਿਹੜਾ ਕੰਮ ਸੰਭਾਲਾਂ?</string>

@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">OpenAI uyumlu herhangi biri</string>
     <string name="onb_key_anthropic_1">Aşağıdan Aç\'a dokun. Tarayıcında Anthropic konsolu açılır. Kaydol veya oturum aç.</string>
     <string name="onb_key_anthropic_2">Billing\'e git ve biraz kredi ekle. Kullandığın kadar ödersin, birkaç dolar uzun süre yeter.</string>
-    <string name="onb_key_anthropic_3">API keys\'e git ve Create key\'e dokun. İstediğin adı ver, örneğin Agent.</string>
+    <string name="onb_key_anthropic_3">API keys\'e git ve Create key\'e dokun. İstediğin adı ver, örneğin Mew.</string>
     <string name="onb_key_anthropic_4">Kopyala\'ya dokun, bu uygulamaya dön, anahtarı yukarıdaki kutuya yapıştır ve Anahtarı kontrol et\'e dokun.</string>
     <string name="onb_key_openai_1">Aşağıdan Aç\'a dokun. Tarayıcında OpenAI platformu açılır. Kaydol veya oturum aç. (Bu, ChatGPT aboneliğinden ayrıdır.)</string>
     <string name="onb_key_openai_2">Billing\'e git ve biraz kredi ekle. Birkaç dolar uzun süre yeter.</string>
-    <string name="onb_key_openai_3">API keys\'e git ve Create new secret key\'e dokun. İstediğin adı ver, örneğin Agent.</string>
+    <string name="onb_key_openai_3">API keys\'e git ve Create new secret key\'e dokun. İstediğin adı ver, örneğin Mew.</string>
     <string name="onb_key_step_copy_once">Kopyala\'ya dokun (anahtarı yalnızca bir kez görürsün), buraya dön, yukarıya yapıştır ve Anahtarı kontrol et\'e dokun.</string>
     <string name="onb_key_gemini_1">Aşağıdan Aç\'a dokun. Google AI Studio açılır. Herhangi bir Google hesabıyla oturum aç.</string>
     <string name="onb_key_gemini_2">Create API key\'e dokun. Bir proje seçmeni isterse önerileni seç.</string>

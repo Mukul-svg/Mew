@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">VAGY HASZNÁLD AZ ÜGYNÖKÖT A SZÁMÍTÓGÉPEDEN</string>
     <string name="onb_use_on_computer">Az ügynök használata a számítógépemen</string>
-    <string name="onb_use_on_computer_sub">Olvasd be a kódot a számítógépeden vagy szervereden futó Agent alkalmazásban. Nincs kulcs ezen a telefonon.</string>
+    <string name="onb_use_on_computer_sub">Olvasd be a kódot a számítógépeden vagy szervereden futó Mew alkalmazásban. Nincs kulcs ezen a telefonon.</string>
     <string name="sub_paste_code_from">Illeszd be a kódot innen: %1$s</string>
     <string name="sub_paste_code_body_from">A böngészőben koppints az Authorize gombra. A(z) %1$s ezután megmutat egy kódot. Másold ki, térj vissza ide, és illeszd be lent.</string>
     <string name="sub_code_from">Kód innen: %1$s</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">Tesztszám hozzáadása</string>
     <string name="browser_test_number_body">Annak a WhatsApp-fióknak a száma, amellyel tesztelsz. A WhatsAppnak nem megy el semmi, és az oldal újratöltése visszavonja.</string>
     <string name="link_cant_reach">Nem sikerült elérni a számítógépet.</string>
-    <string name="link_bad_answer">A számítógép válasza értelmezhetetlen volt. Naprakész rajta az Agent alkalmazás?</string>
+    <string name="link_bad_answer">A számítógép válasza értelmezhetetlen volt. Naprakész rajta az Mew alkalmazás?</string>
     <string name="link_tried_addresses">(%1$d címet próbáltam)</string>
     <string name="link_type_address">Írd be a számítógép címét.</string>
     <string name="link_no_certificate">A számítógép nem küldött tanúsítványt.</string>
     <string name="link_failed">A társítás nem sikerült.</string>
     <string name="link_your_computer">a számítógéped</string>
-    <string name="link_not_a_code">Ez a QR-kód nem Agent társítókód.</string>
+    <string name="link_not_a_code">Ez a QR-kód nem Mew társítókód.</string>
     <string name="link_subtitle">Társítsd ezt a telefont egy számítógéppel vagy szerverrel</string>
     <string name="link_linked_to">Társítva: %1$s</string>
     <string name="link_runs_on">Az ügynököd ezen fut: %1$s. Ez a telefon a csevegését, memóriáját, feladatait és rutinjait mutatja, és nem tárol hozzá MI-kulcsokat.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">Társítás: %1$s</string>
     <string name="link_keep">%1$s megtartása</string>
     <string name="link_linking_to">Társítás: %1$s...</string>
-    <string name="link_how_to">A számítógépen nyisd meg az Agent alkalmazást, és menj a Beállítások, Eszközök, Eszköz hozzáadása részre.</string>
+    <string name="link_how_to">A számítógépen nyisd meg az Mew alkalmazást, és menj a Beállítások, Eszközök, Eszköz hozzáadása részre.</string>
     <string name="link_how_type">Írd be a címet és a megjelenő kódot.</string>
     <string name="link_how_scan">Irányítsd ezt a kamerát a megjelenő kódra.</string>
     <string name="link_allow_camera">Kamera engedélyezése</string>
@@ -273,7 +273,7 @@
     <string name="proj_new_chat_line">Ami eddig elhangzott, a memóriába kerül, ez az ablak pedig üres lesz. A számítógépeden semmi sem törlődik.</string>
     <string name="proj_new_chat">Új csevegés</string>
     <string name="proj_not_linked_now">Most nincs társítva számítógéphez.</string>
-    <string name="proj_computer_older">A számítógéped Agent alkalmazása régebbi ennél, ezért nem tud ott új csevegést indítani. Frissítsd a számítógépen, aztán próbáld újra.</string>
+    <string name="proj_computer_older">A számítógéped Mew alkalmazása régebbi ennél, ezért nem tud ott új csevegést indítani. Frissítsd a számítógépen, aztán próbáld újra.</string>
     <string name="proj_unreachable">A számítógéped nem érhető el. Próbáld újra, ha visszatért.</string>
     <string name="proj_photo_you_sent">A fotó, amit küldtél</string>
     <string name="proj_start_chat_failed">Nem sikerült csevegést indítani itt: „%1$s”: %2$s.</string>
@@ -371,7 +371,7 @@
     <string name="wake_up_your_computer">a számítógéped</string>
     <string name="wake_up_reaches">Eléri ezt a telefont</string>
     <string name="wake_up_link_first">Előbb társítsd ezt a telefont a számítógéppel (Beállítások > Társított eszközök)</string>
-    <string name="wake_up_lacks">%1$s még nem tudja csörgetni ezt a telefont: frissítsd ott az Agent alkalmazást</string>
+    <string name="wake_up_lacks">%1$s még nem tudja csörgetni ezt a telefont: frissítsd ott az Mew alkalmazást</string>
     <string name="wake_up_connected">Csatlakozva ehhez: %1$s</string>
     <string name="wake_up_not_connected">Most nincs kapcsolat. Próbálkozik tovább.</string>
     <string name="wake_up_test">Ébresztés tesztelése</string>
@@ -407,7 +407,7 @@
     <string name="media_play">Zene és videó lejátszása</string>
     <string name="media_intro">Amikor megkéred az ügynököd, hogy játsszon le valamit, az itt kiválasztott alkalmazást használja. Automatikus módban a telefon alapértelmezettjét, majd bármely, keresésből lejátszani tudó alkalmazást.</string>
     <string name="media_access_off">Az értesítések elérése ki van kapcsolva</string>
-    <string name="media_access_body">Az Android csak akkor mutatja, mi szól, és csak akkor engedi az ügynöknek a szüneteltetést vagy ugrást, ha az Agent hozzáfér az értesítésekhez.</string>
+    <string name="media_access_body">Az Android csak akkor mutatja, mi szól, és csak akkor engedi az ügynöknek a szüneteltetést vagy ugrást, ha az Mew hozzáfér az értesítésekhez.</string>
     <string name="media_none">Ezen a telefonon egyik alkalmazás sem jelzi, hogy zenét vagy videót tudna lejátszani az ügynöködnek. Telepíts egy zenealkalmazást, és megjelenik itt.</string>
     <string name="media_music_app">Zenealkalmazás</string>
     <string name="media_video_app">Videóalkalmazás</string>
@@ -653,7 +653,7 @@
     <string name="main_your_computer">a számítógéped</string>
     <string name="main_a_computer">egy számítógép</string>
     <string name="main_whatever_agent_runs">Bármin fut az ügynököd</string>
-    <string name="rt_clear_computer_older">A telefon csevegése törölve. A számítógépé nem: az azon lévő Agent alkalmazás régebbi ennél, ezért nem tud új csevegést indítani. Frissítsd az alkalmazást a számítógépen, majd töröld újra.</string>
+    <string name="rt_clear_computer_older">A telefon csevegése törölve. A számítógépé nem: az azon lévő Mew alkalmazás régebbi ennél, ezért nem tud új csevegést indítani. Frissítsd az alkalmazást a számítógépen, majd töröld újra.</string>
     <string name="rt_clear_unreachable">A telefon csevegése törölve. A számítógéped most nem volt elérhető, ezért az ő csevegése megmaradt, és szinkronizáláskor újra megjelenik. Töröld újra, ha visszatért.</string>
     <string name="assist_type_it_instead">Inkább gépeld be</string>
     <string name="assist_unlock_to_carry_on">Oldd fel a folytatáshoz</string>
@@ -704,6 +704,10 @@
     <string name="assist_over_lock_line">Ki: előbb oldd fel a telefont, aztán hívd elő. Be: zárolt telefonon is megnyílik, és a kérésed feloldás után megy el.</string>
     <string name="assist_live_voice">Élő hang az asszisztensben</string>
     <string name="assist_live_voice_line">Ki: elmondasz egy kérést, és válaszol. Be: beszélj természetesen, %1$s azonnal hangosan válaszol, közbeszólhatsz, a munkákat az ügynöködre bízza, és elmondja az eredményt.</string>
+    <string name="assist_talk">Beszélgetés folytatása</string>
+    <string name="assist_talk_line">Mint egy hívás: a(z) %1$s hangosan felolvassa minden választ, majd újra figyel, amíg viszlátot nem mondasz vagy a Vége gombra nem koppintasz. A felhőhangodat használja, egyébként a telefon saját hangját.</string>
+    <string name="assist_talk_end">Vége</string>
+    <string name="assist_talk_interrupt">Megszakítás</string>
     <string name="assist_never_reads_money">Soha nem olvas banki, fizetési vagy pénzügyi alkalmazásokat, egyik kapcsoló mellett sem. Amit olvas, csak arra a kérésre használja.</string>
     <string name="live_bubble_desc">Élő hang. Koppints a megnyitáshoz</string>
     <string name="live_end_session">Élő munkamenet befejezése</string>

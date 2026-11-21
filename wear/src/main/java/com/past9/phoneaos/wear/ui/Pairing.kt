@@ -50,7 +50,7 @@ object QrMatrix {
 enum class PairStage { SCAN, PULLING, DONE }
 
 /**
- * First open on the watch: a QR for the Agent phone app's camera and a short code; then the agent pulling its settings (name, mascot,
+ * First open on the watch: a QR for the Mew phone app's camera and a short code; then the agent pulling its settings (name, mascot,
  * accent) with the steps ticking; then it shows the name and the mascot it was given. What pairs, and what the code means, is the
  * engine's; this draws it.
  */

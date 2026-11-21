@@ -291,7 +291,7 @@
         <item quantity="many">%1$d aplikacji, które agent może czytać</item>
         <item quantity="other">%1$d aplikacji, które agent może czytać</item>
     </plurals>
-    <string name="notif_intro">Agent dużo uczy się z twoich powiadomień: alertów bankowych, dostaw, wiadomości. Czyta tylko aplikacje, które tu włączysz, i trzyma ich tydzień historii na tym telefonie.</string>
+    <string name="notif_intro">Mew dużo uczy się z twoich powiadomień: alertów bankowych, dostaw, wiadomości. Czyta tylko aplikacje, które tu włączysz, i trzyma ich tydzień historii na tym telefonie.</string>
     <string name="notif_access_off">DOSTĘP DO POWIADOMIEŃ JEST WYŁĄCZONY</string>
     <string name="notif_access_body">Włącz go dla tej aplikacji w ustawieniach Androida. Jeśli Android mówi, że to ustawienie z ograniczeniami, otwórz informacje o aplikacji, dotknij menu ⋮, a potem Zezwól na ustawienia z ograniczeniami.</string>
     <string name="notif_open_settings">Otwórz ustawienia</string>
@@ -380,7 +380,7 @@
         <item quantity="many">Zaimportowano %1$d stron</item>
         <item quantity="other">Zaimportowano %1$d strony</item>
     </plurals>
-    <string name="memory_import_sub">Agent może je teraz przeszukiwać.</string>
+    <string name="memory_import_sub">Mew może je teraz przeszukiwać.</string>
     <string name="memory_row_new">Nowa</string>
     <string name="memory_row_updated">Zaktualizowana</string>
     <string name="memory_row_skipped">Już jest</string>

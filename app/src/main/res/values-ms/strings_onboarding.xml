@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">Mana-mana yang serasi dengan OpenAI</string>
     <string name="onb_key_anthropic_1">Ketik Buka di bawah. Ia membuka konsol Anthropic dalam pelayar anda. Daftar atau log masuk.</string>
     <string name="onb_key_anthropic_2">Pergi ke Billing dan tambah sedikit kredit. Ia bayar mengikut penggunaan, dan beberapa dolar bertahan lama.</string>
-    <string name="onb_key_anthropic_3">Pergi ke API keys dan ketik Create key. Namakan apa-apa sahaja, seperti Agent.</string>
+    <string name="onb_key_anthropic_3">Pergi ke API keys dan ketik Create key. Namakan apa-apa sahaja, seperti Mew.</string>
     <string name="onb_key_anthropic_4">Ketik Copy, kembali ke aplikasi ini, tampal kunci dalam kotak di atas dan ketik Check key.</string>
     <string name="onb_key_openai_1">Ketik Buka di bawah. Ia membuka platform OpenAI dalam pelayar anda. Daftar atau log masuk. (Ini berasingan daripada langganan ChatGPT.)</string>
     <string name="onb_key_openai_2">Pergi ke Billing dan tambah sedikit kredit. Beberapa dolar bertahan lama.</string>
-    <string name="onb_key_openai_3">Pergi ke API keys dan ketik Create new secret key. Namakan apa-apa sahaja, seperti Agent.</string>
+    <string name="onb_key_openai_3">Pergi ke API keys dan ketik Create new secret key. Namakan apa-apa sahaja, seperti Mew.</string>
     <string name="onb_key_step_copy_once">Ketik Copy (anda hanya boleh melihat kunci sekali), kembali ke sini, tampal di atas dan ketik Check key.</string>
     <string name="onb_key_gemini_1">Ketik Buka di bawah. Ia membuka Google AI Studio. Log masuk dengan mana-mana akaun Google.</string>
     <string name="onb_key_gemini_2">Ketik Create API key. Jika ia meminta anda memilih projek, pilih yang dicadangkan.</string>

@@ -15,7 +15,12 @@ enum class SubKind(val label: String, @androidx.annotation.StringRes val plan: I
     CLAUDE("Claude", com.past9.phoneaos.R.string.data_sub_claude_plan, com.past9.phoneaos.R.string.data_sub_claude_line, com.past9.phoneaos.R.string.data_sub_claude_needs_pack),
     CODEX("ChatGPT", com.past9.phoneaos.R.string.data_sub_codex_plan, com.past9.phoneaos.R.string.data_sub_codex_line, com.past9.phoneaos.R.string.data_sub_codex_needs_pack),
     OPENCODE("OpenCode", com.past9.phoneaos.R.string.data_sub_opencode_plan, com.past9.phoneaos.R.string.data_sub_opencode_line, com.past9.phoneaos.R.string.data_sub_opencode_line),
-    ANTIGRAVITY("Antigravity", com.past9.phoneaos.R.string.data_sub_antigravity_plan, com.past9.phoneaos.R.string.data_sub_antigravity_line, com.past9.phoneaos.R.string.data_sub_antigravity_line),
+    ANTIGRAVITY("Antigravity", com.past9.phoneaos.R.string.data_sub_antigravity_plan, com.past9.phoneaos.R.string.data_sub_antigravity_line, com.past9.phoneaos.R.string.data_sub_antigravity_line);
+
+    companion object {
+        /** The only subscription-style choice offered in 0.16.0; OpenCode routes to its API-key provider. */
+        val selectable = listOf(OPENCODE)
+    }
 }
 
 enum class Provider(val label: String, val defaultModel: String, val helperModel: String, val baseUrl: String, val keyHint: String) {

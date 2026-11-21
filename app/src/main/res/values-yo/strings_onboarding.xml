@@ -13,7 +13,7 @@
     <string name="onb_continue">Tẹ̀síwájú</string>
     <string name="onb_name_hint">Orúkọ rẹ</string>
     <string name="onb_name_agent_q">ÀTI KÍ NI KÍ O MÁA PÈ MÍ?</string>
-    <string name="onb_your_agent">Agent rẹ</string>
+    <string name="onb_your_agent">Mew rẹ</string>
     <string name="onb_name_optional">Kò pọn dandan. Fún mi ní orúkọ tí o bá fẹ́.</string>
     <string name="onb_nice_to_meet_named">Inú mi dùn láti pàdé rẹ, %1$s. Èmi ni %2$s.</string>
     <string name="onb_nice_to_meet">Inú mi dùn láti pàdé rẹ, %1$s.</string>
@@ -30,7 +30,7 @@
     <string name="onb_your_sidekick">ALÁBÀÁRÙ RẸ</string>
     <string name="onb_power_eyebrow">Agbára</string>
     <string name="onb_power_title">Báwo ni o ṣe fẹ́ fún agent rẹ lágbára?</string>
-    <string name="onb_power_line">Agent rẹ ń ronú pẹ̀lú Ai tí o ti ń sanwó fún tẹ́lẹ̀. O lè yípadà nígbàkigbà.</string>
+    <string name="onb_power_line">Mew rẹ ń ronú pẹ̀lú Ai tí o ti ń sanwó fún tẹ́lẹ̀. O lè yípadà nígbàkigbà.</string>
     <string name="onb_power_sub_header">LO ÌFORÚKỌSÍLẸ̀ TÍ O TI NÍ</string>
     <string name="onb_power_key_header">TÀBÍ MÚ KỌ́KỌ́RỌ́ API WÁ</string>
     <string name="onb_have_key">Mo ní kọ́kọ́rọ́ API</string>
@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">Èyíkéyìí tó bá OpenAI mu</string>
     <string name="onb_key_anthropic_1">Tẹ Open ní ìsàlẹ̀. Ó ń ṣí console Anthropic nínú aṣàwákiri rẹ. Forúkọ sílẹ̀ tàbí wọlé.</string>
     <string name="onb_key_anthropic_2">Lọ sí Billing kí o sì fi kírẹ́dítì díẹ̀ kún un. Ìsanwó bí o ṣe ń lò ni, àwọn dọ́là díẹ̀ sì máa ń pẹ́.</string>
-    <string name="onb_key_anthropic_3">Lọ sí API keys kí o sì tẹ Create key. Sọ ọ́ ní orúkọ èyíkéyìí, bíi Agent.</string>
+    <string name="onb_key_anthropic_3">Lọ sí API keys kí o sì tẹ Create key. Sọ ọ́ ní orúkọ èyíkéyìí, bíi Mew.</string>
     <string name="onb_key_anthropic_4">Tẹ Copy, padà sínú app yìí, lẹ kọ́kọ́rọ́ náà sínú àpótí tó wà lókè kí o sì tẹ Check key.</string>
     <string name="onb_key_openai_1">Tẹ Open ní ìsàlẹ̀. Ó ń ṣí pẹpẹ OpenAI nínú aṣàwákiri rẹ. Forúkọ sílẹ̀ tàbí wọlé. (Èyí yàtọ̀ sí ChatGPT subscription.)</string>
     <string name="onb_key_openai_2">Lọ sí Billing kí o sì fi kírẹ́dítì díẹ̀ kún un. Àwọn dọ́là díẹ̀ máa ń pẹ́.</string>
-    <string name="onb_key_openai_3">Lọ sí API keys kí o sì tẹ Create new secret key. Sọ ọ́ ní orúkọ èyíkéyìí, bíi Agent.</string>
+    <string name="onb_key_openai_3">Lọ sí API keys kí o sì tẹ Create new secret key. Sọ ọ́ ní orúkọ èyíkéyìí, bíi Mew.</string>
     <string name="onb_key_step_copy_once">Tẹ Copy (o lè rí kọ́kọ́rọ́ náà lẹ́ẹ̀kan péré), padà wá síbí, lẹ̀ ẹ́ lókè kí o sì tẹ Check key.</string>
     <string name="onb_key_gemini_1">Tẹ Open ní ìsàlẹ̀. Ó ń ṣí Google AI Studio. Wọlé pẹ̀lú àkáǹtì Google èyíkéyìí.</string>
     <string name="onb_key_gemini_2">Tẹ Create API key. Tí ó bá ní kí o yan project, yan èyí tó dá a lábàá.</string>
@@ -94,7 +94,7 @@
     <string name="onb_continue_anyway">Tẹ̀síwájú lọ́nàkọnà</string>
     <string name="onb_what_happens">OHUN TÓ Ń ṢẸLẸ̀</string>
     <string name="onb_sub_step_1">À ń ṣí ìgbà ṣíṣiṣẹ́ kékeré sínú app. Kò sí ohun míràn láti gbà.</string>
-    <string name="onb_sub_step_2">Agent %1$s ni a fi sínú rẹ̀.</string>
+    <string name="onb_sub_step_2">Mew %1$s ni a fi sínú rẹ̀.</string>
     <string name="onb_sub_step_3">O ń wọlé pẹ̀lú àkáǹtì %1$s rẹ.</string>
     <string name="onb_sub_step_4">Yípadà sí kọ́kọ́rọ́ API lẹ́yìn náà a ó pa ìgbà ṣíṣiṣẹ́ rẹ́ láti dá àyè sílẹ̀.</string>
     <string name="onb_sub_unavailable">Ẹ̀yà yìí kò ní àpò ìgbà ṣíṣiṣẹ́ %1$s síbẹ̀. Lo kọ́kọ́rọ́ API fún ìsinsìnyí; ìrántí rẹ, àwọn iṣẹ́ àti àwọn routine ń tẹ̀lé ọ nígbà tí o bá yípadà.</string>
@@ -120,7 +120,7 @@
     <string name="sub_setup_stopped">Ìṣètò ti dúró.</string>
     <string name="sub_try_again">Gbìyànjú lẹ́ẹ̀kan sí i</string>
     <string name="sub_signed_in">O ti wọlé sí %1$s</string>
-    <string name="sub_runs_on_plan">Agent rẹ ń ṣiṣẹ́ báyìí lórí ètò %1$s rẹ.</string>
+    <string name="sub_runs_on_plan">Mew rẹ ń ṣiṣẹ́ báyìí lórí ètò %1$s rẹ.</string>
     <string name="sub_model">ÀWÒṢE</string>
     <string name="sub_default">Ìpìlẹ̀</string>
     <string name="sub_change">Yípadà</string>
@@ -231,7 +231,7 @@
     <string name="rel_calendar_on">Ìkìlọ̀ ṣáájú àwọn ìpàdé, àwọn ohun tó yẹ kí a ṣe lẹ́yìn</string>
     <string name="rel_calendar_off">Kò pọn dandan: tẹ̀ fún àwọn ìkìlọ̀ ìpàdé àti àwọn ohun tó yẹ kí a ṣe</string>
     <string name="rel_quiet_hours">Àwọn wákàtí ìdákẹ́jẹ́ẹ́</string>
-    <string name="rel_quiet_body">Agent rẹ kò ní mú nǹkan kan wá fúnra rẹ̀ ní àwọn wákàtí wọ̀nyí. Àwọn ìrántí tí o ṣètò fún àkókò kan ṣì máa ń dún.</string>
+    <string name="rel_quiet_body">Mew rẹ kò ní mú nǹkan kan wá fúnra rẹ̀ ní àwọn wákàtí wọ̀nyí. Àwọn ìrántí tí o ṣètò fún àkókò kan ṣì máa ń dún.</string>
     <string name="rel_off">Ní pípa</string>
     <string name="rel_quiet_range">%1$s sí %2$s</string>
     <string name="rel_samsung_title">Lórí Samsung, pẹ̀lú:</string>

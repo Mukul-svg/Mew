@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">या अपने कंप्यूटर पर एजेंट इस्तेमाल करें</string>
     <string name="onb_use_on_computer">मेरे कंप्यूटर पर एजेंट इस्तेमाल करें</string>
-    <string name="onb_use_on_computer_sub">अपने कंप्यूटर या सर्वर के Agent ऐप में दिया कोड स्कैन करें। इस फ़ोन पर कोई की नहीं रहती।</string>
+    <string name="onb_use_on_computer_sub">अपने कंप्यूटर या सर्वर के Mew ऐप में दिया कोड स्कैन करें। इस फ़ोन पर कोई की नहीं रहती।</string>
     <string name="sub_paste_code_from">%1$s से मिला कोड पेस्ट करें</string>
     <string name="sub_paste_code_body_from">ब्राउज़र में Authorize पर टैप करें। फिर %1$s एक कोड दिखाता है। उसे कॉपी करें, यहाँ लौटें और नीचे पेस्ट करें।</string>
     <string name="sub_code_from">%1$s से कोड</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">टेस्ट नंबर जोड़ें</string>
     <string name="browser_test_number_body">उस WhatsApp खाते का नंबर जिससे आप टेस्ट करते हैं। WhatsApp को कुछ नहीं भेजा जाता, और पेज रीलोड करने पर यह हट जाता है।</string>
     <string name="link_cant_reach">कंप्यूटर तक नहीं पहुँच सके।</string>
-    <string name="link_bad_answer">कंप्यूटर का जवाब समझ नहीं आया। क्या उसका Agent ऐप अपडेट है?</string>
+    <string name="link_bad_answer">कंप्यूटर का जवाब समझ नहीं आया। क्या उसका Mew ऐप अपडेट है?</string>
     <string name="link_tried_addresses">(%1$d पते आज़माए गए)</string>
     <string name="link_type_address">कंप्यूटर का पता टाइप करें।</string>
     <string name="link_no_certificate">कंप्यूटर ने कोई सर्टिफ़िकेट नहीं भेजा।</string>
     <string name="link_failed">लिंक करना विफल रहा।</string>
     <string name="link_your_computer">आपका कंप्यूटर</string>
-    <string name="link_not_a_code">वह QR कोड Agent लिंक कोड नहीं है।</string>
+    <string name="link_not_a_code">वह QR कोड Mew लिंक कोड नहीं है।</string>
     <string name="link_subtitle">इस फ़ोन को किसी कंप्यूटर या सर्वर से लिंक करें</string>
     <string name="link_linked_to">%1$s से लिंक है</string>
     <string name="link_runs_on">आपका एजेंट %1$s पर चलता है। यह फ़ोन उसकी चैट, मेमोरी, कार्य और रूटीन दिखाता है, और उसके लिए कोई AI की नहीं रखता।</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">%1$s से लिंक करें</string>
     <string name="link_keep">%1$s को रखें</string>
     <string name="link_linking_to">%1$s से लिंक हो रहा है...</string>
-    <string name="link_how_to">अपने कंप्यूटर पर Agent ऐप खोलें और सेटिंग, डिवाइस, डिवाइस जोड़ें पर जाएँ।</string>
+    <string name="link_how_to">अपने कंप्यूटर पर Mew ऐप खोलें और सेटिंग, डिवाइस, डिवाइस जोड़ें पर जाएँ।</string>
     <string name="link_how_type">पता और उसके द्वारा दिखाया गया कोड टाइप करें।</string>
     <string name="link_how_scan">इस कैमरे को उसके दिखाए कोड की ओर करें।</string>
     <string name="link_allow_camera">कैमरे की अनुमति दें</string>
@@ -273,7 +273,7 @@
     <string name="proj_new_chat_line">अब तक जो कहा गया वह मेमोरी में सहेजा जाता है और यह विंडो खाली शुरू होती है। आपके कंप्यूटर पर कुछ नहीं हटाया जाता।</string>
     <string name="proj_new_chat">नई चैट</string>
     <string name="proj_not_linked_now">अभी कंप्यूटर से लिंक नहीं है।</string>
-    <string name="proj_computer_older">आपके कंप्यूटर का Agent ऐप इससे पुराना है, इसलिए वहाँ नई चैट शुरू नहीं कर सकता। उसे अपने कंप्यूटर पर अपडेट करें, फिर कोशिश करें।</string>
+    <string name="proj_computer_older">आपके कंप्यूटर का Mew ऐप इससे पुराना है, इसलिए वहाँ नई चैट शुरू नहीं कर सकता। उसे अपने कंप्यूटर पर अपडेट करें, फिर कोशिश करें।</string>
     <string name="proj_unreachable">आपके कंप्यूटर तक नहीं पहुँचा जा सका। जब वह वापस आए तब फिर कोशिश करें।</string>
     <string name="proj_photo_you_sent">आपका भेजा हुआ फ़ोटो</string>
     <string name="proj_start_chat_failed">%1$s में चैट शुरू नहीं हो सकी: %2$s।</string>
@@ -371,14 +371,14 @@
     <string name="wake_up_your_computer">आपका कंप्यूटर</string>
     <string name="wake_up_reaches">इस फ़ोन तक पहुँचता है</string>
     <string name="wake_up_link_first">पहले इस फ़ोन को अपने कंप्यूटर से लिंक करें (सेटिंग &gt; लिंक किए गए डिवाइस)</string>
-    <string name="wake_up_lacks">%1$s अभी इस फ़ोन को नहीं बजा सकता: वहाँ Agent ऐप अपडेट करें</string>
+    <string name="wake_up_lacks">%1$s अभी इस फ़ोन को नहीं बजा सकता: वहाँ Mew ऐप अपडेट करें</string>
     <string name="wake_up_connected">%1$s से कनेक्टेड</string>
     <string name="wake_up_not_connected">अभी कनेक्ट नहीं है। यह कोशिश करता रहता है।</string>
     <string name="wake_up_test">वेक-अप टेस्ट करें</string>
     <string name="wake_up_test_body">यह फ़ोन को सचमुच बजाता है। रोकने के लिए जवाब दें।</string>
     <string name="wake_up_test_sent">%1$s टेस्ट भेजा गया।</string>
     <string name="wake_up_not_sent">यह नहीं गया।</string>
-    <string name="wake_up_secure_folder">Agent को सामान्य तरीके से इंस्टॉल करें (Secure Folder के अंदर नहीं): लॉक्ड Secure Folder नहीं बज सकता।</string>
+    <string name="wake_up_secure_folder">Mew को सामान्य तरीके से इंस्टॉल करें (Secure Folder के अंदर नहीं): लॉक्ड Secure Folder नहीं बज सकता।</string>
     <string name="rec_recording_now">अभी रिकॉर्ड हो रहा है</string>
     <string name="rec_cut_off">कट गया</string>
     <string name="rec_partly">कुछ हिस्सा लिखा नहीं गया</string>
@@ -407,7 +407,7 @@
     <string name="media_play">संगीत और वीडियो चलाएँ</string>
     <string name="media_intro">जब आप एजेंट से कुछ चलाने को कहते हैं, वह यहाँ चुना ऐप इस्तेमाल करता है। अपने आप पर छोड़ने पर वह आपके फ़ोन का डिफ़ॉल्ट इस्तेमाल करता है, फिर खोज से चला सकने वाला कोई भी ऐप।</string>
     <string name="media_access_off">नोटिफ़िकेशन एक्सेस बंद है</string>
-    <string name="media_access_body">Agent को नोटिफ़िकेशन एक्सेस मिलने पर ही Android दिखाता है कि क्या चल रहा है, और आपके एजेंट को रोकने या छोड़ने देता है।</string>
+    <string name="media_access_body">Mew को नोटिफ़िकेशन एक्सेस मिलने पर ही Android दिखाता है कि क्या चल रहा है, और आपके एजेंट को रोकने या छोड़ने देता है।</string>
     <string name="media_none">इस फ़ोन में कोई ऐप नहीं कहता कि वह आपके एजेंट के लिए संगीत या वीडियो चला सकता है। कोई म्यूज़िक ऐप इंस्टॉल करें, वह यहाँ दिखेगा।</string>
     <string name="media_music_app">म्यूज़िक ऐप</string>
     <string name="media_video_app">वीडियो ऐप</string>
@@ -653,7 +653,7 @@
     <string name="main_your_computer">आपका कंप्यूटर</string>
     <string name="main_a_computer">एक कंप्यूटर</string>
     <string name="main_whatever_agent_runs">जहाँ भी आपका एजेंट चलता है</string>
-    <string name="rt_clear_computer_older">इस फ़ोन की चैट साफ़ हो गई। आपके कंप्यूटर की नहीं हुई: वहाँ का Agent ऐप इससे पुराना है, इसलिए नई चैट शुरू नहीं कर सकता। अपने कंप्यूटर पर ऐप अपडेट करें, फिर दोबारा साफ़ करें।</string>
+    <string name="rt_clear_computer_older">इस फ़ोन की चैट साफ़ हो गई। आपके कंप्यूटर की नहीं हुई: वहाँ का Mew ऐप इससे पुराना है, इसलिए नई चैट शुरू नहीं कर सकता। अपने कंप्यूटर पर ऐप अपडेट करें, फिर दोबारा साफ़ करें।</string>
     <string name="rt_clear_unreachable">इस फ़ोन की चैट साफ़ हो गई। आपके कंप्यूटर तक अभी पहुँचा नहीं जा सका, इसलिए उसकी चैट अभी भी है और सिंक होने पर फिर दिखेगी। कंप्यूटर वापस आने पर दोबारा साफ़ करें।</string>
     <string name="assist_type_it_instead">इसकी जगह टाइप करें</string>
     <string name="assist_unlock_to_carry_on">जारी रखने के लिए अनलॉक करें</string>
@@ -704,6 +704,10 @@
     <string name="assist_over_lock_line">बंद: पहले फ़ोन अनलॉक करें, फिर बुलाएँ। चालू: यह लॉक फ़ोन पर खुलता है और आपके अनलॉक करने पर आपका अनुरोध भेज देता है।</string>
     <string name="assist_live_voice">असिस्टेंट में लाइव आवाज़</string>
     <string name="assist_live_voice_line">बंद: आप एक अनुरोध बोलते हैं और यह जवाब देता है। चालू: स्वाभाविक रूप से बात करें, %1$s तुरंत ज़ोर से जवाब देता है, आप बीच में बोल सकते हैं, और यह काम आपके एजेंट को सौंपकर आपको नतीजा बताता है।</string>
+    <string name="assist_talk">बातचीत जारी रखें</string>
+    <string name="assist_talk_line">कॉल की तरह: %1$s हर जवाब ज़ोर से पढ़ता है और फिर सुनता है, जब तक आप अलविदा न कहें या अंत न टैप करें। आपकी क्लाउड आवाज़ इस्तेमाल करता है, या सेटअप न होने पर फ़ोन की अपनी आवाज़।</string>
+    <string name="assist_talk_end">अंत</string>
+    <string name="assist_talk_interrupt">रोकें</string>
     <string name="assist_never_reads_money">कोई भी स्विच चालू हो, यह बैंकिंग, भुगतान या पैसों के ऐप कभी नहीं पढ़ता। जो पढ़ा जाता है वह सिर्फ़ उसी अनुरोध के लिए इस्तेमाल होता है।</string>
     <string name="live_bubble_desc">लाइव आवाज़। खोलने के लिए टैप करें</string>
     <string name="live_end_session">लाइव सेशन समाप्त करें</string>

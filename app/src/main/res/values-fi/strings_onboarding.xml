@@ -37,11 +37,11 @@
     <string name="onb_any_openai_compatible">Mikä tahansa OpenAI-yhteensopiva</string>
     <string name="onb_key_anthropic_1">Napauta alla Avaa. Se avaa Anthropicin konsolin selaimessasi. Rekisteröidy tai kirjaudu.</string>
     <string name="onb_key_anthropic_2">Siirry kohtaan Billing ja lisää vähän luottoa. Maksat käytön mukaan, ja muutama dollari riittää pitkään.</string>
-    <string name="onb_key_anthropic_3">Siirry kohtaan API keys ja napauta Create key. Anna sille mikä tahansa nimi, vaikka Agent.</string>
+    <string name="onb_key_anthropic_3">Siirry kohtaan API keys ja napauta Create key. Anna sille mikä tahansa nimi, vaikka Mew.</string>
     <string name="onb_key_anthropic_4">Napauta Copy, palaa tähän sovellukseen, liitä avain yllä olevaan kenttään ja napauta Tarkista avain.</string>
     <string name="onb_key_openai_1">Napauta alla Avaa. Se avaa OpenAI:n alustan selaimessasi. Rekisteröidy tai kirjaudu. (Tämä on erillinen ChatGPT-tilauksesta.)</string>
     <string name="onb_key_openai_2">Siirry kohtaan Billing ja lisää vähän luottoa. Muutama dollari riittää pitkään.</string>
-    <string name="onb_key_openai_3">Siirry kohtaan API keys ja napauta Create new secret key. Anna sille mikä tahansa nimi, vaikka Agent.</string>
+    <string name="onb_key_openai_3">Siirry kohtaan API keys ja napauta Create new secret key. Anna sille mikä tahansa nimi, vaikka Mew.</string>
     <string name="onb_key_step_copy_once">Napauta Copy (avaimen näet vain kerran), palaa tänne, liitä se yllä olevaan kenttään ja napauta Tarkista avain.</string>
     <string name="onb_key_gemini_1">Napauta alla Avaa. Se avaa Google AI Studion. Kirjaudu millä tahansa Google-tilillä.</string>
     <string name="onb_key_gemini_2">Napauta Create API key. Jos se pyytää valitsemaan projektin, valitse sen ehdottama.</string>

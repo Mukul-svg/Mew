@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">KGOTSA DIRISA MOEMEDI MO KHOMPHIUTHENG YA GAGO</string>
     <string name="onb_use_on_computer">Dirisa moemedi mo khomphiutheng ya me</string>
-    <string name="onb_use_on_computer_sub">Skena khoutu mo app ya Agent mo khomphiutheng kgotsa seveng ya gago. Ga go dinotlolo mo mogaleng ono.</string>
+    <string name="onb_use_on_computer_sub">Skena khoutu mo app ya Mew mo khomphiutheng kgotsa seveng ya gago. Ga go dinotlolo mo mogaleng ono.</string>
     <string name="sub_paste_code_from">Kopanya khoutu e e tswang kwa go %1$s</string>
     <string name="sub_paste_code_body_from">Mo sebatlining: kgotla Letla. %1$s e bo e bontsha khoutu. E kopele, o boele fano, mme o e kopanye kafa tlase.</string>
     <string name="sub_code_from">Khoutu e e tswang kwa go %1$s</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">Oketsa nomoro ya teko</string>
     <string name="browser_test_number_body">Nomoro ya akhaonto ya WhatsApp e o e tlhatlhobang ka yone. Ga go sepe se se romelwang kwa WhatsApp, mme go tsenya tsebe gape go e phimola.</string>
     <string name="link_cant_reach">Ga e a kgona go fitlhelela khomphiutha.</string>
-    <string name="link_bad_answer">Karabo ya khomphiutha ga e utlwale. A app ya yone ya Agent e nchafaditswe?</string>
+    <string name="link_bad_answer">Karabo ya khomphiutha ga e utlwale. A app ya yone ya Mew e nchafaditswe?</string>
     <string name="link_tried_addresses">(go lekilwe diaterese tse %1$d)</string>
     <string name="link_type_address">Tsenya aterese ya khomphiutha.</string>
     <string name="link_no_certificate">Khomphiutha ga e a romela setifikeiti.</string>
     <string name="link_failed">Go golagana go palelwe.</string>
     <string name="link_your_computer">khomphiutha ya gago</string>
-    <string name="link_not_a_code">Khoutu eo ya QR ga se khoutu ya go golagana ya Agent.</string>
+    <string name="link_not_a_code">Khoutu eo ya QR ga se khoutu ya go golagana ya Mew.</string>
     <string name="link_subtitle">Golaganya mogala ono le khomphiutha kgotsa seva</string>
     <string name="link_linked_to">E golagantswe le %1$s</string>
     <string name="link_runs_on">Moemedi wa gago o dira mo go %1$s. Mogala ono o bontsha puisano ya yone, segopotso, ditiro le di-routine, mme ga o na dinotlolo tsa Ai tsa yone.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">Golagana le %1$s</string>
     <string name="link_keep">Boloka %1$s</string>
     <string name="link_linking_to">E a golagana le %1$s...</string>
-    <string name="link_how_to">Mo khomphiutheng ya gago, bula app ya Agent mme o ye kwa Ditlhophisong, Didirisiwa, Oketsa sediriswa.</string>
+    <string name="link_how_to">Mo khomphiutheng ya gago, bula app ya Mew mme o ye kwa Ditlhophisong, Didirisiwa, Oketsa sediriswa.</string>
     <string name="link_how_type">Tsenya aterese le khoutu e e e bontshang.</string>
     <string name="link_how_scan">Supa khamera eno kwa khoutung e e e bontshang.</string>
     <string name="link_allow_camera">Letla khamera</string>
@@ -273,7 +273,7 @@
     <string name="proj_new_chat_line">Se se builweng go fitlha jaanong se bolokwa mo segopotsong mme fenstere eno e simolola e se na sepe. Ga go sepe se se phimolwang mo khomphiutheng ya gago.</string>
     <string name="proj_new_chat">Puisano e ntšha</string>
     <string name="proj_not_linked_now">Ga e a golaganngwa le khomphiutha jaanong.</string>
-    <string name="proj_computer_older">App ya Agent mo khomphiutheng ya gago e bogologolo go feta eno, ka jalo ga e kgone go simolola puisano e ntšha foo. E nchafatse mo khomphiutheng ya gago, mme o leke gape.</string>
+    <string name="proj_computer_older">App ya Mew mo khomphiutheng ya gago e bogologolo go feta eno, ka jalo ga e kgone go simolola puisano e ntšha foo. E nchafatse mo khomphiutheng ya gago, mme o leke gape.</string>
     <string name="proj_unreachable">Khomphiutha ya gago ga e a fitlhelelega. Leka gape fa e boile.</string>
     <string name="proj_photo_you_sent">Setshwantsho se o se rometseng</string>
     <string name="proj_start_chat_failed">Ga e a kgona go simolola puisano mo go %1$s: %2$s.</string>
@@ -371,14 +371,14 @@
     <string name="wake_up_your_computer">khomphiutha ya gago</string>
     <string name="wake_up_reaches">E fitlhelela mogala ono</string>
     <string name="wake_up_link_first">Simolola ka go golaganya mogala ono le khomphiutha ya gago (Ditlhophiso > Didirisiwa tse di golagantsweng)</string>
-    <string name="wake_up_lacks">%1$s ga e kgone go letsetsa mogala ono jaanong: nchafatsa app ya Agent foo</string>
+    <string name="wake_up_lacks">%1$s ga e kgone go letsetsa mogala ono jaanong: nchafatsa app ya Mew foo</string>
     <string name="wake_up_connected">E golagantswe le %1$s</string>
     <string name="wake_up_not_connected">Ga e a golaganngwa jaanong. E tswelela go leka.</string>
     <string name="wake_up_test">Leka go tsosa</string>
     <string name="wake_up_test_body">E letsetsa mogala ono ka nnete. E arabe go e emisa.</string>
     <string name="wake_up_test_sent">Teko ya %1$s e rometswe.</string>
     <string name="wake_up_not_sent">Ga e a ya.</string>
-    <string name="wake_up_secure_folder">Tsenya Agent ka tlwaelo (e seng mo teng ga Secure Folder): Secure Folder e e notletsweng ga e kgone go lela.</string>
+    <string name="wake_up_secure_folder">Tsenya Mew ka tlwaelo (e seng mo teng ga Secure Folder): Secure Folder e e notletsweng ga e kgone go lela.</string>
     <string name="rec_recording_now">E a rekota jaanong</string>
     <string name="rec_cut_off">E kgaoganngwe</string>
     <string name="rec_partly">Karolo ya yone ga e a kwalwa</string>
@@ -407,7 +407,7 @@
     <string name="media_play">Tshameka mmino le video</string>
     <string name="media_intro">Fa o kopa moemedi wa gago gore a tshameke sengwe, o dirisa app e o e kgethang fano. E tlogetswe ka automatic, e dirisa ya mogala wa gago e e tlwaelegileng, mme e bo e le app epe e e ka tshamekang ka go batla.</string>
     <string name="media_access_off">Phitlhelelo ya dikitsiso e tima</string>
-    <string name="media_access_body">Android e bontsha fela se se tshamekang, mme e letla moemedi wa gago gore a eme kgotsa a tlole, fa Agent e na le phitlhelelo ya dikitsiso.</string>
+    <string name="media_access_body">Android e bontsha fela se se tshamekang, mme e letla moemedi wa gago gore a eme kgotsa a tlole, fa Mew e na le phitlhelelo ya dikitsiso.</string>
     <string name="media_none">Ga go app mo mogaleng ono e e reng e ka tshamekela moemedi wa gago mmino kgotsa video. Tsenya app ya mmino mme e tlhaga fano.</string>
     <string name="media_music_app">App ya mmino</string>
     <string name="media_video_app">App ya video</string>
@@ -653,7 +653,7 @@
     <string name="main_your_computer">khomphiutha ya gago</string>
     <string name="main_a_computer">khomphiutha</string>
     <string name="main_whatever_agent_runs">Sengwe le sengwe se moemedi wa gago a dirang ka sone</string>
-    <string name="rt_clear_computer_older">Puisano ya mogala ono e phimotswe. Ya khomphiutha ya gago ga e a phimolwa: app ya Agent mo go yone e bogologolo go feta eno, ka jalo ga e kgone go simolola puisano e ntšha. Nchafatsa app mo khomphiutheng ya gago, mme o phimole gape.</string>
+    <string name="rt_clear_computer_older">Puisano ya mogala ono e phimotswe. Ya khomphiutha ya gago ga e a phimolwa: app ya Mew mo go yone e bogologolo go feta eno, ka jalo ga e kgone go simolola puisano e ntšha. Nchafatsa app mo khomphiutheng ya gago, mme o phimole gape.</string>
     <string name="rt_clear_unreachable">Puisano ya mogala ono e phimotswe. Khomphiutha ya gago ga e a fitlhelelega jaanong, ka jalo puisano ya yone e santse e le teng mme e tla tlhaga gape fa e dumalana. Phimola gape fa e boile.</string>
     <string name="assist_type_it_instead">E kwale go e na le moo</string>
     <string name="assist_unlock_to_carry_on">Notlolola go tswelela</string>
@@ -704,6 +704,10 @@
     <string name="assist_over_lock_line">E tima: notlolola mogala pele, mme o e bitse. E butswe: e bulega mo mogaleng o o notletsweng mme e romela kopo ya gago fa o notlolola.</string>
     <string name="assist_live_voice">Lentswe le le tshelang mo mothusing</string>
     <string name="assist_live_voice_line">E tima: o bua kopo e le nngwe mme e araba. E butswe: bua ka tlhago, %1$s e araba ka lentswe ka bonako, o ka bua kwa godimo ga yone, mme e fa moemedi wa gago ditiro mme e go bolelela sephetho.</string>
+    <string name="assist_talk">Tswelela ka puisano</string>
+    <string name="assist_talk_line">Jaaka mogala: %1$s e bala karabo nngwe le nngwe ka lentswe le le kwa godimo mme e reetsa gape, go fitlha o re sala sentle kgotsa o tobetsa Khutlisa. E dirisa lentswe la gago la cloud, kgotsa lentswe la founu fa go sa setwa sepe.</string>
+    <string name="assist_talk_end">Khutlisa</string>
+    <string name="assist_talk_interrupt">Kgaola</string>
     <string name="assist_never_reads_money">Ga e bale diapp tsa banka, tsa dituelo kgotsa tsa madi, le fa swichi e le efe e butswe. Se e se balang se dirisediwa kopo eo fela.</string>
     <string name="live_bubble_desc">Lentswe le le tshelang. Kgotla go bula</string>
     <string name="live_end_session">Fetsa seshene e e tshelang</string>

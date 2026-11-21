@@ -355,7 +355,7 @@ private fun PowerStep(available: (SubKind) -> Boolean, onLink: (() -> Unit)?, on
         Spacer(Modifier.height(10.dp))
         Surface(shape = MaterialTheme.shapes.extraLarge, color = cs.surfaceContainerLow, modifier = Modifier.fillMaxWidth()) {
             Column(Modifier.padding(vertical = 6.dp)) {
-                SubKind.entries.forEachIndexed { i, k ->
+                SubKind.selectable.forEachIndexed { i, k ->
                     val (c, shape) = subMark(k)
                     val morph = remember(k) { Morph(shape.unit(), shape.unit()) }
                     Row(Modifier.fillMaxWidth().clickable { onSub(k) }.padding(horizontal = 18.dp, vertical = 14.dp), verticalAlignment = Alignment.CenterVertically) {
@@ -367,7 +367,7 @@ private fun PowerStep(available: (SubKind) -> Boolean, onLink: (() -> Unit)?, on
                         }
                         Icon(Icons.AutoMirrored.Rounded.ArrowForward, null, tint = cs.onSurfaceVariant)
                     }
-                    if (i < SubKind.entries.lastIndex) HorizontalDivider(Modifier.padding(start = 78.dp, end = 18.dp), color = cs.outlineVariant.copy(alpha = 0.6f))
+                    if (i < SubKind.selectable.lastIndex) HorizontalDivider(Modifier.padding(start = 78.dp, end = 18.dp), color = cs.outlineVariant.copy(alpha = 0.6f))
                 }
             }
         }

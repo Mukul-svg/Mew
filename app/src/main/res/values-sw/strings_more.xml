@@ -1,7 +1,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">AU TUMIA WAKALA KWENYE KOMPYUTA YAKO</string>
     <string name="onb_use_on_computer">Tumia wakala kwenye kompyuta yangu</string>
-    <string name="onb_use_on_computer_sub">Skani msimbo kwenye programu ya Agent kwenye kompyuta au seva yako. Hakuna funguo kwenye simu hii.</string>
+    <string name="onb_use_on_computer_sub">Skani msimbo kwenye programu ya Mew kwenye kompyuta au seva yako. Hakuna funguo kwenye simu hii.</string>
     <string name="sub_paste_code_from">Bandika msimbo kutoka %1$s</string>
     <string name="sub_paste_code_body_from">Kwenye kivinjari: gusa Idhinisha. %1$s kisha huonyesha msimbo. Unakili, rudi hapa na uubandike hapa chini.</string>
     <string name="sub_code_from">Msimbo kutoka %1$s</string>
@@ -72,13 +72,13 @@
     <string name="browser_add_test_number">Ongeza nambari ya majaribio</string>
     <string name="browser_test_number_body">Nambari ya akaunti ya WhatsApp unayojaribia nayo. Hakuna kinachotumwa kwa WhatsApp, na kupakia ukurasa upya hukibatilisha.</string>
     <string name="link_cant_reach">Imeshindwa kufikia kompyuta.</string>
-    <string name="link_bad_answer">Jibu la kompyuta halikueleweka. Je, programu yake ya Agent imesasishwa?</string>
+    <string name="link_bad_answer">Jibu la kompyuta halikueleweka. Je, programu yake ya Mew imesasishwa?</string>
     <string name="link_tried_addresses">(imejaribu anwani %1$d)</string>
     <string name="link_type_address">Andika anwani ya kompyuta.</string>
     <string name="link_no_certificate">Kompyuta haikutuma cheti.</string>
     <string name="link_failed">Kuunganisha kumeshindwa.</string>
     <string name="link_your_computer">kompyuta yako</string>
-    <string name="link_not_a_code">Msimbo huo wa QR si msimbo wa kuunganisha wa Agent.</string>
+    <string name="link_not_a_code">Msimbo huo wa QR si msimbo wa kuunganisha wa Mew.</string>
     <string name="link_subtitle">Unganisha simu hii na kompyuta au seva</string>
     <string name="link_linked_to">Imeunganishwa na %1$s</string>
     <string name="link_runs_on">Wakala wako anaendeshwa kwenye %1$s. Simu hii huonyesha mazungumzo, kumbukumbu, kazi na ratiba zake, na haina funguo zozote za AI kwa ajili yake.</string>
@@ -90,7 +90,7 @@
     <string name="link_link_to">Unganisha na %1$s</string>
     <string name="link_keep">Weka %1$s</string>
     <string name="link_linking_to">Inaunganisha na %1$s...</string>
-    <string name="link_how_to">Kwenye kompyuta yako, fungua programu ya Agent kisha uende Mipangilio, Vifaa, Ongeza kifaa.</string>
+    <string name="link_how_to">Kwenye kompyuta yako, fungua programu ya Mew kisha uende Mipangilio, Vifaa, Ongeza kifaa.</string>
     <string name="link_how_type">Andika anwani na msimbo unaoonyeshwa.</string>
     <string name="link_how_scan">Elekeza kamera hii kwenye msimbo unaoonyeshwa.</string>
     <string name="link_allow_camera">Ruhusu kamera</string>
@@ -272,7 +272,7 @@
     <string name="proj_new_chat_line">Yaliyosemwa hadi sasa yanahifadhiwa kwenye kumbukumbu na dirisha hili linaanza likiwa tupu. Hakuna kinachofutwa kwenye kompyuta yako.</string>
     <string name="proj_new_chat">Mazungumzo mapya</string>
     <string name="proj_not_linked_now">Haijaunganishwa na kompyuta kwa sasa.</string>
-    <string name="proj_computer_older">Programu ya Agent kwenye kompyuta yako ni ya zamani kuliko hii, kwa hivyo haiwezi kuanzisha mazungumzo mapya huko. Isasishe kwenye kompyuta yako, kisha ujaribu tena.</string>
+    <string name="proj_computer_older">Programu ya Mew kwenye kompyuta yako ni ya zamani kuliko hii, kwa hivyo haiwezi kuanzisha mazungumzo mapya huko. Isasishe kwenye kompyuta yako, kisha ujaribu tena.</string>
     <string name="proj_unreachable">Kompyuta yako haikuweza kufikiwa. Jaribu tena itakaporudi.</string>
     <string name="proj_photo_you_sent">Picha uliyotuma</string>
     <string name="proj_start_chat_failed">Imeshindwa kuanzisha mazungumzo katika %1$s: %2$s.</string>
@@ -370,14 +370,14 @@
     <string name="wake_up_your_computer">kompyuta yako</string>
     <string name="wake_up_reaches">Hufikia simu hii</string>
     <string name="wake_up_link_first">Unganisha simu hii na kompyuta yako kwanza (Mipangilio > Vifaa vilivyounganishwa)</string>
-    <string name="wake_up_lacks">%1$s haiwezi kulia kwenye simu hii bado: sasisha programu ya Agent huko</string>
+    <string name="wake_up_lacks">%1$s haiwezi kulia kwenye simu hii bado: sasisha programu ya Mew huko</string>
     <string name="wake_up_connected">Imeunganishwa na %1$s</string>
     <string name="wake_up_not_connected">Haijaunganishwa kwa sasa. Inaendelea kujaribu.</string>
     <string name="wake_up_test">Jaribu kuamsha</string>
     <string name="wake_up_test_body">Hulia simu hii kikweli. Jibu ili kuisimamisha.</string>
     <string name="wake_up_test_sent">Jaribio la %1$s limetumwa.</string>
     <string name="wake_up_not_sent">Haikwenda.</string>
-    <string name="wake_up_secure_folder">Sakinisha Agent kawaida (si ndani ya Folda Salama): Folda Salama iliyofungwa haiwezi kulia.</string>
+    <string name="wake_up_secure_folder">Sakinisha Mew kawaida (si ndani ya Folda Salama): Folda Salama iliyofungwa haiwezi kulia.</string>
     <string name="rec_recording_now">Inarekodi sasa</string>
     <string name="rec_cut_off">Imekatika</string>
     <string name="rec_partly">Sehemu yake haikuandikwa</string>
@@ -406,7 +406,7 @@
     <string name="media_play">Cheza muziki na video</string>
     <string name="media_intro">Unapomwomba wakala wako acheze kitu, hutumia programu unayochagua hapa. Ikiachwa otomatiki, hutumia chaguomsingi ya simu yako, kisha programu yoyote inayoweza kucheza kutoka utafutaji.</string>
     <string name="media_access_off">Ufikiaji wa arifa umezimwa</string>
-    <string name="media_access_body">Android huonyesha kinachochezwa tu, na humruhusu wakala wako kusitisha au kuruka, Agent ikishapata ufikiaji wa arifa.</string>
+    <string name="media_access_body">Android huonyesha kinachochezwa tu, na humruhusu wakala wako kusitisha au kuruka, Mew ikishapata ufikiaji wa arifa.</string>
     <string name="media_none">Hakuna programu kwenye simu hii inayosema inaweza kucheza muziki au video kwa wakala wako. Sakinisha programu ya muziki nayo itaonekana hapa.</string>
     <string name="media_music_app">Programu ya muziki</string>
     <string name="media_video_app">Programu ya video</string>
@@ -652,7 +652,7 @@
     <string name="main_your_computer">kompyuta yako</string>
     <string name="main_a_computer">kompyuta</string>
     <string name="main_whatever_agent_runs">Chochote ambacho wakala wako anaendeshwa nacho</string>
-    <string name="rt_clear_computer_older">Mazungumzo ya simu hii yamesafishwa. Ya kompyuta yako hayajasafishwa: programu ya Agent iliyo juu yake ni ya zamani kuliko hii, kwa hivyo haiwezi kuanzisha mazungumzo mapya. Sasisha programu kwenye kompyuta yako, kisha usafishe tena.</string>
+    <string name="rt_clear_computer_older">Mazungumzo ya simu hii yamesafishwa. Ya kompyuta yako hayajasafishwa: programu ya Mew iliyo juu yake ni ya zamani kuliko hii, kwa hivyo haiwezi kuanzisha mazungumzo mapya. Sasisha programu kwenye kompyuta yako, kisha usafishe tena.</string>
     <string name="rt_clear_unreachable">Mazungumzo ya simu hii yamesafishwa. Kompyuta yako haikuweza kufikiwa sasa hivi, kwa hivyo mazungumzo yake bado yapo na yataonekana tena yatakaposawazishwa. Safisha tena itakaporudi.</string>
     <string name="assist_type_it_instead">Iandike badala yake</string>
     <string name="assist_unlock_to_carry_on">Fungua simu ili uendelee</string>
@@ -703,6 +703,10 @@
     <string name="assist_over_lock_line">Imezimwa: fungua simu kwanza, kisha umwite. Imewashwa: hufunguka kwenye simu iliyofungwa na hutuma ombi lako ukishafungua.</string>
     <string name="assist_live_voice">Sauti ya moja kwa moja kwenye msaidizi</string>
     <string name="assist_live_voice_line">Imezimwa: unasema ombi moja na anajibu. Imewashwa: ongea kawaida, %1$s anajibu kwa sauti mara moja, unaweza kuzungumza juu yake, na huwapa wakala wako kazi na kukuambia matokeo.</string>
+    <string name="assist_talk">Endelea na mazungumzo</string>
+    <string name="assist_talk_line">Kama simu: %1$s husoma kila jibu kwa sauti na kusikiliza tena, hadi useme kwaheri au uguse Mwisho. Hutumia sauti yako ya wingu, au sauti ya simu yenyewe ikiwa hakuna iliyowekwa.</string>
+    <string name="assist_talk_end">Mwisho</string>
+    <string name="assist_talk_interrupt">Katiza</string>
     <string name="assist_never_reads_money">Haisomi kamwe programu za benki, malipo au pesa, swichi yoyote ikiwa imewashwa. Inachosoma hutumika kwa ombi hilo tu.</string>
     <string name="live_bubble_desc">Sauti ya moja kwa moja. Gusa kufungua</string>
     <string name="live_end_session">Maliza kikao cha moja kwa moja</string>

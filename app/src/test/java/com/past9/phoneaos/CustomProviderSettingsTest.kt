@@ -60,7 +60,7 @@ class CustomProviderSettingsTest {
             .setBody("""{"data":[{"id":"nvidia/nemotron-3-nano-4b","object":"model","owned_by":"organization_owner"}],"object":"list"}"""))
         server.start()
         val s = SettingsStore(ctx)
-        changeKeyToOther(s, server.url("/v1/").toString(), "nvidia/nemotron-3-nano-4b")
+        changeKeyToOther(s, server.url("/v1/").newBuilder().host("127.0.0.1").build().toString(), "nvidia/nemotron-3-nano-4b")
         val st = s.state.value
         val list = ModelCatalog.forKey(ctx, st.provider, s.apiKey(st.provider).orEmpty(), st.baseUrl, st.allowHttp)
         assertEquals(listOf("nvidia/nemotron-3-nano-4b"), list.map { it.id })

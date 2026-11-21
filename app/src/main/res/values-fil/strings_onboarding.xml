@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">Anumang OpenAI-compatible</string>
     <string name="onb_key_anthropic_1">Pindutin ang Open sa ibaba. Bubuksan nito ang console ng Anthropic sa browser mo. Mag-sign up o mag-sign in.</string>
     <string name="onb_key_anthropic_2">Pumunta sa Billing at magdagdag ng kaunting credit. Pay as you go ito, at ang ilang dolyar ay tatagal nang matagal.</string>
-    <string name="onb_key_anthropic_3">Pumunta sa API keys at pindutin ang Create key. Pangalanan ng kahit ano, tulad ng Agent.</string>
+    <string name="onb_key_anthropic_3">Pumunta sa API keys at pindutin ang Create key. Pangalanan ng kahit ano, tulad ng Mew.</string>
     <string name="onb_key_anthropic_4">Pindutin ang Copy, bumalik sa app na ito, i-paste ang key sa kahon sa itaas at pindutin ang Check key.</string>
     <string name="onb_key_openai_1">Pindutin ang Open sa ibaba. Bubuksan nito ang platform ng OpenAI sa browser mo. Mag-sign up o mag-sign in. (Hiwalay ito sa subscription sa ChatGPT.)</string>
     <string name="onb_key_openai_2">Pumunta sa Billing at magdagdag ng kaunting credit. Ang ilang dolyar ay tatagal nang matagal.</string>
-    <string name="onb_key_openai_3">Pumunta sa API keys at pindutin ang Create new secret key. Pangalanan ng kahit ano, tulad ng Agent.</string>
+    <string name="onb_key_openai_3">Pumunta sa API keys at pindutin ang Create new secret key. Pangalanan ng kahit ano, tulad ng Mew.</string>
     <string name="onb_key_step_copy_once">Pindutin ang Copy (isang beses mo lang makikita ang key), bumalik dito, i-paste sa itaas at pindutin ang Check key.</string>
     <string name="onb_key_gemini_1">Pindutin ang Open sa ibaba. Bubuksan nito ang Google AI Studio. Mag-sign in gamit ang anumang Google account.</string>
     <string name="onb_key_gemini_2">Pindutin ang Create API key. Kung hihilingin nitong pumili ng project, piliin ang iminumungkahi nito.</string>

@@ -70,7 +70,7 @@
     <string name="svc_weekly_every">Chaque %1$s à %2$02d:%3$02d</string>
     <string name="svc_weekly_weekday">jour de semaine</string>
     <string name="svc_weekly_weekend">jour de week-end</string>
-    <string name="svc_work_channel">Agent au travail</string>
+    <string name="svc_work_channel">Mew au travail</string>
     <plurals name="svc_work_helpers">
         <item quantity="one">En cours : %1$d auxiliaire</item>
         <item quantity="many">En cours : %1$d auxiliaires</item>

@@ -18,7 +18,7 @@ import kotlin.concurrent.thread
  * as an MCP server over Streamable HTTP on 127.0.0.1 only. Every request must carry the
  * per-install bearer token, so no other app on the phone can drive the agent's tools.
  *
- * Implements the slice of MCP the Agent SDK uses: initialize, the notifications, ping,
+ * Implements the slice of MCP the Mew SDK uses: initialize, the notifications, ping,
  * tools/list, tools/call. Responses are plain JSON (no SSE), which the spec allows.
  */
 class LocalMcpServer(

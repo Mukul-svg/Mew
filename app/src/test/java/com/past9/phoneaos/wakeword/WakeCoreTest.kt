@@ -19,8 +19,8 @@ class WakeCoreTest {
         assertEquals("Hey Thandi", WakePhrase.current("  ", " Thandi "))
         assertEquals("Okay computer", WakePhrase.current(" Okay computer ", "Nova"))
         // Before the agent has a name there is still something sayable.
-        assertEquals("Hey Agent", WakePhrase.current("", "Your agent"))
-        assertEquals("Hey Agent", WakePhrase.current("", ""))
+        assertEquals("Hey Mew", WakePhrase.current("", "Your agent"))
+        assertEquals("Hey Mew", WakePhrase.current("", ""))
     }
 
     @Test fun aPhraseBecomesPlainCapitalLetters() {

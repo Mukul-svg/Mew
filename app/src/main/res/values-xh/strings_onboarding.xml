@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">Nayiphi na ehambelana ne-OpenAI</string>
     <string name="onb_key_anthropic_1">Cofa u-Open ngezantsi. Ivula ikhonsoli ye-Anthropic kwisikhangeli sakho. Bhalisa okanye ungene.</string>
     <string name="onb_key_anthropic_2">Yiya ku-Billing uze wongeze i-credit encinci. Uhlawula njengoko usebenzisa, yaye iidola ezimbalwa ziqhubeka ixesha elide.</string>
-    <string name="onb_key_anthropic_3">Yiya ku-API keys uze ucofe u-Create key. Yibize ngayo nantoni na, njenge-Agent.</string>
+    <string name="onb_key_anthropic_3">Yiya ku-API keys uze ucofe u-Create key. Yibize ngayo nantoni na, njenge-Mew.</string>
     <string name="onb_key_anthropic_4">Cofa u-Copy, buyela kule app, namathelisa isitshixo kwibhokisi engentla uze ucofe u-Check key.</string>
     <string name="onb_key_openai_1">Cofa u-Open ngezantsi. Ivula iplatifomu ye-OpenAI kwisikhangeli sakho. Bhalisa okanye ungene. (Oku kwahlukile kwi-ChatGPT subscription.)</string>
     <string name="onb_key_openai_2">Yiya ku-Billing uze wongeze i-credit encinci. Iidola ezimbalwa ziqhubeka ixesha elide.</string>
-    <string name="onb_key_openai_3">Yiya ku-API keys uze ucofe u-Create new secret key. Yibize ngayo nantoni na, njenge-Agent.</string>
+    <string name="onb_key_openai_3">Yiya ku-API keys uze ucofe u-Create new secret key. Yibize ngayo nantoni na, njenge-Mew.</string>
     <string name="onb_key_step_copy_once">Cofa u-Copy (isitshixo usibona kube kanye kuphela), buyela apha, usinamathelise ngentla uze ucofe u-Check key.</string>
     <string name="onb_key_gemini_1">Cofa u-Open ngezantsi. Ivula i-Google AI Studio. Ngena nge-akhawunti nayiphi na ye-Google.</string>
     <string name="onb_key_gemini_2">Cofa u-Create API key. Ukuba ikucela ukuba ukhethe iprojekthi, khetha leyo ikucebisayo.</string>

@@ -305,7 +305,7 @@ class IntentSender(private val context: Context, private val inFront: () -> Bool
             .setContentIntent(pi).setAutoCancel(true).build()
         runCatching { NotificationManagerCompat.from(context).notify(id, n) }
         return "sent: as a notification the user taps, because Android does not let an app open a screen from the background. " +
-            "It opens at once when the Agent app is on screen, or when Agent is allowed to display over other apps."
+            "It opens at once when the Mew app is on screen, or when Mew is allowed to display over other apps."
     }
 }
 

@@ -72,7 +72,7 @@
     <string name="svc_weekly_every">Co tydzień: %1$s o %2$02d:%3$02d</string>
     <string name="svc_weekly_weekday">dni robocze</string>
     <string name="svc_weekly_weekend">weekend</string>
-    <string name="svc_work_channel">Agent pracuje</string>
+    <string name="svc_work_channel">Mew pracuje</string>
     <plurals name="svc_work_helpers">
         <item quantity="one">Pracuje: %1$d pomocnik</item>
         <item quantity="few">Pracuje: %1$d pomocników</item>

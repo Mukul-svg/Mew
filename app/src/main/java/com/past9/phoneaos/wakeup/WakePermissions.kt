@@ -29,9 +29,9 @@ object WakePermissions {
         return listOf(
             Check("notifications", "Notifications on", notes, "Tap: Notifications, allow", appNotes),
             Check("channel", "Wake-ups channel on, Urgent", channelOn, "Tap: Wake-ups, allow, pop on screen", if (Build.VERSION.SDK_INT >= 26) Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS).putExtra(Settings.EXTRA_APP_PACKAGE, pkg).putExtra(Settings.EXTRA_CHANNEL_ID, WakeUpService.CHANNEL) else appNotes),
-            Check("fullscreen", "Full-screen notifications", fsi, "Android 14+: tap and allow full-screen notifications for Agent", if (Build.VERSION.SDK_INT >= 34) Intent(Settings.ACTION_MANAGE_APP_USE_FULL_SCREEN_INTENT, Uri.parse("package:$pkg")) else null),
+            Check("fullscreen", "Full-screen notifications", fsi, "Android 14+: tap and allow full-screen notifications for Mew", if (Build.VERSION.SDK_INT >= 34) Intent(Settings.ACTION_MANAGE_APP_USE_FULL_SCREEN_INTENT, Uri.parse("package:$pkg")) else null),
             Check("overlay", "Appear on top", overlay, "Tap and allow, so it covers the app you are in", Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$pkg"))),
-            Check("dnd", "Do Not Disturb access", dnd, "Tap and allow Agent, so the alarm volume goes up in Do Not Disturb", Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)),
+            Check("dnd", "Do Not Disturb access", dnd, "Tap and allow Mew, so the alarm volume goes up in Do Not Disturb", Intent(Settings.ACTION_NOTIFICATION_POLICY_ACCESS_SETTINGS)),
             Check("battery", "Battery: unrestricted", battery, "Tap and choose Allow (Samsung: also not in sleeping apps)", Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS, Uri.parse("package:$pkg"))),
             Check("exact", "Alarms and reminders", exact, "Tap and allow", if (Build.VERSION.SDK_INT >= 31) Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM, Uri.parse("package:$pkg")) else null),
         )

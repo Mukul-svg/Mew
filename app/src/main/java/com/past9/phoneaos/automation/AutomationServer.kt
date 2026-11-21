@@ -112,7 +112,7 @@ class AutomationServer(
         val p = path.trimEnd('/').ifBlank { "/" }
         return when {
             p == "/v1/health" && method == "GET" ->
-                200 to JSONObject().put("ok", true).put("app", "Agent").put("server", "automation")
+                200 to JSONObject().put("ok", true).put("app", "Mew").put("server", "automation")
                     .put("allowed", h.allowed()).toString()
 
             p == "/v1/routines" && method == "GET" -> 200 to AutomationApi.routines(h.routines())

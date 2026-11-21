@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">அல்லது உங்கள் கணினியில் ஏஜென்ட்டைப் பயன்படுத்துங்கள்</string>
     <string name="onb_use_on_computer">என் கணினியில் ஏஜென்ட்டைப் பயன்படுத்து</string>
-    <string name="onb_use_on_computer_sub">உங்கள் கணினி அல்லது சர்வரில் உள்ள Agent ஆப்பில் குறியீட்டை ஸ்கேன் செய்யுங்கள். இந்த ஃபோனில் எந்த விசையும் தேவையில்லை.</string>
+    <string name="onb_use_on_computer_sub">உங்கள் கணினி அல்லது சர்வரில் உள்ள Mew ஆப்பில் குறியீட்டை ஸ்கேன் செய்யுங்கள். இந்த ஃபோனில் எந்த விசையும் தேவையில்லை.</string>
     <string name="sub_paste_code_from">%1$s இலிருந்து குறியீட்டை ஒட்டவும்</string>
     <string name="sub_paste_code_body_from">உலாவியில்: Authorize என்பதைத் தட்டவும். பின்னர் %1$s ஒரு குறியீட்டைக் காட்டும். அதை நகலெடுத்து இங்கே திரும்பி வந்து கீழே ஒட்டவும்.</string>
     <string name="sub_code_from">%1$s இலிருந்து குறியீடு</string>
@@ -18,7 +18,7 @@
     <string name="settings_automation_not_listening">இன்னும் கேட்கவில்லை: ஆப்பை ஒருமுறை திறக்கவும்</string>
     <string name="settings_automation_on">இயக்கத்தில் · %1$s</string>
     <string name="settings_automation_off">முடக்கத்தில் · அமைக்க தட்டவும்</string>
-    <string name="settings_macro_title">Agent உங்கள் ஆப்களுடன் பேசுகிறது</string>
+    <string name="settings_macro_title">Mew உங்கள் ஆப்களுடன் பேசுகிறது</string>
     <string name="settings_media_apps">மீடியா ஆப்ஸ்</string>
     <string name="settings_bg_screen">பின்னணித் திரை</string>
     <string name="settings_bg_screen_sub">நீங்கள் உங்கள் திரையைப் பயன்படுத்தும்போதே பிற ஆப்ஸ்</string>
@@ -59,7 +59,7 @@
     <string name="browser_remove_site">%1$s ஐ நீக்கு</string>
     <string name="browser_add_site">ஒரு தளத்தைச் சேர்</string>
     <string name="browser_sites_hint">பாதுகாப்பான தளங்கள் மட்டும் (https), அவற்றின் சரியான முகவரியால். மாற்றங்கள் புதிய தாவல்களில் பொருந்தும்.</string>
-    <string name="browser_call_voice">WhatsApp அழைப்புகளில் Agent பேச அனுமதி</string>
+    <string name="browser_call_voice">WhatsApp அழைப்புகளில் Mew பேச அனுமதி</string>
     <string name="browser_call_voice_on">இயக்கத்தில்: உங்கள் ஏஜென்ட் இங்கிருந்து செய்யும் WhatsApp Web அழைப்பில் அதன் குரல் அழைப்பில் செல்லும்; எதிரில் பேசுபவரின் குரலை அது கேட்கும்.</string>
     <string name="browser_call_voice_off">முடக்கத்தில். WhatsApp Web அழைப்பில் உங்கள் ஏஜென்ட்டால் பேச முடியாது.</string>
     <string name="browser_test_calling">சோதனைக் கணக்கிற்கு அழைப்பை இயக்கு</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">சோதனை எண்ணைச் சேர்</string>
     <string name="browser_test_number_body">நீங்கள் சோதிக்கும் WhatsApp கணக்கின் எண். WhatsApp-க்கு எதுவும் அனுப்பப்படாது; பக்கத்தை மீண்டும் ஏற்றினால் இது செயல்தவிர்க்கப்படும்.</string>
     <string name="link_cant_reach">கணினியைத் தொடர்பு கொள்ள முடியவில்லை.</string>
-    <string name="link_bad_answer">கணினியின் பதில் புரியவில்லை. அதில் உள்ள Agent ஆப் புதுப்பிக்கப்பட்டுள்ளதா?</string>
+    <string name="link_bad_answer">கணினியின் பதில் புரியவில்லை. அதில் உள்ள Mew ஆப் புதுப்பிக்கப்பட்டுள்ளதா?</string>
     <string name="link_tried_addresses">(%1$d முகவரிகள் முயற்சிக்கப்பட்டன)</string>
     <string name="link_type_address">கணினியின் முகவரியை உள்ளிடவும்.</string>
     <string name="link_no_certificate">கணினி எந்தச் சான்றிதழையும் அனுப்பவில்லை.</string>
     <string name="link_failed">இணைப்பு தோல்வியடைந்தது.</string>
     <string name="link_your_computer">உங்கள் கணினி</string>
-    <string name="link_not_a_code">அந்த QR குறியீடு Agent இணைப்புக் குறியீடு அல்ல.</string>
+    <string name="link_not_a_code">அந்த QR குறியீடு Mew இணைப்புக் குறியீடு அல்ல.</string>
     <string name="link_subtitle">இந்த ஃபோனை ஒரு கணினி அல்லது சர்வருடன் இணைக்கவும்</string>
     <string name="link_linked_to">%1$s உடன் இணைக்கப்பட்டது</string>
     <string name="link_runs_on">உங்கள் ஏஜென்ட் %1$s இல் இயங்குகிறது. இந்த ஃபோன் அதன் அரட்டை, நினைவு, பணிகள் மற்றும் வழக்கங்களைக் காட்டும்; அதற்கான AI விசைகள் எதையும் இது வைத்திருக்காது.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">%1$s உடன் இணை</string>
     <string name="link_keep">%1$s வைத்திரு</string>
     <string name="link_linking_to">%1$s உடன் இணைக்கிறது...</string>
-    <string name="link_how_to">உங்கள் கணினியில் Agent ஆப்பைத் திறந்து, அமைப்புகள் → சாதனங்கள் → சாதனம் சேர் என்பதற்குச் செல்லுங்கள்.</string>
+    <string name="link_how_to">உங்கள் கணினியில் Mew ஆப்பைத் திறந்து, அமைப்புகள் → சாதனங்கள் → சாதனம் சேர் என்பதற்குச் செல்லுங்கள்.</string>
     <string name="link_how_type">அது காட்டும் முகவரியையும் குறியீட்டையும் தட்டச்சு செய்யுங்கள்.</string>
     <string name="link_how_scan">அது காட்டும் குறியீட்டின் மீது இந்தக் கேமராவைக் காட்டுங்கள்.</string>
     <string name="link_allow_camera">கேமராவை அனுமதி</string>
@@ -273,7 +273,7 @@
     <string name="proj_new_chat_line">இதுவரை பேசியவை நினைவகத்தில் சேமிக்கப்படும், இந்தச் சாளரம் வெறுமையாகத் தொடங்கும். உங்கள் கணினியில் எதுவும் நீக்கப்படாது.</string>
     <string name="proj_new_chat">புதிய உரையாடல்</string>
     <string name="proj_not_linked_now">இப்போது எந்தக் கணினியுடனும் இணைக்கப்படவில்லை.</string>
-    <string name="proj_computer_older">உங்கள் கணினியில் உள்ள Agent ஆப் இதை விடப் பழையது என்பதால், அங்கே புதிய உரையாடலைத் தொடங்க முடியாது. கணினியில் அதைப் புதுப்பித்துவிட்டு மீண்டும் முயலவும்.</string>
+    <string name="proj_computer_older">உங்கள் கணினியில் உள்ள Mew ஆப் இதை விடப் பழையது என்பதால், அங்கே புதிய உரையாடலைத் தொடங்க முடியாது. கணினியில் அதைப் புதுப்பித்துவிட்டு மீண்டும் முயலவும்.</string>
     <string name="proj_unreachable">உங்கள் கணினியை அடைய முடியவில்லை. அது மீண்டும் கிடைத்ததும் முயற்சிக்கவும்.</string>
     <string name="proj_photo_you_sent">நீங்கள் அனுப்திய புகைப்படம்</string>
     <string name="proj_start_chat_failed">%1$s இல் அரட்டையைத் தொடங்க முடியவில்லை: %2$s.</string>
@@ -371,14 +371,14 @@
     <string name="wake_up_your_computer">உங்கள் கணினி</string>
     <string name="wake_up_reaches">இந்த ஃபோனை அடைகிறது</string>
     <string name="wake_up_link_first">முதலில் இந்த ஃபோனை உங்கள் கணினியுடன் இணைக்கவும் (அமைப்புகள் > இணைக்கப்பட்ட சாதனங்கள்)</string>
-    <string name="wake_up_lacks">%1$s இன்னும் இந்த ஃபோனை ஒலிக்கச் செய்ய முடியாது: அங்குள்ள Agent ஆப்பைப் புதுப்பிக்கவும்</string>
+    <string name="wake_up_lacks">%1$s இன்னும் இந்த ஃபோனை ஒலிக்கச் செய்ய முடியாது: அங்குள்ள Mew ஆப்பைப் புதுப்பிக்கவும்</string>
     <string name="wake_up_connected">%1$s உடன் இணைக்கப்பட்டது</string>
     <string name="wake_up_not_connected">இப்போது இணைக்கப்படவில்லை. தொடர்ந்து முயற்சிக்கிறது.</string>
     <string name="wake_up_test">விழிப்பூட்டலைச் சோதிக்கவும்</string>
     <string name="wake_up_test_body">இந்த ஃபோனை உண்மையாக ஒலிக்கச் செய்யும். நிறுத்த அதற்குப் பதிலளிக்கவும்.</string>
     <string name="wake_up_test_sent">%1$s சோதனை அனுப்பப்பட்டது.</string>
     <string name="wake_up_not_sent">அனுப்ப முடியவில்லை.</string>
-    <string name="wake_up_secure_folder">Agent-ஐ வழக்கம்போல நிறுவுங்கள் (Secure Folder-க்குள் அல்ல): பூட்டப்பட்ட Secure Folder-ஆல் ஒலிக்க முடியாது.</string>
+    <string name="wake_up_secure_folder">Mew-ஐ வழக்கம்போல நிறுவுங்கள் (Secure Folder-க்குள் அல்ல): பூட்டப்பட்ட Secure Folder-ஆல் ஒலிக்க முடியாது.</string>
     <string name="rec_recording_now">இப்போது பதிவாகிறது</string>
     <string name="rec_cut_off">துண்டிக்கப்பட்டது</string>
     <string name="rec_partly">சில பகுதிகள் எழுதப்படவில்லை</string>
@@ -405,9 +405,9 @@
     <string name="media_line_video">வீடியோ: %1$s</string>
     <string name="media_title">மீடியா ஆப்கள்</string>
     <string name="media_play">இசையும் வீடியோவும் இயக்கு</string>
-    <string name="media_intro">எதையாவது இயக்கச் சொன்னால், இங்கே நீங்கள் தேர்ந்தெடுக்கும் ஆப்பை Agent பயன்படுத்தும். தானியங்கியில் வைத்தால், ஃபோனின் இயல்பு ஆப்பையும், பின்னர் தேடலில் இருந்து இயக்கக்கூடிய எந்த ஆப்பையும் பயன்படுத்தும்.</string>
+    <string name="media_intro">எதையாவது இயக்கச் சொன்னால், இங்கே நீங்கள் தேர்ந்தெடுக்கும் ஆப்பை Mew பயன்படுத்தும். தானியங்கியில் வைத்தால், ஃபோனின் இயல்பு ஆப்பையும், பின்னர் தேடலில் இருந்து இயக்கக்கூடிய எந்த ஆப்பையும் பயன்படுத்தும்.</string>
     <string name="media_access_off">அறிவிப்பு அணுகல் அணைக்கப்பட்டுள்ளது</string>
-    <string name="media_access_body">Agent-க்கு அறிவிப்பு அணுகல் கிடைத்த பிறகுதான், இயங்குவதை Android காட்டும்; உங்கள் ஏஜென்ட் இடைநிறுத்தவோ தவிர்க்கவோ முடியும்.</string>
+    <string name="media_access_body">Mew-க்கு அறிவிப்பு அணுகல் கிடைத்த பிறகுதான், இயங்குவதை Android காட்டும்; உங்கள் ஏஜென்ட் இடைநிறுத்தவோ தவிர்க்கவோ முடியும்.</string>
     <string name="media_none">இந்த ஃபோனில் இசை அல்லது வீடியோ இயக்க முடியும் என்று எந்த ஆப்பும் சொல்லவில்லை. இசை ஆப்பை நிறுவினால் இங்கே தோன்றும்.</string>
     <string name="media_music_app">இசை ஆப்</string>
     <string name="media_video_app">வீடியோ ஆப்</string>
@@ -416,7 +416,7 @@
     <string name="macro_and">%1$s மற்றும் %2$s</string>
     <string name="macro_line_some">%1$s கேட்காமல் இயங்கலாம்; மற்றவை கேட்கும்</string>
     <string name="macro_eyebrow">தானியக்கம்</string>
-    <string name="macro_title">Agent உங்கள் ஆப்களுடன் பேசுகிறது</string>
+    <string name="macro_title">Mew உங்கள் ஆப்களுடன் பேசுகிறது</string>
     <string name="macro_intro">உங்கள் ஏஜென்ட் இந்த ஃபோனில் உள்ள எந்த ஆப்புக்கும் Android intent அனுப்ப முடியும்: Maps-இல் ஓர் இடத்தைத் திறப்பது, ஓர் ஆப்பில் பகிர்வது, MacroDroid அல்லது Tasker macro இயக்குவது. ஒரு திரையைத் திறப்பதற்கு ஒருபோதும் கேட்காது. இங்கே பட்டியலிடப்படாத மற்றவை எல்லாவற்றுக்கும் முதலில் கேட்கும். எதுவும் ஃபோனை விட்டு வெளியே செல்லாது.</string>
     <string name="macro_intents">அனுமதிக்கப்பட்ட ஆப் intents</string>
     <string name="macro_intents_hint">action | package, ஒவ்வொரு வரியிலும் ஒன்று</string>
@@ -653,7 +653,7 @@
     <string name="main_your_computer">உங்கள் கணினி</string>
     <string name="main_a_computer">ஒரு கணினி</string>
     <string name="main_whatever_agent_runs">உங்கள் முகவர் இயங்கும் எதுவாக இருந்தாலும்</string>
-    <string name="rt_clear_computer_older">இந்தத் ஃபோனின் அரட்டை அழிக்கப்பட்டது. ஆனால் உங்கள் கணினியின் அரட்டை அழிக்கப்படவில்லை: அதில் உள்ள Agent ஆப் இதை விடப் பழையது, எனவே புதிய அரட்டையைத் தொடங்க முடியாது. உங்கள் கணினியில் ஆப்பைப் புதுப்பித்த பிறகு மீண்டும் அழிக்கவும்.</string>
+    <string name="rt_clear_computer_older">இந்தத் ஃபோனின் அரட்டை அழிக்கப்பட்டது. ஆனால் உங்கள் கணினியின் அரட்டை அழிக்கப்படவில்லை: அதில் உள்ள Mew ஆப் இதை விடப் பழையது, எனவே புதிய அரட்டையைத் தொடங்க முடியாது. உங்கள் கணினியில் ஆப்பைப் புதுப்பித்த பிறகு மீண்டும் அழிக்கவும்.</string>
     <string name="rt_clear_unreachable">இந்தத் ஃபோனின் அரட்டை அழிக்கப்பட்டது. இப்போது உங்கள் கணினியை அணுக முடியவில்லை, எனவே அதன் அரட்டை இன்னும் உள்ளது; ஒத்திசைக்கும்போது மீண்டும் காட்டப்படும். அது மீண்டும் கிடைத்ததும் மீண்டும் அழிக்கவும்.</string>
     <string name="assist_type_it_instead">அதற்குப் பதிலாக தட்டச்சு செய்</string>
     <string name="assist_unlock_to_carry_on">தொடர திறக்கவும்</string>
@@ -704,6 +704,10 @@
     <string name="assist_over_lock_line">முடக்கி வைத்திருந்தால்: முதலில் ஃபோனைத் திறந்து, பிறகு அழைக்கவும். இயக்கி வைத்திருந்தால்: பூட்டிய ஃபோனிலேயே திறக்கும், நீங்கள் திறந்ததும் உங்கள் கோரிக்கையை அனுப்பும்.</string>
     <string name="assist_live_voice">உதவியாளரில் நேரடி குரல்</string>
     <string name="assist_live_voice_line">முடக்கி வைத்திருந்தால்: ஒரு கோரிக்கையைச் சொன்னால் பதில் கிடைக்கும். இயக்கி வைத்திருந்தால்: இயல்பாகப் பேசலாம், %1$s உடனே சத்தமாகப் பதில் சொல்லும், நீங்கள் இடையிலும் பேசலாம், வேலைகளை உங்கள் ஏஜென்டிடம் ஒப்படைத்து முடிவை உங்களுக்குச் சொல்லும்.</string>
+    <string name="assist_talk">உரையாடலைத் தொடரவும்</string>
+    <string name="assist_talk_line">அழைப்பு போல: %1$s ஒவ்வொரு பதிலையும் உரக்க வாசித்து மீண்டும் கேட்கிறது, நீங்கள் விடைபெற்கும் வரை அல்லது முடிவு என்பதைத் தட்டும் வரை. உங்கள் கிளவுட் குரலைப் பயன்படுத்துகிறது, இல்லையெனில் தொலைபேசியின் சொந்தக் குரல்.</string>
+    <string name="assist_talk_end">முடிவு</string>
+    <string name="assist_talk_interrupt">இடைமறி</string>
     <string name="assist_never_reads_money">இரண்டு மாற்றுகளும் இயக்கத்தில் இருந்தாலும், வங்கி, பணம் செலுத்தும் அல்லது பண ஆப்ஸை இது ஒருபோதும் படிக்காது. இது படிப்பதை அந்தக் கோரிக்கைக்கு மட்டுமே பயன்படுத்தும்.</string>
     <string name="live_bubble_desc">நேரடி குரல். திறக்க தட்டவும்</string>
     <string name="live_end_session">நேரடி அமர்வை முடி</string>

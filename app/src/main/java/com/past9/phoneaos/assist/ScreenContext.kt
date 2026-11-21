@@ -21,6 +21,12 @@ object AssistPrefs {
 
     /** "Open over the lock screen". Off: the sheet only opens on an unlocked phone. */
     fun overLockScreen(context: Context): Boolean = prefs(context).getBoolean("x_assist_over_lock", false)
+    /**
+     * "Keep the conversation going": like a call, the sheet reads each answer aloud and listens again until the user
+     * says goodbye, taps End, or stays quiet. On by default. Uses the cloud voice when one is set up, else the phone's own.
+     */
+    fun talk(context: Context): Boolean = prefs(context).getBoolean("x_assist_talk", true)
+    fun setTalk(context: Context, on: Boolean) { prefs(context).edit().putBoolean("x_assist_talk", on).apply() }
     /** "Live voice in the assistant". Off by default: the sheet opens its normal listening input. On: it opens a Gemini Live session. */
     fun liveVoice(context: Context): Boolean = prefs(context).getBoolean("x_assist_live_voice", false)
     fun setLiveVoice(context: Context, on: Boolean) {

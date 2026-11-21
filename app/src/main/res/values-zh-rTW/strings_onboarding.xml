@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">任何相容 OpenAI 的服務</string>
     <string name="onb_key_anthropic_1">點一下下方的「開啟」。它會在瀏覽器中開啟 Anthropic 控制檯。註冊或登入。</string>
     <string name="onb_key_anthropic_2">前往 Billing，新增少量額度。按用量付費，幾美元就能用很久。</string>
-    <string name="onb_key_anthropic_3">前往 API keys，點一下 Create key。名字隨便起，比如 Agent。</string>
+    <string name="onb_key_anthropic_3">前往 API keys，點一下 Create key。名字隨便起，比如 Mew。</string>
     <string name="onb_key_anthropic_4">點一下 Copy，回到這個應用程式，把金鑰貼上到上面的框裡，然後點一下「檢查金鑰」。</string>
     <string name="onb_key_openai_1">點一下下方的「開啟」。它會在瀏覽器中開啟 OpenAI 平台。註冊或登入。（這與 ChatGPT 訂閱是分開的。）</string>
     <string name="onb_key_openai_2">前往 Billing，新增少量額度。幾美元就能用很久。</string>
-    <string name="onb_key_openai_3">前往 API keys，點一下 Create new secret key。名字隨便起，比如 Agent。</string>
+    <string name="onb_key_openai_3">前往 API keys，點一下 Create new secret key。名字隨便起，比如 Mew。</string>
     <string name="onb_key_step_copy_once">點一下 Copy（金鑰只會顯示一次），回到這裡，貼上到上面，然後點一下「檢查金鑰」。</string>
     <string name="onb_key_gemini_1">點一下下方的「開啟」。它會開啟 Google AI Studio。用任意 Google 帳號登入。</string>
     <string name="onb_key_gemini_2">點一下 Create API key。如果它要你選擇專案，選它建議的那個。</string>

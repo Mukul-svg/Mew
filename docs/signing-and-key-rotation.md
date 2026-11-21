@@ -29,8 +29,8 @@ Android has supported exactly this since Android 9 (API 28): **APK Signature Sch
 carries a *lineage* that proves the new signing key descends from the old one, so a device that holds the old key accepts
 the new key for that app and keeps the data.
 
-- `minSdk` in `app/build.gradle.kts` is **28**, so every device this app supports understands v3. There is no
-  "old phones cannot rotate" problem. If minSdk ever drops below 28, this plan has to change.
+- `minSdk` in `app/build.gradle.kts` is **34** (Android 14), so every device this app supports understands v3.
+  There is no "old phones cannot rotate" problem.
 - Rotation is a chain, not a replacement: the lineage file is created once and reused for every later rotation. **Lose it
   and you can never rotate again** without asking everyone to reinstall.
 
@@ -63,8 +63,8 @@ the new key for that app and keeps the data.
 4. **Prove it on a phone that already has the app**: a device carrying a build signed with the published key must accept
    `adb install -r` of the rotated APK and keep its data. Nothing ships until that is seen working on a real device.
 5. **Publish it as a normal release**, with one line in the notes: the app's signing key was rotated, updates continue
-   as they always did, and no reinstall is needed. Devices on Android 9 or newer, which is every supported device, take
-   the rotated packaging.
+   as they always did, and no reinstall is needed. Every supported device (Android 14 or newer) takes the rotated
+   packaging.
 6. **From then on** the published key is `release.jks`, and the expected certificate in the guard becomes its
    fingerprint. The lineage stays, so a future rotation is the same three commands.
 
@@ -82,4 +82,4 @@ the new key for that app and keeps the data.
 - **The lineage file is lost.** Keep the copy in `tools/signing/` and one with the keys. Without it, the next key change
   needs a reinstall by every user.
 - **A build signs with the wrong key again.** The build now fails; if someone bypasses it, the checker refuses the file.
-- **A device older than Android 9.** Not supported by the app (minSdk 28), so it cannot happen today.
+- **A device older than Android 14.** Not supported by the app (minSdk 34), so it cannot happen today.

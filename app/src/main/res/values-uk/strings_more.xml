@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">АБО ВИКОРИСТОВУЙТЕ АГЕНТА НА КОМП’ЮТЕРІ</string>
     <string name="onb_use_on_computer">Використовувати агента на моєму комп’ютері</string>
-    <string name="onb_use_on_computer_sub">Відскануйте код у застосунку Agent на комп’ютері чи сервері. Жодних ключів на цьому телефоні.</string>
+    <string name="onb_use_on_computer_sub">Відскануйте код у застосунку Mew на комп’ютері чи сервері. Жодних ключів на цьому телефоні.</string>
     <string name="sub_paste_code_from">Вставте код від %1$s</string>
     <string name="sub_paste_code_body_from">У браузері натисніть Authorize. Потім %1$s покаже код. Скопіюйте його, поверніться сюди й вставте нижче.</string>
     <string name="sub_code_from">Код від %1$s</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">Додати тестовий номер</string>
     <string name="browser_test_number_body">Номер облікового запису WhatsApp, з яким ви тестуєте. У WhatsApp нічого не надсилається, а перезавантаження сторінки скасовує зміну.</string>
     <string name="link_cant_reach">Не вдалося зв’язатися з комп’ютером.</string>
-    <string name="link_bad_answer">Відповідь комп’ютера незрозуміла. Застосунок Agent на ньому оновлено?</string>
+    <string name="link_bad_answer">Відповідь комп’ютера незрозуміла. Застосунок Mew на ньому оновлено?</string>
     <string name="link_tried_addresses">(спробувано адрес: %1$d)</string>
     <string name="link_type_address">Введіть адресу комп’ютера.</string>
     <string name="link_no_certificate">Комп’ютер не надіслав сертифікат.</string>
     <string name="link_failed">Не вдалося зв’язати.</string>
     <string name="link_your_computer">ваш комп’ютер</string>
-    <string name="link_not_a_code">Цей QR-код не є кодом зв’язку Agent.</string>
+    <string name="link_not_a_code">Цей QR-код не є кодом зв’язку Mew.</string>
     <string name="link_subtitle">Зв’яжіть цей телефон із комп’ютером або сервером</string>
     <string name="link_linked_to">Пов’язано з %1$s</string>
     <string name="link_runs_on">Ваш агент працює на %1$s. Цей телефон показує його чат, пам’ять, завдання й рутини та не зберігає для нього ключів ШІ.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">Зв’язати з %1$s</string>
     <string name="link_keep">Залишити %1$s</string>
     <string name="link_linking_to">Зв’язуємо з %1$s...</string>
-    <string name="link_how_to">На комп’ютері відкрийте застосунок Agent і перейдіть у Налаштування, Пристрої, Додати пристрій.</string>
+    <string name="link_how_to">На комп’ютері відкрийте застосунок Mew і перейдіть у Налаштування, Пристрої, Додати пристрій.</string>
     <string name="link_how_type">Введіть адресу й код, який він показує.</string>
     <string name="link_how_scan">Наведіть камеру на показаний код.</string>
     <string name="link_allow_camera">Дозволити камеру</string>
@@ -275,7 +275,7 @@
     <string name="proj_new_chat_line">Усе сказане досі збережеться в пам’яті, а це вікно стане порожнім. На вашому комп’ютері нічого не видаляється.</string>
     <string name="proj_new_chat">Новий чат</string>
     <string name="proj_not_linked_now">Зараз немає зв’язку з комп’ютером.</string>
-    <string name="proj_computer_older">Застосунок Agent на вашому комп’ютері старіший за цей, тому він не може почати там новий чат. Оновіть його на комп’ютері й повторіть.</string>
+    <string name="proj_computer_older">Застосунок Mew на вашому комп’ютері старіший за цей, тому він не може почати там новий чат. Оновіть його на комп’ютері й повторіть.</string>
     <string name="proj_unreachable">Не вдалося зв’язатися з вашим комп’ютером. Повторіть, коли він знову буде доступний.</string>
     <string name="proj_photo_you_sent">Фото, яке ви надіслали</string>
     <string name="proj_start_chat_failed">Не вдалося почати чат у «%1$s»: %2$s.</string>
@@ -379,14 +379,14 @@
     <string name="wake_up_your_computer">ваш комп’ютер</string>
     <string name="wake_up_reaches">Доходить до цього телефона</string>
     <string name="wake_up_link_first">Спершу зв’яжіть цей телефон із комп’ютером (Налаштування > Пов’язані пристрої)</string>
-    <string name="wake_up_lacks">%1$s поки не може зателефонувати на цей телефон: оновіть там застосунок Agent</string>
+    <string name="wake_up_lacks">%1$s поки не може зателефонувати на цей телефон: оновіть там застосунок Mew</string>
     <string name="wake_up_connected">Підключено до %1$s</string>
     <string name="wake_up_not_connected">Зараз немає зв’язку. Продовжує намагатися.</string>
     <string name="wake_up_test">Перевірити побудку</string>
     <string name="wake_up_test_body">Телефон задзвонить по-справжньому. Дайте відповідь, щоб зупинити.</string>
     <string name="wake_up_test_sent">Перевірку: %1$s надіслано.</string>
     <string name="wake_up_not_sent">Не надіслалося.</string>
-    <string name="wake_up_secure_folder">Установіть Agent звичайним способом (не в Захищену папку): заблокована Захищена папка не може дзвонити.</string>
+    <string name="wake_up_secure_folder">Установіть Mew звичайним способом (не в Захищену папку): заблокована Захищена папка не може дзвонити.</string>
     <string name="rec_recording_now">Триває запис</string>
     <string name="rec_cut_off">Перервано</string>
     <string name="rec_partly">Частину не було записано</string>
@@ -415,7 +415,7 @@
     <string name="media_play">Відтворювати музику й відео</string>
     <string name="media_intro">Коли ви просите агента щось увімкнути, він використовує застосунок, вибраний тут. В автоматичному режимі він бере застосунок телефона за замовчуванням, потім будь-який, що вміє відтворювати за пошуком.</string>
     <string name="media_access_off">Доступ до сповіщень вимкнено</string>
-    <string name="media_access_body">Android показує, що грає, і дозволяє агенту ставити на паузу чи перемикати лише після того, як Agent отримає доступ до сповіщень.</string>
+    <string name="media_access_body">Android показує, що грає, і дозволяє агенту ставити на паузу чи перемикати лише після того, як Mew отримає доступ до сповіщень.</string>
     <string name="media_none">На цьому телефоні немає застосунків, які можуть відтворювати музику чи відео для вашого агента. Установіть музичний застосунок, і він з’явиться тут.</string>
     <string name="media_music_app">Музичний застосунок</string>
     <string name="media_video_app">Відеозастосунок</string>
@@ -673,7 +673,7 @@
     <string name="main_your_computer">ваш комп’ютер</string>
     <string name="main_a_computer">комп’ютер</string>
     <string name="main_whatever_agent_runs">На чому б не працював ваш агент</string>
-    <string name="rt_clear_computer_older">Чат цього телефона очищено. Чат на вашому комп’ютері не очищено: застосунок Agent на ньому старіший за цей і не може почати новий чат. Оновіть застосунок на комп’ютері й очистьте знову.</string>
+    <string name="rt_clear_computer_older">Чат цього телефона очищено. Чат на вашому комп’ютері не очищено: застосунок Mew на ньому старіший за цей і не може почати новий чат. Оновіть застосунок на комп’ютері й очистьте знову.</string>
     <string name="rt_clear_unreachable">Чат цього телефона очищено. Не вдалося зв’язатися з вашим комп’ютером, тому його чат залишився й знову з’явиться після синхронізації. Очистьте знову, коли він буде доступний.</string>
     <string name="assist_type_it_instead">Ввести текстом</string>
     <string name="assist_unlock_to_carry_on">Розблокуйте, щоб продовжити</string>
@@ -724,6 +724,10 @@
     <string name="assist_over_lock_line">Вимк.: спершу розблокуйте телефон, потім викликайте. Увімк.: відкривається на заблокованому телефоні й надсилає запит після розблокування.</string>
     <string name="assist_live_voice">Живий голос в асистенті</string>
     <string name="assist_live_voice_line">Вимк.: ви говорите один запит, і він відповідає. Увімк.: говоріть природно, %1$s відповідає одразу вголос, можна перебивати, він передає завдання агенту й повідомляє вам результат.</string>
+    <string name="assist_talk">Продовжувати розмову</string>
+    <string name="assist_talk_line">Як дзвінок: %1$s читає кожну відповідь уголос і слухає знову, доки ви не скажете «до побачення» або не натиснете «Завершити». Використовує ваш хмарний голос, а якщо його немає — голос самого телефона.</string>
+    <string name="assist_talk_end">Завершити</string>
+    <string name="assist_talk_interrupt">Перервати</string>
     <string name="assist_never_reads_money">Він ніколи не читає банківські, платіжні й грошові застосунки, за будь-якого положення перемикачів. Прочитане використовується лише для цього запиту.</string>
     <string name="live_bubble_desc">Живий голос. Натисніть, щоб відкрити</string>
     <string name="live_end_session">Завершити живий сеанс</string>

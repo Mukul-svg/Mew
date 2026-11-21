@@ -2,7 +2,7 @@
 <resources>
     <string name="onb_use_on_computer_eyebrow">یا از عامل روی رایانه‌تان استفاده کنید</string>
     <string name="onb_use_on_computer">استفاده از عامل روی رایانه من</string>
-    <string name="onb_use_on_computer_sub">کد را در برنامه Agent روی رایانه یا سرورتان اسکن کنید. هیچ کلیدی روی این گوشی نیست.</string>
+    <string name="onb_use_on_computer_sub">کد را در برنامه Mew روی رایانه یا سرورتان اسکن کنید. هیچ کلیدی روی این گوشی نیست.</string>
     <string name="sub_paste_code_from">کد را از %1$s جای‌گذاری کنید</string>
     <string name="sub_paste_code_body_from">در مرورگر: مجوز دادن را بزنید. بعد %1$s یک کد نشان می‌دهد. آن را کپی کنید، به اینجا برگردید و پایین جای‌گذاری کنید.</string>
     <string name="sub_code_from">کد از %1$s</string>
@@ -18,7 +18,7 @@
     <string name="settings_automation_not_listening">هنوز گوش نمی‌دهد: برنامه را یک بار باز کنید</string>
     <string name="settings_automation_on">روشن · %1$s</string>
     <string name="settings_automation_off">خاموش · برای تنظیم بزنید</string>
-    <string name="settings_macro_title">Agent با برنامه‌های شما صحبت می‌کند</string>
+    <string name="settings_macro_title">Mew با برنامه‌های شما صحبت می‌کند</string>
     <string name="settings_media_apps">برنامه‌های رسانه</string>
     <string name="settings_bg_screen">صفحه پس‌زمینه</string>
     <string name="settings_bg_screen_sub">برنامه‌های دیگر، در حالی که صفحه خودتان را نگه می‌دارید</string>
@@ -73,13 +73,13 @@
     <string name="browser_add_test_number">افزودن شماره آزمایشی</string>
     <string name="browser_test_number_body">شماره حساب WhatsApp که با آن آزمایش می‌کنید. چیزی به WhatsApp فرستاده نمی‌شود و بارگیری دوباره صفحه آن را برمی‌گرداند.</string>
     <string name="link_cant_reach">رسیدن به رایانه ممکن نشد.</string>
-    <string name="link_bad_answer">پاسخ رایانه معنی نداشت. آیا برنامه Agent روی آن به‌روز است؟</string>
+    <string name="link_bad_answer">پاسخ رایانه معنی نداشت. آیا برنامه Mew روی آن به‌روز است؟</string>
     <string name="link_tried_addresses">(%1$d نشانی امتحان شد)</string>
     <string name="link_type_address">نشانی رایانه را بنویسید.</string>
     <string name="link_no_certificate">رایانه گواهی‌ای نفرستاد.</string>
     <string name="link_failed">پیوند دادن ناموفق بود.</string>
     <string name="link_your_computer">رایانه شما</string>
-    <string name="link_not_a_code">این کد QR کد پیوند Agent نیست.</string>
+    <string name="link_not_a_code">این کد QR کد پیوند Mew نیست.</string>
     <string name="link_subtitle">این گوشی را به یک رایانه یا سرور پیوند دهید</string>
     <string name="link_linked_to">پیوندشده به %1$s</string>
     <string name="link_runs_on">عامل شما روی %1$s اجرا می‌شود. این گوشی گفتگو، حافظه، کارها و روال‌های آن را نشان می‌دهد و هیچ کلید Ai برایش ندارد.</string>
@@ -91,7 +91,7 @@
     <string name="link_link_to">پیوند به %1$s</string>
     <string name="link_keep">نگه داشتن %1$s</string>
     <string name="link_linking_to">در حال پیوند به %1$s...</string>
-    <string name="link_how_to">روی رایانه‌تان برنامه Agent را باز کنید و به تنظیمات، دستگاه‌ها، افزودن دستگاه بروید.</string>
+    <string name="link_how_to">روی رایانه‌تان برنامه Mew را باز کنید و به تنظیمات، دستگاه‌ها، افزودن دستگاه بروید.</string>
     <string name="link_how_type">نشانی و کدی را که نشان می‌دهد بنویسید.</string>
     <string name="link_how_scan">این دوربین را روی کدی که نشان می‌دهد بگیرید.</string>
     <string name="link_allow_camera">اجازه دوربین</string>
@@ -273,7 +273,7 @@
     <string name="proj_new_chat_line">آنچه تا اینجا گفته شد در حافظه ذخیره می‌شود و این پنجره خالی شروع می‌شود. چیزی روی رایانه‌تان حذف نمی‌شود.</string>
     <string name="proj_new_chat">گفتگوی جدید</string>
     <string name="proj_not_linked_now">اکنون به رایانه‌ای پیوند نشده.</string>
-    <string name="proj_computer_older">برنامه Agent رایانه شما قدیمی‌تر از این است، پس نمی‌تواند آنجا گفتگوی جدید شروع کند. آن را روی رایانه‌تان به‌روز کنید و دوباره امتحان کنید.</string>
+    <string name="proj_computer_older">برنامه Mew رایانه شما قدیمی‌تر از این است، پس نمی‌تواند آنجا گفتگوی جدید شروع کند. آن را روی رایانه‌تان به‌روز کنید و دوباره امتحان کنید.</string>
     <string name="proj_unreachable">به رایانه‌تان نرسیدیم. وقتی برگشت دوباره تلاش کنید.</string>
     <string name="proj_photo_you_sent">عکسی که فرستادید</string>
     <string name="proj_start_chat_failed">شروع گفتگو در %1$s ممکن نشد: %2$s.</string>
@@ -371,14 +371,14 @@
     <string name="wake_up_your_computer">رایانه شما</string>
     <string name="wake_up_reaches">به این گوشی می‌رسد</string>
     <string name="wake_up_link_first">ابتدا این گوشی را به رایانه‌تان پیوند دهید (تنظیمات > دستگاه‌های پیوندشده)</string>
-    <string name="wake_up_lacks">%1$s هنوز نمی‌تواند این گوشی را زنگ بزند: برنامه Agent را آنجا به‌روز کنید</string>
+    <string name="wake_up_lacks">%1$s هنوز نمی‌تواند این گوشی را زنگ بزند: برنامه Mew را آنجا به‌روز کنید</string>
     <string name="wake_up_connected">متصل به %1$s</string>
     <string name="wake_up_not_connected">اکنون متصل نیست. تلاش را ادامه می‌دهد.</string>
     <string name="wake_up_test">آزمایش یک بیدارباش</string>
     <string name="wake_up_test_body">این گوشی را واقعاً زنگ می‌زند. برای توقف پاسخ دهید.</string>
     <string name="wake_up_test_sent">آزمایش %1$s فرستاده شد.</string>
     <string name="wake_up_not_sent">نرفت.</string>
-    <string name="wake_up_secure_folder">Agent را به‌طور معمول نصب کنید (نه داخل Secure Folder): یک Secure Folder قفل‌شده نمی‌تواند زنگ بزند.</string>
+    <string name="wake_up_secure_folder">Mew را به‌طور معمول نصب کنید (نه داخل Secure Folder): یک Secure Folder قفل‌شده نمی‌تواند زنگ بزند.</string>
     <string name="rec_recording_now">در حال ضبط</string>
     <string name="rec_cut_off">قطع شد</string>
     <string name="rec_partly">بخشی از آن نوشته نشد</string>
@@ -407,7 +407,7 @@
     <string name="media_play">پخش موسیقی و ویدیو</string>
     <string name="media_intro">وقتی از عامل خود می‌خواهید چیزی پخش کند، از برنامه‌ای که اینجا انتخاب می‌کنید استفاده می‌کند. اگر روی خودکار بماند، از پیش‌فرض گوشی و سپس هر برنامه‌ای که بتواند از جستجو پخش کند استفاده می‌کند.</string>
     <string name="media_access_off">دسترسی به اعلان‌ها خاموش است</string>
-    <string name="media_access_body">اندروید فقط وقتی به Agent دسترسی به اعلان‌ها داده شود نشان می‌دهد چه چیزی پخش می‌شود و به عامل شما اجازه توقف یا رد کردن می‌دهد.</string>
+    <string name="media_access_body">اندروید فقط وقتی به Mew دسترسی به اعلان‌ها داده شود نشان می‌دهد چه چیزی پخش می‌شود و به عامل شما اجازه توقف یا رد کردن می‌دهد.</string>
     <string name="media_none">هیچ برنامه‌ای روی این گوشی اعلام نمی‌کند که بتواند برای عامل شما موسیقی یا ویدیو پخش کند. یک برنامه موسیقی نصب کنید تا اینجا ظاهر شود.</string>
     <string name="media_music_app">برنامه موسیقی</string>
     <string name="media_video_app">برنامه ویدیو</string>
@@ -416,7 +416,7 @@
     <string name="macro_and">%1$s و %2$s</string>
     <string name="macro_line_some">%1$s می‌تواند بدون پرسیدن اجرا شود؛ بقیه می‌پرسند</string>
     <string name="macro_eyebrow">خودکارسازی</string>
-    <string name="macro_title">Agent با برنامه‌های شما صحبت می‌کند</string>
+    <string name="macro_title">Mew با برنامه‌های شما صحبت می‌کند</string>
     <string name="macro_intro">عامل شما می‌تواند به هر برنامه روی این گوشی یک intent اندروید بفرستد: باز کردن مکانی در Maps، اشتراک‌گذاری در یک برنامه، اجرای ماکرو MacroDroid یا Tasker. باز کردن یک صفحه هرگز نمی‌پرسد. هر چیز دیگر اول از شما می‌پرسد، مگر اینکه اینجا فهرست شده باشد. هیچ‌چیز از گوشی بیرون نمی‌رود.</string>
     <string name="macro_intents">intentهای مجاز برنامه‌ها</string>
     <string name="macro_intents_hint">action | package، هر کدام در یک خط</string>
@@ -653,7 +653,7 @@
     <string name="main_your_computer">رایانه شما</string>
     <string name="main_a_computer">یک رایانه</string>
     <string name="main_whatever_agent_runs">هر چیزی که عامل شما روی آن اجرا می‌شود</string>
-    <string name="rt_clear_computer_older">گفتگوی این گوشی پاک شد. گفتگوی رایانه‌تان پاک نشد: برنامه Agent روی آن قدیمی‌تر از این است، پس نمی‌تواند گفتگوی جدید شروع کند. برنامه را روی رایانه‌تان به‌روز کنید، بعد دوباره پاک کنید.</string>
+    <string name="rt_clear_computer_older">گفتگوی این گوشی پاک شد. گفتگوی رایانه‌تان پاک نشد: برنامه Mew روی آن قدیمی‌تر از این است، پس نمی‌تواند گفتگوی جدید شروع کند. برنامه را روی رایانه‌تان به‌روز کنید، بعد دوباره پاک کنید.</string>
     <string name="rt_clear_unreachable">گفتگوی این گوشی پاک شد. همین الان به رایانه‌تان نرسیدیم، پس گفتگوی آن هنوز هست و هنگام همگام‌سازی دوباره نشان داده می‌شود. وقتی برگشت دوباره پاک کنید.</string>
     <string name="assist_type_it_instead">به‌جای آن تایپ کنید</string>
     <string name="assist_unlock_to_carry_on">برای ادامه قفل را باز کنید</string>
@@ -704,6 +704,10 @@
     <string name="assist_over_lock_line">خاموش: اول قفل گوشی را باز کنید، بعد فراخوانی کنید. روشن: روی گوشی قفل‌شده باز می‌شود و وقتی قفل را باز کنید درخواستتان را می‌فرستد.</string>
     <string name="assist_live_voice">صدای زنده در دستیار</string>
     <string name="assist_live_voice_line">خاموش: یک درخواست می‌گویید و پاسخ می‌دهد. روشن: طبیعی صحبت کنید، %1$s بلافاصله با صدای بلند پاسخ می‌دهد، می‌توانید روی صحبتش حرف بزنید و کارها را به عامل شما می‌سپارد و نتیجه را به شما می‌گوید.</string>
+    <string name="assist_talk">ادامهٔ گفتگو</string>
+    <string name="assist_talk_line">مثل یک تماس: %1$s هر پاسخ را بلند می‌خواند و دوباره گوش می‌دهد، تا وقتی خداحافظی کنید یا پایان را بزنید. از صدای ابری شما استفاده می‌کند، و اگر تنظیم نشده باشد از صدای خود گوشی.</string>
+    <string name="assist_talk_end">پایان</string>
+    <string name="assist_talk_interrupt">قطع کردن</string>
     <string name="assist_never_reads_money">هرگز برنامه‌های بانکی، پرداخت یا پولی را نمی‌خواند، با هر دو کلید روشن. آنچه می‌خواند فقط برای همان درخواست استفاده می‌شود.</string>
     <string name="live_bubble_desc">صدای زنده. برای باز کردن بزنید</string>
     <string name="live_end_session">پایان نشست زنده</string>

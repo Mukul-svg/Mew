@@ -1,6 +1,6 @@
 # Automation from other apps (MacroDroid, Tasker)
 
-Your Agent app has a small web server inside it. A macro in MacroDroid, a task in Tasker, or any other app on the
+Your Mew app has a small web server inside it. A macro in MacroDroid, a task in Tasker, or any other app on the
 phone can call it to fire one of your routines, or to send the agent an instruction and read the answer back.
 
 ## The one limit
@@ -112,7 +112,7 @@ GET http://127.0.0.1:47321/v1/instructions/<id> for the reply.
 
 | Method | Path | Body | Comes back |
 | --- | --- | --- | --- |
-| GET | /v1/health | none | {"ok":true,"app":"Agent","server":"automation","allowed":true} |
+| GET | /v1/health | none | {"ok":true,"app":"Mew","server":"automation","allowed":true} |
 | GET | /v1/routines | none | every routine: id, name, enabled, schedule, lastResult |
 | POST | /v1/routines/run | {"name":"..."} or {"id":12}, optional "context" | {"runId":"run-1","status":"running"} |
 | GET | /v1/runs/{id} | none | runId, status, result, needsApproval, durationMs |
@@ -147,7 +147,7 @@ watching. Firing an agent that sends an email or deletes a file does not, whatev
 ## By intent, instead of HTTP
 
 Any app can also reach the agent with a broadcast. It uses the same token and the same "Allow outside runs" switch,
-and it works when the Agent app is closed, because Android starts the app for it.
+and it works when the Mew app is closed, because Android starts the app for it.
 
 - Package: `com.past9.phoneaos`. Required. Android does not deliver a broadcast to a closed app without it.
 - Fire a routine: action `com.past9.phoneaos.RUN_ROUTINE`, extras `token`, `routine` (its name or id) and an optional `note`.
@@ -162,7 +162,7 @@ match, nothing runs.
 A sender that uses an ordered broadcast gets the same JSON the HTTP endpoint returns as the result data, with the
 status as the result code: 200, 400, 401, 403 or 404. To read a run's full result, poll `/v1/runs/{id}` over HTTP.
 
-If you force stop the Agent app, Android holds back broadcasts to it until you open it once.
+If you force stop the Mew app, Android holds back broadcasts to it until you open it once.
 
 ## The other direction: the agent talks to your apps
 
@@ -193,7 +193,7 @@ when every extra it was set up with is present.
 3. Add an extra. Name: `macro`, in small letters. Value: `Wifi off`, with nothing after it, not even a space.
    Optional: `v1` = `*` saved to a variable, and the same for `v2`, `v3` and `params`.
 4. Add the actions you want.
-5. In the Agent app, open Settings, Automation, *Agent runs your macros*, and add `Wifi off` under Allowed macros.
+5. In the Mew app, open Settings, Automation, *Mew runs your macros*, and add `Wifi off` under Allowed macros.
 
 ### If the macro does not run
 

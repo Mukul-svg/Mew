@@ -5,14 +5,14 @@
     <string name="machines_eyebrow">Ciężka praca</string>
     <string name="machines_your">Twoje maszyny</string>
     <string name="machines_add">Dodaj maszynę</string>
-    <string name="machines_empty">Połącz serwer lub komputer, na który możesz się zalogować. Agent wyśle tam pracę, której telefon nie powinien wykonywać: budowanie strony, przetwarzanie danych, długie skrypty.</string>
+    <string name="machines_empty">Połącz serwer lub komputer, na który możesz się zalogować. Mew wyśle tam pracę, której telefon nie powinien wykonywać: budowanie strony, przetwarzanie danych, długie skrypty.</string>
     <string name="machines_hint_vps">Wynajmowany serwer</string>
     <string name="machines_hint_vps_sub">VPS od dowolnego dostawcy</string>
     <string name="machines_hint_uni">Serwer uczelni lub pracy</string>
     <string name="machines_hint_uni_sub">Przez jego serwer logowania, jeśli taki jest</string>
     <string name="machines_hint_own">Twój własny komputer</string>
     <string name="machines_hint_own_sub">Przez Tailscale lub sieć domową</string>
-    <string name="machines_privacy">Agent widzi tylko nazwy. Adresy, hasła i klucze pozostają zaszyfrowane na tym telefonie.</string>
+    <string name="machines_privacy">Mew widzi tylko nazwy. Adresy, hasła i klucze pozostają zaszyfrowane na tym telefonie.</string>
     <string name="machines_runs_without_asking">Działa bez pytania</string>
     <string name="machines_not_checked">Jeszcze nie sprawdzono</string>
     <string name="machines_online">Online</string>
@@ -54,7 +54,7 @@
     <string name="machines_identity">Tożsamość %1$s…</string>
     <string name="machines_couldnt_connect">Nie udało się połączyć</string>
     <string name="machines_remove_confirm">Usunąć %1$s?</string>
-    <string name="machines_remove_confirm_body">Agent straci dostęp, a zapisane hasło lub klucz zostanie usunięte z tego telefonu.</string>
+    <string name="machines_remove_confirm_body">Mew straci dostęp, a zapisane hasło lub klucz zostanie usunięte z tego telefonu.</string>
     <string name="machines_remove">Usuń</string>
     <string name="machines_cancel">Anuluj</string>
     <string name="machines_one_step">JEDEN KROK NA MASZYNIE</string>
@@ -85,7 +85,7 @@
     <string name="conn_files_on">Twój agent może znajdować i wysyłać twoje pliki</string>
     <string name="conn_files_off">Pozwól agentowi znajdować pliki do przesłania lub wysłania</string>
     <string name="conn_your_apps">Twoje aplikacje</string>
-    <string name="conn_your_apps_consumer">Dotknij „Połącz” i zaloguj się. Agent może od razu z niej korzystać.</string>
+    <string name="conn_your_apps_consumer">Dotknij „Połącz” i zaloguj się. Mew może od razu z niej korzystać.</string>
     <string name="conn_your_apps_key">Gmail, Kalendarz, Dysk, Slack i ponad 250 innych, przez Composio z twoim własnym kluczem</string>
     <string name="conn_dupe_title">%1$s: liczba połączeń %2$d</string>
     <string name="conn_same_sign_in">Z tym samym logowaniem</string>
@@ -222,7 +222,7 @@
     <string name="profile_you">Ty</string>
     <string name="helpers_eyebrow">POMOCNICY</string>
     <string name="helpers_title">Komu twój agent przekazuje pracę</string>
-    <string name="helpers_body">Wybierz do %1$d modeli i oznacz, do czego każdy się nadaje. Agent wysyła każde zadanie do pasującego pomocnika, a dla mniejszych modeli pisze obszerniejsze zadanie. Pierwszy wybrany jest domyślny.</string>
+    <string name="helpers_body">Wybierz do %1$d modeli i oznacz, do czego każdy się nadaje. Mew wysyła każde zadanie do pasującego pomocnika, a dla mniejszych modeli pisze obszerniejsze zadanie. Pierwszy wybrany jest domyślny.</string>
     <string name="helpers_search">Szukaj modeli</string>
     <string name="helpers_no_models">Dla tego konta nie zwrócono żadnych modeli.</string>
     <string name="helpers_use_agent_only">Używaj tylko modelu agenta</string>
@@ -257,7 +257,7 @@
     <string name="conn_learned_sub">Strony, które agent poznaje raz, a potem używa bez klikania</string>
     <string name="conn_learned_sheet_sub">Strony, które zna twój agent</string>
     <string name="conn_learned_teach">Naucz agenta tej aplikacji</string>
-    <string name="conn_learned_empty">Podaj stronę lub aplikację, z której ciągle korzystasz. Agent otworzy ją, ustali, jak działa, i napisze dla siebie narzędzia, żeby następnym razem wywołać narzędzie zamiast klikać po aplikacji.</string>
+    <string name="conn_learned_empty">Podaj stronę lub aplikację, z której ciągle korzystasz. Mew otworzy ją, ustali, jak działa, i napisze dla siebie narzędzia, żeby następnym razem wywołać narzędzie zamiast klikać po aplikacji.</string>
     <string name="conn_learned_teach_new">Naucz nowej</string>
     <string name="conn_learned_teach_hint">WhatsApp Web, portal twojej szkoły, twój bank</string>
     <plurals name="conn_learned_tools">
@@ -291,7 +291,7 @@
     <string name="camera_none">To urządzenie nie ma aparatu.</string>
     <string name="camera_none_sub">Nadal możesz dołączyć zdjęcie z galerii.</string>
     <string name="camera_off">Aparat jest wyłączony.</string>
-    <string name="camera_off_sub">Agent widzi zdjęcie tylko wtedy, gdy je zrobisz i dotkniesz „Wyślij”.</string>
+    <string name="camera_off_sub">Mew widzi zdjęcie tylko wtedy, gdy je zrobisz i dotkniesz „Wyślij”.</string>
     <string name="camera_open_settings">Otwórz ustawienia</string>
     <string name="camera_close_camera">Zamknij aparat</string>
     <string name="camera_try_again">Spróbuj ponownie</string>

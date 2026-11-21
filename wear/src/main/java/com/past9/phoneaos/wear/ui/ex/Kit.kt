@@ -67,7 +67,7 @@ import kotlin.math.sin
 import kotlin.math.sqrt
 
 /**
- * Watch v2 design kit: the Agent's own look on a wrist. Everything is a function of time `t` (seconds) so a still, a clip
+ * Watch v2 design kit: the Mew's own look on a wrist. Everything is a function of time `t` (seconds) so a still, a clip
  * frame and the live screen are the same code: live screens pass [rememberT], previews pass a fixed t.
  *
  * Identity, taken from the phone app: the iris accent, amber that means only "this needs you", the user's mascot (a

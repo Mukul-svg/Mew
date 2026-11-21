@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">Leha e le efe e lumellanang le OpenAI</string>
     <string name="onb_key_anthropic_1">Tobetsa Open ka tlase. E bula console ea Anthropic sebatlining sa hao. Ingolise kapa u kene.</string>
     <string name="onb_key_anthropic_2">Eya ho Billing \'me u eketse credit e nyane. U lefa ha u sebelisa, \'me li-dollar tse seng kae li nka nako e telele.</string>
-    <string name="onb_key_anthropic_3">Eya ho API keys \'me u tobetse Create key. E rele lebitso lefe kapa lefe, joalo ka Agent.</string>
+    <string name="onb_key_anthropic_3">Eya ho API keys \'me u tobetse Create key. E rele lebitso lefe kapa lefe, joalo ka Mew.</string>
     <string name="onb_key_anthropic_4">Tobetsa Copy, khutlela app ena, kopanya senotlolo lebokoseng le ka holimo \'me u tobetse Check key.</string>
     <string name="onb_key_openai_1">Tobetsa Open ka tlase. E bula sethala sa OpenAI sebatlining sa hao. Ingolise kapa u kene. (Sena se arohane le ChatGPT subscription.)</string>
     <string name="onb_key_openai_2">Eya ho Billing \'me u eketse credit e nyane. Li-dollar tse seng kae li nka nako e telele.</string>
-    <string name="onb_key_openai_3">Eya ho API keys \'me u tobetse Create new secret key. E rele lebitso lefe kapa lefe, joalo ka Agent.</string>
+    <string name="onb_key_openai_3">Eya ho API keys \'me u tobetse Create new secret key. E rele lebitso lefe kapa lefe, joalo ka Mew.</string>
     <string name="onb_key_step_copy_once">Tobetsa Copy (u bona senotlolo hang feela), khutlela mona, se kopanye ka holimo \'me u tobetse Check key.</string>
     <string name="onb_key_gemini_1">Tobetsa Open ka tlase. E bula Google AI Studio. Kena ka akhaonto leha e le efe ea Google.</string>
     <string name="onb_key_gemini_2">Tobetsa Create API key. Haeba e u kopa ho khetha projeke, khetha eo e e rotheang.</string>

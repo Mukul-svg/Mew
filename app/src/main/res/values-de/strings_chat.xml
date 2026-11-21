@@ -21,7 +21,7 @@
     <string name="chat_ready">Bereit</string>
     <string name="chat_switch_model">Modell wechseln</string>
     <string name="chat_stop_reading_aloud">Vorlesen stoppen</string>
-    <string name="chat_call_your_agent">Deinen Agent anrufen</string>
+    <string name="chat_call_your_agent">Deinen Mew anrufen</string>
     <string name="chat_watch_browser">Browser des Agents ansehen</string>
     <string name="chat_hi_name">Hallo %1$s.</string>
     <string name="chat_hi_there">Hallo.</string>
@@ -110,7 +110,7 @@
     <string name="ui_card_refresh_now">Jetzt aktualisieren</string>
     <string name="ui_card_unpin">Von Start lösen</string>
     <string name="ui_card_pin">An Start anheften</string>
-    <string name="ui_card_refresh_failed">Die letzte Aktualisierung hat nicht geklappt, daher ist das evtl. veraltet. Bitte deinen Agent, es zu reparieren.</string>
+    <string name="ui_card_refresh_failed">Die letzte Aktualisierung hat nicht geklappt, daher ist das evtl. veraltet. Bitte deinen Mew, es zu reparieren.</string>
     <string name="ui_back">Zurück</string>
     <string name="ui_just_now">gerade eben</string>
     <string name="ui_min_ago">vor %1$d Min.</string>
@@ -137,7 +137,7 @@
     <string name="ui_what_it_brought_back">DAS HAT ER ZURÜCKGEBRACHT</string>
     <string name="ui_what_happened">WAS PASSIERT IST</string>
     <string name="ui_the_brief">DER AUFTRAG</string>
-    <string name="ui_the_brief_sub">Was dein Agent von ihm wollte</string>
+    <string name="ui_the_brief_sub">Was dein Mew von ihm wollte</string>
     <string name="ui_show_less">Weniger anzeigen</string>
     <string name="ui_show_whole_brief">Ganzen Auftrag anzeigen</string>
     <string name="ui_steps">SCHRITTE</string>
@@ -181,7 +181,7 @@
     <string name="chat_branch_rel_related">Verwandt</string>
     <string name="chat_branch_rel_parallel">Parallel</string>
     <string name="chat_branch_rel_ack">Bestätigung</string>
-    <string name="chat_your_agent">Dein Agent</string>
+    <string name="chat_your_agent">Dein Mew</string>
     <string name="ui_helper_paused">Pausiert</string>
     <string name="chat_needs_you_title">Braucht dich</string>
     <string name="chat_take_photo">Foto aufnehmen</string>

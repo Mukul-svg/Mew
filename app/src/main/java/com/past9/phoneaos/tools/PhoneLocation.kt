@@ -182,7 +182,7 @@ class PhoneLocationTool(private val context: Context, private val askMs: Long = 
             val ok = withTimeoutOrNull(askMs) { PermissionBroker.request(context, PhoneLocation.FOREGROUND) { PhoneLocation.askNote(context, why) } }
             if (ok == null) error("ASKING: the phone is asking him to allow location now (a notification, then Android's prompt). Call phone_location again in a minute, once he has answered.")
             NotificationManagerCompat.from(context).cancel(PhoneLocation.NOTE_ID)
-            if (!ok) error("DENIED: location permission is not allowed on the phone (he was asked and said no, or did not answer within 3 minutes). Ask him to allow Location for the Agent app, or ask for the address.")
+            if (!ok) error("DENIED: location permission is not allowed on the phone (he was asked and said no, or did not answer within 3 minutes). Ask him to allow Location for the Mew app, or ask for the address.")
         }
         runCatching { App.graph(context).settings.setExtra(PhoneLocation.KEEP_KEY, "1") }
         // Once, right after the first yes (the app is open then): the same for when the app is closed.
@@ -201,7 +201,7 @@ class PhoneLocationTool(private val context: Context, private val askMs: Long = 
         }
         android.util.Log.i("PhoneLocation", "background=${PhoneLocation.hasBackground(context)} perm=${androidx.core.content.ContextCompat.checkSelfPermission(context, PhoneLocation.BACKGROUND)} onScreen=${PhoneLocation.onScreen()} asked=${settings?.extra(PhoneLocation.BG_ASKED_KEY)}")
         if (!PhoneLocation.hasBackground(context) && !PhoneLocation.onScreen())
-            error("BACKGROUND: the Agent app on the phone may use location only while it is open, and it is closed now. Ask him to open the app (then call again), or to set Location to 'Allow all the time' for Agent (Settings, Apps, Agent, Permissions, Location).")
+            error("BACKGROUND: the Mew app on the phone may use location only while it is open, and it is closed now. Ask him to open the app (then call again), or to set Location to 'Allow all the time' for Mew (Settings, Apps, Mew, Permissions, Location).")
         val lm = context.getSystemService(LocationManager::class.java)
         val providers = PhoneLocation.providers({ lm.isProviderEnabled(it) })
         if (providers.isEmpty() || (Build.VERSION.SDK_INT >= 28 && !lm.isLocationEnabled))

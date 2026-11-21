@@ -29,14 +29,21 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "Agent"
+rootProject.name = "Mew"
 
 include(":app")
 include(":wearproto")
-include(":wear")
 
-// The three Agent watch faces (Watch Face Format, resources only, one face per package): watchface/still, orb, data.
-include(":facestill", ":faceorb", ":facedata")
-project(":facestill").projectDir = file("watchface/still")
-project(":faceorb").projectDir = file("watchface/orb")
-project(":facedata").projectDir = file("watchface/data")
+// Phone-only by default (0.16.0): the Wear OS app and watch faces stay in the repository, but are
+// configured only when asked for with -PwithWear. The phone app still depends on :wearproto.
+if (providers.gradleProperty("withWear").isPresent) {
+  // The watch app shares the phone's protocol and applicationId. Build it only on demand:
+  //   ./gradlew -PwithWear :wear:assembleDebug
+  include(":wear")
+
+  // The three Mew watch faces (Watch Face Format, resources only, one face per package).
+  include(":facestill", ":faceorb", ":facedata")
+  project(":facestill").projectDir = file("watchface/still")
+  project(":faceorb").projectDir = file("watchface/orb")
+  project(":facedata").projectDir = file("watchface/data")
+}

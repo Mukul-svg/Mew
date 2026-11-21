@@ -75,7 +75,7 @@ object ComposioConnect {
         if (sessionKey == key) return
         session = null
         fun init(v: String) = rpc("initialize", JSONObject().put("protocolVersion", v).put("capabilities", JSONObject())
-            .put("clientInfo", JSONObject().put("name", "Agent").put("version", "1")))
+            .put("clientInfo", JSONObject().put("name", "Mew").put("version", "1")))
         // Newest protocol first; if their server falls over on it, try the previous one.
         try { protocol = "2025-06-18"; send(key, init(protocol)) }
         catch (e: IllegalStateException) { protocol = "2025-03-26"; session = null; send(key, init(protocol)) }

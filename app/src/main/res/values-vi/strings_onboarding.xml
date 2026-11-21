@@ -38,11 +38,11 @@
     <string name="onb_any_openai_compatible">Bất kỳ dịch vụ tương thích OpenAI</string>
     <string name="onb_key_anthropic_1">Nhấn Mở bên dưới. Nó mở bảng điều khiển của Anthropic trong trình duyệt. Đăng ký hoặc đăng nhập.</string>
     <string name="onb_key_anthropic_2">Vào Billing và nạp một ít tín dụng. Trả theo mức dùng, vài đô la dùng được rất lâu.</string>
-    <string name="onb_key_anthropic_3">Vào API keys và nhấn Create key. Đặt tên gì cũng được, như Agent.</string>
+    <string name="onb_key_anthropic_3">Vào API keys và nhấn Create key. Đặt tên gì cũng được, như Mew.</string>
     <string name="onb_key_anthropic_4">Nhấn Copy, quay lại ứng dụng này, dán khóa vào ô ở trên rồi nhấn Kiểm tra khóa.</string>
     <string name="onb_key_openai_1">Nhấn Mở bên dưới. Nó mở nền tảng của OpenAI trong trình duyệt. Đăng ký hoặc đăng nhập. (Việc này tách biệt với gói đăng ký ChatGPT.)</string>
     <string name="onb_key_openai_2">Vào Billing và nạp một ít tín dụng. Vài đô la dùng được rất lâu.</string>
-    <string name="onb_key_openai_3">Vào API keys và nhấn Create new secret key. Đặt tên gì cũng được, như Agent.</string>
+    <string name="onb_key_openai_3">Vào API keys và nhấn Create new secret key. Đặt tên gì cũng được, như Mew.</string>
     <string name="onb_key_step_copy_once">Nhấn Copy (bạn chỉ thấy khóa một lần), quay lại đây, dán vào ở trên rồi nhấn Kiểm tra khóa.</string>
     <string name="onb_key_gemini_1">Nhấn Mở bên dưới. Nó mở Google AI Studio. Đăng nhập bằng bất kỳ tài khoản Google nào.</string>
     <string name="onb_key_gemini_2">Nhấn Create API key. Nếu nó yêu cầu chọn dự án, hãy chọn dự án nó gợi ý.</string>

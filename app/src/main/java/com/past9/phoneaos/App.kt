@@ -35,6 +35,12 @@ class Graph(context: Context) {
         onRoutineDeleted = { id -> Routines.cancel(app, id) }
     }
     init {
+        // 0.16.0: subscription runtimes are gone. An existing install that still points at Claude/Codex/
+        // Antigravity moves to the OpenCode API-key path; the old code stays for history, not for use.
+        if (settings.state.value.mode == com.past9.phoneaos.data.PowerMode.SUBSCRIPTION) {
+            settings.setMode(com.past9.phoneaos.data.PowerMode.API_KEY)
+            settings.setProvider(com.past9.phoneaos.data.Provider.OPENCODE_GO)
+        }
         com.past9.phoneaos.triggers.Routines.appContext = app
         // A paired Wear OS watch (only once it has said hello): keep its picture current. docs/wear.md.
         runCatching { com.past9.phoneaos.wear.WatchRelay.attach(this) }
@@ -121,7 +127,7 @@ class Graph(context: Context) {
             override fun forgetBadSignIn() { subRuntime().setToken(null) }
             override fun turn(prompt: String, system: String, resume: String?, mcpUrl: String, mcpToken: String, images: List<String>, model: String?, role: String) =
                 subRuntime().turn(prompt, system, resume, model ?: settings.state.value.subModel.ifBlank { null }, mcpUrl, mcpToken, images, role)
-            // Claude Code can fork a running session (the Agent SDK's forkSession); Codex and OpenCode can only continue one.
+            // Claude Code can fork a running session (the Mew SDK's forkSession); Codex and OpenCode can only continue one.
             override val canFork get() = settings.state.value.subKind == com.past9.phoneaos.data.SubKind.CLAUDE
             override fun forkTurn(prompt: String, system: String, parent: String, mcpUrl: String, mcpToken: String, images: List<String>, model: String?, role: String) =
                 subRuntime().turn(prompt, system, parent, model ?: settings.state.value.subModel.ifBlank { null }, mcpUrl, mcpToken, images, role, fork = true)

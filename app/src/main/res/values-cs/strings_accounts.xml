@@ -54,7 +54,7 @@
     <string name="machines_identity">Identita %1$s…</string>
     <string name="machines_couldnt_connect">Nepodařilo se připojit</string>
     <string name="machines_remove_confirm">Odebrat %1$s?</string>
-    <string name="machines_remove_confirm_body">Agent ztratí přístup a uložené heslo nebo klíč se z tohoto telefonu smaže.</string>
+    <string name="machines_remove_confirm_body">Mew ztratí přístup a uložené heslo nebo klíč se z tohoto telefonu smaže.</string>
     <string name="machines_remove">Odebrat</string>
     <string name="machines_cancel">Zrušit</string>
     <string name="machines_one_step">JEDEN KROK NA STROJI</string>
@@ -85,7 +85,7 @@
     <string name="conn_files_on">Váš agent může najít a nahrát vaše soubory</string>
     <string name="conn_files_off">Dovolte agentovi hledat soubory k nahrání nebo odeslání</string>
     <string name="conn_your_apps">Vaše aplikace</string>
-    <string name="conn_your_apps_consumer">Klepněte na Připojit a přihlaste se. Agent ji může hned používat.</string>
+    <string name="conn_your_apps_consumer">Klepněte na Připojit a přihlaste se. Mew ji může hned používat.</string>
     <string name="conn_your_apps_key">Gmail, Kalendář, Disk, Slack a dalších 250+ přes Composio s vaším vlastním klíčem</string>
     <string name="conn_dupe_title">%1$s: počet připojení %2$d</string>
     <string name="conn_same_sign_in">Stejným přihlášením</string>
@@ -257,7 +257,7 @@
     <string name="conn_learned_sub">Weby, které se agent jednou naučí a pak je používá bez klikání</string>
     <string name="conn_learned_sheet_sub">Weby, které váš agent zná</string>
     <string name="conn_learned_teach">Naučte agenta tuto aplikaci</string>
-    <string name="conn_learned_empty">Pojmenujte web nebo aplikaci, kterou pořád používáte. Agent ji otevře, zjistí, jak funguje, a napíše si pro ni nástroje, takže příště zavolá nástroj místo proklikávání aplikace.</string>
+    <string name="conn_learned_empty">Pojmenujte web nebo aplikaci, kterou pořád používáte. Mew ji otevře, zjistí, jak funguje, a napíše si pro ni nástroje, takže příště zavolá nástroj místo proklikávání aplikace.</string>
     <string name="conn_learned_teach_new">Naučit novou</string>
     <string name="conn_learned_teach_hint">WhatsApp Web, školní portál, vaše banka</string>
     <plurals name="conn_learned_tools">
