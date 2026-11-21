@@ -29,9 +29,9 @@ android {
     // for executing downloaded files is no longer needed. OpenCode Zen/Go API-key mode is the only
     // required model path; Claude/Codex/Antigravity runtimes are out of scope (DECISIONS.md D-011).
     targetSdk = 34
-    // Above upstream 0.15.76/179 so this build installs as an update; the product version stays 0.16.0.
-    versionCode = 180
-    versionName = "0.16.0"
+    // Above upstream 0.15.76/179 and the previous Mew 0.16.0/180 so this build installs as an update.
+    versionCode = 181
+    versionName = "0.16.1"
     // Android never lets an installed app rename itself or change the icon Samsung shows on
     // notifications, so a personal build bakes the owner's agent in: -PagentName=Hina -PagentIcon=ic_app_heart_red
     resValue("string", "app_name", (project.findProperty("agentName") as String?) ?: "Mew")
