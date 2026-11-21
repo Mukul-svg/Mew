@@ -40,7 +40,10 @@ jobs:
 
   android:
     name: Android debug build and unit tests
-    runs-on: ubuntu-latest
+    # Pin the image: it ships Android SDK platform 37.0 and build-tools 37.0.0. The old
+    # android-actions/setup-android@v3 step is gone because it failed on the preinstalled
+    # cmdline-tools and then stopped at an interactive licence prompt.
+    runs-on: ubuntu-24.04
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
@@ -50,13 +53,19 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      - uses: android-actions/setup-android@v3
-
-      - name: Accept the SDK licences
-        run: yes | sdkmanager --licenses > /dev/null
-
-      - name: Install the compile SDK
-        run: sdkmanager --install "platforms;android-37.0" "build-tools;37.0.0"
+      - name: Check the Android SDK
+        run: |
+          SDK_ROOT="${ANDROID_SDK_ROOT:-${ANDROID_HOME:-/usr/local/lib/android/sdk}}"
+          echo "ANDROID_HOME=$SDK_ROOT" >> "$GITHUB_ENV"
+          echo "ANDROID_SDK_ROOT=$SDK_ROOT" >> "$GITHUB_ENV"
+          if [ ! -d "$SDK_ROOT/platforms/android-37.0" ] || [ ! -d "$SDK_ROOT/build-tools/37.0.0" ]; then
+            SDKM="$SDK_ROOT/cmdline-tools/latest/bin/sdkmanager"
+            test -x "$SDKM" || { echo "::error::No Android SDK at $SDK_ROOT"; exit 1; }
+            yes | "$SDKM" --licenses > /dev/null 2>&1 || true
+            "$SDKM" --install "platforms;android-37.0" "build-tools;37.0.0"
+          fi
+          test -d "$SDK_ROOT/platforms/android-37.0"
+          test -d "$SDK_ROOT/build-tools/37.0.0"
 
       - uses: gradle/actions/setup-gradle@v4
 
