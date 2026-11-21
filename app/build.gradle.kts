@@ -230,3 +230,7 @@ val prepareAgentHostAsset = tasks.register<Copy>("prepareAgentHostAsset") {
 tasks.matching {
   it.name.startsWith("merge") && (it.name.endsWith("JniLibFolders") || it.name.endsWith("Assets"))
 }.configureEach { dependsOn(prepareBundledNode, prepareAgentHostAsset) }
+
+// Lint reads the same generated asset directories. Without this, Gradle 9 refuses the release build
+// because lintVitalAnalyzeRelease uses prepareBundledNode/prepareAgentHostAsset outputs implicitly.
+tasks.matching { it.name.contains("lint", ignoreCase = true) }.configureEach { dependsOn(prepareBundledNode, prepareAgentHostAsset) }
