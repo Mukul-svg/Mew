@@ -160,7 +160,7 @@ Eight parallel audits covered agent runtime/tools, data/startup, networking/wake
 
 - `sh gradlew :app:testDebugUnitTest` with `AuditShotsTest` excluded: **2,294 tests, 0 failures, 27 skipped** (175 classes). `AuditShotsTest` is a Roborazzi screenshot recorder that hung inside Robolectric's native `nSyncAndDrawFrame` for over five minutes; it is a test-renderer hang, not app code. The product behaviour suites, including `ScreenSessionTest`, `PeopleTest`, `BranchingTest`, `DbMigrationTest`, `MediaToolsTest`, `HandoffTest`, `SubscriptionPathTest`, `LiveSeesTest` and `ScreenSheetsShotTest`, are green.
 - The v1→v4 SQL was also exercised against a synthetic SQLite database: every row survived and all five indices exist.
-- Revyl cloud build `remote-8c9f9f09` (`43857a7a-…`, APK SHA-256 `c52b8405…`) succeeded on the final worktree.
+- Revyl cloud build `remote-04d2ae4e` (`d3b4abfc-…`) succeeded on the final committed worktree; the earlier `remote-8c9f9f09` (`43857a7a-…`) also succeeded.
 - No on-device power trace was possible: `adb devices` is empty. The changes are resource-directional by construction; a battery percentage still needs Power Profiler/Power Rails on a connected phone.
 
 ### Web references used
