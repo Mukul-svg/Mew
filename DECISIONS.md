@@ -91,7 +91,7 @@ When a conflict exists, **ask the user before doing any implementation work**. W
 
 - **Date:** 2026-11-17
 - **Status:** accepted
-- **Decision:** Set `versionCode = 176` and `versionName = "0.16.0"`. Release notes must state that Android 14+ is required and Android 9-13 are no longer supported.
+- **Decision:** Set `versionName = "0.16.0"` (the initial versionCode was 176; `D-016` raises it to 180 after the upstream 0.15.76 sync). Release notes must state that Android 14+ is required and Android 9-13 are no longer supported.
 - **Rationale:** The install floor is a user-visible compatibility break and should not ship under the previous version number.
 - **Alternatives considered:** Keep 0.15.72; use a build suffix; bump to 0.17.0.
 - **Consequences:** The next release is a minor version bump with a breaking platform requirement.
@@ -196,6 +196,17 @@ When a conflict exists, **ask the user before doing any implementation work**. W
 - **Alternatives considered:** require a free Gemini key and use the existing Live mode; keep the sheet one-request and only add read-aloud; cloud TTS only.
 - **Consequences:** The phone's robotic voice is now heard by default in the assistant (the old "never the robotic phone voice" rule applied to chat read-aloud, which is unchanged: `App.speak` still stays quiet without a cloud voice). The microphone is closed while the voice speaks; interrupt is a tap. Approvals are read aloud but still held on the screen, never answered by words (`D-013` unchanged). Exit phrases are English; other languages use End. The `speakReplies` setting and `App.speakSystem()` remain dead code, untouched.
 - **Related:** D-011, D-013.
+
+### D-016: Version code 180 after syncing upstream 0.15.76
+
+- **Date:** 2026-11-21
+- **Status:** accepted
+- **Decision:** Keep `versionName = "0.16.0"` and raise `versionCode` to **180** after integrating upstream `main` at `72ab230` (upstream released `0.15.76` with versionCode 179). Keep `minSdk 34`, `targetSdk 34`, the Mew name, the OpenCode-only model path, the Node bundle, and the CI workflow.
+- **Rationale:** Android refuses to install an APK with a lower versionCode than the installed one. Keeping 176 would make the Mew 0.16.0 build unable to update an upstream 0.15.76 install. The product version should stay 0.16.0, so only the code is raised.
+- **Alternatives considered:** Keep 176; adopt upstream `0.15.76`/179; bump the product version to 0.17.0.
+- **Consequences:** `D-007`'s versionCode is superseded in part by this decision; its versionName and Android 14+ floor remain. Future releases continue from 180 upward.
+- **Verification:** `app/build.gradle.kts` reports `versionCode = 180`, `versionName = "0.16.0"`; the built APK is checked with `aapt`.
+- **Related:** D-007, D-003, D-011, D-012.
 
 ## Superseded decisions
 

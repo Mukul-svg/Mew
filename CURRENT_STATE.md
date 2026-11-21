@@ -1,10 +1,10 @@
 # Current State
 
-**Last updated:** 2026-11-20
+**Last updated:** 2026-11-21
 **Repository:** Mew (Android phone app + Wear OS app + Node Agent Host); package ID remains `com.past9.phoneaos`
-**Branch:** `main` at `3714313` (local changes not committed)
-**Working tree:** 0.16.0 build-floor, Node bundle, Mew rebrand, security fixes, CI, test fixes, and the assist conversation mode (two-way voice, `D-015`) are present; no commit yet
-**Analysis status:** initial static review complete; Android 14+ build floor, Node-only bundle, Mew rebrand, security fixes, and CI implemented. The full phone unit suite with conversation mode completed on Windows: **2,522 tests, 26 skipped**; 3 failures in the overnight run were triaged as timing flakes and all pass on re-run (2026-11-20, §5). A real OpenCode turn and `run_code` passed on the phone. The watcher/card device probe is written but not yet run because the phone disconnected from `adb`; release signing still needs the owner's keys. The assist sheet now holds a call-like conversation (reads answers aloud, listens again) with no voice key; verified by 111 targeted tests and a debug build, not yet on a device.
+**Branch:** `main` (upstream `72ab230` + the Mew sync commits; not pushed)
+**Working tree:** clean after the sync commit. 0.16.0 build-floor, Node bundle, Mew rebrand, security fixes, CI, test fixes, assist conversation mode (`D-015`), and upstream dictation/live work are in `main`; the local commits are not pushed.
+**Analysis status:** initial static review complete; Android 14+ build floor, Node-only bundle, Mew rebrand, security fixes, CI, and the upstream 0.15.76 dictation/live work are implemented. The full phone unit suite after the sync is green on Windows: **2,580 tests, 0 failures, 27 skipped** (2026-11-21). A real OpenCode turn and `run_code` passed on the phone. The watcher/card device probe is written but not yet run because the phone disconnected from `adb`; release signing still needs the owner's keys. The assist sheet now holds a call-like conversation (reads answers aloud, listens again) with no voice key; verified by 111 targeted tests and a debug build, not yet on a device.
 
 This is the living snapshot of the repository. Update it after every change. Decisions and their rationale live in `DECISIONS.md`; the working rules for agents live in `AGENT.md`.
 
@@ -29,14 +29,14 @@ The README describes it as a personal, always-on agent: no account, no subscript
 
 | Area | Observation |
 |---|---|
-| Version | `0.16.0` (`versionCode 176`) |
+| Version | `0.16.0` (`versionCode 180`, above upstream 0.15.76/179) |
 | Modules | Default: `app` (phone) + `wearproto`; `wear` and three watch-face modules are retained and included only with `-PwithWear`; `host/` Node service |
-| Code size | 507 Kotlin files, ~79.2k LOC; ~50.6k in phone main, ~22.6k tests |
+| Code size | 542 Kotlin files, ~86.1k LOC; 300 in phone main, 163 phone tests |
 | Build | Gradle 9.3.1, AGP 9.1.1, Kotlin 2.2.10, compileSdk 37; default build is phone-only |
 | SDK | **`minSdk 34` (Android 14+), `targetSdk 34`**, `arm64-v8a` only |
-| Tests | Full phone suite: 2,517 tests in 165 result classes, 0 failures, 26 skipped (18 Unix-shell SSH/Handoff tests on Windows + 8 conditional skips); 78 Roborazzi screenshot captures |
+| Tests | Full phone suite after the upstream sync: 2,580 tests in 174 result classes, 0 failures, 27 skipped (18 Unix-shell SSH/Handoff tests on Windows + 9 conditional skips); plus Roborazzi screenshot captures |
 | Locales | 54 locale folders; translation checker reports 0 problems |
-| Git | `main` at `3714313`, 454 commits, 3 authors, MIT |
+| Git | `main` above upstream `72ab230`; Mew work is local and not pushed, MIT |
 | Docs | Extensive: remote protocol notes, Wear protocol, background screen, wake word, translations, signing |
 | CI | `.github/workflows/ci.yml` (`D-014`): Linux debug build, translation checks, Mew Host tests, and the full phone unit suite on push/PR |
 | Release status | **Debug builds only for now**; signed release deferred by `D-008` |
@@ -133,12 +133,17 @@ Key entry points:
 - Local test runs created an untracked `scripts/__pycache__/test_check_translations.cpython-312.pyc`; it was removed. The repository also already tracks `scripts/__pycache__/test_check_translations.cpython-312-pytest-8.1.2.pyc`, which was preserved. Committing Python bytecode is a hygiene issue and should be cleaned up deliberately, not as a side effect of this analysis.
 
 - Second full phone unit suite on Windows: **2517 tests, 0 failures, 0 errors, 26 skipped** (`BUILD SUCCESSFUL` in 31m 07s). The 26 skips are the 18 Unix-shell SSH/Handoff tests and 8 pre-existing conditional skips. `OpenUiButtonsAndPromptTest`, the two long-standing red tests, now pass.
+- Full phone unit suite after the upstream sync: **2,580 tests, 0 failures, 0 errors, 27 skipped** (`BUILD SUCCESSFUL` in 31m 35s). The 27 skips are the 18 Unix-shell SSH/Handoff tests on Windows plus 9 conditional skips. The upstream dictation/live tests and the existing Mew tests are green.
+- After the upstream sync, `./gradlew -PwithWear :wear:assembleDebug :wear:testDebugUnitTest` -> **BUILD SUCCESSFUL**. The Wear modules still build and test with the shared Gradle settings.
 - `:app:assembleDebug` and `:app:assembleDebugAndroidTest`: **BUILD SUCCESSFUL**. `assets/agent-host.mjs` in the APK is **25,172 bytes** and starts with `#!/usr/bin/env node` (the real Host, not the broken 31-byte symlink). The test APK is 0.8 MB.
 - Release-key guard: `:app:assembleRelease --dry-run -PsigningProps=<missing>` exits **1** with "No release key" and the published-certificate warning. No signed release was produced.
 - `.github/workflows/ci.yml` has not yet run on GitHub; it is the new gate for Linux.
 - The phone is no longer visible to `adb` (`adb devices` is empty), so the watcher/card probe in `app/src/androidTest/.../RuntimeProbeDeviceTest.kt` could not be installed or run.
 
 - Corrected a rebrand regression: the HTTP `User-Agent` header had become `User-Mew` in the browser download, provider adapters, model catalogue, `web_fetch` and the watcher prompt. Restored all six; the `Agent-VScreen` attribution also stays. `:app:assembleDebug` and `ProvidersTest` pass after the fix.
+
+- **2026-11-21 upstream sync:** fetched `Past-da-king/agent` `main` (`72ab230`, 28 commits, 0.15.73-0.15.76: whole-take dictation, instant send, live truth). Rebased the Mew work onto it; conflicts were limited to `app/build.gradle.kts` and `docs/live-voice.md`. Kept `minSdk 34`/`targetSdk 34`, Mew, OpenCode-only, Node bundle, and CI; set `versionCode 180` above upstream 179 (`D-016`). Upstream adds `Takes`, `DictationNames`, `LiveTruth`, `LiveHistory`, `LivePending`, the debug dictation probe, and their tests.
+- Upstream targeted tests: **106 tests, 0 failures, 1 skipped** after fixing the Windows `TakeQueue.save` atomic replace. The first run had 5 `TakesTest` failures, all the same Windows `renameTo` issue; `:app:assembleDebug` succeeds. Full suite is running.
 
 ### Assist conversation mode (2026-11-19, `D-015`)
 
@@ -260,9 +265,8 @@ The first full local run on Windows was **2520 tests, 25 failed, 8 skipped**. Ev
 - **5 `MachinesTest` / `HandoffTest` cases**: the fixture runs a real `/bin/bash` and POSIX SFTP paths. They now skip
   on Windows with an explicit assumption and run in CI on Linux.
 
-The second full run: **2517 tests, 0 failures, 0 errors, 26 skipped**, `BUILD SUCCESSFUL` in 31m 07s. The OpenUi
-tests that had failed since 17 October now pass; their old expectations no longer apply to the current button and
-card rendering.
+The run after the upstream sync: **2,580 tests, 0 failures, 0 errors, 27 skipped**, `BUILD SUCCESSFUL` in 31m 35s.
+The OpenUi tests that had failed since 17 October also pass.
 
 ### 6.9 The main agent’s five-step cap is only a prompt, not code (medium)
 
@@ -339,3 +343,4 @@ Resolved on 2026-11-17:
 - **2026-11-17:** Renamed the Wear launch theme `Theme.Agent.Launch` to `Theme.Mew.Launch` in the resource and manifest, matching the docs and the Mew brand. `./gradlew -PwithWear :wear:assembleDebug` passes.
 - **2026-11-17:** `./gradlew -PwithWear :wear:testDebugUnitTest` passes after the launch-theme rename. The phone debug APK and test APK are built; the release-key guard still refuses an unsigned release.
 - **2026-11-19:** Implemented the assist conversation mode (`D-015`): the sheet reads each answer aloud and listens again, like a call, with the phone's own TTS when no cloud voice key is set up. Changed `assist/AssistCore.kt` (SPEAKING phase, quiet rounds, exit phrases), `assist/AssistActivity.kt` (the loop, read-aloud, card read-out, End/interrupt), `assist/AssistSheet.kt` (SPEAKING UI, End button), `assist/ScreenContext.kt` (`AssistPrefs.talk`, on by default), `system/Phone.kt` (`Speaker` completion callback + release), `ui/screens/AssistantSheet.kt` (settings toggle); 4 new strings in `values/strings_more.xml` + all 54 locale files; 5 new tests in `AssistTest.kt`; docs in `docs/live-voice.md` and `README.md`. Verified: translation checker 54/0, checker self-tests 13/13, targeted suite 111 tests 0 failures (Assist/AssistShots/AssistContext/AssistContextShots/LiveAssist/TranslationsCheck), `:app:assembleDebug` successful. Full phone suite re-run in progress; result appended here. No device connected, so the voice loop is not yet proven on the phone; signing and the watcher/card probe remain blocked as before.
+- **2026-11-21:** Synced upstream `Past-da-king/agent` `main` at `72ab230` (28 commits, upstream 0.15.76) into the Mew work. Snapshotted the pre-sync tree on `backup/mew-pre-sync-20261121` (tag `backup-pre-sync-20261121`), rebased, and resolved the two conflicts in `app/build.gradle.kts` and `docs/live-voice.md`; the Kotlin files auto-merged with upstream. Kept Mew, Android 14+, Node bundle, OpenCode-only, and CI; raised `versionCode` to 180 (`D-016`). Fixed `TakeQueue.save` to replace the record atomically on Windows, restored the Mew voice-result markers, and verified the new dictation/live tests (106 tests, 0 failures). The full suite after the sync is **2,580 tests, 0 failures, 0 errors, 27 skipped**.

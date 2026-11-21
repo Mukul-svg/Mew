@@ -81,7 +81,10 @@ class TakeQueue(private val dir: File) {
             .put("text", t.text).put("acceptedAt", t.acceptedAt).put("attempts", t.attempts)
         t.chat?.let { o.put("chat", it) }
         val tmp = File(dir, "${t.id}.json.tmp")
-        tmp.writeText(o.toString()); tmp.renameTo(json(t.id))
+        tmp.writeText(o.toString())
+        // Java's renameTo cannot replace an existing file on Windows; every state change after
+        // "queued" would otherwise be lost and the take would look stuck forever.
+        java.nio.file.Files.move(tmp.toPath(), json(t.id).toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
     }
 
     private fun parse(s: String): Take {

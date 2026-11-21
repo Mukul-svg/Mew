@@ -67,7 +67,7 @@ accounts, its files and its bigger keys. It behaves like one agent, not two:
 
 **It hands heavy work to a real computer.** Any server or PC you can SSH into becomes a machine it can use. Run a command, start a long job that keeps going in the background, move files both ways. Looking around just runs. Anything that changes the machine shows you the exact command first.
 
-**It answers in voice, and reads your files.** As your phone's assistant (hold the power button), it holds a conversation: it reads each answer aloud and listens again, like a call, using the phone's own voice until you add a cloud one. Say goodbye or tap End to stop. Voice notes in and out, live calls if you add a Gemini key, photos and documents in chat, including scanned PDFs read on the device.
+**It answers in voice, and reads your files.** As your phone's assistant (hold the power button), it holds a conversation: it reads each answer aloud and listens again, like a call, using the phone's own voice until you add a cloud one. Say goodbye or tap End to stop. Dictation is instant: the caption goes at once and the whole take replaces it in place when it has been written down. Voice notes in and out, live calls if you add a Gemini key, photos and documents in chat, including scanned PDFs read on the device.
 
 **It tidies up overnight.** At 02:00, and only while charging and online, it sorts its memory, writes notes from the day and builds your morning screen.
 
