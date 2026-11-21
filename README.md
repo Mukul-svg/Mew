@@ -233,9 +233,9 @@ in the repository but are configured only on demand:
 ./gradlew -PwithWear assembleDebug   # phone and watch modules
 ```
 
-Release builds are signed from a properties file that is never in this repository: pass `-PsigningProps=<file>`. Tagged releases are built by GitHub Actions: add the four `ANDROID_*` signing secrets (see
+Release builds are signed from a properties file that is never in this repository: pass `-PsigningProps=<file>`. Tagged releases are built by GitHub Actions with the fork's release key (the four `ANDROID_*` secrets are set; see
 [docs/signing-and-key-rotation.md](docs/signing-and-key-rotation.md)), then push a `v*` tag or run the
-`Release` workflow manually.
+`Release` workflow manually. This fork starts a new signing line: an APK signed with the old upstream published key cannot install over it, and debug builds must be uninstalled first.
 
 Tests: `./gradlew testDebugUnitTest`, which runs the phone app's unit tests plus Robolectric and Roborazzi screenshots
 in light and dark. Watch tests are not part of the default verification; use `-PwithWear` when working on them.

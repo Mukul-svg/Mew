@@ -2,6 +2,23 @@
 
 Written 3 Nov 2026, after a release went out signed with the wrong key.
 
+## 2026-11-21: clean break to a new release key
+
+The old published keystore (`38d9d3377b0ae2229a0803a1ff84eb7a7d35c2db80334772c4b8072f27b0959a`) was not available
+to this fork, and the owner confirmed there were only debug installs so far. The project therefore made a clean break:
+
+- **New key:** `~/phone-aos/keys/release.jks` (on this machine
+  `C:\Users\mukul\phone-aos\keys\release.jks`), alias `agent`, 4096-bit RSA, SHA-256
+  `bb7c20567a9df530964119726aad4cc999c1fbaf7fd8e6bcbc01f71a78fa6985`.
+- `tools/check-apk-signature.sh` and the build guard expect this certificate.
+- GitHub Actions uses the four `ANDROID_*` secrets; the key is never in the repository.
+- This is **not** a v3 rotation: an APK signed with the old published key cannot install over this one, and vice
+  versa. Any existing published install must be uninstalled first; this fork had only debug installs.
+- **Back up `release.jks` and `signing.properties` somewhere safe.** Losing the key ends future updates.
+
+Debug builds still use the machine's `~/.android/debug.keystore`; they also cannot be updated to the release build
+without uninstalling. The old rotation plan below is kept for history; it cannot run without the old private key.
+
 ## Where we are, plainly
 
 Every APK this project has published is signed with **the debug keystore of the machine that built it**
@@ -34,7 +51,7 @@ the new key for that app and keeps the data.
 - Rotation is a chain, not a replacement: the lineage file is created once and reused for every later rotation. **Lose it
   and you can never rotate again** without asking everyone to reinstall.
 
-## The plan (not yet run: it needs Ayanda's go)
+## The old plan (not run: it needs the old private key)
 
 1. **Keep the two keys where they are, and make both permanent.** The published key is
    `~/phone-aos/keys/published.keystore` (a copy of the debug keystore, so a fresh `~/.android` cannot regenerate it);
@@ -71,29 +88,29 @@ the new key for that app and keeps the data.
 ## GitHub Actions release
 
 `.github/workflows/release.yml` builds the **phone release APK** on a `v*` tag or a manual run. It signs with the
-existing published keystore, verifies the certificate with `tools/check-apk-signature.sh`, uploads the APK and its
-SHA-256, and creates or updates the GitHub Release.
+release keystore, verifies the certificate with `tools/check-apk-signature.sh`, uploads the APK and its SHA-256, and
+creates or updates the GitHub Release.
 
 Add these four repository secrets in **Settings, Secrets and variables, Actions** (or with `gh secret set`):
 
-- `ANDROID_KEYSTORE_BASE64`: the published keystore, base64-encoded
+- `ANDROID_KEYSTORE_BASE64`: the release keystore, base64-encoded
 - `ANDROID_KEYSTORE_PASSWORD`
-- `ANDROID_KEY_ALIAS` (`androiddebugkey` for the published keystore)
+- `ANDROID_KEY_ALIAS` (`agent` for the fork's release keystore)
 - `ANDROID_KEY_PASSWORD`
 
 ```bash
-# Linux: from the directory holding published.keystore
-base64 -w0 published.keystore | gh secret set ANDROID_KEYSTORE_BASE64 -R Mukul-svg/Mew
+# Linux: from the directory holding release.jks
+base64 -w0 release.jks | gh secret set ANDROID_KEYSTORE_BASE64 -R Mukul-svg/Mew
 gh secret set ANDROID_KEYSTORE_PASSWORD -R Mukul-svg/Mew
-gh secret set ANDROID_KEY_ALIAS -R Mukul-svg/Mew --body androiddebugkey
+gh secret set ANDROID_KEY_ALIAS -R Mukul-svg/Mew --body agent
 gh secret set ANDROID_KEY_PASSWORD -R Mukul-svg/Mew
 ```
 
 ```powershell
 # Windows PowerShell
-[Convert]::ToBase64String([IO.File]::ReadAllBytes("published.keystore")) | gh secret set ANDROID_KEYSTORE_BASE64 -R Mukul-svg/Mew
+[Convert]::ToBase64String([IO.File]::ReadAllBytes("release.jks")) | gh secret set ANDROID_KEYSTORE_BASE64 -R Mukul-svg/Mew
 gh secret set ANDROID_KEYSTORE_PASSWORD -R Mukul-svg/Mew
-gh secret set ANDROID_KEY_ALIAS -R Mukul-svg/Mew --body androiddebugkey
+gh secret set ANDROID_KEY_ALIAS -R Mukul-svg/Mew --body agent
 gh secret set ANDROID_KEY_PASSWORD -R Mukul-svg/Mew
 ```
 
@@ -105,7 +122,7 @@ gh run watch -R Mukul-svg/Mew
 ```
 
 or push a tag: `git tag v0.16.0 && git push origin v0.16.0`. The workflow refuses to start without all four secrets.
-This workflow uses the published key directly; a later key rotation still needs the v3 lineage procedure above.
+Future rotations still need the v3 lineage procedure above, starting from this release key.
 
 ## Guard: a wrong-key APK can be neither built nor published
 

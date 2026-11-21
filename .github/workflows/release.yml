@@ -65,13 +65,13 @@ jobs:
             "ANDROID_KEY_PASSWORD=$KEY_PASSWORD"; do
             name=${pair%%=*}
             if [ -z "${pair#*=}" ]; then
-              echo "::error::Missing GitHub secret $name. Add the published keystore and its passwords before releasing."
+              echo "::error::Missing GitHub secret $name. Add the release keystore and its passwords before releasing."
               missing=1
             fi
           done
           exit "$missing"
 
-      - name: Stage the published keystore
+      - name: Stage the release keystore
         env:
           KEYSTORE: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
           STORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
@@ -80,9 +80,9 @@ jobs:
         run: |
           umask 077
           mkdir -p "$RUNNER_TEMP/signing"
-          printf '%s' "$KEYSTORE" | base64 -d > "$RUNNER_TEMP/signing/published.keystore"
+          printf '%s' "$KEYSTORE" | base64 -d > "$RUNNER_TEMP/signing/release.jks"
           {
-            printf 'storeFile=%s\n' "$RUNNER_TEMP/signing/published.keystore"
+            printf 'storeFile=%s\n' "$RUNNER_TEMP/signing/release.jks"
             printf 'storePassword=%s\n' "$STORE_PASSWORD"
             printf 'keyAlias=%s\n' "$KEY_ALIAS"
             printf 'keyPassword=%s\n' "$KEY_PASSWORD"

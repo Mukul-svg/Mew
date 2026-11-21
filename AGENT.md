@@ -65,7 +65,7 @@ A change is not complete until:
 - The phone app is the default build. Wear modules are kept in the repository but configured only with `-PwithWear`; do not delete them.
 - Node 24 is bundled as `jniLibs` for `run_code`, watchers, and card scripts (`D-107`). The build downloads the hash-pinned pack on the first build through `buildSrc`'s `prepareBundledNode` task. Do not switch back to downloaded Node or raise/lower the SDK floors without a user decision.
 - Android 9-13 are no longer supported for new phone builds. Do not lower `minSdk` without a user decision.
-- Debug builds only for now (`D-008`). Do not publish a signed release until the signing path is decided.
+- Signed phone releases are built by GitHub Actions with the fork's release key (`D-018`, `D-019`). The keystore lives outside the repo; never commit it or the passwords. Debug builds and old upstream-key builds cannot update to it without an uninstall.
 - CI is the verification gate (`D-014`): Linux runs the debug build, translation checks, host tests, and phone unit tests on every push and pull request. Report manual verification too; do not claim a green suite without the CI result or a full local run.
 - OpenCode Zen/Go API key is the only required model path (`D-011`). Do not add Claude Code, Codex, or Antigravity runtime/bundling work unless the user changes that decision.
 - The power-button assistant uses Gemini Live for full-duplex voice when a Gemini key or linked computer is available, and falls back to system STT/TTS conversation mode otherwise (`D-017`). Real work still goes to the OpenCode agent; approvals stay hold-to-approve (`D-013`).
@@ -96,7 +96,7 @@ node --test host/test/host.test.mjs
 # Phone release APK (requires a signing properties file outside the repo)
 ./gradlew :app:assembleRelease -PsigningProps=<file>
 
-# Signed release from GitHub Actions (needs the four ANDROID_* secrets)
+# Signed release from GitHub Actions (uses the four ANDROID_* secrets)
 gh workflow run release.yml -R Mukul-svg/Mew -f tag=v0.16.0
 
 # Wear modules, only when working on them

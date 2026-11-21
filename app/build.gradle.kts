@@ -78,7 +78,7 @@ android {
       } else if (wanted) {
         throw GradleException(
           "No release key. Pass -PsigningProps=<file> with storeFile, storePassword, keyAlias and keyPassword.\n" +
-            "The published app is signed with certificate sha256 38d9d3377b0ae2229a0803a1ff84eb7a7d35c2db80334772c4b8072f27b0959a;\n" +
+            "Releases from this fork are signed with certificate sha256 bb7c20567a9df530964119726aad4cc999c1fbaf7fd8e6bcbc01f71a78fa6985;\n" +
             "an APK signed with any other key will not install over an existing copy. Check it with tools/check-apk-signature.sh."
         )
       }

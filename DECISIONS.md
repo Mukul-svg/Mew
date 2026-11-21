@@ -218,15 +218,26 @@ When a conflict exists, **ask the user before doing any implementation work**. W
 - **Consequences:** Full-duplex voice needs a Gemini key or a linked computer with one; without it the assistant is half-duplex. Microphone audio goes to Google only during a Live call. Progress updates are throttled to one every 12 seconds and wait for a natural pause; they are not results. A Live session still ends after a long silence or on End/goodbye; a job nobody answers for ten minutes no longer holds the line, though its result is notified.
 - **Related:** D-011, D-013, D-015, D-016.
 
-### D-018: GitHub Actions builds signed phone releases from the published keystore
+### D-018: GitHub Actions builds signed phone releases
+
+- **Date:** 2026-11-21
+- **Status:** accepted (signing-key clause superseded by `D-019`)
+- **Decision:** Add `.github/workflows/release.yml`. It runs on a `v*` tag or manual dispatch, builds the **phone** release APK only, signs it with the release keystore supplied as four GitHub Actions secrets (`ANDROID_KEYSTORE_BASE64`, `ANDROID_KEYSTORE_PASSWORD`, `ANDROID_KEY_ALIAS`, `ANDROID_KEY_PASSWORD`), verifies it with `tools/check-apk-signature.sh`, uploads the APK and its SHA-256 as workflow artifacts, and creates or updates the GitHub Release for the tag with `Agent-<version>.apk`.
+- **Rationale:** The user wants tagged release APKs built and published from GitHub Actions. The verifier refuses a wrong key, so a bad APK cannot be published silently.
+- **Alternatives considered:** Generate a new release key (chosen later, `D-019`); build unsigned artifacts (not installable); keep local debug-only releases (`D-008`).
+- **Consequences:** The workflow is phone-only; Wear releases can be added later with `-PwithWear`. The four secrets are now set on `Mukul-svg/Mew`; the first run uses the `D-019` key. It does not perform a v3 rotation.
+- **Update (2026-11-21):** the published keystore was unavailable and the owner confirmed there were only debug installs, so `D-019` replaces the key choice with a clean-break release key. The workflow itself is unchanged.
+- **Related:** D-008, D-019, D-103, D-016.
+
+### D-019: Clean-break signing with a new release key
 
 - **Date:** 2026-11-21
 - **Status:** accepted
-- **Decision:** Add `.github/workflows/release.yml`. It runs on a `v*` tag or manual dispatch, builds the **phone** release APK only, signs it with the existing published keystore supplied as four GitHub Actions secrets (`ANDROID_KEYSTORE_BASE64`, `ANDROID_KEYSTORE_PASSWORD`, `ANDROID_KEY_ALIAS`, `ANDROID_KEY_PASSWORD`), verifies it with `tools/check-apk-signature.sh`, uploads the APK and its SHA-256 as workflow artifacts, and creates or updates the GitHub Release for the tag with `Agent-<version>.apk`.
-- **Rationale:** The user wants tagged release APKs built and published from GitHub Actions. Signing with the published key keeps updates installable on existing phones; the verifier refuses a wrong key. A new key would break updates and lose app data, and the published private key is not on this machine.
-- **Alternatives considered:** Generate a new release key (fresh installs only); build unsigned artifacts (not installable); keep local debug-only releases (`D-008`).
-- **Consequences:** No signed release can run until the four secrets are added to `Mukul-svg/Mew`. The workflow is phone-only; Wear releases can be added later with `-PwithWear`. It uses the published key directly and does **not** perform a v3 rotation; `D-103` remains the separate rotation decision.
-- **Related:** D-008, D-103, D-016.
+- **Decision:** Because the old published keystore (`38d9d3377b0ae2229a0803a1ff84eb7a7d35c2db80334772c4b8072f27b0959a`) is not available and the owner has only debug installs, generate a new 4096-bit RSA release key at `~/phone-aos/keys/release.jks` (alias `agent`, SHA-256 `bb7c20567a9df530964119726aad4cc999c1fbaf7fd8e6bcbc01f71a78fa6985`), keep it and its `signing.properties` outside the repository, and supply it to the GitHub Actions release workflow through the four `ANDROID_*` secrets. Update `tools/check-apk-signature.sh` and the build guard to expect the new certificate.
+- **Rationale:** The user needs a signed release and has no published-signature install to preserve. Waiting for the upstream private key blocks the release indefinitely. A clean break is honest and verifiable: the new key is generated here, stored outside the repo, and checked into CI as a fingerprint.
+- **Alternatives considered:** Wait for the upstream published key (could not proceed); unsigned artifact (not installable); keep debug builds only (`D-008`); reuse the local machine debug key (fragile and not a release key).
+- **Consequences:** APKs signed with the old published key cannot update to this build, and this build cannot update them; any published install must be uninstalled. This fork had only debug installs. Debug builds also require an uninstall before installing the release. The keystore and password must be backed up; losing them ends future updates. `D-103`'s v3 lineage from the old key is impossible; future rotations start from the new key.
+- **Related:** D-018, D-103, D-008.
 
 ## Superseded decisions
 
@@ -262,8 +273,9 @@ When a conflict exists, **ask the user before doing any implementation work**. W
 ### D-103: Complete signing-key rotation before the next release
 
 - **Date:** 2026-11-17
-- **Status:** proposed
+- **Status:** superseded by `D-019` (the old private key is unavailable)
 - **Decision:** Perform the APK Signature Scheme v3 lineage rotation from the published debug-era key to the release key, publish the lineage, and pin the expected certificate in CI.
+- **Update (2026-11-21):** the old published private key is not available, so no lineage from it can be created. `D-019` makes a clean break to a new release key; future rotations start from that key.
 - **Rationale:** Existing installs currently trust a machine debug certificate. A wrong or lost key can break updates or let an attacker sign a valid update.
 - **Alternatives considered:** Keep the published key and rely on the new build guard; ask every user to reinstall.
 - **Consequences:** Requires the owner’s keys and a real-device update test. The lineage file must be backed up.
