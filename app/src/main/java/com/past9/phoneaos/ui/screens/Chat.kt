@@ -551,8 +551,11 @@ private fun VoiceBubble(item: ChatItem) {
     val spinning = !hasAudio && (loading || wantPlay)
     val tappable = hasAudio || canGet
     var showText by remember { mutableStateOf(false) }
-    val t = rememberInfiniteTransition(label = "voice")
-    val wave by t.animateFloat(0f, 1f, infiniteRepeatable(tween(700), RepeatMode.Reverse), label = "wave")
+    // The bars only move while this note is playing: a still note must not keep an animation running.
+    val wave by if (playing) {
+        val t = rememberInfiniteTransition(label = "voice")
+        t.animateFloat(0f, 1f, infiniteRepeatable(tween(700), RepeatMode.Reverse), label = "wave")
+    } else remember { mutableStateOf(0f) }
     Column(Modifier.fillMaxWidth().padding(end = 48.dp)) {
         Surface(shape = RoundedCornerShape(com.past9.phoneaos.ui.theme.Radius.lg), color = cs.primaryContainer) {
             Row(Modifier.padding(8.dp), verticalAlignment = Alignment.CenterVertically) {

@@ -237,15 +237,19 @@ class PhoneLocationTool(private val context: Context, private val askMs: Long = 
     @SuppressLint("MissingPermission")
     private suspend fun oneFix(lm: LocationManager, providers: List<String>): Location? = suspendCancellableCoroutine { cont ->
         val listeners = mutableListOf<LocationListener>()
+        var cancel: android.os.CancellationSignal? = null
         fun done(l: Location?) {
             if (l == null || !cont.isActive) return
+            // The first provider that answers wins: stop the others now instead of leaving GPS and network fixes running.
+            cancel?.cancel()
             listeners.forEach { runCatching { lm.removeUpdates(it) } }
             cont.resume(l)
         }
         if (Build.VERSION.SDK_INT >= 30) {
-            val cancel = android.os.CancellationSignal()
-            providers.forEach { p -> runCatching { lm.getCurrentLocation(p, cancel, context.mainExecutor) { done(it) } } }
-            cont.invokeOnCancellation { cancel.cancel() }
+            val signal = android.os.CancellationSignal()
+            cancel = signal
+            providers.forEach { p -> runCatching { lm.getCurrentLocation(p, signal, context.mainExecutor) { done(it) } } }
+            cont.invokeOnCancellation { signal.cancel() }
         } else {
             providers.forEach { p ->
                 val l = object : LocationListener {

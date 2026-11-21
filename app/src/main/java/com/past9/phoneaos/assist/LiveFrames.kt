@@ -3,6 +3,7 @@ package com.past9.phoneaos.assist
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.os.PowerManager
 import android.util.Base64
 import android.util.Log
 import com.past9.phoneaos.screen.Screens
@@ -54,6 +55,8 @@ class LiveFrames(
     private suspend fun tick() {
         val s = session() ?: return
         if (!s.isReady) return
+        // With the display off there is nothing to see: a pocketed or locked phone must not keep taking pictures.
+        if (!interactive()) return
         if (!FrameGate.enabled(AssistPrefs.readScreen(context), AssistPrefs.liveSees(context))) { set(Seeing.OFF); return }
         val now = clock(); val force = forced
         if (!throttle.due(now, force)) return
@@ -74,12 +77,11 @@ class LiveFrames(
             }
             FrameGate.Verdict.NOTHING -> { throttle.looked(now, false); ctx?.screenshot?.takeIf { it.isNotBlank() }?.let { runCatching { File(it).delete() } } }
             FrameGate.Verdict.SEND -> {
-                val frame = encode(ctx!!.screenshot)
+                val frame = encode(ctx!!.screenshot, lastGrid, force)
                 if (frame == null) { throttle.looked(now, false); return }
-                val changed = FrameDiff.differs(lastGrid, frame.grid)
-                throttle.looked(now, changed)
+                throttle.looked(now, frame.changed)
                 // An unchanged screen is not sent again, unless the user just started speaking.
-                if (changed || force) {
+                if (frame.changed || force) {
                     lastGrid = frame.grid
                     latest = frame.jpeg
                     session()?.takeIf { it.isReady }?.sendImage(frame.base64, "image/jpeg")
@@ -95,7 +97,11 @@ class LiveFrames(
     private fun blocked(pkg: String, label: String): Boolean =
         ScreenGuard.blocked(pkg, label) || runCatching { Screens.config(context).blocklist.blocked(pkg, label) != null }.getOrDefault(false)
 
-    class Frame(val base64: String, val grid: IntArray, val jpeg: ByteArray)
+    /** The phone's screen is on and interactive; a locked or pocketed phone has nothing for Live to see. */
+    private fun interactive(): Boolean =
+        (context.getSystemService(Context.POWER_SERVICE) as? PowerManager)?.isInteractive != false
+
+    class Frame(val base64: String, val grid: IntArray, val jpeg: ByteArray, val changed: Boolean)
 
     @Volatile private var latest: ByteArray? = null
 
@@ -107,21 +113,34 @@ class LiveFrames(
         const val LONG_SIDE = 768
         const val JPEG_QUALITY = 60
 
-        /** Shrinks the picture at [path] to about [LONG_SIDE] px and a small brightness grid for the change check, and deletes the file. */
-        fun encode(path: String): Frame? = runCatching {
+        /**
+         * Reads the picture at [path], deletes the file, and compares a small brightness grid with [lastGrid]. The
+         * JPEG and base64 are made only when the screen changed (or a forced look needs the current pixels), so a
+         * still screen costs no compression. [force] is the user's turn starting: that look is always sent.
+         */
+        fun encode(path: String, lastGrid: IntArray? = null, force: Boolean = false): Frame? = runCatching {
             val f = File(path)
             val bmp = BitmapFactory.decodeFile(path) ?: return null
             f.delete()
+            val tiny = Bitmap.createScaledBitmap(bmp, FrameDiff.SIDE, FrameDiff.SIDE, true)
+            val px = IntArray(FrameDiff.SIDE * FrameDiff.SIDE)
+            tiny.getPixels(px, 0, FrameDiff.SIDE, 0, 0, FrameDiff.SIDE, FrameDiff.SIDE)
+            val grid = IntArray(px.size) { FrameDiff.luma(px[it]) }
+            val changed = FrameDiff.differs(lastGrid, grid)
+            if (!changed && !force) {
+                if (tiny !== bmp) tiny.recycle()
+                bmp.recycle()
+                return Frame("", grid, ByteArray(0), false)
+            }
             val scale = LONG_SIDE.toFloat() / maxOf(bmp.width, bmp.height)
             val small = if (scale < 1f) Bitmap.createScaledBitmap(bmp, (bmp.width * scale).toInt().coerceAtLeast(1), (bmp.height * scale).toInt().coerceAtLeast(1), true) else bmp
             val out = ByteArrayOutputStream()
             small.compress(Bitmap.CompressFormat.JPEG, JPEG_QUALITY, out)
-            val tiny = Bitmap.createScaledBitmap(small, FrameDiff.SIDE, FrameDiff.SIDE, true)
-            val px = IntArray(FrameDiff.SIDE * FrameDiff.SIDE)
-            tiny.getPixels(px, 0, FrameDiff.SIDE, 0, 0, FrameDiff.SIDE, FrameDiff.SIDE)
-            val grid = IntArray(px.size) { FrameDiff.luma(px[it]) }
+            if (small !== bmp && small !== tiny) small.recycle()
+            if (tiny !== bmp) tiny.recycle()
+            bmp.recycle()
             val bytes = out.toByteArray()
-            Frame(Base64.encodeToString(bytes, Base64.NO_WRAP), grid, bytes)
+            Frame(Base64.encodeToString(bytes, Base64.NO_WRAP), grid, bytes, changed)
         }.getOrNull()
     }
 }

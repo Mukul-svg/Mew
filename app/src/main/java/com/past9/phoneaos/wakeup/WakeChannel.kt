@@ -67,6 +67,13 @@ object WakeChannel {
         ForegroundGuard.stop(context, WakeChannelService::class.java)
     }
 
+    /** The service is going: its socket and reconnect loop must not outlive it and keep waking the phone. */
+    internal fun stopped() {
+        loop?.cancel(); loop = null
+        rpc?.close(); rpc = null
+        openKey = ""; connectedTo = ""; lacksWakeups = false; failures = 0
+    }
+
     val isOpen: Boolean get() = rpc?.isOpen == true
 
     /** Run by the service: connect, and connect again whenever the link drops (1, 2, 4 ... 30 s). */
@@ -179,7 +186,7 @@ class WakeChannelService : Service() {
         return START_STICKY
     }
 
-    override fun onDestroy() { ForegroundGuard.left(this); super.onDestroy() }
+    override fun onDestroy() { WakeChannel.stopped(); ForegroundGuard.left(this); super.onDestroy() }
 
     companion object {
         const val NOTE_ID = 7301

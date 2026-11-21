@@ -391,11 +391,12 @@ class ShareActivity : ComponentActivity() {
     }
 
     @Composable
-    private fun rememberInfinitePhase(on: Boolean): State<Float> {
-        val t = androidx.compose.animation.core.rememberInfiniteTransition(label = "bars")
-        val v = t.animateFloat(0f, 1f, androidx.compose.animation.core.infiniteRepeatable(tween(900, easing = androidx.compose.animation.core.LinearEasing)), label = "p")
-        return if (on) v else remember { mutableStateOf(0f) }
-    }
+    private fun rememberInfinitePhase(on: Boolean): State<Float> =
+        // Only a playing clip needs moving bars; a still card must not keep an animation running.
+        if (on) {
+            val t = androidx.compose.animation.core.rememberInfiniteTransition(label = "bars")
+            t.animateFloat(0f, 1f, androidx.compose.animation.core.infiniteRepeatable(tween(900, easing = androidx.compose.animation.core.LinearEasing)), label = "p")
+        } else remember { mutableStateOf(0f) }
 
     @Composable
     private fun FileCard(p: Prepared) {

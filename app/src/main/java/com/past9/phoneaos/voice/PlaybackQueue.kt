@@ -31,7 +31,8 @@ class PlaybackQueue(private val sink: Sink, private val onSpeaking: (Boolean) ->
     val pending: Int get() = queue.count { it.pcm.isNotEmpty() }
 
     fun start() {
-        thread(name = "aos-speaker", isDaemon = true) { while (open) runCatching { pump(200) } }
+        // Wait for the next chunk instead of waking five times a second through every silence.
+        thread(name = "aos-speaker", isDaemon = true) { while (open) runCatching { pump(-1) } }
     }
 
     fun enqueue(pcm: ByteArray) {
@@ -54,11 +55,13 @@ class PlaybackQueue(private val sink: Sink, private val onSpeaking: (Boolean) ->
     fun close() {
         open = false
         synchronized(lock) { epoch++; queue.clear(); turnDone = true; speaking = false }
+        // Wake a speaker thread waiting for work so it can see that the call is over.
+        queue.offer(Chunk(epoch, EMPTY))
     }
 
-    /** One step of the speaker thread: plays the next chunk, or notices the reply has played out. */
+    /** One step of the speaker thread: plays the next chunk, or notices the reply has played out. Negative waits until a chunk arrives. */
     internal fun pump(waitMs: Long) {
-        val c = queue.poll(waitMs, TimeUnit.MILLISECONDS)
+        val c = if (waitMs < 0) queue.take() else queue.poll(waitMs, TimeUnit.MILLISECONDS)
         if (c != null && c.pcm.isNotEmpty()) {
             val started = synchronized(lock) { if (c.epoch != epoch) return; mark(true) }
             if (started) onSpeaking(true)

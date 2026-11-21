@@ -192,8 +192,11 @@ private fun YouSaid(words: String) {
 @Composable
 fun LiveBadge(on: Boolean) {
     val cs = MaterialTheme.colorScheme
-    val t = rememberInfiniteTransition(label = "live")
-    val a by t.animateFloat(0.35f, 1f, infiniteRepeatable(tween(800), RepeatMode.Reverse), label = "a")
+    // The dot only pulses while the session is live; the connecting state is a still dot.
+    val a by if (on) {
+        val t = rememberInfiniteTransition(label = "live")
+        t.animateFloat(0.35f, 1f, infiniteRepeatable(tween(800), RepeatMode.Reverse), label = "a")
+    } else remember { mutableStateOf(0.5f) }
     val desc = if (on) stringResource(R.string.live_session_open) else stringResource(R.string.voice_connecting_short)
     Surface(shape = CircleShape, color = cs.errorContainer, modifier = Modifier.semantics { contentDescription = desc }) {
         Row(Modifier.padding(horizontal = 10.dp, vertical = 5.dp), verticalAlignment = Alignment.CenterVertically) {

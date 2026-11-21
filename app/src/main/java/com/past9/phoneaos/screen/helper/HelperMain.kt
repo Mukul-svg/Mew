@@ -46,7 +46,7 @@ object HelperMain {
         }
     }
     private val lock = Any()
-    private var display: HiddenDisplay? = null
+    @Volatile private var display: HiddenDisplay? = null
     private var keyboard = ""
     @Volatile private var lastAsked = SystemClock.uptimeMillis()
     private var token = ""
@@ -79,14 +79,22 @@ object HelperMain {
         println("screen helper: started for $pkg (port $port, version ${ScreenProtocol.VERSION}, pid ${android.os.Process.myPid()}, ${blocklist.rules} blocked-app rules)")
         Thread({ while (true) { val s = try { server.accept() } catch (e: Throwable) { break }; Thread({ serve(s) }, "screen-client").apply { isDaemon = true; start() } } }, "screen-accept").start()
         Thread({
-            var n = 0
+            var nextIdleCheck = 0L
             while (true) {
-                Thread.sleep(400)
+                // Nothing to sweep or expire while no hidden display is open: wait longer, but wake at once when one opens.
+                try {
+                    synchronized(lock) { (lock as java.lang.Object).wait(if (display == null) 5_000L else 400L) }
+                } catch (_: InterruptedException) { break }
+                val open = synchronized(lock) { display != null }
                 // A money app that lands on the hidden display is closed at once, whoever put it there.
-                if (display != null) runCatching { sweep() }
+                if (open) runCatching { sweep() }
+                val now = SystemClock.uptimeMillis()
                 // The app that owns the display is gone (updated, killed, crashed): its apps are removed, never left to fall onto the person's screen.
-                synchronized(lock) { if (watch.due(SystemClock.uptimeMillis(), display != null)) { log("the app is gone, removing its apps and closing the display"); release(emptySet(), "app_gone"); watch.reset() } }
-                if (++n % 75 == 0) synchronized(lock) { if (display != null && SystemClock.uptimeMillis() - lastAsked > IDLE_RELEASE_MS) { log("idle, closing the display"); release(emptySet(), "idle") } }
+                synchronized(lock) { if (watch.due(now, open)) { log("the app is gone, removing its apps and closing the display"); release(emptySet(), "app_gone"); watch.reset() } }
+                if (now >= nextIdleCheck) {
+                    nextIdleCheck = now + 30_000
+                    synchronized(lock) { if (open && now - lastAsked > IDLE_RELEASE_MS) { log("idle, closing the display"); release(emptySet(), "idle") } }
+                }
             }
         }, "screen-watch").apply { isDaemon = true; start() }
         Looper.loop()
@@ -217,6 +225,7 @@ object HelperMain {
         }
         Tree.unlink()
         d.release(); display = null; keyboard = ""
+        synchronized(lock) { (lock as java.lang.Object).notifyAll() }
         log("$why: hidden display ${d.id} released")
     }
 
@@ -265,6 +274,7 @@ object HelperMain {
                 log("hidden display ${d.id} made, flags ${Flags.names(d.flags)}${if (d.destroysContent) "" else " (does NOT destroy content on removal)"}")
                 display = d
                 keyboard = Tasks.hideKeyboardOn(d.id)
+                synchronized(lock) { (lock as java.lang.Object).notifyAll() }
                 return describe(ScreenProtocol.ok())
             }
             "block" -> {

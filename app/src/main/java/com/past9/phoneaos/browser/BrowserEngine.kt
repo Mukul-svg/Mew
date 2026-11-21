@@ -331,6 +331,8 @@ class BrowserEngine(private val context: Context, val profile: String = "Persona
     private val CALL_HOLD_MS = 45 * 60_000L
     private var callWake: android.os.PowerManager.WakeLock? = null
     private var callWifi: android.net.wifi.WifiManager.WifiLock? = null
+    /** The same ceiling as the wake lock: a missed teardown must not leave the Wi-Fi radio high-performance forever. */
+    private val callHoldEnds: Runnable = Runnable { holdForCall(false) }
 
     /**
      * While the agent speaks in a call, the phone stays awake and on Wi-Fi with the screen off: a call that goes on
@@ -346,7 +348,10 @@ class BrowserEngine(private val context: Context, val profile: String = "Persona
                 val wifi = callWifi ?: (context.applicationContext.getSystemService(Context.WIFI_SERVICE) as android.net.wifi.WifiManager)
                     .createWifiLock(android.net.wifi.WifiManager.WIFI_MODE_FULL_HIGH_PERF, "agent:whatsapp-call").apply { setReferenceCounted(false) }.also { callWifi = it }
                 wifi.acquire()
+                main.removeCallbacks(callHoldEnds)
+                main.postDelayed(callHoldEnds, CALL_HOLD_MS)
             } else {
+                main.removeCallbacks(callHoldEnds)
                 callWake?.takeIf { it.isHeld }?.release()
                 callWifi?.takeIf { it.isHeld }?.release()
             }
@@ -484,7 +489,7 @@ class BrowserEngine(private val context: Context, val profile: String = "Persona
         v.layout(0, 0, width, height)
     }
 
-    fun destroy() = main.post { runCatching { callBridge?.stop() }; callReply = null; stack.forEach { (it.parent as? ViewGroup)?.removeView(it); it.destroy() }; stack.clear(); web = null; container = null }
+    fun destroy() = main.post { runCatching { callBridge?.stop() }; holdForCall(false); callReply = null; stack.forEach { (it.parent as? ViewGroup)?.removeView(it); it.destroy() }; stack.clear(); web = null; container = null }
 
     /** For the Browser screen: hand the live WebView to a container, and take it back after. */
     fun attachTo(parent: ViewGroup) {

@@ -1,6 +1,8 @@
 package com.past9.phoneaos
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.Color
 import androidx.test.core.app.ApplicationProvider
 import com.past9.phoneaos.assist.AssistMessage
 import com.past9.phoneaos.assist.AssistPrefs
@@ -8,6 +10,7 @@ import com.past9.phoneaos.assist.FrameDiff
 import com.past9.phoneaos.assist.FrameGate
 import com.past9.phoneaos.assist.FrameThrottle
 import com.past9.phoneaos.assist.LiveAssistCore
+import com.past9.phoneaos.assist.LiveFrames
 import com.past9.phoneaos.assist.ScreenContext
 import com.past9.phoneaos.assist.ScreenGuard
 import com.past9.phoneaos.data.ChatItem
@@ -16,12 +19,14 @@ import org.json.JSONArray
 import org.json.JSONObject
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
+import java.io.File
 
 /** Live sees the screen: when a frame may go (switches, money apps, protected windows), how often, and the call record it leaves. */
 @RunWith(RobolectricTestRunner::class)
@@ -119,6 +124,30 @@ class LiveSeesTest {
         assertTrue(FrameDiff.differs(a, IntArray(256) { 140 }))
         assertTrue("a different size is a different screen", FrameDiff.differs(a, IntArray(64) { 100 }))
         assertEquals(0, FrameDiff.luma(0x000000)); assertEquals(255, FrameDiff.luma(0xFFFFFF))
+    }
+
+    @Test fun aStillScreenIsNotCompressedAgain() {
+        fun shot(): String {
+            val bmp = Bitmap.createBitmap(40, 40, Bitmap.Config.ARGB_8888)
+            bmp.eraseColor(Color.RED)
+            val f = File.createTempFile("mew-frame", ".jpg")
+            f.outputStream().use { bmp.compress(Bitmap.CompressFormat.JPEG, 90, it) }
+            bmp.recycle()
+            return f.absolutePath
+        }
+        val first = LiveFrames.encode(shot())
+        assertNotNull(first)
+        assertTrue("the first look is sent", first!!.changed)
+        assertTrue(first.jpeg.isNotEmpty())
+        val same = LiveFrames.encode(shot(), first.grid, false)
+        assertNotNull(same)
+        assertFalse("the same screen is not sent again", same!!.changed)
+        assertTrue("nothing is compressed for an unchanged screen", same.jpeg.isEmpty())
+        assertTrue(same.base64.isEmpty())
+        val forced = LiveFrames.encode(shot(), first.grid, true)
+        assertNotNull(forced)
+        assertFalse(forced!!.changed)
+        assertTrue("a forced look still carries the current pixels", forced.jpeg.isNotEmpty())
     }
 
     // ---- what Live is told and given ----------------------------------------------------------------

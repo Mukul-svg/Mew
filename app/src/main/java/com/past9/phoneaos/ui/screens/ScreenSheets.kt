@@ -39,7 +39,10 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.repeatOnLifecycle
 import com.past9.phoneaos.screen.ScreenState
 import com.past9.phoneaos.screen.ScreenStarter
 import com.past9.phoneaos.screen.ScreenUi
@@ -326,15 +329,18 @@ private fun PeekHost(agentName: String, onDismiss: () -> Unit) {
     // The person's touches go to the hidden screen in the order they were made.
     val touches = remember { Channel<Triple<Int, Float, Float>>(Channel.UNLIMITED) }
     LaunchedEffect(Unit) { for (t in touches) session.userTouch(link, t.first, t.second, t.third) }
-    LaunchedEffect(state.open) {
-        var seq = -1L
-        while (state.open) {
-            val m = runCatching { link.call(op("frame").put("max", 540).put("q", 60).put("after", seq), 4_000) }.getOrNull()
-            val bin = m?.bin
-            if (bin != null) { seq = m.json.optLong("seq"); BitmapFactory.decodeByteArray(bin, 0, bin.size)?.let { picture = it.asImageBitmap() } }
-            delay(if (m == null) 1_000 else 220)
+    val lifecycle = LocalLifecycleOwner.current.lifecycle
+    LaunchedEffect(state.open, lifecycle) {
+        if (!state.open) { picture = null; return@LaunchedEffect }
+        lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+            var seq = -1L
+            while (true) {
+                val m = runCatching { link.call(op("frame").put("max", 540).put("q", 60).put("after", seq), 4_000) }.getOrNull()
+                val bin = m?.bin
+                if (bin != null) { seq = m.json.optLong("seq"); BitmapFactory.decodeByteArray(bin, 0, bin.size)?.let { picture = it.asImageBitmap() } }
+                delay(if (m == null) 1_000 else 220)
+            }
         }
-        picture = null
     }
     ScreenPeekSheet(state, picture, agentName, ScreenPeekActions(
         onStop = { session.userStop() }, onAllow = { session.userAllow() },
@@ -357,13 +363,16 @@ private fun SetupHost(onDismiss: () -> Unit) {
         mutableStateOf(ScreenSetupInfo(tooOld = android.os.Build.VERSION.SDK_INT < 30, adbCommand = ScreenStarter.adbCommand(context),
             rules = settings.extra(Screens.RULES).orEmpty(), words = settings.extra(Screens.WORDS).orEmpty(), whileLocked = settings.extra(Screens.LOCKED) == "1"))
     }
-    // The steps tick themselves: look at the phone again every second while the sheet is open.
-    LaunchedEffect(Unit) {
+    // The steps tick themselves: look at the phone again every second while the sheet is on screen.
+    val lifecycle = LocalLifecycleOwner.current.lifecycle
+    LaunchedEffect(lifecycle) {
         val link = Screens.preview(context)
-        while (true) {
-            val ready = runCatching { link.call(op("ping"), 2_000).json.optInt("version") == com.past9.phoneaos.screen.ScreenProtocol.VERSION }.getOrDefault(false)
-            info = info.copy(ready = ready, shizukuInstalled = ScreenStarter.shizukuInstalled(context), shizukuRunning = ScreenStarter.shizukuRunning(), shizukuAllowed = ScreenStarter.shizukuGranted())
-            delay(1_000)
+        lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+            while (true) {
+                val ready = runCatching { link.call(op("ping"), 2_000).json.optInt("version") == com.past9.phoneaos.screen.ScreenProtocol.VERSION }.getOrDefault(false)
+                info = info.copy(ready = ready, shizukuInstalled = ScreenStarter.shizukuInstalled(context), shizukuRunning = ScreenStarter.shizukuRunning(), shizukuAllowed = ScreenStarter.shizukuGranted())
+                delay(1_000)
+            }
         }
     }
     fun open(intent: Intent) { runCatching { context.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)) }.onFailure { com.past9.phoneaos.ui.AppNotice.say(context.getString(R.string.screen_cant_open)) } }
@@ -455,15 +464,18 @@ internal fun WatchHost(agentName: String, onDismiss: () -> Unit) {
     val state by session.state.collectAsStateWithLifecycle()
     var picture by remember { mutableStateOf<ImageBitmap?>(null) }
     val scope = rememberCoroutineScope()
-    LaunchedEffect(state.open, state.takenOver) {
+    val lifecycle = LocalLifecycleOwner.current.lifecycle
+    LaunchedEffect(state.open, state.takenOver, lifecycle) {
         // Nothing to watch once it is closed, or once the app is on his own screen.
         if (!state.open || state.takenOver) { onDismiss(); return@LaunchedEffect }
-        var seq = -1L
-        while (true) {
-            val m = runCatching { link.call(op("frame").put("max", 720).put("q", 70).put("after", seq), 4_000) }.getOrNull()
-            val bin = m?.bin
-            if (bin != null) { seq = m.json.optLong("seq"); BitmapFactory.decodeByteArray(bin, 0, bin.size)?.let { picture = it.asImageBitmap() } }
-            delay(if (m == null) 1_000 else 200)
+        lifecycle.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+            var seq = -1L
+            while (true) {
+                val m = runCatching { link.call(op("frame").put("max", 720).put("q", 70).put("after", seq), 4_000) }.getOrNull()
+                val bin = m?.bin
+                if (bin != null) { seq = m.json.optLong("seq"); BitmapFactory.decodeByteArray(bin, 0, bin.size)?.let { picture = it.asImageBitmap() } }
+                delay(if (m == null) 1_000 else 200)
+            }
         }
     }
     ScreenWatchFull(state, picture, agentName,
