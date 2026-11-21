@@ -40,7 +40,7 @@ The README describes it as a personal, always-on agent: no account, no subscript
 | Docs | Extensive: remote protocol notes, Wear protocol, background screen, wake word, translations, signing |
 | CI | `.github/workflows/ci.yml` (`D-014`): Linux debug build, translation checks, Mew Host tests, and the full phone unit suite on push/PR. `.github/workflows/release.yml` (`D-018`, new key `D-019`): signed phone release on a `v*` tag/manual run, published as a GitHub Release |
 | E2E | Revyl Proof of Changes (`D-020`): `Mew Android` app (`241aa40f-acb0-45cb-8cd4-519716de6e1a`), `preview` profile builds the debug APK remotely; verified on a cloud Android device (Home, chat, OpenUI steps card, Gemini-key call gate). Configuration is published; `.revyl/config.yaml` is not committed yet |
-| Release status | **`v0.16.0` published 2026-11-21**: `Agent-0.16.0.apk` (87,170,416 bytes, SHA-256 `5a297e670957386b0bf9e98cfdee605c9e0d029068b03dd072196d566d98e24b`), signed with the new fork release key (`D-019`); tag at `2d0c9c6`; [release](https://github.com/Mukul-svg/Mew/releases/tag/v0.16.0) |
+| Release status | **`v0.16.1` published 2026-11-21**: `Agent-0.16.1.apk` (87,191,264 bytes, SHA-256 `d1ee9c0b2649a4ed9ed1ef09497ffebc48b7b578458c8b08dfa527f78407febb`), signed with the fork release key (`D-019`, certificate `bb7c2056...`); version `0.16.1`/181, min/target 34, label `Mew`; tag at `702d3da`; [release](https://github.com/Mukul-svg/Mew/releases/tag/v0.16.1). `v0.16.0` remains published at `2d0c9c6`. |
 | Runtime model | OpenCode Zen/Go API key only (`D-011`); Node 24 bundled as `jniLibs` for `run_code`/watchers/cards (`D-107`); no Claude/Codex/Antigravity packs |
 
 ---
