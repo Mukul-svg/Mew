@@ -49,11 +49,20 @@ All of these preserve the visible output, latency and quality of the existing pa
 
 ## Revyl before/after plan
 
-The existing Revyl session `bf3eae8c-81a3-460e-99d7-5d3973625974` is the baseline. It ran build `remote-c0ab26da` on a Pixel 7 / Android 14 and recorded:
+The original Revyl session `bf3eae8c-81a3-460e-99d7-5d3973625974` ran build `remote-c0ab26da` on a Pixel 7 / Android 14 with manual onboarding:
 
 - average CPU **46.4%**, peak **97%**
 - average memory **310 MiB**, peak **367 MiB**
 - average **44.2 fps**, minimum 5 fps
 - 19 steps, 500.7 s
 
-The after run uses the same app flow (onboarding manually completed, open chat, send the booking-plan prompt) on a build from `battery-phone-fixes`. Revyl's `sessions.performance` read is the comparison source; Atlas screen evidence confirms the same screens. Because the two sessions cannot be made step-identical (manual onboarding and model timing differ), a CPU delta is supporting evidence, not a certified power measurement. Certified power still needs a connected phone and Power Profiler/Power Rails traces.
+A controlled before/after was then run with the same scripted path: complete onboarding (OpenCode Go key, DeepSeek V4.1 Flash), open chat, send the booking-plan prompt, wait 30 s, stop.
+
+| Run | Build | Session | Avg CPU | Avg memory | Duration | Visible result |
+|---|---|---|---|---|---|---|
+| Before | `remote-c0ab26da` (`077b523b…`) | `89b967dc-eafd-46f1-ac81-a209d744d0a5` | 35.6% | 302.8 MiB | 272 s | Working, 6-step plan |
+| After | `remote-5255ad40` (`bbf37cd3…`) | `a5016d60-5100-4d45-9db4-4d19bae3acc5` | 40.0% | 329.4 MiB | 310 s | Working, 6-step plan, one more web-read step |
+
+Both sessions reached the same onboarding, home and chat screens and produced the same six-step “Two mid-row seats, Thu 17 Dec” card. The after run did one more browser read in the same window, which explains part of the CPU/memory difference. Crucially, this flow does not exercise the screen-watch sheets, Live frames, WhatsApp call locks, wake channel, or speaker queue, so the run-level delta is **not** evidence of a battery regression or improvement. Revyl proves visual and flow continuity here. A power claim still requires a connected phone and Power Profiler/Power Rails traces on the specific paths.
+
+Atlas comparison of the two builds found **9 shared screens and 0 screens unique to the after build**. Two screens were observed only in the before run: the finished plan-response state and the reminder-readiness sheet. Both are capture/flow timing, not removed UI; the after session showed the same plan card before it was stopped. The full flow (splash, onboarding steps, home, chat, prompt, working state, plan card) is present in both.
