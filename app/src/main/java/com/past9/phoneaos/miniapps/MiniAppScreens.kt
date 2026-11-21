@@ -234,7 +234,11 @@ fun MiniAppFrame(id: String, apps: List<MiniAppInfo>, dark: Boolean, accent: Str
             failed != null -> Box(inset, contentAlignment = Alignment.Center) { EmptyState(stringResource(R.string.mini_cannot_open), failed ?: "") }
             sid == null -> Box(inset, contentAlignment = Alignment.Center) { LoadingIndicator() }
             else -> key(version) {
-                AndroidView(modifier = inset, factory = { context ->
+                AndroidView(modifier = inset, onRelease = { web ->
+                    // A version change replaces the WebView; release the old renderer instead of leaking it.
+                    runCatching { web.destroy() }
+                    if (view === web) view = null
+                }, factory = { context ->
                     WebView(context).also { web ->
                         web.settings.apply {
                             javaScriptEnabled = true

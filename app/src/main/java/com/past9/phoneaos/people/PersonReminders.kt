@@ -76,9 +76,10 @@ object PersonReminders {
     }
 
     /** Re-plan every date: arm what is new, drop what is gone, say once what the phone missed. */
-    suspend fun syncAll(context: Context, now: Long = System.currentTimeMillis(), repo: PeopleRepository? = null) = lock.withLock {
-        plan(context, now, repo)
-    }
+    suspend fun syncAll(context: Context, now: Long = System.currentTimeMillis(), repo: PeopleRepository? = null) =
+        kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+            lock.withLock { plan(context, now, repo) }
+        }
 
     private suspend fun plan(context: Context, now: Long, repo: PeopleRepository?) {
         val due = runCatching { repo(context, repo).dueReminders(now) }.getOrDefault(emptyList())

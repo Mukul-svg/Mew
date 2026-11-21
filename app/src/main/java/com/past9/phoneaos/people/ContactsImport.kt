@@ -33,9 +33,9 @@ object ContactsImport {
     }
 
     /** Add the names not on the list yet. Returns how many were added. */
-    suspend fun into(context: Context, repo: PeopleRepository): Int {
+    suspend fun into(context: Context, repo: PeopleRepository): Int = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
         val have = repo.people().map { it.name.trim().lowercase() }.toSet()
-        return names(context).filter { it.lowercase() !in have }.take(500).count { name ->
+        names(context).filter { it.lowercase() !in have }.take(500).count { name ->
             runCatching { repo.add(name); true }.getOrDefault(false)
         }
     }

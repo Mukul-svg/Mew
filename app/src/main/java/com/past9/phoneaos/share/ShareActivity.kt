@@ -65,6 +65,7 @@ import com.past9.phoneaos.ui.theme.AppTheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
@@ -181,8 +182,10 @@ class ShareActivity : ComponentActivity() {
                 g.runtime.sendAccepted(msg.text, msg.images, files.map { it.path })
                 if (!linked) {
                     // Wait (briefly) until the message is really stored, so it can't be lost when this screen closes.
-                    var tries = 0
-                    while (tries++ < 40 && g.db.chat().userSince(since) == 0) delay(75)
+                    // The chat Flow is invalidated by the insert; no 75 ms polling loop.
+                    kotlinx.coroutines.withTimeoutOrNull(3_000) {
+                        g.db.chat().all().first { rows -> rows.any { it.kind == "user" && it.createdAt >= since } }
+                    }
                 }
             }.onFailure { e ->
                 phase = Phase.EDIT

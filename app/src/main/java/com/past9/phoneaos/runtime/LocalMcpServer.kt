@@ -75,7 +75,8 @@ class LocalMcpServer(
         // Authenticate before building tools or allocating a body for an unauthenticated local caller.
         if (headers["authorization"] != "Bearer $token") return reply(out, 401, "application/json", """{"error":"unauthorized"}""")
         val len = headers["content-length"]?.toIntOrNull() ?: 0
-        if (len < 0 || len > 1_048_576) return reply(out, 413, "application/json", """{"error":"too large"}""")
+        // 16 MB is far above normal tool-call JSON but still stops a multi-gigabyte allocation from a local client.
+        if (len < 0 || len > 16 * 1024 * 1024) return reply(out, 413, "application/json", """{"error":"too large"}""")
         val bodyBytes = ByteArray(len); var read = 0
         while (read < len) { val n = inp.read(bodyBytes, read, len - read); if (n < 0) break; read += n }
 

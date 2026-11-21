@@ -64,6 +64,9 @@ class PeopleTest {
         settings.setMode(PowerMode.API_KEY); settings.setProvider(Provider.ANTHROPIC); settings.setApiKey(Provider.ANTHROPIC, "sk-test"); settings.setUserName("Sam")
         repo = PeopleRepository(db.people(), PersonCipher(TestKey()))
         ctx.getSharedPreferences("people_reminders", android.content.Context.MODE_PRIVATE).edit().clear().commit()
+        // Tests share the process notification shade; start from an empty one so this test sees only its own reminder.
+        val nm = ctx.getSystemService(NotificationManager::class.java)
+        nm.activeNotifications.forEach { nm.cancel(it.id) }
     }
 
     private fun runtime() = AgentRuntime(ctx, db, settings, CoroutineScope(SupervisorJob() + Dispatchers.IO), FakePhone(), { null })

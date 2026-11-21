@@ -57,6 +57,9 @@ class NotificationReader : NotificationListenerService() {
 
     /** One notification, in order. The backfill uses this directly; live posts arrive through [handle]. */
     private suspend fun record(sbn: StatusBarNotification, live: Boolean) {
+        // The backfill path must obey the same allowed-app list as live posts.
+        val watched = getSharedPreferences("settings", MODE_PRIVATE).getStringSet("notifApps", emptySet()).orEmpty()
+        if (sbn.packageName == packageName || sbn.packageName !in watched) return
         val n = sbn.notification ?: return
         if (n.flags and Notification.FLAG_GROUP_SUMMARY != 0) return
         val ex = n.extras

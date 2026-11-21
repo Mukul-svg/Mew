@@ -95,6 +95,8 @@ object HelperMain {
                     nextIdleCheck = now + 30_000
                     synchronized(lock) { if (open && now - lastAsked > IDLE_RELEASE_MS) { log("idle, closing the display"); release(emptySet(), "idle") } }
                 }
+                // No display and nobody asking for ten minutes: exit, rather than leave a shell process and socket alive forever.
+                if (!open && now - lastAsked > 10 * 60_000L) { log("idle with no display, exiting"); System.exit(0) }
             }
         }, "screen-watch").apply { isDaemon = true; start() }
         Looper.loop()

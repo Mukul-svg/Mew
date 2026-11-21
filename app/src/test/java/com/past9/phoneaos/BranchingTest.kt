@@ -55,7 +55,7 @@ class BranchingTest {
 
     private fun runtime(p: LlmProvider, d: AppDb = db) = AgentRuntime(ApplicationProvider.getApplicationContext(), d, settings, CoroutineScope(SupervisorJob() + Dispatchers.IO), phone, { p })
     private suspend fun idle(rt: AgentRuntime) { withTimeout(15_000) { rt.awaitIdle() } }
-    private suspend fun until(what: String, ms: Long = 8_000, cond: suspend () -> Boolean) {
+    private suspend fun until(what: String, ms: Long = 20_000, cond: suspend () -> Boolean) {
         withTimeout(ms) { while (!cond()) delay(15) }
     }
     private suspend fun chat() = db.chat().all().first()

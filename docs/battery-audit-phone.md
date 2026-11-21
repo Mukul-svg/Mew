@@ -79,6 +79,7 @@ Eight parallel audits covered agent runtime/tools, data/startup, networking/wake
 - Indices on `chat_items(kind, createdAt)`, `turns(thread, id)`, `notifications(postedAt)`, `notifications(pkg, postedAt)` and `person_logs(personId, at)`. The v3→v4 migration only creates indices; rows are untouched.
 - `clearAllTables()` moved off the main thread for Reset All.
 - Pinned agents, their histories and cards now use the existing atomic temp-file + fsync + rename writer instead of `File.writeText`.
+- The Android Keystore key is cached instead of reloaded for every person record; contacts import and people-reminder planning run on `Dispatchers.IO`; the people list no longer blocks the UI on Keystore/AES work.
 
 **Agent runtime/tools**
 
@@ -92,14 +93,15 @@ Eight parallel audits covered agent runtime/tools, data/startup, networking/wake
 - Pinned TLS clients are cached by certificate fingerprint instead of rebuilt per attempt.
 - `RemoteSession.jobEnded()` schedules the existing cellular pause after the last job; `readRunState()` settles the work lock if a `run_finished` event was lost.
 - The media loopback server is stopped and its shown-media cache released on session close.
-- Handoff uses one pooled client and cancels the blocking long-poll when the app leaves the screen.
+- Handoff uses one pooled client and cancels the blocking long-poll when the app leaves the screen; a server that ignores the 50 s long-poll is held to a 1 s floor instead of a hot loop.
+- Share waits for its stored message through the existing chat Room Flow instead of 40 × 75 ms COUNT queries; the visible result is the same.
 
 **Browser, Node and local servers**
 
 - Browser idle check is one scheduled wake at the idle deadline instead of a 30 s poll; page use pushes the deadline.
 - Browser screenshot drawing stays on main, PNG compression/write moves to `Dispatchers.IO`, and the bitmap is recycled.
 - Node processes are `destroy()`ed, given 2 s, then `destroyForcibly()`ed on cancellation.
-- Local MCP server: connection semaphore, 10 s socket timeout, 16 KB header cap, 1 MB body cap, and authentication before route/tool construction or body allocation.
+- Local MCP server: connection semaphore, 10 s socket timeout, 16 KB header cap, 16 MB body cap, and authentication before route/tool construction or body allocation.
 - Automation server: 10 s socket read timeout (its existing line/body caps remain).
 
 **Media, voice and images**
@@ -117,6 +119,7 @@ Eight parallel audits covered agent runtime/tools, data/startup, networking/wake
 - Chat audio progress updates only while `RESUMED`, with one immediate refresh on return.
 - Project-chat event refresh runs only while `STARTED`; the initial load catches up on return.
 - Chat rows have stable content types.
+- A mini-app that changes version now releases the replaced WebView in `onRelease`; the old renderer no longer leaks.
 - Unused infinite transitions (from the first pass) remain.
 
 **Services and scheduling**
@@ -124,7 +127,7 @@ Eight parallel audits covered agent runtime/tools, data/startup, networking/wake
 - Notification backfill is one sequential worker, not one coroutine per notification. Watched-app filtering happens before `App.graph`. The 7-day prune runs at most once a day; retention is unchanged.
 - Reminder alarms fire directly through `goAsync()` instead of starting the foreground WorkService and posting “Mew is working”.
 - Screen-service notification thumbnails stop when the display is off; the next screen-on tick refreshes.
-- An explicit background-screen close sends `exit` to the shell helper; job-end release still keeps it warm.
+- The shell helper now exits itself after 10 minutes with no display and no request; job-end release still keeps it warm for the next job, and an explicit close/reopen keeps working.
 - Alarm volume is persisted before raising and restored after a kill; the previous in-memory-only restore could leave the alarm stream at maximum.
 - Wake-word battery receiver buckets the percentage at the only threshold that changes a decision (`<20%`), not every percent.
 - Calendar attendee counts use one query per 500 events instead of one query per event.
@@ -152,6 +155,13 @@ Eight parallel audits covered agent runtime/tools, data/startup, networking/wake
 - **RGB_565 / low-RAM decode / lossy re-encode**: rejected for image quality.
 - **Baseline/startup profiles**: recommended, but generating them needs a macrobenchmark device run.
 - **Compose graphicsLayer rewrites, `SubcomposeAsyncImage` replacement, root/Home recomposition split**: visible-frame or broad refactor risk; deferred until screenshot/recomposition tests.
+
+### Verification
+
+- `sh gradlew :app:testDebugUnitTest` with `AuditShotsTest` excluded: **2,294 tests, 0 failures, 27 skipped** (175 classes). `AuditShotsTest` is a Roborazzi screenshot recorder that hung inside Robolectric's native `nSyncAndDrawFrame` for over five minutes; it is a test-renderer hang, not app code. The product behaviour suites, including `ScreenSessionTest`, `PeopleTest`, `BranchingTest`, `DbMigrationTest`, `MediaToolsTest`, `HandoffTest`, `SubscriptionPathTest`, `LiveSeesTest` and `ScreenSheetsShotTest`, are green.
+- The v1→v4 SQL was also exercised against a synthetic SQLite database: every row survived and all five indices exist.
+- Revyl cloud build `remote-8c9f9f09` (`43857a7a-…`, APK SHA-256 `c52b8405…`) succeeded on the final worktree.
+- No on-device power trace was possible: `adb devices` is empty. The changes are resource-directional by construction; a battery percentage still needs Power Profiler/Power Rails on a connected phone.
 
 ### Web references used
 

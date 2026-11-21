@@ -34,9 +34,14 @@ object Handoffs {
         loop = g.scope.launch(Dispatchers.IO) {
             val inbox = inbox(context); var failures = 0
             while (isActive) {
-                try { inbox.check(waitSec = if (failures == 0) 50 else 0); failures = 0 }
+                val started = System.currentTimeMillis()
+                var got = 0
+                var ok = false
+                try { got = inbox.check(waitSec = if (failures == 0) 50 else 0); failures = 0; ok = true }
                 catch (e: CancellationException) { throw e }
                 catch (e: Exception) { failures++; delay(minOf(5 * 60_000L, 5_000L * (1L shl minOf(failures, 6)))) }
+                // A sync service that ignores the long-poll must not turn an empty pull into a hot loop.
+                if (ok && got == 0) { val spent = System.currentTimeMillis() - started; if (spent < 1_000) delay(1_000 - spent) }
             }
         }
     }

@@ -50,6 +50,8 @@ object WakeChannel {
     private fun key(link: com.past9.phoneaos.remote.Link) = "${link.meshId}|${link.deviceId}|${link.pass.hashCode()}"
     /** Pinned clients by certificate: a fresh TLS context per retry was pure repeat work. */
     private val clients = java.util.concurrent.ConcurrentHashMap<String, okhttp3.OkHttpClient>()
+    /** An open socket waits on this instead of a 15 s poll; onClosed wakes it at once. */
+    private val wake = kotlinx.coroutines.channels.Channel<Unit>(kotlinx.coroutines.channels.Channel.CONFLATED)
 
     /** Linked and on: keep the channel up (starts the service). Not linked: stop it. */
     fun ensure(context: Context) {
@@ -88,7 +90,7 @@ object WakeChannel {
             while (true) {
                 val link = RemoteHub.link.value
                 if (link == null || !link.on) { delay(30_000); continue }
-                if (rpc?.isOpen == true && openKey == key(link)) { delay(15_000); continue }
+                if (rpc?.isOpen == true && openKey == key(link)) { wake.receive(); continue }
                 if (rpc != null) { rpc?.close(); rpc = null }
                 var opened = false
                 for (brain in link.brains.sortedBy { it.priority }) {
@@ -120,6 +122,7 @@ object WakeChannel {
             override fun onClosed(rpc: RpcClient, why: String, opened: Boolean, problem: LinkProblem) {
                 done.complete(false)
                 if (this@WakeChannel.rpc === rpc) this@WakeChannel.rpc = null
+                wake.trySend(Unit)
                 Log.i(WakeHub.TAG, "wake channel to $url ended: $why ($problem)")
                 // A forgotten phone or a changed certificate cannot be fixed by retrying: stop the radio work and
                 // let Settings show the rescan message instead of hammering every 30 seconds.
