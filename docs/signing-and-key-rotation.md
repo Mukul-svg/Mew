@@ -124,6 +124,10 @@ gh run watch -R Mukul-svg/Mew
 or push a tag: `git tag v0.16.0 && git push origin v0.16.0`. The workflow refuses to start without all four secrets.
 Future rotations still need the v3 lineage procedure above, starting from this release key.
 
+The first release, `v0.16.0`, was published on 2026-11-21 as `Agent-0.16.0.apk` (87,170,416 bytes, SHA-256
+`5a297e670957386b0bf9e98cfdee605c9e0d029068b03dd072196d566d98e24b`), signed with the new key. Always verify the
+attached `.sha256` and the certificate before installing.
+
 ## Guard: a wrong-key APK can be neither built nor published
 
 - `app/build.gradle.kts` refuses a release build that has no release key, instead of letting Android fall back to the

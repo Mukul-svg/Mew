@@ -3,8 +3,8 @@
 **Last updated:** 2026-11-21
 **Repository:** Mew (Android phone app + Wear OS app + Node Agent Host); package ID remains `com.past9.phoneaos`
 **Branch:** `main` (upstream `72ab230` + the Mew sync commits; pushed to `Mukul-svg/Mew`)
-**Working tree:** Release-signing changes (`D-019`) are committed on top of the CI workflow fix. 0.16.0 build-floor, Node bundle, Mew rebrand, security fixes, CI, test fixes, assist conversation mode (`D-015`), upstream dictation/live work, the live assistant (`D-017`), and the signed release workflow (`D-018`) are in `main`.
-**Analysis status:** initial static review complete; Android 14+ build floor, Node-only bundle, Mew rebrand, security fixes, CI, and the upstream 0.15.76 dictation/live work are implemented. The full phone unit suite after the sync was green on Windows: **2,581 tests, 0 failures, 27 skipped** (2026-11-21, including the live-assistant change). The live assistant (`D-017`) now defaults to Gemini Live with OpenCode task hand-offs and spoken progress. A real OpenCode turn and `run_code` passed on the phone. The watcher/card device probe is written but not yet run because the phone disconnected from `adb`; release signing now uses a new fork-specific release key (`D-019`) whose four GitHub Actions secrets are set; the first signed release has not run yet. The assist sheet now holds a call-like conversation (reads answers aloud, listens again) with no voice key; verified by 111 targeted tests and a debug build, not yet on a device.
+**Working tree:** Release-signing changes (`D-019`) and the release-build lint fix are committed on top of the CI workflow fix. The signed `v0.16.0` release is published. 0.16.0 build-floor, Node bundle, Mew rebrand, security fixes, CI, test fixes, assist conversation mode (`D-015`), upstream dictation/live work, the live assistant (`D-017`), and the signed release workflow (`D-018`) are in `main`.
+**Analysis status:** initial static review complete; Android 14+ build floor, Node-only bundle, Mew rebrand, security fixes, CI, and the upstream 0.15.76 dictation/live work are implemented. The full phone unit suite after the sync was green on Windows: **2,581 tests, 0 failures, 27 skipped** (2026-11-21, including the live-assistant change). The live assistant (`D-017`) now defaults to Gemini Live with OpenCode task hand-offs and spoken progress. A real OpenCode turn and `run_code` passed on the phone. The watcher/card device probe is written but not yet run because the phone disconnected from `adb`; release signing now uses a new fork-specific release key (`D-019`) whose four GitHub Actions secrets are set; the signed `v0.16.0` release is published and verified. The assist sheet now holds a call-like conversation (reads answers aloud, listens again) with no voice key; verified by 111 targeted tests and a debug build, not yet on a device.
 
 This is the living snapshot of the repository. Update it after every change. Decisions and their rationale live in `DECISIONS.md`; the working rules for agents live in `AGENT.md`.
 
@@ -39,7 +39,7 @@ The README describes it as a personal, always-on agent: no account, no subscript
 | Git | `main` above upstream `72ab230`; Mew work is local and not pushed, MIT |
 | Docs | Extensive: remote protocol notes, Wear protocol, background screen, wake word, translations, signing |
 | CI | `.github/workflows/ci.yml` (`D-014`): Linux debug build, translation checks, Mew Host tests, and the full phone unit suite on push/PR. `.github/workflows/release.yml` (`D-018`, new key `D-019`): signed phone release on a `v*` tag/manual run, published as a GitHub Release |
-| Release status | Signed phone releases are built by GitHub Actions with the new fork release key (`D-019`); the four `ANDROID_*` secrets are set; the first release run is pending |
+| Release status | **`v0.16.0` published 2026-11-21**: `Agent-0.16.0.apk` (87,170,416 bytes, SHA-256 `5a297e670957386b0bf9e98cfdee605c9e0d029068b03dd072196d566d98e24b`), signed with the new fork release key (`D-019`); tag at `2d0c9c6`; [release](https://github.com/Mukul-svg/Mew/releases/tag/v0.16.0) |
 | Runtime model | OpenCode Zen/Go API key only (`D-011`); Node 24 bundled as `jniLibs` for `run_code`/watchers/cards (`D-107`); no Claude/Codex/Antigravity packs |
 
 ---
@@ -156,7 +156,7 @@ Key entry points:
 - Not verified on a device: `adb devices` is empty (CPH2707 not connected). The voice loop, system-TTS sound, and power-button path need a connected Android 14+ phone. Exit phrases are English; other languages end with End or by leaving.
 
 - **Live assistant (`D-017`):** Gemini Live is now the default when a Gemini key or a linked computer is available; otherwise the sheet falls back to system conversation mode. Real work still goes to the OpenCode agent through `hand_to_agent`. Spoken progress is emitted at most every 12 seconds, only while a job is out, and `TurnHold` waits for a natural pause. The session stays open through normal jobs, with a 10-minute unanswered-job cap; the sheet + bubble ending is goodbye/End, with a 5-minute open / 10-minute minimised idle guard. Full suite: **2,581 tests, 0 failures, 27 skipped**.
-- **Release signing (`D-018`, `D-019`):** `.github/workflows/release.yml` builds the phone release APK on `v*` tags or manual dispatch, signs with the new fork release key from four GitHub Actions secrets (set on 2026-11-21), verifies it with `tools/check-apk-signature.sh`, uploads the APK + SHA-256, and creates/updates the GitHub Release as `Agent-<version>.apk`. The new key is `~/phone-aos/keys/release.jks` (alias `agent`, SHA-256 `bb7c20567a9df530964119726aad4cc999c1fbaf7fd8e6bcbc01f71a78fa6985`). The first run is pending.
+- **Release signing (`D-018`, `D-019`):** `.github/workflows/release.yml` builds the phone release APK on `v*` tags or manual dispatch, signs with the new fork release key from four GitHub Actions secrets (set on 2026-11-21), verifies it with `tools/check-apk-signature.sh`, uploads the APK + SHA-256, and creates/updates the GitHub Release as `Agent-<version>.apk`. The new key is `~/phone-aos/keys/release.jks` (alias `agent`, SHA-256 `bb7c20567a9df530964119726aad4cc999c1fbaf7fd8e6bcbc01f71a78fa6985`). The first run, `v0.16.0`, succeeded in 2m31s and published `Agent-0.16.0.apk` plus its `.sha256`; the downloaded APK was checked for version `0.16.0`/180 and the expected certificate.
 ### Subscription-runtime investigation (0.16.0)
 
 Full report: [`docs/subscription-runtime-spike.md`](docs/subscription-runtime-spike.md). **Outcome: `D-107` accepted, Node-only bundle.**
@@ -177,7 +177,7 @@ Key findings:
 
 Every APK published by upstream before 2026-11-21 is signed with the upstream machine's **debug keystore** (SHA-256 `38d9d337...`). That private key is not available to this fork, and the owner confirmed there were only debug installs here, so `D-019` makes a clean break instead of a v3 rotation: a new 4096-bit RSA release key at `~/phone-aos/keys/release.jks` (alias `agent`, SHA-256 `bb7c20567a9df530964119726aad4cc999c1fbaf7fd8e6bcbc01f71a78fa6985`), stored outside the repository. `tools/check-apk-signature.sh` and the build guard now expect it; the four GitHub Actions secrets are set on `Mukul-svg/Mew`. Old-key APKs and new-key APKs cannot update each other, and debug builds must also be uninstalled before installing the release. The keystore and password must be backed up.
 
-**Recommendation:** run the first signed release, verify the artifact with `tools/check-apk-signature.sh`, back up `release.jks` and `signing.properties`, and generate a v3 lineage from this new key before any future rotation.
+**Done:** the first signed release, `v0.16.0`, was published on 2026-11-21 and verified (SHA-256 `5a297e670957386b0bf9e98cfdee605c9e0d029068b03dd072196d566d98e24b`, certificate `bb7c2056...`, version `0.16.0`/180). The release uses the v2 signature scheme; future rotations can add a v3 lineage from this key. **Next:** back up `release.jks` and `signing.properties`, and keep them out of the repository.
 
 ### 6.2 The remote link could leak its bearer pass to an arbitrary host (fixed)
 
@@ -302,10 +302,13 @@ The app now targets Android 14 rather than Android 9. Remaining hardening items:
 
 The following choices still need a decision or an owner action. They are tracked in `DECISIONS.md`:
 
-- ~~whether to complete signing rotation before the next release (`D-103`)~~: superseded by `D-019`; the old private
-  key is unavailable, so the fork uses a new release key (clean break);
 - whether to remove or restore the dead OpenCode CLI subscription path (`D-106`);
 - whether to evaluate `targetSdk 36` in a dedicated pass.
+
+Resolved on 2026-11-21:
+
+- signing (`D-103`): superseded by `D-019`; the old private key is unavailable, so the fork uses a new release
+  key (clean break). The first signed release, `v0.16.0`, is published.
 
 Resolved on 2026-11-17:
 
@@ -317,10 +320,10 @@ Resolved on 2026-11-17:
 
 ## 8. Recommended next actions
 
-1. Keep CI green (host/translations passed; the Android run is the remaining gate after the SDK-setup fix).
+1. Keep CI green (the Android build/tests and host/translations pass after the SDK-setup fix).
 2. Run the watcher/card-script device probe on the CPH2707 and record both results.
-3. Run the first signed release (`gh workflow run release.yml -R Mukul-svg/Mew -f tag=v0.16.0`), verify the APK with
-   `tools/check-apk-signature.sh`, and back up the new release keystore and password.
+3. Back up the new release keystore and password (`~/phone-aos/keys/release.jks`, `signing.properties`) somewhere
+   safe; losing them ends future updates.
 4. Remove the plaintext-secrets fallback and the unused `REQUEST_INSTALL_PACKAGES` permission.
 5. Enforce the main-agent step budget and add a Room migration plan.
 6. Split `AgentRuntime`, `RemoteSession`, and `MainActivity` along the seams that already exist, then align the
@@ -345,4 +348,4 @@ Resolved on 2026-11-17:
 - **2026-11-19:** Implemented the assist conversation mode (`D-015`): the sheet reads each answer aloud and listens again, like a call, with the phone's own TTS when no cloud voice key is set up. Changed `assist/AssistCore.kt` (SPEAKING phase, quiet rounds, exit phrases), `assist/AssistActivity.kt` (the loop, read-aloud, card read-out, End/interrupt), `assist/AssistSheet.kt` (SPEAKING UI, End button), `assist/ScreenContext.kt` (`AssistPrefs.talk`, on by default), `system/Phone.kt` (`Speaker` completion callback + release), `ui/screens/AssistantSheet.kt` (settings toggle); 4 new strings in `values/strings_more.xml` + all 54 locale files; 5 new tests in `AssistTest.kt`; docs in `docs/live-voice.md` and `README.md`. Verified: translation checker 54/0, checker self-tests 13/13, targeted suite 111 tests 0 failures (Assist/AssistShots/AssistContext/AssistContextShots/LiveAssist/TranslationsCheck), `:app:assembleDebug` successful. Full phone suite re-run in progress; result appended here. No device connected, so the voice loop is not yet proven on the phone; signing and the watcher/card probe remain blocked as before.
 - **2026-11-21:** Synced upstream `Past-da-king/agent` `main` at `72ab230` (28 commits, upstream 0.15.76) into the Mew work. Snapshotted the pre-sync tree on `backup/mew-pre-sync-20261121` (tag `backup-pre-sync-20261121`), rebased, and resolved the two conflicts in `app/build.gradle.kts` and `docs/live-voice.md`; the Kotlin files auto-merged with upstream. Kept Mew, Android 14+, Node bundle, OpenCode-only, and CI; raised `versionCode` to 180 (`D-016`). Fixed `TakeQueue.save` to replace the record atomically on Windows, restored the Mew voice-result markers, and verified the new dictation/live tests (106 tests, 0 failures). The full suite after the sync is **2,580 tests, 0 failures, 0 errors, 27 skipped**.
 - **2026-11-21:** Implemented `D-017`: the power-button assistant uses Gemini Live by default when a Gemini key or linked computer is available, with the existing OpenCode agent doing real work; without a key it falls back to conversation mode. Added `LiveToken.configured` so the sheet does not try an unconfigured Live start, a Gemini-key hint in Settings > Default assistant, spoken progress updates at most every 12 seconds that wait for a pause (`TurnHold`), and a longer idle window while a job is out. Verified: `:app:assembleDebug`, `LiveAssistTest`/`LiveFastTest`/`LiveTruthTest`, and the full suite: **2,581 tests, 0 failures, 27 skipped**.
-- **2026-11-21:** Added the signed GitHub Actions release workflow (`D-018`): phone release only, `v*` tag or manual dispatch, signing secrets, signature verification, artifact upload, and GitHub Release publication as `Agent-<version>.apk`. Added the four-secret setup instructions to `docs/signing-and-key-rotation.md` and `AGENT.md`. The old published keystore was not available and the owner has only debug installs, so `D-019` generated a new 4096-bit RSA release key (`~/phone-aos/keys/release.jks`, alias `agent`, SHA-256 `bb7c20567a9df530964119726aad4cc999c1fbaf7fd8e6bcbc01f71a78fa6985`), pointed `tools/check-apk-signature.sh` and the build guard at it, set the four `ANDROID_*` secrets, and fixed the Android SDK setup in both workflows by using the runner image's preinstalled SDK instead of `android-actions/setup-android@v3`. The first signed release run is pending.
+- **2026-11-21:** Added the signed GitHub Actions release workflow (`D-018`): phone release only, `v*` tag or manual dispatch, signing secrets, signature verification, artifact upload, and GitHub Release publication as `Agent-<version>.apk`. Added the four-secret setup instructions to `docs/signing-and-key-rotation.md` and `AGENT.md`. The old published keystore was not available and the owner has only debug installs, so `D-019` generated a new 4096-bit RSA release key (`~/phone-aos/keys/release.jks`, alias `agent`, SHA-256 `bb7c20567a9df530964119726aad4cc999c1fbaf7fd8e6bcbc01f71a78fa6985`), pointed `tools/check-apk-signature.sh` and the build guard at it, set the four `ANDROID_*` secrets, and fixed the Android SDK setup in both workflows by using the runner image's preinstalled SDK instead of `android-actions/setup-android@v3`. Fixed the release build's Gradle 9 lint dependency by wiring every lint task to `prepareBundledNode` and `prepareAgentHostAsset`. The Release workflow then published `v0.16.0` as `Agent-0.16.0.apk` (87,170,416 bytes, SHA-256 `5a297e670957386b0bf9e98cfdee605c9e0d029068b03dd072196d566d98e24b`), verified with the new certificate; CI passed on the signing commit.

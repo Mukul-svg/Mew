@@ -237,6 +237,7 @@ When a conflict exists, **ask the user before doing any implementation work**. W
 - **Rationale:** The user needs a signed release and has no published-signature install to preserve. Waiting for the upstream private key blocks the release indefinitely. A clean break is honest and verifiable: the new key is generated here, stored outside the repo, and checked into CI as a fingerprint.
 - **Alternatives considered:** Wait for the upstream published key (could not proceed); unsigned artifact (not installable); keep debug builds only (`D-008`); reuse the local machine debug key (fragile and not a release key).
 - **Consequences:** APKs signed with the old published key cannot update to this build, and this build cannot update them; any published install must be uninstalled. This fork had only debug installs. Debug builds also require an uninstall before installing the release. The keystore and password must be backed up; losing them ends future updates. `D-103`'s v3 lineage from the old key is impossible; future rotations start from the new key.
+- **Verification (2026-11-21):** the first GitHub Actions release, `v0.16.0`, published `Agent-0.16.0.apk` (87,170,416 bytes, SHA-256 `5a297e670957386b0bf9e98cfdee605c9e0d029068b03dd072196d566d98e24b`) signed with `bb7c2056...`; the downloaded APK reports version `0.16.0`/180 and verifies with `apksigner`.
 - **Related:** D-018, D-103, D-008.
 
 ## Superseded decisions
