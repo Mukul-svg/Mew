@@ -353,7 +353,7 @@ fun ChatScreen(
             if (earlierMore) item(key = "remote-earlier") {
                 TextButton(onClick = { rs?.loadEarlier() }, enabled = !earlierLoading, modifier = Modifier.fillMaxWidth()) { Text(if (earlierLoading) stringResource(R.string.chat_loading) else stringResource(R.string.chat_load_earlier)) }
             }
-            items(rows, key = { it.key }) { r ->
+            items(rows, key = { it.key }, contentType = { it::class }) { r ->
                 when (r) {
                     is Row_.Earlier -> TextButton(onClick = { window += CHAT_PAGE }, modifier = Modifier.fillMaxWidth()) { Text(stringResource(R.string.chat_earlier_messages)) }
                     is Row_.NewMarker -> NewMarker(r.count)

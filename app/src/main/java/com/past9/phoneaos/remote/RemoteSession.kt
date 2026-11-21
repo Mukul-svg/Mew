@@ -170,7 +170,14 @@ class RemoteSession(private val app: Context, link: Link, val db: AppDb) : Remot
     private val jobsRunning = java.util.concurrent.atomic.AtomicInteger()
     private val jobLocks by lazy { JobLocks(app) }
     fun jobStarted() { jobsRunning.incrementAndGet(); pauseJob?.cancel(); jobLocks.acquire() }
-    fun jobEnded() { jobLocks.release(); jobsRunning.updateAndGet { maxOf(0, it - 1) } }
+    fun jobEnded() {
+        jobLocks.release(); jobsRunning.updateAndGet { maxOf(0, it - 1) }
+        // A job that ends while the app is off screen on cellular must not leave the socket and probes awake.
+        if (!foreground && !turnRunning) {
+            pauseJob?.cancel()
+            pauseJob = scope.launch { delay(30_000); if (mayPause()) pause() }
+        }
+    }
     private fun mayPause() = mayPauseLink(foreground, turnRunning, jobsRunning.get(), metered)
     private fun readMetered(): Boolean = runCatching { cm?.isActiveNetworkMetered ?: false }.getOrDefault(false)
     init {
@@ -377,6 +384,15 @@ class RemoteSession(private val app: Context, link: Link, val db: AppDb) : Remot
     private suspend fun readRunState() {
         val v = call("chat.state", listOf()) as? JSONObject ?: return
         turnRunning = v.optBoolean("running"); publishStatus()
+        if (!turnRunning) settleWork()
+    }
+
+    /** A run that ended while off screen lets go of the work lock after the same short grace as run_finished. */
+    private fun settleWork() {
+        if (holdingWork && !foreground) scope.launch {
+            delay(5_000)
+            if (!foreground && !turnRunning) { if (mayPause()) pause() else hold(false) }
+        }
     }
 
     /** The cards as they are now on the computer (on connect, after a failover, after the app reopens). */
@@ -490,6 +506,9 @@ class RemoteSession(private val app: Context, link: Link, val db: AppDb) : Remot
     fun close() {
         runCatching { cm?.unregisterNetworkCallback(netCb) }
         runCatching { app.unregisterReceiver(screenCb) }
+        // The loopback media server and its cache belong to this link: stop them and release the bytes.
+        runCatching { shownServe?.stop() }; shownServe = null
+        runCatching { shownFiles.forget() }
         hold(false)
         detach()
         scope.cancel()
@@ -938,7 +957,7 @@ class RemoteSession(private val app: Context, link: Link, val db: AppDb) : Remot
             "run_finished" -> {
                 turnRunning = false; publishStatus()
                 scope.launch { runCatching { tellReply() } }
-                if (holdingWork && !foreground) scope.launch { delay(5_000); if (!foreground && !turnRunning) { if (mayPause()) pause() else hold(false) } }
+                settleWork()
                 // Between turns: a higher brain that came back takes over now.
                 kick.trySend(Unit)
             }

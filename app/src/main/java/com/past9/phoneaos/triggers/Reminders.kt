@@ -41,8 +41,12 @@ object Reminders {
         p.missed.forEach { show(context, it.id, it.title, context.getString(com.past9.phoneaos.R.string.svc_reminder_missed, WakeClock.label(it.dueAt, context))); said += ReminderPlan.key(it.id, it.dueAt) }
         // Keep the record small: only keys for tasks that are still open.
         val openIds = open.map { it.id.toString() }.toSet()
-        prefs(context).edit().putString("armed", JSONObject(armed.mapKeys { it.key.toString() }).toString())
-            .putStringSet("said", said.filter { it.substringBefore('@') in openIds }.toSet()).commit()
+        val armedJson = JSONObject(armed.mapKeys { it.key.toString() }).toString()
+        val saidSet = said.filter { it.substringBefore('@') in openIds }.toSet()
+        val pref = prefs(context)
+        // A task edit that changes nothing about the alarms must not fsync the same two values again.
+        if (pref.getString("armed", null) != armedJson || pref.getStringSet("said", emptySet()) != saidSet)
+            pref.edit().putString("armed", armedJson).putStringSet("said", saidSet).commit()
     }
 
     /** The alarm for task [id] went off. */

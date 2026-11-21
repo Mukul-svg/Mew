@@ -11,6 +11,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
+import com.past9.phoneaos.data.QuietSaver
 import com.past9.phoneaos.ui.theme.appColors
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
@@ -96,7 +97,7 @@ class CardStore(context: Context) {
     fun get(id: String): Card? = _cards.value.firstOrNull { it.id == id }
 
     @Synchronized fun put(card: Card): Card {
-        File(dir, "${card.id}.json").writeText(card.toJson().toString())
+        QuietSaver.write(File(dir, "${card.id}.json"), card.toJson().toString())
         _cards.value = (_cards.value.filter { it.id != card.id } + card).sortedBy { it.createdAt }
         return card
     }

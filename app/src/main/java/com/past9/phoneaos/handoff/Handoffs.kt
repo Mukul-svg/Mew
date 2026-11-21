@@ -18,9 +18,12 @@ import kotlinx.coroutines.launch
 object Handoffs {
     @Volatile private var loop: Job? = null
 
+    /** One client for the process: its pool is reused across resumes instead of a new pool each time. */
+    private val client by lazy { HandoffClient() }
+
     fun inbox(context: Context): HandoffInbox {
         val g = App.graph(context)
-        return HandoffInbox(HandoffStore(g.settings), HandoffClient()) { note -> g.runtime.hearFromMachine(note) }
+        return HandoffInbox(HandoffStore(g.settings), client) { note -> g.runtime.hearFromMachine(note) }
     }
 
     /** The app came on screen (or the user just signed in): catch up now, then wait for more. Safe to call again. */
@@ -38,6 +41,6 @@ object Handoffs {
         }
     }
 
-    /** The app left the screen: stop completely. */
-    fun offScreen() { loop?.cancel(); loop = null }
+    /** The app left the screen: stop completely. Cancel the blocking long-poll too, not only its coroutine. */
+    fun offScreen() { client.cancel(); loop?.cancel(); loop = null }
 }

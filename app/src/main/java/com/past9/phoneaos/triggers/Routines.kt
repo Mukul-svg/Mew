@@ -28,10 +28,11 @@ import java.util.concurrent.TimeUnit
  */
 object Routines {
     private val dayNames = listOf("MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN")
+    private val spaces = Regex("\\s+")
 
     /** Weekly spec: "SUN 18:00" or "MON,WED,FRI 07:30" -> (days 1..7, hour, minute), or null if it doesn't parse. */
     fun parseWeekly(spec: String): Triple<Set<Int>, Int, Int>? = runCatching {
-        val (d, t) = spec.trim().split(Regex("\\s+"), limit = 2)
+        val (d, t) = spec.trim().split(spaces, limit = 2)
         val days = d.split(",").map { x -> dayNames.indexOfFirst { x.trim().uppercase().startsWith(it) } + 1 }.toSet()
         val (h, m) = t.split(":").map { it.toInt() }
         if (days.any { it < 1 } || days.isEmpty() || h !in 0..23 || m !in 0..59) null else Triple(days, h, m)

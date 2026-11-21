@@ -24,6 +24,9 @@ import com.past9.phoneaos.R
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.lifecycle.repeatOnLifecycle
 import com.past9.phoneaos.connections.LearnedApp
 import com.past9.phoneaos.screen.InstalledApps
 import com.past9.phoneaos.screen.RunInfo
@@ -124,8 +127,12 @@ fun ScreenRunPlayerSheet(info: RunInfo, steps: List<RunStep>, picture: (Int) -> 
     val shown = remember(steps) { steps.filter { it.frame >= 0 } }
     var at by remember { mutableIntStateOf(0) }
     var playing by remember { mutableStateOf(false) }
-    LaunchedEffect(playing, shown.size) {
-        while (playing && shown.isNotEmpty()) { delay(1100); if (at < shown.size - 1) at++ else playing = false }
+    val life = LocalLifecycleOwner.current
+    LaunchedEffect(playing, shown.size, life) {
+        // Playback advances only while the sheet is actually visible; it resumes where it stopped.
+        life.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+            while (playing && shown.isNotEmpty()) { delay(1_100); if (at < shown.size - 1) at++ else playing = false }
+        }
     }
     val step = shown.getOrNull(at)
     val img = remember(step?.frame) { step?.let { picture(it.frame) } }

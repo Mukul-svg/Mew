@@ -218,8 +218,14 @@ data class ScreenContext(
                 val soft = if (bitmap.config == Bitmap.Config.HARDWARE) bitmap.copy(Bitmap.Config.ARGB_8888, false) else bitmap
                 val small = if (scale < 1f) Bitmap.createScaledBitmap(soft, (soft.width * scale).toInt(), (soft.height * scale).toInt(), true) else soft
                 val f = File(dir, "screen-${System.currentTimeMillis()}.jpg")
-                f.outputStream().use { small.compress(Bitmap.CompressFormat.JPEG, 82, it) }
-                f.absolutePath
+                try {
+                    f.outputStream().use { small.compress(Bitmap.CompressFormat.JPEG, 82, it) }
+                    f.absolutePath
+                } finally {
+                    // Only the copies made here are ours; never recycle the caller's screenshot.
+                    if (small !== soft && small !== bitmap) small.recycle()
+                    if (soft !== bitmap) soft.recycle()
+                }
             }.getOrDefault("")
         }
     }

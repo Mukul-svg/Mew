@@ -81,6 +81,8 @@ class AutomationServer(
     }
 
     private fun handle(s: Socket, token: () -> String?, handlers: () -> Handlers?) {
+        // A local client that connects and says nothing must not pin an IO thread forever.
+        s.soTimeout = 10_000
         val inp = BufferedInputStream(s.getInputStream())
         val out = s.getOutputStream()
         val request = readLine(inp) ?: return

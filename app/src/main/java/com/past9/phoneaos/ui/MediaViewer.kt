@@ -125,6 +125,8 @@ fun MediaViewerHost() {
                             }
                         }
                     },
+                    // The viewer is a modal: closing it must stop the decoder and the sound, not leave them to GC.
+                    onRelease = { view -> runCatching { view.stopPlayback() } },
                 )
             }
         }

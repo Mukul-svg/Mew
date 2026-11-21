@@ -18,7 +18,16 @@ sealed interface Block {
     data class Reasoning(val text: String) : Block
     /** A picture the user sent: a file on the phone, read and encoded only when sent to the provider. */
     data class Image(val path: String, val mime: String = "image/jpeg") : Block {
-        fun base64(): String = android.util.Base64.encodeToString(java.io.File(path).readBytes(), android.util.Base64.NO_WRAP)
+        fun base64(): String {
+            val f = java.io.File(path)
+            // The same picture travels back on every model step. A small LRU keyed by path+size+mtime keeps the
+            // bytes identical while avoiding a disk read and a multi-megabyte Base64 string on every step.
+            val key = "$path|${f.length()}|${f.lastModified()}|$mime"
+            synchronized(imageCache) { imageCache[key]?.let { return it } }
+            val encoded = android.util.Base64.encodeToString(f.readBytes(), android.util.Base64.NO_WRAP)
+            synchronized(imageCache) { imageCache[key] = encoded }
+            return encoded
+        }
     }
 }
 
@@ -59,6 +68,11 @@ data class Msg(val role: Role, val blocks: List<Block>) {
 }
 
 /** What a tool looks like to the model. `schema` is a JSON Schema object. */
+/** The last few encoded pictures, so a long turn does not read and Base64 the same file on every step. */
+private val imageCache = object : LinkedHashMap<String, String>(8, 0.75f, true) {
+    override fun removeEldestEntry(eldest: MutableMap.MutableEntry<String, String>?) = size > 8
+}
+
 data class ToolSpec(val name: String, val description: String, val schema: JSONObject)
 
 data class Usage(val inputTokens: Int = 0, val outputTokens: Int = 0)

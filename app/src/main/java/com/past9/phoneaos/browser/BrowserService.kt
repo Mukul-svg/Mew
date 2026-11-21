@@ -36,29 +36,39 @@ class BrowserService : Service() {
         }
         // Foreground first, through the guard (system/ForegroundGuard.kt): never stopped before it gets there.
         if (!com.past9.phoneaos.system.ForegroundGuard.enter(this, ID, if (Build.VERSION.SDK_INT >= 34) ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE else 0, n)) return
+        service = this
         _running.value = true
-        // Battery: a browser left open after a task kept a WebView and this service alive forever.
-        // Close everything once nothing has used it for a few minutes; the next browse reopens it,
-        // and sign-ins survive because cookies live in the profile, not the window.
-        idle = kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.Main).launch {
-            while (true) {
-                kotlinx.coroutines.delay(30_000)
-                val st = com.past9.phoneaos.App.graph(this@BrowserService).runtime.status.value
-                val quiet = engines.values.none { it.attached || System.currentTimeMillis() - it.lastUsed < IDLE_MS }
-                if (quiet && !st.working && st.helpers == 0) { stopSelf(); break }
-            }
-        }
+        // Battery: a browser left open after a task kept a WebView and this service alive forever. One wake at
+        // the exact idle deadline instead of a 30 s poll; every page use pushes the deadline out.
+        idleScope = kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.Main)
+        scheduleIdle()
     }
     private var idle: kotlinx.coroutines.Job? = null
+    private var idleScope: kotlinx.coroutines.CoroutineScope? = null
+
+    private fun scheduleIdle() {
+        idle?.cancel()
+        val scope = idleScope ?: return
+        val now = System.currentTimeMillis()
+        val next = engines.values.maxOfOrNull { it.lastUsed + IDLE_MS } ?: (now + IDLE_MS)
+        idle = scope.launch {
+            // If the idle deadline has already passed but the agent is still working, recheck in 30 s, not in a loop.
+            kotlinx.coroutines.delay(if (next > now) (next - now).coerceAtLeast(1_000L) else 30_000L)
+            val st = com.past9.phoneaos.App.graph(this@BrowserService).runtime.status.value
+            val quiet = engines.values.none { it.attached || System.currentTimeMillis() - it.lastUsed < IDLE_MS }
+            if (quiet && !st.working && st.helpers == 0) stopSelf() else scheduleIdle()
+        }
+    }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int = START_NOT_STICKY
 
-    override fun onDestroy() { com.past9.phoneaos.system.ForegroundGuard.left(this); idle?.cancel(); engines.values.forEach { it.destroy() }; engines.clear(); _engines.value = emptyMap(); _running.value = false; super.onDestroy() }
+    override fun onDestroy() { service = null; com.past9.phoneaos.system.ForegroundGuard.left(this); idle?.cancel(); idleScope = null; engines.values.forEach { it.destroy() }; engines.clear(); _engines.value = emptyMap(); _running.value = false; super.onDestroy() }
 
     companion object {
         private const val CHANNEL = "browser"
         private const val ID = 41
         /** One browser per agent: the main agent's, plus one for each helper while it works. */
+        @Volatile private var service: BrowserService? = null
         private val engines = java.util.concurrent.ConcurrentHashMap<String, BrowserEngine>()
         private val _engines = MutableStateFlow<Map<String, BrowserEngine>>(emptyMap())
         val live: StateFlow<Map<String, BrowserEngine>> = _engines
@@ -82,8 +92,9 @@ class BrowserService : Service() {
             if (!_running.value) { start(context); repeat(50) { if (_running.value) return@repeat; kotlinx.coroutines.delay(100) } }
             check(_running.value) { "The browser did not start" }
             check(engines.size < MAX) { "Too many browsers open at once ($MAX). Finish one first." }
-            val e = BrowserEngine(context.applicationContext, profile).also { it.create() }
+            val e = BrowserEngine(context.applicationContext, profile) { service?.scheduleIdle() }.also { it.create() }
             engines[key] = e; _engines.value = engines.toMap()
+            service?.scheduleIdle()
             kotlinx.coroutines.delay(400)
             return e
         }

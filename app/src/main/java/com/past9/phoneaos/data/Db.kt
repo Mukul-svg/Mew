@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Dao
 import androidx.room.Database
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.PrimaryKey
@@ -11,10 +12,12 @@ import androidx.room.Query
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.Update
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.flow.Flow
 
 /** One row in the chat the user sees. `kind` decides how it renders. */
-@Entity(tableName = "chat_items")
+@Entity(tableName = "chat_items", indices = [Index(value = ["kind", "createdAt"])])
 data class ChatItem(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     /** user | agent | activity | helper | question | notice | branch */
@@ -26,7 +29,7 @@ data class ChatItem(
 )
 
 /** One provider-neutral message of the model's own transcript (JSON of agent.Msg). */
-@Entity(tableName = "turns")
+@Entity(tableName = "turns", indices = [Index(value = ["thread", "id"])])
 data class TurnRow(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val thread: String = "main",
@@ -95,7 +98,7 @@ data class TriggerRow(
 )
 
 /** A phone notification from an app the user allowed the agent to read. */
-@Entity(tableName = "notifications")
+@Entity(tableName = "notifications", indices = [Index(value = ["postedAt"]), Index(value = ["pkg", "postedAt"])])
 data class NotificationRow(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val pkg: String,
@@ -180,7 +183,7 @@ interface TriggerDao {
 
 @Database(
     entities = [ChatItem::class, TurnRow::class, MemoryRow::class, GoalRow::class, TaskRow::class, TriggerRow::class, NotificationRow::class, PersonRow::class, PersonLogRow::class],
-    version = 3,
+    version = 4,
     exportSchema = true,
 )
 abstract class AppDb : RoomDatabase() {
@@ -192,9 +195,38 @@ abstract class AppDb : RoomDatabase() {
     abstract fun people(): PeopleDao
 
     companion object {
+        /** 1→2: tasks gained owner/blocker; notifications arrived. */
+        private val MIGRATION_1_2 = object : Migration(1, 2) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("ALTER TABLE tasks ADD COLUMN owner TEXT NOT NULL DEFAULT 'user'")
+                db.execSQL("ALTER TABLE tasks ADD COLUMN blocker TEXT NOT NULL DEFAULT ''")
+                db.execSQL("CREATE TABLE IF NOT EXISTS notifications (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, pkg TEXT NOT NULL, app TEXT NOT NULL, title TEXT NOT NULL, text TEXT NOT NULL, postedAt INTEGER NOT NULL)")
+            }
+        }
+
+        /** 2→3: people and their timeline arrived. */
+        private val MIGRATION_2_3 = object : Migration(2, 3) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("CREATE TABLE IF NOT EXISTS people (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, sealed TEXT NOT NULL, lastLogAt INTEGER, createdAt INTEGER NOT NULL, updatedAt INTEGER NOT NULL)")
+                db.execSQL("CREATE TABLE IF NOT EXISTS person_logs (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, personId INTEGER NOT NULL, sealed TEXT NOT NULL, at INTEGER NOT NULL)")
+            }
+        }
+
+        /** 3→4: indices only. No row is rebuilt and no data is touched. */
+        private val MIGRATION_3_4 = object : Migration(3, 4) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("CREATE INDEX IF NOT EXISTS index_chat_items_kind_createdAt ON chat_items (kind, createdAt)")
+                db.execSQL("CREATE INDEX IF NOT EXISTS index_turns_thread_id ON turns (thread, id)")
+                db.execSQL("CREATE INDEX IF NOT EXISTS index_notifications_postedAt ON notifications (postedAt)")
+                db.execSQL("CREATE INDEX IF NOT EXISTS index_notifications_pkg_postedAt ON notifications (pkg, postedAt)")
+                db.execSQL("CREATE INDEX IF NOT EXISTS index_person_logs_personId_at ON person_logs (personId, at)")
+            }
+        }
+
         fun open(context: Context): AppDb =
-            // Pre-release: no installed users yet, so schema changes simply rebuild. Real migrations from 1.0.
-            Room.databaseBuilder(context, AppDb::class.java, "agent.db").fallbackToDestructiveMigration(true).build()
+            Room.databaseBuilder(context, AppDb::class.java, "agent.db")
+                .addMigrations(MIGRATION_1_2, MIGRATION_2_3, MIGRATION_3_4)
+                .build()
         fun inMemory(context: Context): AppDb =
             Room.inMemoryDatabaseBuilder(context, AppDb::class.java).allowMainThreadQueries().build()
     }

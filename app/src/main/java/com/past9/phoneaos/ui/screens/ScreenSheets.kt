@@ -52,9 +52,11 @@ import com.past9.phoneaos.ui.AgentSheet
 import com.past9.phoneaos.ui.AppCard
 import com.past9.phoneaos.ui.SheetField
 import com.past9.phoneaos.ui.SheetHead
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 /** What the person can do from the peek sheet. Their Stop and Take over always win over the agent. */
 class ScreenPeekActions(
@@ -337,7 +339,10 @@ private fun PeekHost(agentName: String, onDismiss: () -> Unit) {
             while (true) {
                 val m = runCatching { link.call(op("frame").put("max", 540).put("q", 60).put("after", seq), 4_000) }.getOrNull()
                 val bin = m?.bin
-                if (bin != null) { seq = m.json.optLong("seq"); BitmapFactory.decodeByteArray(bin, 0, bin.size)?.let { picture = it.asImageBitmap() } }
+                if (bin != null) {
+                    seq = m.json.optLong("seq")
+                    withContext(Dispatchers.Default) { BitmapFactory.decodeByteArray(bin, 0, bin.size) }?.let { picture = it.asImageBitmap() }
+                }
                 delay(if (m == null) 1_000 else 220)
             }
         }
@@ -473,7 +478,10 @@ internal fun WatchHost(agentName: String, onDismiss: () -> Unit) {
             while (true) {
                 val m = runCatching { link.call(op("frame").put("max", 720).put("q", 70).put("after", seq), 4_000) }.getOrNull()
                 val bin = m?.bin
-                if (bin != null) { seq = m.json.optLong("seq"); BitmapFactory.decodeByteArray(bin, 0, bin.size)?.let { picture = it.asImageBitmap() } }
+                if (bin != null) {
+                    seq = m.json.optLong("seq")
+                    withContext(Dispatchers.Default) { BitmapFactory.decodeByteArray(bin, 0, bin.size) }?.let { picture = it.asImageBitmap() }
+                }
                 delay(if (m == null) 1_000 else 200)
             }
         }

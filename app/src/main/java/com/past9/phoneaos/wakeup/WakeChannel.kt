@@ -38,6 +38,7 @@ object WakeChannel {
     @Volatile private var rpc: RpcClient? = null
     @Volatile private var loop: Job? = null
     @Volatile private var failures = 0
+    @Volatile private var givingUp = false
     @Volatile var connectedTo: String = ""
         private set
     /** Which link the open channel belongs to (mesh, device, pass): a new link must not keep the old computer's channel. */
@@ -47,6 +48,8 @@ object WakeChannel {
         private set
 
     private fun key(link: com.past9.phoneaos.remote.Link) = "${link.meshId}|${link.deviceId}|${link.pass.hashCode()}"
+    /** Pinned clients by certificate: a fresh TLS context per retry was pure repeat work. */
+    private val clients = java.util.concurrent.ConcurrentHashMap<String, okhttp3.OkHttpClient>()
 
     /** Linked and on: keep the channel up (starts the service). Not linked: stop it. */
     fun ensure(context: Context) {
@@ -79,6 +82,7 @@ object WakeChannel {
     /** Run by the service: connect, and connect again whenever the link drops (1, 2, 4 ... 30 s). */
     internal fun run(context: Context) {
         if (loop?.isActive == true) return
+        givingUp = false
         val app = context.applicationContext
         loop = scope.launch {
             while (true) {
@@ -102,7 +106,7 @@ object WakeChannel {
     }
 
     private suspend fun tryOpen(app: Context, url: String, fp: String, pass: String, linkKey: String): Boolean {
-        val http = Pinning.client(sharedHttp, Pinning.PinnedTrust({ listOf(fp) }))
+        val http = clients.getOrPut(fp) { Pinning.client(sharedHttp, Pinning.PinnedTrust({ listOf(fp) })) }
         val done = kotlinx.coroutines.CompletableDeferred<Boolean>()
         val client = RpcClient(http, url, pass, { hello(app) }, object : RpcClient.Listener {
             override fun onOpen(rpc: RpcClient) {
@@ -117,6 +121,12 @@ object WakeChannel {
                 done.complete(false)
                 if (this@WakeChannel.rpc === rpc) this@WakeChannel.rpc = null
                 Log.i(WakeHub.TAG, "wake channel to $url ended: $why ($problem)")
+                // A forgotten phone or a changed certificate cannot be fixed by retrying: stop the radio work and
+                // let Settings show the rescan message instead of hammering every 30 seconds.
+                if (!givingUp && (problem == LinkProblem.Unpaired || problem == LinkProblem.CertChanged)) {
+                    givingUp = true
+                    scope.launch { stop(app) }
+                }
             }
         })
         rpc = client
@@ -128,9 +138,28 @@ object WakeChannel {
 
     private suspend fun onConnected(context: Context, rpc: RpcClient) {
         Log.i(WakeHub.TAG, "wake channel open")
-        runCatching { WakeSnapshot.fromWire(rpc.call("wakeups.list", listOf(), 15_000) as? JSONObject, System.currentTimeMillis())?.let { WakeHub.apply(context, it) } }
-            .onSuccess { lacksWakeups = false }
-            .onFailure { lacksWakeups = (it.message ?: "").contains("not available", ignoreCase = true); Log.w(WakeHub.TAG, "wakeups.list: ${it.message}") }
+        // A slow first answer used to leave the channel open with no wake snapshot for the whole connection.
+        // Retry on the same socket with a growing wait, and give up only for an older computer with no wake-ups.
+        var wait = 15_000L
+        while (rpc.isOpen) {
+            val result = runCatching { rpc.call("wakeups.list", listOf(), 15_000) }
+            val wire = result.getOrNull()
+            val snap = WakeSnapshot.fromWire(wire as? JSONObject, System.currentTimeMillis())
+            if (snap != null) {
+                WakeHub.apply(context, snap)
+                lacksWakeups = false
+                break
+            }
+            val why = result.exceptionOrNull()?.message.orEmpty()
+            if (why.contains("not available", ignoreCase = true)) {
+                lacksWakeups = true
+                Log.w(WakeHub.TAG, "wakeups.list: $why")
+                break
+            }
+            if (result.isFailure) Log.w(WakeHub.TAG, "wakeups.list: $why")
+            delay(wait)
+            wait = minOf(wait * 2, 300_000L)
+        }
         report(context)
         flush(context)
     }
@@ -181,6 +210,10 @@ class WakeChannelService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        // If Android restarted this sticky service in a fresh process, load the saved link first: without it
+        // the old loop waited 30 s forever, kept the notification, and never reconnected.
+        RemoteHub.init(this)
+        if (RemoteHub.link.value?.on != true) { stopSelf(); return START_NOT_STICKY }
         WakeChannel.run(this)
         WakeHub.evaluate(this)
         return START_STICKY

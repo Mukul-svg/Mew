@@ -2,6 +2,7 @@ package com.past9.phoneaos.data
 
 import androidx.room.Dao
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.Insert
 import androidx.room.PrimaryKey
 import androidx.room.Query
@@ -28,7 +29,7 @@ data class PersonRow(
 )
 
 /** One entry in a person's timeline (a call, a message, a note). */
-@Entity(tableName = "person_logs")
+@Entity(tableName = "person_logs", indices = [Index(value = ["personId", "at"])])
 data class PersonLogRow(
     @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val personId: Long,

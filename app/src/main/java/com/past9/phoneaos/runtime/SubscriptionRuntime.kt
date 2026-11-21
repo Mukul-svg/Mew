@@ -220,7 +220,7 @@ class SubscriptionRuntime(private val context: Context, val kind: SubKind) {
             }
             val code = p.waitFor()
             if (code == 0 && signedIn) null else context.getString(com.past9.phoneaos.R.string.rt_signin_not_finished, lines.lines().lastOrNull { it.isNotBlank() && !it.startsWith("http") }.orEmpty().take(200))
-        } finally { watcher.cancel(); loginStdin = null; runCatching { p.destroy() } }
+        } finally { watcher.cancel(); loginStdin = null; killProcess(p) }
     }
 
     fun cancelLogin() { runCatching { loginStdin?.close() } }
@@ -291,8 +291,16 @@ class SubscriptionRuntime(private val context: Context, val kind: SubKind) {
             if (code != 0) trySend(JSONObject().put("type", "error").put("message", synchronized(err) { err.toString() }.takeLast(600).ifBlank { "exit $code" }))
             close()
         }
-        awaitClose { p.destroy() }
+        awaitClose { killProcess(p) }
     }.flowOn(Dispatchers.IO)
+
+    /** A cancelled/hung turn must not leave Node or its native child behind. Graceful first, forced after 2 s. */
+    private fun killProcess(p: Process) {
+        runCatching { p.destroy() }
+        thread(isDaemon = true) {
+            runCatching { if (!p.waitFor(2, java.util.concurrent.TimeUnit.SECONDS)) p.destroyForcibly() }
+        }
+    }
 
     private fun get(url: String): InputStream {
         val res = sharedHttp.newCall(Request.Builder().url(url).build()).execute()

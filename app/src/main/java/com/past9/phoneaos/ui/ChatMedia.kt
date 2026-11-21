@@ -60,6 +60,9 @@ import coil.compose.SubcomposeAsyncImage
 import com.past9.phoneaos.data.ChatItem
 import com.past9.phoneaos.remote.RemoteSession
 import com.past9.phoneaos.remote.ShownFile
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.delay
 import org.json.JSONObject
 import java.io.File
@@ -265,10 +268,15 @@ private fun SoundCard(url: String, label: String) {
             player.prepareAsync()
         }.onFailure { failed = true }
     }
-    LaunchedEffect(playing) {
-        while (playing) {
-            position = runCatching { player.currentPosition.toLong() }.getOrDefault(0L)
-            delay(250)
+    val life = LocalLifecycleOwner.current
+    LaunchedEffect(playing, life) {
+        // One refresh on return, then the same 250 ms progress only while the screen is actually visible.
+        life.repeatOnLifecycle(Lifecycle.State.RESUMED) {
+            if (playing) position = runCatching { player.currentPosition.toLong() }.getOrDefault(0L)
+            while (playing) {
+                position = runCatching { player.currentPosition.toLong() }.getOrDefault(0L)
+                delay(250)
+            }
         }
     }
     if (failed) {

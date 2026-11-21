@@ -164,24 +164,42 @@ object Calendar {
             CalendarContract.Instances.ALL_DAY, CalendarContract.Instances.EVENT_LOCATION, CalendarContract.Instances.DESCRIPTION,
             CalendarContract.Instances.SELF_ATTENDEE_STATUS, CalendarContract.Instances.STATUS)
         val out = mutableListOf<EventInfo>()
+        val ids = mutableListOf<Long>()
         runCatching {
             context.contentResolver.query(uri, cols, null, null, CalendarContract.Instances.BEGIN)?.use { c ->
                 while (c.moveToNext()) {
                     if (c.getInt(8) == CalendarContract.Events.STATUS_CANCELED) continue
                     val id = c.getLong(0)
+                    ids += id
                     val text = (c.getString(5).orEmpty() + " " + c.getString(6).orEmpty()).lowercase()
-                    out += EventInfo(id, c.getString(1).orEmpty(), c.getLong(2), c.getLong(3), c.getInt(4) == 1, attendees(context, id),
+                    // Attendee counts are filled in one pass below, not one query per event.
+                    out += EventInfo(id, c.getString(1).orEmpty(), c.getLong(2), c.getLong(3), c.getInt(4) == 1, 0,
                         online.any { it in text }, c.getInt(7) == CalendarContract.Attendees.ATTENDEE_STATUS_DECLINED)
+                }
+            }
+        }
+        val counts = attendeeCounts(context, ids)
+        return out.map { e -> e.copy(attendees = counts[e.id] ?: e.attendees) }
+    }
+
+    /** One query per chunk of event ids instead of one query per event. */
+    private fun attendeeCounts(context: Context, ids: List<Long>): Map<Long, Int> {
+        if (ids.isEmpty()) return emptyMap()
+        val out = HashMap<Long, Int>()
+        ids.distinct().chunked(500).forEach { chunk ->
+            runCatching {
+                val where = chunk.joinToString(" OR ") { "${CalendarContract.Attendees.EVENT_ID} = ?" }
+                context.contentResolver.query(CalendarContract.Attendees.CONTENT_URI,
+                    arrayOf(CalendarContract.Attendees.EVENT_ID), where, chunk.map { it.toString() }.toTypedArray(), null)?.use { c ->
+                    while (c.moveToNext()) {
+                        val id = c.getLong(0)
+                        out[id] = (out[id] ?: 0) + 1
+                    }
                 }
             }
         }
         return out
     }
-
-    private fun attendees(context: Context, eventId: Long): Int = runCatching {
-        context.contentResolver.query(CalendarContract.Attendees.CONTENT_URI, arrayOf(CalendarContract.Attendees._ID),
-            "${CalendarContract.Attendees.EVENT_ID} = ?", arrayOf(eventId.toString()), null)?.use { it.count } ?: 0
-    }.getOrDefault(0)
 
     /**
      * Re-plan when the calendar changes, without polling: a content-uri trigger, so Android starts the worker only

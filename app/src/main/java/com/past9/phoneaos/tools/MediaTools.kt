@@ -63,7 +63,13 @@ class MediaFramesTool(private val context: Context) : Tool {
                     val bmp = r.getFrameAtTime(us, MediaMetadataRetriever.OPTION_CLOSEST_SYNC) ?: return@mapIndexedNotNull null
                     val (tw, th) = CameraPhoto.scaledSize(bmp.width, bmp.height, 1024)
                     val out = File(context.filesDir, "uploads/frame-$stamp-$i.jpg").apply { parentFile?.mkdirs() }
-                    out.outputStream().use { (if (tw == bmp.width) bmp else Bitmap.createScaledBitmap(bmp, tw, th, true)).compress(Bitmap.CompressFormat.JPEG, 80, it) }
+                    val scaled = if (tw == bmp.width) bmp else Bitmap.createScaledBitmap(bmp, tw, th, true)
+                    try {
+                        out.outputStream().use { scaled.compress(Bitmap.CompressFormat.JPEG, 80, it) }
+                    } finally {
+                        if (scaled !== bmp) scaled.recycle()
+                        bmp.recycle()
+                    }
                     "At ${ShareLogic.formatDuration(us / 1000)}: [[image:${out.path}]]"
                 }
                 if (lines.isEmpty()) return@withContext "Could not read any frames from ${f.name}. The video may be damaged or in a format this phone cannot decode."

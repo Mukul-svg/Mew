@@ -34,6 +34,7 @@ class LocalMcpServer(
     private val branch: ((Long) -> Pair<List<Tool>, ToolContext>?)? = null,
 ) {
     private var server: ServerSocket? = null
+    private val slots = java.util.concurrent.Semaphore(16)
     val boundPort: Int get() = server?.localPort ?: -1
     val url: String get() = "http://127.0.0.1:$boundPort/mcp"
 
@@ -42,7 +43,9 @@ class LocalMcpServer(
         thread(name = "mcp-http", isDaemon = true) {
             while (!ss.isClosed) {
                 val s = try { ss.accept() } catch (e: Exception) { break }
-                thread(isDaemon = true) { try { handle(s) } catch (_: Exception) {} finally { runCatching { s.close() } } }
+                // A local app cannot exhaust the process with idle or oversized connections.
+                if (!slots.tryAcquire()) { runCatching { s.close() }; continue }
+                thread(isDaemon = true) { try { handle(s) } catch (_: Exception) {} finally { slots.release(); runCatching { s.close() } } }
             }
         }
         return this
@@ -50,21 +53,31 @@ class LocalMcpServer(
 
     fun stop() { runCatching { server?.close() }; server = null }
 
-    private fun readLine(inp: BufferedInputStream): String? {
+    private fun readLine(inp: BufferedInputStream, max: Int = 16_384): String? {
         val sb = StringBuilder()
-        while (true) { val c = inp.read(); if (c < 0) return if (sb.isEmpty()) null else sb.toString(); if (c == '\n'.code) return sb.toString().trimEnd('\r'); sb.append(c.toChar()) }
+        while (true) {
+            val c = inp.read()
+            if (c < 0) return if (sb.isEmpty()) null else sb.toString()
+            if (c == '\n'.code) return sb.toString().trimEnd('\r')
+            if (sb.length >= max) return null
+            sb.append(c.toChar())
+        }
     }
 
     private fun handle(s: Socket) {
+        s.soTimeout = 10_000
         val inp = BufferedInputStream(s.getInputStream())
         val req = readLine(inp) ?: return
         val method = req.substringBefore(' '); val path = req.split(' ').getOrElse(1) { "/" }.substringBefore('?')
         val headers = mutableMapOf<String, String>()
         while (true) { val h = readLine(inp) ?: break; if (h.isEmpty()) break; headers[h.substringBefore(':').trim().lowercase()] = h.substringAfter(':').trim() }
+        val out = s.getOutputStream()
+        // Authenticate before building tools or allocating a body for an unauthenticated local caller.
+        if (headers["authorization"] != "Bearer $token") return reply(out, 401, "application/json", """{"error":"unauthorized"}""")
         val len = headers["content-length"]?.toIntOrNull() ?: 0
+        if (len < 0 || len > 1_048_576) return reply(out, 413, "application/json", """{"error":"too large"}""")
         val bodyBytes = ByteArray(len); var read = 0
         while (read < len) { val n = inp.read(bodyBytes, read, len - read); if (n < 0) break; read += n }
-        val out = s.getOutputStream()
 
         val route: Pair<List<Tool>, ToolContext>? = when {
             path == "/mcp" -> null
@@ -73,7 +86,6 @@ class LocalMcpServer(
             path.startsWith("/mcp/h/") -> path.removePrefix("/mcp/h/").toLongOrNull()?.let { helper?.invoke(it) } ?: return reply(out, 404, "text/plain", "no such helper")
             else -> return reply(out, 404, "text/plain", "not found")
         }
-        if (headers["authorization"] != "Bearer $token") return reply(out, 401, "application/json", """{"error":"unauthorized"}""")
         if (method == "GET") return reply(out, 405, "text/plain", "SSE stream not supported")
         if (method == "DELETE") return reply(out, 200, "text/plain", "")
         if (method != "POST") return reply(out, 405, "text/plain", "method")

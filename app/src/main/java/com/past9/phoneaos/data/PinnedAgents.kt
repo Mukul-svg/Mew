@@ -62,7 +62,7 @@ class PinnedAgentStore(private val dir: File) {
     }.getOrDefault(emptyList())
 
     @Synchronized private fun save(list: List<PinnedAgent>) {
-        dir.mkdirs(); index.writeText(JSONArray(list.map { it.toJson() }).toString()); _agents.value = list
+        dir.mkdirs(); QuietSaver.write(index, JSONArray(list.map { it.toJson() }).toString()); _agents.value = list
     }
 
     fun find(nameOrId: String?): PinnedAgent? = nameOrId?.trim()?.removePrefix("#")?.takeIf { it.isNotEmpty() }?.let { w ->
@@ -90,7 +90,7 @@ class PinnedAgentStore(private val dir: File) {
     }.getOrDefault(mutableListOf())
 
     fun saveHistory(id: String, history: List<Msg>) {
-        dir.mkdirs(); historyFile(id).writeText(JSONArray(compact(history).map { it.toJson() }).toString())
+        dir.mkdirs(); QuietSaver.write(historyFile(id), JSONArray(compact(history).map { it.toJson() }).toString())
     }
 
     companion object {

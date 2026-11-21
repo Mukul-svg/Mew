@@ -1175,7 +1175,7 @@ class AgentRuntime(
                         }
                         // The same failure also came as text a moment ago: say it once.
                         m.contains("API Error:") -> {}
-                        m.isNotBlank() && !m.matches(Regex("exit \\d+")) -> { r.error = m.take(300); db.chat().insert(ChatItem(kind = "notice", text = "${settings.state.value.subKind.label}: " + m.take(300), meta = tag(JSONObject().put("error", true)).toString())) }
+                        m.isNotBlank() && !m.matches(exitPattern) -> { r.error = m.take(300); db.chat().insert(ChatItem(kind = "notice", text = "${settings.state.value.subKind.label}: " + m.take(300), meta = tag(JSONObject().put("error", true)).toString())) }
                     }
                 }
             }
@@ -1223,7 +1223,17 @@ class AgentRuntime(
     }
 
     private val phoneToolNames by lazy { tools().map { it.spec.name }.toSet() }
-    private val workerToolNames get() = tools(forHelper = true).map { it.spec.name }.toSet()
+    @Volatile private var workerNamesCache: Pair<Int, Set<String>>? = null
+
+    /** The names change only when tools/settings/machines/learned apps change; not on every streamed tool event. */
+    private val workerToolNames: Set<String> get() {
+        val key = listOf(settings.state.value.hashCode(), settings.composioKey()?.hashCode(),
+            machines.store.machines.value.hashCode(), learned.apps.value.hashCode()).hashCode()
+        workerNamesCache?.takeIf { it.first == key }?.let { return it.second }
+        val names = tools(forHelper = true).map { it.spec.name }.toSet()
+        workerNamesCache = key to names
+        return names
+    }
 
     // ---- helpers & routines -------------------------------------------------------------------
 
@@ -1454,6 +1464,8 @@ class AgentRuntime(
     private val handsBack = Regex("(?i)\\b(please|could you|can you|you('ll| will)? need to|you have to|you must)\\b[^.\\n]{0,120}\\b(yourself|manually|by hand)\\b|\\bthe user (needs|will need|has|must) to\\b")
 
     private val gaveUp = Regex("(?i)(^\\s*(unable|couldn't|could not|can't|cannot|failed)\\b)|\\b(I|we)\\s+(can't|cannot|can not|couldn't|could not|was unable|were unable|am unable|wasn't able|weren't able|am not able|don't have access|do not have access|have no access|wasn't allowed|got blocked|was blocked)\\b")
+    private val exitPattern = Regex("exit \\d+")
+    private val sentenceSplit = Regex("(?<=[.!?])\\s+|\\n")
 
     private suspend fun runHelper(itemId: Long, label: String, history: MutableList<Msg>, prompt: String, resume: String?, ctx: ChatContext,
                                   provider: LlmProvider?, sub: SubscriptionEngine?, model: String, brief: String = history.first().text) {
@@ -1509,7 +1521,7 @@ class AgentRuntime(
                     val chore = handsBack.containsMatchIn(result.take(3_000))
                     val nudge = if (chore && state == "done" && pushes < 2)
                         "\n\n(It's handing part of the job back to the user. Unless that part truly needs them (a captcha, a passkey or code on their device, their phone number, a payment, something sent in their name), send it back with helper_push and name exactly how to do it (click each option, type into the focused field, arrow keys). The user should never get a helper's chore.)"
-                    else if ((state == "failed" || gaveUp.containsMatchIn(result.trim().split(Regex("(?<=[.!?])\\s+|\\n")).first().take(300))) && pushes < 2)
+                    else if ((state == "failed" || gaveUp.containsMatchIn(result.trim().split(sentenceSplit).first().take(300))) && pushes < 2)
                         "\n\n(It says it couldn't do all of it${if (pushes > 0) ", after $pushes push${if (pushes > 1) "es" else ""}" else ""}. Helpers usually can. Unless it's truly impossible, send it back with helper_push: name a concrete next thing to try and tell it you believe it can do it. Push at least twice before you accept it or tell the user.)"
                     else ""
                     // Got there after being pushed: it cracked something, and might be worth keeping.
@@ -1547,7 +1559,7 @@ class AgentRuntime(
                         meta = JSONObject().put("tool", toolGroup(name)).put("by", helpers[itemId]?.label ?: "helper").put("helper", itemId).toString()))
                 }
                 "done" -> ok = e.optBoolean("ok", true)
-                "error" -> error = e.optString("message").takeIf { it.isNotBlank() && !it.matches(Regex("exit \\d+")) }
+                "error" -> error = e.optString("message").takeIf { it.isNotBlank() && !it.matches(exitPattern) }
             }
         }
         if (!ok && last.isBlank()) throw IllegalStateException(error?.take(300) ?: "The helper stopped without an answer")

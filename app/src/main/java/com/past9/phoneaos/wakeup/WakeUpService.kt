@@ -59,6 +59,8 @@ class WakeUpService : Service() {
         super.onCreate()
         ForegroundGuard.enter(this, NOTE_ID, if (Build.VERSION.SDK_INT >= 29) ServiceInfo.FOREGROUND_SERVICE_TYPE_MEDIA_PLAYBACK else 0) { notification(this, WakeHub.ringing.value.firstOrNull()) }
         wakeLock = (getSystemService(POWER_SERVICE) as PowerManager).newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "agent:wakeup").apply { setReferenceCounted(false); acquire(6 * 60 * 60_000L) }
+        // If the process died while ringing, the alarm stream marker survived: put the user's volume back.
+        if (WakeHub.ringing.value.isEmpty()) restoreSavedVolume()
         scope.launch { WakeHub.ringing.collectLatest { update(it) } }
     }
 
@@ -150,9 +152,15 @@ class WakeUpService : Service() {
 
     private fun stopPlayer() { runCatching { player?.stop(); player?.release() }; player = null }
 
+    private fun volumePrefs() = getSharedPreferences("wakeup", MODE_PRIVATE)
+
     private fun raiseVolume() {
         val am = getSystemService(AudioManager::class.java) ?: return
-        if (savedVolume == null) savedVolume = am.getStreamVolume(AudioManager.STREAM_ALARM)
+        if (savedVolume == null) {
+            savedVolume = am.getStreamVolume(AudioManager.STREAM_ALARM)
+            // Written down before the raise: an OEM kill can skip onDestroy, and the user's level must come back.
+            savedVolume?.let { volumePrefs().edit().putInt("saved_volume", it).apply() }
+        }
         // In Do Not Disturb this needs Do Not Disturb access; without it the alarm plays at its own volume.
         runCatching { am.setStreamVolume(AudioManager.STREAM_ALARM, am.getStreamMaxVolume(AudioManager.STREAM_ALARM), 0) }
             .onFailure { Log.w(WakeHub.TAG, "alarm volume: ${it.message}") }
@@ -162,6 +170,14 @@ class WakeUpService : Service() {
         val v = savedVolume ?: return
         savedVolume = null
         runCatching { getSystemService(AudioManager::class.java)?.setStreamVolume(AudioManager.STREAM_ALARM, v, 0) }
+        volumePrefs().edit().remove("saved_volume").apply()
+    }
+
+    private fun restoreSavedVolume() {
+        val v = volumePrefs().getInt("saved_volume", -1)
+        if (v < 0) return
+        runCatching { getSystemService(AudioManager::class.java)?.setStreamVolume(AudioManager.STREAM_ALARM, v, 0) }
+        volumePrefs().edit().remove("saved_volume").apply()
     }
 
     private fun vibrate() {

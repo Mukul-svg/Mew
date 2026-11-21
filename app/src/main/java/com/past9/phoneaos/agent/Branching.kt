@@ -36,10 +36,11 @@ object HeuristicPolicy : BranchPolicy {
     private val supersedeStart = Regex("""^(wait|hold on|hang on|actually|no wait|no,|sorry|scrap that|forget (that|it)|never ?mind|ignore (that|the last|what)|disregard|cancel (that|it)|i meant|i mean|correction|instead|change of plan|on second thought|stop that|not that)\b""", RegexOption.IGNORE_CASE)
     private val supersedeAnywhere = Regex("""\b(i meant|i actually meant|scrap that|forget (that|it)|never ?mind|ignore (that|what i (said|asked))|disregard (that|what)|change of plan|instead of that)\b""", RegexOption.IGNORE_CASE)
     private val relatedStart = Regex("""^(also|and also|and |plus|one more thing|oh and|while you'?re at it|additionally|btw|by the way|can you also|and then|on top of that|as well)\b""", RegexOption.IGNORE_CASE)
+    private val wordSplit = Regex("[\\s,.!?;:]+")
 
     override fun classify(text: String, runningText: String): Relation {
         val t = text.trim()
-        val words = t.lowercase().split(Regex("[\\s,.!?;:]+")).filter { it.isNotEmpty() }
+        val words = t.lowercase().split(wordSplit).filter { it.isNotEmpty() }
         val noLetters = t.none { it.isLetterOrDigit() }
         if (t.isEmpty() || (noLetters && t.length <= 8) || (words.size in 1..4 && words.all { it in ackWords })) return Relation.ACK
         if (supersedeStart.containsMatchIn(t) || supersedeAnywhere.containsMatchIn(t)) return Relation.SUPERSEDE
@@ -95,6 +96,7 @@ class Branch(val item: Long, val line: Line, val parent: Line, val relation: Rel
 object Branching {
     const val MAX_BRANCHES = 3
     const val STILL_RUNNING = "(Still running in the other branch when this branch was forked off. Its result is merged back later. Don't wait for it.)"
+    private val spaces = Regex("\\s+")
 
     /** What the new branch starts from: the running line's transcript so far, with unfinished tool calls closed off. */
     fun fork(live: List<Msg>): MutableList<Msg> {
@@ -121,7 +123,7 @@ object Branching {
         "[Context handed over, because this is a fresh session: the line of conversation you were forked from is working on \"${parentText.take(200)}\". Recent chat:\n" +
             recent.takeLast(14).joinToString("\n") { "- $it" } + "]\n\n"
 
-    private fun clip(s: String, n: Int) = s.replace(Regex("\\s+"), " ").trim().let { if (it.length > n) it.take(n) + "..." else it }
+    private fun clip(s: String, n: Int) = s.replace(spaces, " ").trim().let { if (it.length > n) it.take(n) + "..." else it }
 
     /** Steps and spoken lines of a branch's own messages (everything after the fork point). */
     fun digest(delta: List<Msg>): Pair<List<String>, List<String>> {

@@ -142,11 +142,16 @@ class WakeWordService : Service() {
     private val power = object : BroadcastReceiver() {
         private var last: Triple<Boolean, Boolean, Int>? = null
         override fun onReceive(context: Context, intent: Intent) {
-            // The battery broadcast arrives for every percent and every temperature change; only act when an answer could change.
+            // The battery broadcast arrives for every percent and every temperature change. ListenRules only
+            // changes at 20%, so bucket the percentage: same pause/resume, far fewer recomputes.
             val now = powerNow()
-            if (now != last) { last = now; recompute() }
+            val key = powerKey(now)
+            if (key != last) { last = key; recompute(now) }
         }
     }
+
+    private fun powerKey(p: Triple<Boolean, Boolean, Int>): Triple<Boolean, Boolean, Int> =
+        Triple(p.first, p.second, when { p.third < 0 -> -1; p.third < 20 -> 0; else -> 1 })
 
     private fun powerNow(): Triple<Boolean, Boolean, Int> {
         val b = registerReceiver(null, IntentFilter(Intent.ACTION_BATTERY_CHANGED))
@@ -159,13 +164,15 @@ class WakeWordService : Service() {
 
     // ---- deciding and doing ----
 
-    private fun recompute() {
+    private fun recompute() = recompute(powerNow())
+
+    private fun recompute(power: Triple<Boolean, Boolean, Int>) {
         if (!up) return
         val store = WakeWord.store(this)
         val settings = store.state.value
         val phrase = WakeWord.phrase(this)
         val lines = runCatching { WakeWord.keywords(this, settings, phrase) }.getOrDefault(emptyList())
-        val (charging, saver, percent) = powerNow()
+        val (charging, saver, percent) = power
         val world = WakeWorld(micAllowed = WakeWord.micAllowed(this), phraseOk = lines.isNotEmpty(), engineOk = engineOk, appMic = MicUse.held.value,
             inCall = inCall, charging = charging, batterySaver = saver, batteryPercent = percent, otherRecorder = otherRecorder, micSilent = micSilent)
         val next = ListenRules.decide(settings, world)

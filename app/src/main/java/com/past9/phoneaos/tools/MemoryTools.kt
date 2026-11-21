@@ -27,12 +27,14 @@ object Recall {
         w.length > 3 && w.endsWith("s") && !w.endsWith("ss") && !w.endsWith("us") -> w.dropLast(1)
         else -> w
     }
-    fun terms(q: String) = q.lowercase().split(Regex("[^\\p{L}\\p{N}@.]+")).filter { it.length > 1 && it !in stop }.map { stem(it.trimEnd('.')) }.filter { it.length > 1 }.toSet()
+    private val separators = Regex("[^\\p{L}\\p{N}@.]+")
+
+    fun terms(q: String) = q.lowercase().split(separators).filter { it.length > 1 && it !in stop }.map { stem(it.trimEnd('.')) }.filter { it.length > 1 }.toSet()
 
     fun rank(query: String, rows: List<MemoryRow>, limit: Int): List<MemoryRow> {
         val q = terms(query); if (q.isEmpty()) return rows.take(limit)
         val now = System.currentTimeMillis()
-        val words = " " + query.lowercase().replace(Regex("[^\\p{L}\\p{N}@.]+"), " ").trim() + " "
+        val words = " " + query.lowercase().replace(separators, " ").trim() + " "
         return rows.map { m ->
             val title = terms(m.title); val body = terms(m.body); val topics = terms(m.topics)
             var s = 0.0

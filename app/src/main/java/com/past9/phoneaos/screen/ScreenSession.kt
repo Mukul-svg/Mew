@@ -653,6 +653,8 @@ class ScreenSession(
         if (keepApp) _state.value.pkg.takeIf { it.isNotBlank() }?.let { back += it }
         note("close", "Closed the background screen")
         val r = runCatching { backend.call(op("release").put("move_back", JSONArray(back.toList())).put("why", if (back.isEmpty()) "close" else "keep_app")) }.getOrNull()
+        // An explicit close is not a job end: stop the shell helper too instead of leaving a process and socket alive.
+        runCatching { backend.call(op("exit"), 2_000) }
         val wasStopped = _state.value.stopped
         forget()
         _state.value = ScreenState(stopped = wasStopped)

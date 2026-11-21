@@ -50,6 +50,10 @@ class HandoffException(message: String) : Exception(message)
 
 class HandoffClient(private val http: OkHttpClient = OkHttpClient.Builder().connectTimeout(15, TimeUnit.SECONDS).readTimeout(75, TimeUnit.SECONDS).build()) {
     private val json = "application/json; charset=utf-8".toMediaType()
+    @Volatile private var active: okhttp3.Call? = null
+
+    /** Leaving the screen cancels the 75 s long-poll, not only the coroutine waiting on it. */
+    fun cancel() { runCatching { active?.cancel() } }
 
     /** Sign in (or create the account) and get this phone's token. */
     fun signIn(url: String, email: String, password: String, create: Boolean): String {
@@ -79,14 +83,19 @@ class HandoffClient(private val http: OkHttpClient = OkHttpClient.Builder().conn
         return u
     }
 
-    private fun call(req: Request): JSONObject = try {
-        http.newCall(req).execute().use { r ->
-            val text = r.body?.string().orEmpty()
-            val o = runCatching { JSONObject(text) }.getOrElse { JSONObject() }
-            if (!r.isSuccessful) throw HandoffException(o.optJSONObject("error")?.optString("message")?.takeIf { it.isNotBlank() } ?: "The sync service said ${r.code}.")
-            o
-        }
-    } catch (e: HandoffException) { throw e } catch (e: java.io.IOException) { throw HandoffException("Couldn't reach the sync service: ${e.message ?: e.javaClass.simpleName}") }
+    private fun call(req: Request): JSONObject {
+        val c = http.newCall(req)
+        active = c
+        return try {
+            c.execute().use { r ->
+                val text = r.body?.string().orEmpty()
+                val o = runCatching { JSONObject(text) }.getOrElse { JSONObject() }
+                if (!r.isSuccessful) throw HandoffException(o.optJSONObject("error")?.optString("message")?.takeIf { it.isNotBlank() } ?: "The sync service said ${r.code}.")
+                o
+            }
+        } catch (e: HandoffException) { throw e } catch (e: java.io.IOException) { throw HandoffException("Couldn't reach the sync service: ${e.message ?: e.javaClass.simpleName}") }
+        finally { if (active === c) active = null }
+    }
 }
 
 /** Picks up what finished and tells the main agent, once each. */

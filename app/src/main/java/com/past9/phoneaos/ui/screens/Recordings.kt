@@ -86,7 +86,15 @@ fun RecordingsScreen(boxKey: String, onBack: () -> Unit) {
     // A running one shows its words as they come.
     // Only while this screen is in front: the folder is not re-read every 1.5 s behind another app or a locked screen.
     val life = androidx.lifecycle.compose.LocalLifecycleOwner.current
-    LaunchedEffect(life) { life.lifecycle.repeatOnLifecycle(androidx.lifecycle.Lifecycle.State.RESUMED) { rows = folder.list(); while (true) { delay(1_500); rows = folder.list() } } }
+    LaunchedEffect(life) {
+        life.lifecycle.repeatOnLifecycle(androidx.lifecycle.Lifecycle.State.RESUMED) {
+            rows = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) { folder.list() }
+            while (true) {
+                delay(1_500)
+                rows = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) { folder.list() }
+            }
+        }
+    }
     Scaffold(
         containerColor = MaterialTheme.colorScheme.surface,
         topBar = {

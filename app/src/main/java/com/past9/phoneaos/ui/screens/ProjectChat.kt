@@ -24,7 +24,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.repeatOnLifecycle
 import com.past9.phoneaos.R
 import com.past9.phoneaos.remote.RemoteHub
 import com.past9.phoneaos.remote.RemoteRows
@@ -96,11 +99,15 @@ fun ProjectChatScreen(chat: String, name: String, onBack: () -> Unit,
     val atTop by remember { derivedStateOf { list.firstVisibleItemIndex == 0 && list.layoutInfo.totalItemsCount > 0 } }
     var settled by remember { mutableStateOf(false) }
     LaunchedEffect(atTop, more, session, settled) { if (atTop && more && loaded && settled) session?.let { loadOlder(it) } }
-    LaunchedEffect(session, chat) {
+    val life = LocalLifecycleOwner.current
+    LaunchedEffect(session, chat, life) {
         val s = session ?: return@LaunchedEffect
-        load(s)
-        // Follow it: a row of this chat changed, or its run started or ended. A burst of changes is read once.
-        s.events.filter { (event, payload) -> concerns(event, payload, chat) }.collectLatest { delay(if (s.metered) 900 else 400); load(s) }
+        // Only while the screen is in front: the same refresh on return catches anything that happened while away.
+        life.repeatOnLifecycle(Lifecycle.State.STARTED) {
+            load(s)
+            // Follow it: a row of this chat changed, or its run started or ended. A burst of changes is read once.
+            s.events.filter { (event, payload) -> concerns(event, payload, chat) }.collectLatest { delay(if (s.metered) 900 else 400); load(s) }
+        }
     }
     // Follow the newest message (not when a page above arrives).
     val newestKey = rows.lastOrNull()?.let { it.optString("id") + it.optString("text").length }

@@ -272,6 +272,8 @@ class ScreenService : Service() {
                 while (true) {
                     delay(2_000)
                     if (!session.state.value.open) continue
+                    // Nobody can see a notification while the display is off; the next tick refreshes it on screen-on.
+                    if (getSystemService(android.os.PowerManager::class.java)?.isInteractive != true) continue
                     val m = runCatching { link.call(op("frame").put("max", 160).put("q", 50).put("after", seq), 3_000) }.getOrNull() ?: continue
                     val bin = m.bin ?: continue
                     seq = m.json.optLong("seq")

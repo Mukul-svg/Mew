@@ -159,7 +159,7 @@ class LiveSession(
     }
 
     /** His voice, heard in a chunk of microphone sound: holds back anything for the model while he talks. */
-    private fun heard(pcm: ByteArray, n: Int) { if (loudness(pcm, n) >= HOLD_LOUD) hold.voice(System.currentTimeMillis()) }
+    private fun heard(level: Float) { if (level >= HOLD_LOUD) hold.voice(System.currentTimeMillis()) }
 
     override fun start() {
         if (running.getAndSet(true)) return
@@ -220,7 +220,7 @@ class LiveSession(
     override fun sendAudio(pcm: ByteArray): Boolean {
         if (!running.get() || !micOpen.get() || muted || !ready.get() || pcm.isEmpty()) return false
         if (manual && !turnOpen) return false
-        heard(pcm, pcm.size)
+        heard(loudness(pcm, pcm.size))
         return ws?.send(audioMessage(pcm, pcm.size)) == true
     }
 
@@ -578,10 +578,12 @@ class LiveSession(
                     // An error read returns at once: wait a moment so a dead microphone never spins a core.
                     if (n <= 0) { runCatching { Thread.sleep(20) }; continue }
                     if (muted) continue
-                    onEvent(Event.Level(true, loudness(buf, n)))
+                    // One loudness scan for both the level the orb shows and the quiet-period check.
+                    val level = loudness(buf, n)
+                    onEvent(Event.Level(true, level))
                     // Wait-for-me: nothing is sent between his taps, so nothing can end his turn early.
                     if (manual && !turnOpen) continue
-                    heard(buf, n)
+                    heard(level)
                     val b64 = Base64.encodeToString(buf.copyOf(n), Base64.NO_WRAP)
                     val msg = JSONObject().put(
                         "realtimeInput",

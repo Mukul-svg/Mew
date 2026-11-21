@@ -36,7 +36,11 @@ object CameraPhoto {
             d.setTargetSize(w, h); d.allocator = ImageDecoder.ALLOCATOR_SOFTWARE
         }
         val out = File(ctx.filesDir, "uploads/$name.jpg").apply { parentFile?.mkdirs() }
-        out.outputStream().use { bmp.compress(Bitmap.CompressFormat.JPEG, QUALITY, it) }
-        return out.path
+        try {
+            out.outputStream().use { bmp.compress(Bitmap.CompressFormat.JPEG, QUALITY, it) }
+            return out.path
+        } finally {
+            bmp.recycle()
+        }
     }
 }

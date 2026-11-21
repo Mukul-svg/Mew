@@ -30,7 +30,7 @@ data class PageState(val url: String = "", val title: String = "", val loading: 
  * another app. When the user opens the Browser screen the same WebView is attached to it, so
  * they can watch, or take over for a sign-in or captcha, and hand it back.
  */
-class BrowserEngine(private val context: Context, val profile: String = "Personal") {
+class BrowserEngine(private val context: Context, val profile: String = "Personal", private val onUsed: () -> Unit = {}) {
     private val main = Handler(Looper.getMainLooper())
     private var web: WebView? = null
     private var pageDone: CompletableDeferred<Unit>? = null
@@ -63,7 +63,7 @@ class BrowserEngine(private val context: Context, val profile: String = "Persona
     @Volatile var netOn = false
     private var phoneUa: String? = null
     @Volatile var desktop = false; private set
-    fun touch() { lastUsed = System.currentTimeMillis() }
+    fun touch() { lastUsed = System.currentTimeMillis(); onUsed() }
 
     @SuppressLint("SetJavaScriptEnabled")
     fun create() = main.post {
@@ -653,13 +653,20 @@ class BrowserEngine(private val context: Context, val profile: String = "Persona
 
     suspend fun scroll(down: Boolean): String = js("(()=>{window.scrollBy(0, ${if (down) 1 else -1}*window.innerHeight*0.85);return window.scrollY})()")
 
-    /** Render the page into a PNG under the app's cache dir. */
-    suspend fun screenshot(): File? = onMain<File?> { w, cb ->
-        val bmp = Bitmap.createBitmap(w.width.coerceAtLeast(1), w.height.coerceAtLeast(1), Bitmap.Config.ARGB_8888)
-        w.draw(Canvas(bmp))
-        val f = File(context.cacheDir, "browser/shot-${System.currentTimeMillis()}.png").apply { parentFile?.mkdirs() }
-        FileOutputStream(f).use { bmp.compress(Bitmap.CompressFormat.PNG, 90, it) }
-        cb(f)
+    /** Render the page into a PNG under the app's cache dir. Drawing stays on main; compression does not. */
+    suspend fun screenshot(): File? {
+        val shot = onMain<Pair<Bitmap, File>?> { w, cb ->
+            val bmp = Bitmap.createBitmap(w.width.coerceAtLeast(1), w.height.coerceAtLeast(1), Bitmap.Config.ARGB_8888)
+            w.draw(Canvas(bmp))
+            val f = File(context.cacheDir, "browser/shot-${System.currentTimeMillis()}.png").apply { parentFile?.mkdirs() }
+            cb(bmp to f)
+        } ?: return null
+        return kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+            try {
+                FileOutputStream(shot.second).use { shot.first.compress(Bitmap.CompressFormat.PNG, 90, it) }
+                shot.second
+            } finally { shot.first.recycle() }
+        }
     }
 
     private fun q(s: String?) = if (s.isNullOrEmpty()) "null" else JSONObject.quote(s)
