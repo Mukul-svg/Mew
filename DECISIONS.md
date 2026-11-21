@@ -99,7 +99,7 @@ When a conflict exists, **ask the user before doing any implementation work**. W
 ### D-008: Debug builds only for now
 
 - **Date:** 2026-11-17
-- **Status:** accepted
+- **Status:** superseded by `D-018`
 - **Decision:** Do not produce or publish a signed release until the signing rotation is decided. Verify with debug APKs.
 - **Rationale:** The published key is a machine debug certificate and the v3 lineage rotation is not done. Shipping another release under the current key increases the damage if the key is lost or compromised.
 - **Alternatives considered:** Use an existing release signing file; keep shipping signed releases with the current key.
@@ -217,6 +217,16 @@ When a conflict exists, **ask the user before doing any implementation work**. W
 - **Alternatives considered:** System STT/TTS only (half-duplex); OpenAI Realtime (another provider and adapter); OpenCode's experimental server-brokered voice API (experimental, OpenAI/xAI-oriented, needs a server); Pipecat/LiveKit (duplicates the existing agent integration).
 - **Consequences:** Full-duplex voice needs a Gemini key or a linked computer with one; without it the assistant is half-duplex. Microphone audio goes to Google only during a Live call. Progress updates are throttled to one every 12 seconds and wait for a natural pause; they are not results. A Live session still ends after a long silence or on End/goodbye; a job nobody answers for ten minutes no longer holds the line, though its result is notified.
 - **Related:** D-011, D-013, D-015, D-016.
+
+### D-018: GitHub Actions builds signed phone releases from the published keystore
+
+- **Date:** 2026-11-21
+- **Status:** accepted
+- **Decision:** Add `.github/workflows/release.yml`. It runs on a `v*` tag or manual dispatch, builds the **phone** release APK only, signs it with the existing published keystore supplied as four GitHub Actions secrets (`ANDROID_KEYSTORE_BASE64`, `ANDROID_KEYSTORE_PASSWORD`, `ANDROID_KEY_ALIAS`, `ANDROID_KEY_PASSWORD`), verifies it with `tools/check-apk-signature.sh`, uploads the APK and its SHA-256 as workflow artifacts, and creates or updates the GitHub Release for the tag with `Agent-<version>.apk`.
+- **Rationale:** The user wants tagged release APKs built and published from GitHub Actions. Signing with the published key keeps updates installable on existing phones; the verifier refuses a wrong key. A new key would break updates and lose app data, and the published private key is not on this machine.
+- **Alternatives considered:** Generate a new release key (fresh installs only); build unsigned artifacts (not installable); keep local debug-only releases (`D-008`).
+- **Consequences:** No signed release can run until the four secrets are added to `Mukul-svg/Mew`. The workflow is phone-only; Wear releases can be added later with `-PwithWear`. It uses the published key directly and does **not** perform a v3 rotation; `D-103` remains the separate rotation decision.
+- **Related:** D-008, D-103, D-016.
 
 ## Superseded decisions
 

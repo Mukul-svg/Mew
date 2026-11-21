@@ -1,0 +1,128 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag, e.g. v0.16.0"
+        required: true
+        type: string
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Signed phone APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: android-actions/setup-android@v3
+
+      - name: Accept the SDK licences
+        run: yes | sdkmanager --licenses > /dev/null
+
+      - name: Install the compile SDK
+        run: sdkmanager --install "platforms;android-37.0" "build-tools;37.0.0"
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Check signing secrets
+        env:
+          KEYSTORE: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          STORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          missing=0
+          for pair in \
+            "ANDROID_KEYSTORE_BASE64=$KEYSTORE" \
+            "ANDROID_KEYSTORE_PASSWORD=$STORE_PASSWORD" \
+            "ANDROID_KEY_ALIAS=$KEY_ALIAS" \
+            "ANDROID_KEY_PASSWORD=$KEY_PASSWORD"; do
+            name=${pair%%=*}
+            if [ -z "${pair#*=}" ]; then
+              echo "::error::Missing GitHub secret $name. Add the published keystore and its passwords before releasing."
+              missing=1
+            fi
+          done
+          exit "$missing"
+
+      - name: Stage the published keystore
+        env:
+          KEYSTORE: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          STORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          umask 077
+          mkdir -p "$RUNNER_TEMP/signing"
+          printf '%s' "$KEYSTORE" | base64 -d > "$RUNNER_TEMP/signing/published.keystore"
+          {
+            printf 'storeFile=%s\n' "$RUNNER_TEMP/signing/published.keystore"
+            printf 'storePassword=%s\n' "$STORE_PASSWORD"
+            printf 'keyAlias=%s\n' "$KEY_ALIAS"
+            printf 'keyPassword=%s\n' "$KEY_PASSWORD"
+          } > "$RUNNER_TEMP/signing/signing.properties"
+
+      - name: Build the signed release APK
+        run: ./gradlew :app:assembleRelease -PsigningProps="$RUNNER_TEMP/signing/signing.properties" --stacktrace
+
+      - name: Verify the signing certificate
+        run: |
+          APK=app/build/outputs/apk/release/app-release.apk
+          test -f "$APK"
+          bash tools/check-apk-signature.sh "$APK"
+
+      - name: Name the release asset
+        id: asset
+        run: |
+          VERSION=$(sed -n 's/.*versionName = "\(.*\)".*/\1/p' app/build.gradle.kts | head -1)
+          test -n "$VERSION"
+          ASSET="Agent-${VERSION}.apk"
+          cp app/build/outputs/apk/release/app-release.apk "$RUNNER_TEMP/$ASSET"
+          sha256sum "$RUNNER_TEMP/$ASSET" | tee "$RUNNER_TEMP/$ASSET.sha256"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "asset=$ASSET" >> "$GITHUB_OUTPUT"
+
+      - name: Upload the workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mew-release
+          path: |
+            ${{ runner.temp }}/Agent-*.apk
+            ${{ runner.temp }}/Agent-*.apk.sha256
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Publish the GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag || github.ref_name }}
+          VERSION: ${{ steps.asset.outputs.version }}
+          ASSET: ${{ steps.asset.outputs.asset }}
+        run: |
+          test -n "$TAG"
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" "$RUNNER_TEMP/$ASSET" "$RUNNER_TEMP/$ASSET.sha256" --clobber
+          elif [ "${GITHUB_REF_TYPE}" = "tag" ]; then
+            gh release create "$TAG" "$RUNNER_TEMP/$ASSET" "$RUNNER_TEMP/$ASSET.sha256" \
+              --verify-tag --title "Mew $VERSION" --generate-notes
+          else
+            gh release create "$TAG" "$RUNNER_TEMP/$ASSET" "$RUNNER_TEMP/$ASSET.sha256" \
+              --target "$GITHUB_SHA" --title "Mew $VERSION" --generate-notes
+          fi

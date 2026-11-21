@@ -233,7 +233,9 @@ in the repository but are configured only on demand:
 ./gradlew -PwithWear assembleDebug   # phone and watch modules
 ```
 
-Release builds are signed from a properties file that is never in this repository: pass `-PsigningProps=<file>`.
+Release builds are signed from a properties file that is never in this repository: pass `-PsigningProps=<file>`. Tagged releases are built by GitHub Actions: add the four `ANDROID_*` signing secrets (see
+[docs/signing-and-key-rotation.md](docs/signing-and-key-rotation.md)), then push a `v*` tag or run the
+`Release` workflow manually.
 
 Tests: `./gradlew testDebugUnitTest`, which runs the phone app's unit tests plus Robolectric and Roborazzi screenshots
 in light and dark. Watch tests are not part of the default verification; use `-PwithWear` when working on them.

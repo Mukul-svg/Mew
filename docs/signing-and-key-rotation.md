@@ -68,6 +68,45 @@ the new key for that app and keeps the data.
 6. **From then on** the published key is `release.jks`, and the expected certificate in the guard becomes its
    fingerprint. The lineage stays, so a future rotation is the same three commands.
 
+## GitHub Actions release
+
+`.github/workflows/release.yml` builds the **phone release APK** on a `v*` tag or a manual run. It signs with the
+existing published keystore, verifies the certificate with `tools/check-apk-signature.sh`, uploads the APK and its
+SHA-256, and creates or updates the GitHub Release.
+
+Add these four repository secrets in **Settings, Secrets and variables, Actions** (or with `gh secret set`):
+
+- `ANDROID_KEYSTORE_BASE64`: the published keystore, base64-encoded
+- `ANDROID_KEYSTORE_PASSWORD`
+- `ANDROID_KEY_ALIAS` (`androiddebugkey` for the published keystore)
+- `ANDROID_KEY_PASSWORD`
+
+```bash
+# Linux: from the directory holding published.keystore
+base64 -w0 published.keystore | gh secret set ANDROID_KEYSTORE_BASE64 -R Mukul-svg/Mew
+gh secret set ANDROID_KEYSTORE_PASSWORD -R Mukul-svg/Mew
+gh secret set ANDROID_KEY_ALIAS -R Mukul-svg/Mew --body androiddebugkey
+gh secret set ANDROID_KEY_PASSWORD -R Mukul-svg/Mew
+```
+
+```powershell
+# Windows PowerShell
+[Convert]::ToBase64String([IO.File]::ReadAllBytes("published.keystore")) | gh secret set ANDROID_KEYSTORE_BASE64 -R Mukul-svg/Mew
+gh secret set ANDROID_KEYSTORE_PASSWORD -R Mukul-svg/Mew
+gh secret set ANDROID_KEY_ALIAS -R Mukul-svg/Mew --body androiddebugkey
+gh secret set ANDROID_KEY_PASSWORD -R Mukul-svg/Mew
+```
+
+Then run it for a tag:
+
+```bash
+gh workflow run release.yml -R Mukul-svg/Mew -f tag=v0.16.0
+gh run watch -R Mukul-svg/Mew
+```
+
+or push a tag: `git tag v0.16.0 && git push origin v0.16.0`. The workflow refuses to start without all four secrets.
+This workflow uses the published key directly; a later key rotation still needs the v3 lineage procedure above.
+
 ## Guard: a wrong-key APK can be neither built nor published
 
 - `app/build.gradle.kts` refuses a release build that has no release key, instead of letting Android fall back to the

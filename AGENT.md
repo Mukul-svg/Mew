@@ -96,6 +96,9 @@ node --test host/test/host.test.mjs
 # Phone release APK (requires a signing properties file outside the repo)
 ./gradlew :app:assembleRelease -PsigningProps=<file>
 
+# Signed release from GitHub Actions (needs the four ANDROID_* secrets)
+gh workflow run release.yml -R Mukul-svg/Mew -f tag=v0.16.0
+
 # Wear modules, only when working on them
 ./gradlew -PwithWear :wear:assembleDebug
 ./gradlew -PwithWear testDebugUnitTest
