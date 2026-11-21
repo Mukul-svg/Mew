@@ -240,6 +240,16 @@ When a conflict exists, **ask the user before doing any implementation work**. W
 - **Verification (2026-11-21):** the first GitHub Actions release, `v0.16.0`, published `Agent-0.16.0.apk` (87,170,416 bytes, SHA-256 `5a297e670957386b0bf9e98cfdee605c9e0d029068b03dd072196d566d98e24b`) signed with `bb7c2056...`; the downloaded APK reports version `0.16.0`/180 and verifies with `apksigner`.
 - **Related:** D-018, D-103, D-008.
 
+### D-020: Revyl Proof of Changes runs on every pull request
+
+- **Date:** 2026-11-21
+- **Status:** accepted
+- **Decision:** Use Revyl Proof of Changes for the Android app. The `Mew Android` app (`241aa40f-acb0-45cb-8cd4-519716de6e1a`) and `preview` profile build the debug APK remotely with `sh ./gradlew assembleDebug` after stripping CRLF from `gradlew`; the published project configuration enables `pr_review` with `proof_of_changes`.
+- **Rationale:** The user wants end-to-end cloud-device proofs on pull requests, not only local unit tests.
+- **Alternatives considered:** Keep local-only verification; use GitHub Actions emulator tests; sign and upload release APKs to Revyl.
+- **Consequences:** The remote build packages the working tree, so Windows CRLF must be normalized in the recipe. The app has no account sign-in; onboarding is completed once on the session for now. The Revyl configuration is published but not committed yet.
+- **Related:** D-014, D-018.
+
 ## Superseded decisions
 
 ### D-105: Write an exit plan for `targetSdk 28`

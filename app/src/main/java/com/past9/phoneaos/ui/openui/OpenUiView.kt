@@ -98,6 +98,9 @@ val LocalOpenUiImages = compositionLocalOf<(String) -> androidx.compose.ui.graph
 fun OpenUiBlock(source: String, modifier: Modifier = Modifier) {
     val rendered = remember(source) { OpenUiLang.render(OpenUiLang.parse(source)) }
     val root = rendered.root ?: return
+    // A half-streamed card can parse into a shell (blank Steps rows and no text). Drawing that shell made a
+    // tall empty timeline in the chat, so wait until the card has something a person can see.
+    if (!OpenUiLang.hasVisibleContent(root)) return
     Box(modifier.fillMaxWidth()) { Comp(root) }
 }
 
@@ -136,14 +139,14 @@ private fun Comp(n: Node) {
         "Buttons" -> ButtonsComp(n)
         "Button" -> ActionButton(n, Modifier.fillMaxWidth())
         "ListBlock" -> Column(verticalArrangement = Arrangement.spacedBy(2.dp)) {
-            n.nodes("items").forEachIndexed { i, it -> ListRow(i + 1, it, numbered = n.str("variant") != "image") }
+            OpenUiLang.visibleItems(n).forEachIndexed { i, it -> ListRow(i + 1, it, numbered = n.str("variant") != "image") }
         }
         "Steps" -> Column {
-            val items = n.nodes("items")
+            val items = OpenUiLang.visibleItems(n)
             items.forEachIndexed { i, s -> ListRow(i + 1, Node("ListItem", mapOf("title" to s.str("title"), "subtitle" to s.str("details"))), true, connectBelow = i < items.size - 1) }
         }
         "FollowUpBlock" -> { val send = LocalOpenUiSend.current
-            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) { n.nodes("items").forEach { f -> val t = f.str("text") ?: ""
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) { n.nodes("items").filter { OpenUiLang.hasVisibleContent(it) }.forEach { f -> val t = f.str("text") ?: ""
                 Surface(onClick = { send(t) }, shape = RoundedCornerShape(50), color = cs.surfaceContainerHighest) {
                     Row(Modifier.padding(start = 16.dp, end = 12.dp, top = 10.dp, bottom = 10.dp), verticalAlignment = Alignment.CenterVertically) {
                         Text(t, Modifier.weight(1f, fill = false), style = MaterialTheme.typography.labelLarge, color = cs.primary)
@@ -151,7 +154,7 @@ private fun Comp(n: Node) {
                         Icon(Icons.AutoMirrored.Rounded.ArrowForward, null, Modifier.size(16.dp), tint = cs.primary)
                     } } } } }
         "TagBlock" -> FlowRow(horizontalArrangement = Arrangement.spacedBy(6.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-            n.list("tags").filterIsInstance<String>().forEach { TagChip(it, null, null) } }
+            n.list("tags").filterIsInstance<String>().filter { it.isNotBlank() }.forEach { TagChip(it, null, null) } }
         "Tag" -> TagChip(n.str("text") ?: "", n.str("variant"), n.str("icon"))
         else -> {}
     }
@@ -406,7 +409,7 @@ private fun ProductComp(n: Node) {
 
 @Composable
 private fun ButtonsComp(n: Node) {
-    val bs = n.nodes("buttons")
+    val bs = n.nodes("buttons").filter { OpenUiLang.hasVisibleContent(it) }
     if (bs.isEmpty()) return
     // Two choices sit side by side (Approve / Decline); more, or a column asked for, stack at full width.
     val short = bs.size == 2 && bs.all { (it.str("label") ?: "").length <= 10 }

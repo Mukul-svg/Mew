@@ -165,6 +165,47 @@ object OpenUiLang {
     /** The library's root is Stack (one Card per item); a lone Card is accepted too. */
     val ROOTS = setOf("Stack", "Card")
 
+    private fun Node.items(k: String): List<Node> = (props[k] as? List<*>)?.filterIsInstance<Node>().orEmpty()
+    private fun Node.text(k: String): String? = (props[k] as? String)?.takeIf { it.isNotBlank() }
+
+    /**
+     * Whether this node has anything a person would see. A programme that is still streaming can be a shell:
+     * `Steps([a, b])` with `a = StepsItem(` and no title yet. Drawing that shell produced a tall empty timeline
+     * in the chat (21 Nov 2026), so a card with nothing to show is not drawn at all.
+     */
+    fun hasVisibleContent(n: Node?): Boolean {
+        if (n == null) return false
+        fun text(vararg keys: String) = keys.any { n.text(it) != null }
+        return when (n.type) {
+            "Card", "Stack" -> n.items("children").any { hasVisibleContent(it) }
+            "Steps", "ListBlock" -> n.items("items").any { hasVisibleContent(it) }
+            "Buttons" -> n.items("buttons").any { hasVisibleContent(it) }
+            "CardHeader" -> text("title", "subtitle")
+            "InlineHeader" -> text("heading", "description")
+            "TextContent" -> text("text")
+            "MarkDownRenderer" -> text("textMarkdown")
+            "ListItem" -> text("title", "subtitle")
+            "StepsItem" -> text("title", "details")
+            "Button" -> text("label")
+            "FollowUpItem" -> text("text")
+            "Tag" -> text("text")
+            "Callout", "TextCallout" -> text("title", "description")
+            "Image", "ImageBlock" -> text("src")
+            "Product" -> text("name", "image", "price")
+            "EntityList" -> ((n.props["rows"] as? List<*>)?.isNotEmpty() == true)
+            "Table" -> n.items("columns").isNotEmpty()
+            "TagBlock" -> (n.props["tags"] as? List<*>)?.any { (it as? String)?.isNotBlank() == true } == true
+            "Separator" -> true
+            "BarChart", "LineChart", "PieChart" -> true
+            // Accepted by the parser but not drawn yet: an empty card must not be left behind.
+            "Icon" -> false
+            else -> true
+        }
+    }
+
+    /** The rows of a Steps or ListBlock that have something to show; a streamed blank row is dropped. */
+    fun visibleItems(n: Node): List<Node> = n.items("items").filter { hasVisibleContent(it) }
+
     /** Where a tap happened: the card it is on and the item inside it (a section heading or a list row). */
     data class Scope(val card: String? = null, val item: String? = null)
 

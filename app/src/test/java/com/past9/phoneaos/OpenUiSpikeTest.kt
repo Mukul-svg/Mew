@@ -74,6 +74,22 @@ sources = [{ title: "MyBank statement", sourceName: "MyBank", url: "https://myba
         assertEquals(setOf("chart"), r.unresolved)
     }
 
+    @Test fun aHalfStreamedStepsOnlyCardHasNothingToDraw() {
+        // This is the tall empty timeline from the chat: Steps exists, its one item has no title yet.
+        val root = OpenUiLang.render(OpenUiLang.parse("root = Card([steps])\nsteps = Steps([blank])\nblank = StepsItem(")).root!!
+        assertFalse(OpenUiLang.hasVisibleContent(root))
+    }
+
+    @Test fun aBlankStreamedStepIsDroppedButARealOneStays() {
+        val root = OpenUiLang.render(OpenUiLang.parse(
+            "root = Card([steps])\nsteps = Steps([good, blank])\ngood = StepsItem(\"Fetching showtimes\", \"AMB Kapali\")\nblank = StepsItem("
+        )).root!!
+        val steps = (root.props["children"] as List<*>).filterIsInstance<OpenUiLang.Node>().first { it.type == "Steps" }
+        val shown = OpenUiLang.visibleItems(steps)
+        assertEquals(1, shown.size)
+        assertEquals("Fetching showtimes", shown.single().props["title"])
+    }
+
     @Test fun aBrokenLineDropsOnlyItself() {
         val r = OpenUiLang.render(OpenUiLang.parse("root = Card([a, b, c])\na = TextContent(\"ok\")\nb = TextContent(\"bad\" ))) oops\nc = Wobble(1)"))
         assertEquals(listOf("TextContent"), (r.root!!.props["children"] as List<*>).map { (it as OpenUiLang.Node).type })
