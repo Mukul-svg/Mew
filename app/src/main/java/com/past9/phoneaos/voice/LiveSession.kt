@@ -311,9 +311,8 @@ class LiveSession(
     }
 
     private fun setupMessage(): JSONObject {
-        // AUDIO even for dictation. The live model REFUSES text-only:
-        //   1007 The requested combination of response modalities (TEXT) is not supported by the
-        //   model. models/gemini-3.1-flash-live-preview
+        // AUDIO even for dictation. The live models refuse text-only:
+        //   1007 The requested combination of response modalities (TEXT) is not supported by the model.
         // So the reply comes back as audio and is simply discarded — with playback disabled there is
         // no AudioTrack to write it to. inputAudioTranscription is what we actually came for.
         val generation = JSONObject()
@@ -340,7 +339,7 @@ class LiveSession(
             .put("realtimeInputConfig", if (dictation || !tuneFields) JSONObject().put("automaticActivityDetection", JSONObject()) else tune.realtimeInputConfig())
         // Only the call needs to hear ITSELF back; dictation only ever wants his own words.
         if (!dictation) setup.put("outputAudioTranscription", JSONObject())
-        if (tools != null && !dictation) setup.put("tools", tools)
+        if (tools != null && !dictation) setup.put("tools", LiveToolSetup.forModel(model, tools))
         if (resumable && resumeFields) {
             setup.put("sessionResumption", JSONObject().apply { resumeHandle?.let { put("handle", it) } })
             // Without compression an audio session ends at ~15 minutes however often we reconnect.

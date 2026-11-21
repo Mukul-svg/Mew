@@ -464,7 +464,7 @@ class LiveAssistant(
 
     companion object {
         const val TAG = "LiveAssist"
-        const val DEFAULT_MODEL = "gemini-3.1-flash-live-preview"
+        const val DEFAULT_MODEL = "gemini-3.8-live"
         /** The microphone is loud enough to be speech, and this long since the last speech counts as a new turn. */
         private const val LOUD = 0.25f
         private const val QUIET_MS = 1_500L

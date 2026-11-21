@@ -269,7 +269,7 @@ class CallController(
         CallService.start(context, phoneMic = watchAudio?.phoneMic != false)
         // A computer's token is locked to the Live model its key reaches, so the call uses that model.
         val phoneVoice = s.ttsVoice.takeIf { s.ttsProvider == "gemini" && it.isNotBlank() }
-        live = LiveSession(url, model?.ifBlank { null } ?: "gemini-3.1-flash-live-preview", phoneVoice ?: voice?.ifBlank { null } ?: "Kore", system,
+        live = LiveSession(url, model?.ifBlank { null } ?: "gemini-3.8-live", phoneVoice ?: voice?.ifBlank { null } ?: "Kore", system,
             tools = tools, renew = renew, tuning = com.past9.phoneaos.assist.AssistPrefs.liveTuning(context)) { e -> if (g == gen) onEvent(e) }.also { it.start() }
         // Ended in the instant between the check and the session: let go of it again.
         if (!core.current(g)) { releaseAll(); return }

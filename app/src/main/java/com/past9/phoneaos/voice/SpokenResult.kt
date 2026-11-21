@@ -5,15 +5,15 @@ package com.past9.phoneaos.voice
  *
  * Before: the voice was told "say the part that matters in one or two short sentences ... do not read it out word for
  * word", and the answer was cut at 1,500 characters. The agent had already written a summary; the voice summarised that
- * again and dropped the detail (and never read a whole paragraph). Measured on gemini-3.1-flash-live-preview with a
+ * again and dropped the detail (and never read a whole paragraph). Measured on the Live models with a
  * 110-word answer holding 17 facts: 2 of 17 facts survived.
  *
  * Now the answer is framed with a marker the voice's instructions explain ([HEAD] ... [END]): read it as written. The
  * agent is also told, in the hand-off, that its reply is read aloud, so it writes the spoken version itself. Google's Live
  * API has no output-length or verbatim setting; the supported levers are the system instruction and the content that is
  * sent. A tool response is the documented place for a result (https://aistudio.google.com/docs/live-api/tools), but
- * gemini-3.1-flash-live-preview only supports synchronous calls and the answer here arrives long after hand_to_agent
- * returned, so the answer is sent as a client turn.
+ * the agent's answer arrives long after hand_to_agent returned, so it is sent as a client turn. The default model,
+ * gemini-3.8-live, supports both blocking and asynchronous calls; Mew pins its declarations to blocking.
  */
 object SpokenResult {
     const val HEAD = "[Mew result, speak as written]"

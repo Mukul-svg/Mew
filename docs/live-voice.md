@@ -131,6 +131,8 @@ https://aistudio.google.com/docs/live-api/tools, https://aistudio.google.com/api
 | `sessionResumption` | handle kept, used on goAway and drops | unchanged |
 | `inputAudioTranscription.customVocabulary` | the agent's name, the user's name, the names of agents at work (up to 60) | names are transcribed right |
 | `speechConfig.languageCode` | `en-US`; "Follow my language" leaves it out | |
+| `model` | `gemini-3.8-live`; a linked computer's token can name its own | the current live model; `gemini-3.1-flash-live-preview` is legacy |
+| `tools[].functionDeclarations[].behavior` | `BLOCKING` on `gemini-3.8-live` | keeps the short "on it" acknowledgement before the model carries on; other models get the declarations unchanged |
 
 Settings: Settings > Default assistant > How Live takes turns (Quick, Patient, Very patient; Wait for me; Follow my language). They apply to the next Live session.
 
@@ -153,4 +155,4 @@ A call on 17 Nov 2026: Live said "On it. Done." before the agent had answered, i
 - **His words.** The hand-off carries `spoken` top-level and in the note (falls back to the growing transcript); the instructions and the `request` field forbid turning an unsure word into a name.
 - **Turns into the main chat as they happen.** `voice.callTurn` {session, startedAt, index, who, text, at} per finalised turn (computer: one `call` row per session, collapsed, never a user bubble; the final `voice.callSave` finishes the same row). On this phone the same turns are call rows. The previous call's words (newest first, bounded) go into the next call's instructions (`LiveHistory`, `LiveTruth.previousCall`).
 
-Proof: `scripts/live-proof.mjs` runs the exact instructions, tool answer and framed replies against the real Gemini Live model (gemini-3.1-flash-live-preview and gemini-3.8-live): holding line only, "no result yet" when asked, late line once, each agent reply and the later helper result read as written. Tests: `LiveTruthTest`.
+Proof: `scripts/live-proof.mjs` runs the exact instructions, tool answer and framed replies against the real Gemini Live models (`gemini-3.8-live`, the default, and the legacy `gemini-3.1-flash-live-preview`): holding line only, "no result yet" when asked, late line once, each agent reply and the later helper result read as written. Tests: `LiveTruthTest`.

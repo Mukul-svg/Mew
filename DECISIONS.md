@@ -250,6 +250,16 @@ When a conflict exists, **ask the user before doing any implementation work**. W
 - **Consequences:** The remote build packages the working tree, so Windows CRLF must be normalized in the recipe. The app has no account sign-in; onboarding is completed once on the session for now. The Revyl configuration is published but not committed yet.
 - **Related:** D-014, D-018.
 
+### D-021: Gemini 3.8 Live is the default live voice model
+
+- **Date:** 2026-11-21
+- **Status:** accepted
+- **Decision:** Use `gemini-3.8-live` as the default model for the assistant's live voice, the full-screen call and the browser call bridge. Keep the model a linked computer's token names, so an older computer can still run `gemini-3.1-flash-live-preview`. For `gemini-3.8-live`, mark every function declaration `behavior: BLOCKING` so the short "on it" acknowledgement and hand-off follow the same order as before.
+- **Rationale:** Gemini 3.1 Flash Live is now a legacy preview and Google recommends 3.8 Live. The free tier is the same (65k input TPM, unlimited RPM/RPD as shown in AI Studio), so this is a support and quality move, not a quota increase. Blocking tools keep the existing `hand_to_agent` flow unchanged.
+- **Alternatives considered:** Stay on 3.1 Flash Live (legacy, may be retired); use 3.8 Live Extended Thinking (asynchronous-only tools and higher paid limits; not needed for conversation); let 3.8 default to asynchronous tools (changes when the holding line and tool response are spoken).
+- **Consequences:** Free-tier calls still have 65k TPM; long calls or screen frames can hit it. Functions `behavior` is added only for the exact `gemini-3.8-live` id, so older models receive their declarations unchanged. Paid tiers and extended thinking are unchanged and not required.
+- **Related:** D-017, D-020.
+
 ## Superseded decisions
 
 ### D-105: Write an exit plan for `targetSdk 28`

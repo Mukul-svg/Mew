@@ -359,7 +359,7 @@ class CallBridge(
     }
 
     companion object {
-        const val DEFAULT_MODEL = "gemini-3.1-flash-live-preview"
+        const val DEFAULT_MODEL = "gemini-3.8-live"
         const val TICK_MS = 5_000L
         /** This many counter requests in a row without an answer: the page is gone or frozen. */
         const val SILENT_TICKS = 3
