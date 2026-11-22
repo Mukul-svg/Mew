@@ -40,8 +40,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.statusBars
-import androidx.compose.ui.graphics.asImageBitmap
-import androidx.core.graphics.drawable.toBitmap
 import com.past9.phoneaos.agent.AnthropicProvider
 import com.past9.phoneaos.agent.Msg
 import com.past9.phoneaos.agent.OpenAiCompatProvider
@@ -56,9 +54,11 @@ import com.past9.phoneaos.ui.screens.*
 import com.past9.phoneaos.ui.CardSheet
 import com.past9.phoneaos.ui.CardSheetActions
 import com.past9.phoneaos.ui.theme.AppTheme
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.withContext
 
 class MainActivity : ComponentActivity() {
     /** Text shared in from another app, or a route asked for by a notification. */
@@ -123,6 +123,12 @@ class MainActivity : ComponentActivity() {
         // Leaving the screen: what is in the message boxes and the dictation's words are on disk now.
         com.past9.phoneaos.data.DraftStore.flush()
         com.past9.phoneaos.voice.Dictations.of(this).flush()
+    }
+
+    /** Launcher icons and other view-only caches are the first thing to give back when memory is short or the UI hides. */
+    override fun onTrimMemory(level: Int) {
+        super.onTrimMemory(level)
+        if (level >= android.content.ComponentCallbacks2.TRIM_MEMORY_RUNNING_LOW) com.past9.phoneaos.ui.screens.trimAppIconCache()
     }
 
     override fun onStop() {
@@ -268,7 +274,10 @@ class MainActivity : ComponentActivity() {
                 launchSingleTop = true
             }
         }
-        val notifRows by g.db.notifications().recent(200).collectAsStateWithLifecycle(emptyList())
+        // The badge is one number. The recent rows are read only while the notifications screen is open, so every
+        // arrival does not re-query 200 rows and recompose the whole root.
+        val notifSince = remember { System.currentTimeMillis() - 86_400_000L }
+        val notifToday by remember(g.db) { g.db.notifications().countSince(notifSince) }.collectAsStateWithLifecycle(0)
         val backEntry by nav.currentBackStackEntryAsState()
         val route = backEntry?.destination?.route ?: "home"
         // Is the chat itself on screen? A finished turn reads that before it notifies (issue #15), and a chat opened
@@ -529,7 +538,7 @@ class MainActivity : ComponentActivity() {
         val needStore = remember { NeedStore.of(applicationContext) }
         var refreshingCard by remember { mutableStateOf<String?>(null) }
         val home = HomeState(settings.agentName, settings.userName, status, items, goals, tasks, routines,
-            notifRows.count { it.postedAt > System.currentTimeMillis() - 86_400_000L }, settings.notifApps.size, browserLive, cards = cards.filter { it.pinned }, miniApps = miniApps,
+            notifToday, settings.notifApps.size, browserLive, cards = cards.filter { it.pinned }, miniApps = miniApps,
             people = everyPerson)
         val barRoutes = setOf("home", "tasks", "memory", "routines", "connections")
         // The floating bar sits above the system navigation inset. Pages built on SubScreen already get that inset from
@@ -581,13 +590,18 @@ class MainActivity : ComponentActivity() {
                 }
                 composable("notifications") {
                     val pm = packageManager
-                    val apps = remember {
-                        val launch = Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER)
-                        pm.queryIntentActivities(launch, 0).map { it.activityInfo.packageName }.distinct().filter { it != packageName }.mapNotNull { pkg ->
-                            runCatching {
-                                val ai = pm.getApplicationInfo(pkg, 0)
-                                PhoneApp(pkg, pm.getApplicationLabel(ai).toString(), runCatching { pm.getApplicationIcon(ai).toBitmap(96, 96).asImageBitmap() }.getOrNull())
-                            }.getOrNull()
+                    // Rows are read only while this screen is on top; 200 are kept for the Lately card.
+                    val notifRows by remember { g.db.notifications().recent(200) }.collectAsStateWithLifecycle(emptyList())
+                    // PackageManager queries and labels for every launcher app are IO, not first-frame work.
+                    val apps by produceState(initialValue = emptyList<PhoneApp>()) {
+                        value = withContext(Dispatchers.IO) {
+                            val launch = Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER)
+                            pm.queryIntentActivities(launch, 0).map { it.activityInfo.packageName }.distinct().filter { it != packageName }.mapNotNull { pkg ->
+                                runCatching {
+                                    val ai = pm.getApplicationInfo(pkg, 0)
+                                    PhoneApp(pkg, pm.getApplicationLabel(ai).toString())
+                                }.getOrNull()
+                            }
                         }
                     }
                     val access = remember(backEntry) { androidx.core.app.NotificationManagerCompat.getEnabledListenerPackages(this@MainActivity).contains(packageName) }

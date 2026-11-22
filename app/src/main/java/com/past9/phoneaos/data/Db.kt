@@ -111,6 +111,8 @@ data class NotificationRow(
 @Dao
 interface NotificationDao {
     @Query("SELECT * FROM notifications ORDER BY postedAt DESC LIMIT :limit") fun recent(limit: Int = 200): Flow<List<NotificationRow>>
+    /** The home badge only needs the number, not 200 rows kept warm on every screen. */
+    @Query("SELECT COUNT(*) FROM notifications WHERE postedAt > :since") fun countSince(since: Long): Flow<Int>
     @Query("SELECT * FROM notifications WHERE postedAt > :since ORDER BY postedAt DESC LIMIT :limit") suspend fun since(since: Long, limit: Int = 300): List<NotificationRow>
     @Insert suspend fun insert(n: NotificationRow): Long
     @Query("DELETE FROM notifications WHERE postedAt < :before") suspend fun prune(before: Long)

@@ -1,6 +1,6 @@
 package com.past9.phoneaos.ui.screens
 
-import com.past9.phoneaos.ui.relativeTimeL
+import android.util.LruCache
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -13,18 +13,52 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.platform.LocalContext
+import androidx.core.graphics.drawable.toBitmap
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.past9.phoneaos.data.NotificationRow
 import com.past9.phoneaos.ui.AppCard
 import com.past9.phoneaos.ui.SectionHeader
 import com.past9.phoneaos.ui.SubScreen
-import com.past9.phoneaos.ui.relativeTime
+import com.past9.phoneaos.ui.relativeTimeL
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.pluralStringResource
 import com.past9.phoneaos.R
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
-data class PhoneApp(val pkg: String, val label: String, val icon: ImageBitmap?)
+data class PhoneApp(val pkg: String, val label: String)
+
+/** At most a few megabytes of visible-row icons, never every launcher app at once. */
+private val appIconCache = object : LruCache<String, ImageBitmap>(64) {}
+
+/** The system needs memory: decoded launcher icons are pure cache, so drop them; visible rows load again. */
+internal fun trimAppIconCache() = appIconCache.evictAll()
+
+@Composable
+private fun AppIcon(pkg: String) {
+    val context = LocalContext.current
+    val icon by produceState<ImageBitmap?>(initialValue = appIconCache.get(pkg), pkg) {
+        // A recycled row may still hold the previous package's bitmap until this producer runs.
+        val cached = appIconCache.get(pkg)
+        value = cached
+        if (cached != null) return@produceState
+        val loaded = withContext(Dispatchers.IO) {
+            runCatching {
+                val ai = context.packageManager.getApplicationInfo(pkg, 0)
+                context.packageManager.getApplicationIcon(ai).toBitmap(96, 96).asImageBitmap()
+            }.getOrNull()
+        }
+        if (loaded != null) {
+            appIconCache.put(pkg, loaded)
+            value = loaded
+        }
+    }
+    if (icon != null) Image(icon!!, null, Modifier.size(36.dp).clip(MaterialTheme.shapes.small))
+    else Icon(Icons.Rounded.Apps, null, Modifier.size(36.dp))
+}
 
 data class NotificationsActions(
     val onBack: () -> Unit = {},
@@ -74,7 +108,7 @@ fun NotificationsScreen(access: Boolean, apps: List<PhoneApp>, allowed: Set<Stri
             items(shown, key = { it.pkg }) { a ->
                 Surface(shape = MaterialTheme.shapes.large, color = MaterialTheme.colorScheme.surfaceContainerLow, modifier = Modifier.fillMaxWidth()) {
                     Row(Modifier.padding(horizontal = 14.dp, vertical = 10.dp), verticalAlignment = Alignment.CenterVertically) {
-                        if (a.icon != null) Image(a.icon, null, Modifier.size(36.dp).clip(MaterialTheme.shapes.small)) else Icon(Icons.Rounded.Apps, null, Modifier.size(36.dp))
+                        AppIcon(a.pkg)
                         Spacer(Modifier.width(14.dp))
                         Text(a.label, style = MaterialTheme.typography.titleSmall, modifier = Modifier.weight(1f))
                         Switch(a.pkg in allowed, { actions.onToggle(a.pkg, it) })

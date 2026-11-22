@@ -18,6 +18,10 @@ import kotlinx.coroutines.flow.debounce
 
 /** Everything long-lived, built once per process. */
 class Graph(context: Context) {
+    private companion object {
+        /** How long non-critical housekeeping waits so a cold start gets the CPU for its first frames. */
+        const val START_DEFER_MS = 2_000L
+    }
     val app: Context = context.applicationContext
     /** A failure in any background job is logged and stays in that job: it never reaches the process. */
     val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default + kotlinx.coroutines.CoroutineExceptionHandler { _, t ->
@@ -44,21 +48,24 @@ class Graph(context: Context) {
         com.past9.phoneaos.triggers.Routines.appContext = app
         // A paired Wear OS watch (only once it has said hello): keep its picture current. docs/wear.md.
         runCatching { com.past9.phoneaos.wear.WatchRelay.attach(this) }
-        scope.launch { runCatching { com.past9.phoneaos.triggers.Overnight.ensureRoutine(this@Graph) } }
+        // Cold start: the first frame matters more than housekeeping. These still run on every start, a moment
+        // later, so nothing scheduled is lost — they just no longer compete with the first frame for CPU and IO.
+        scope.launch { kotlinx.coroutines.delay(START_DEFER_MS); runCatching { com.past9.phoneaos.triggers.Overnight.ensureRoutine(this@Graph) } }
         // Important dates (People): one exact alarm per date, planned from the dates themselves on every start.
-        scope.launch { runCatching { com.past9.phoneaos.people.PersonReminders.syncAll(app) } }
-        // Anything scheduled that was missed while the app was dead runs once now.
-        scope.launch { runCatching { Routines.catchUp(app) } }
+        scope.launch { kotlinx.coroutines.delay(START_DEFER_MS); runCatching { com.past9.phoneaos.people.PersonReminders.syncAll(app) } }
+        // Anything scheduled that was missed while the app was dead runs once now. WorkManager queries are the
+        // heaviest of the start-up housekeeping, so they wait for the second beat.
+        scope.launch { kotlinx.coroutines.delay(START_DEFER_MS * 2); runCatching { Routines.catchUp(app) } }
         // Reminders follow the to-do list: any open to-do with a due time rings then, by itself.
         scope.launch { db.tasks().tasks().debounce(1500).collect { runCatching { com.past9.phoneaos.triggers.Reminders.syncAll(app) } } }
         // Wakes (reasoned, self-scheduled follow-ups and the calendar's meeting wakes): armed again on every start, so a
         // killed or updated app never loses its next one. Plain code, no AI.
-        scope.launch { runCatching { com.past9.phoneaos.triggers.Wakes.rearm(app) } }
+        scope.launch { kotlinx.coroutines.delay(START_DEFER_MS); runCatching { com.past9.phoneaos.triggers.Wakes.rearm(app) } }
         // A consumer (ck_) Composio key: fetch Composio Connect's tools so the agent has them.
         com.past9.phoneaos.tools.ComposioConnect.onActiveApps = { settings.rememberComposioApps(it) }
         // Only the account's own apps need their tools spelled out; the catalogue ones are known by name.
         com.past9.phoneaos.tools.ComposioConnect.onAppTools = { t -> t.filterKeys { it.startsWith("custom_") }.takeIf { it.isNotEmpty() }?.let { settings.rememberComposioAppTools(it) } }
-        settings.composioKey()?.takeIf { com.past9.phoneaos.tools.ComposioConnect.isConsumerKey(it) }?.let { k -> scope.launch { com.past9.phoneaos.tools.ComposioConnect.load(k.trim()) } }
+        settings.composioKey()?.takeIf { com.past9.phoneaos.tools.ComposioConnect.isConsumerKey(it) }?.let { k -> scope.launch { kotlinx.coroutines.delay(START_DEFER_MS * 2); com.past9.phoneaos.tools.ComposioConnect.load(k.trim()) } }
     }
     /**
      * The outside entry point (GitHub issue #18): MacroDroid and Tasker fire a routine or send an instruction over

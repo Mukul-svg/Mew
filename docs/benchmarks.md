@@ -43,6 +43,8 @@ java -classpath "gradle\wrapper\gradle-wrapper.jar" org.gradle.wrapper.GradleWra
 ```
 
 `scripts/benchmark-device.ps1` does the install and device setup, and checks that exactly one device is attached.
+`scripts/benchmark-restore.ps1` puts the phone back afterwards: animations at 1x and stay-awake off. Run it after every
+benchmark, even a failed one — the setup deliberately disables animations for stable frame timing.
 
 ## Run
 

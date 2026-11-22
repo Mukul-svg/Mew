@@ -4,7 +4,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.layout.boundsInRoot
 import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.animateFloat
@@ -782,7 +781,7 @@ internal fun CallRow(items: List<ChatItem>, agentName: String, startOpen: Boolea
     val hands = LiveCallParts.handoffs(items)
     val cs = MaterialTheme.colorScheme
     Surface(onClick = { open = !open }, shape = RoundedCornerShape(com.past9.phoneaos.ui.theme.Radius.md), color = cs.surfaceContainerLow, modifier = Modifier.fillMaxWidth()) {
-        Column(Modifier.padding(horizontal = 14.dp, vertical = 10.dp).animateContentSize()) {
+        Column(Modifier.padding(horizontal = 14.dp, vertical = 10.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Box(Modifier.size(28.dp).clip(RoundedCornerShape(com.past9.phoneaos.ui.theme.Radius.sm)).background(cs.primaryContainer), contentAlignment = Alignment.Center) {
                     Icon(Icons.Rounded.Call, null, Modifier.size(16.dp), tint = cs.onPrimaryContainer)
@@ -794,13 +793,15 @@ internal fun CallRow(items: List<ChatItem>, agentName: String, startOpen: Boolea
                 }
                 Icon(if (open) Icons.Rounded.ExpandLess else Icons.Rounded.ExpandMore, if (open) stringResource(R.string.chat_hide_call) else stringResource(R.string.chat_show_call), tint = cs.onSurfaceVariant)
             }
-            if (open) Column(Modifier.padding(top = 10.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                items.forEach { i ->
-                    val h = LiveCallParts.handoffOf(i)
-                    if (h != null) HandoffEntry(h.request, h.spoken) else {
-                    val me = i.kind == "user"
-                    Text(if (me) stringResource(R.string.chat_you) else agentName, style = MaterialTheme.typography.labelMedium, color = if (me) cs.onSurfaceVariant else cs.primary)
-                    Text(i.text, style = MaterialTheme.typography.bodyMedium, color = cs.onSurface)
+            AnimatedVisibility(open, enter = expandVertically(tween(160)), exit = shrinkVertically(tween(120))) {
+                Column(Modifier.padding(top = 10.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    items.forEach { i ->
+                        val h = LiveCallParts.handoffOf(i)
+                        if (h != null) HandoffEntry(h.request, h.spoken) else {
+                            val me = i.kind == "user"
+                            Text(if (me) stringResource(R.string.chat_you) else agentName, style = MaterialTheme.typography.labelMedium, color = if (me) cs.onSurfaceVariant else cs.primary)
+                            Text(i.text, style = MaterialTheme.typography.bodyMedium, color = cs.onSurface)
+                        }
                     }
                 }
             }

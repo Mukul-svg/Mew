@@ -144,3 +144,45 @@ number is a lower bound for the whole browser cost.
 
 The disposable benchmark app, test APK, traces and screenshots were removed after the run. The real Mew install remains
 `0.16.1`/181 with its data intact.
+
+## Post-0.16.2 optimization batch (22 Nov 2026)
+
+The first two fixes from the findings were implemented and re-measured on the same CPH2707 (Android 16, arm64),
+six iterations each, with the same `benchmark` build type.
+
+| Test | Metric | Before | After | Change |
+|---|---|---:|---:|---:|
+| `ChatBenchmark#expandTheLiveCallBlock` | Frame CPU P90 | 23.3 ms | **14.8 ms** | −37% |
+| `ChatBenchmark#expandTheLiveCallBlock` | Overrun P90 | 11.4 ms | **3.5 ms** | −69% |
+| `ChatBenchmark#expandTheLiveCallBlock` | Overrun P99 | — | 10.3 ms | — |
+| `ScreensBenchmark#notifications` | RSS-anon (median) | 72.6 MB | **52.1 MB** | −20.5 MB / −28% |
+| `ScreensBenchmark#notifications` | Frame CPU P90 | 12.6 ms | **11.6 ms** | −1.0 ms |
+| `ScreensBenchmark#notifications` | Overrun P90 | 0.5 ms | **−0.6 ms** | −1.1 ms |
+| `StartupBenchmark#coldStart` | TTID (median) | 505.5 ms | **495.4 ms** | −10.1 ms / −2% |
+| `StartupBenchmark#warmStart` | TTID (median) | 157.4 ms | **134.9 ms** | −22.5 ms / −14% |
+
+Cold startup's first run after installing the new APK was 559.2 ms; the second run settled at 495.4 ms (min 477.9 ms).
+Warm startup improved by 22.5 ms, the largest startup gain in the batch.
+
+What changed:
+
+- `NotificationsScreen` no longer decodes a 96×96 icon for every launcher app during composition. `AppIcon` loads
+  only visible icons on `Dispatchers.IO` and keeps at most 64 in an `LruCache`; the cache is evicted when the activity
+  receives `TRIM_MEMORY_RUNNING_LOW` or higher. `MainActivity` also enumerates launcher packages and labels off the
+  main thread.
+- The root UI no longer collects the 200-row notification list for the whole session. The home badge reads a
+  remembered `COUNT(*)` flow; the recent rows are read only while the notifications screen is on top. Every allowed
+  notification used to re-query 200 rows and recompose the root.
+- The live-call row no longer uses `animateContentSize` on every layout pass. Expansion uses `AnimatedVisibility`
+  with a 160 ms enter / 120 ms exit, so scrolling the expanded row does less work.
+- `BrowserService` keeps its 3-minute idle close. Under `TRIM_MEMORY_RUNNING_CRITICAL`, when the agent is not working,
+  it may also release browsers that are off screen and unused for 60 seconds. It never drops an attached browser or
+  one the agent may be about to drive.
+- Non-critical `Graph` housekeeping (overnight routine, people reminders, wake re-arming, Composio tool fetch,
+  routine catch-up) now waits 2–4 seconds after graph creation so it does not compete with the first frame; it still
+  runs on every start.
+- The wake channel waits on the saved link flow instead of polling every 30 seconds while the link is off.
+
+The notifications first iteration still reaches 64.0 MB (class loading and package-manager warm-up); iterations 1–5
+settle at 46.8–53.7 MB. The before/after comparison uses the median, matching the original table.
+

@@ -5,6 +5,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
+import android.content.ComponentCallbacks2
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ServiceInfo
@@ -62,6 +63,27 @@ class BrowserService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int = START_NOT_STICKY
 
+    /**
+     * The system is critically short of memory: give up browsers that are off screen and have had no use for a
+     * while. Never while the agent is working — it may be about to read or click the page it opened — and never a
+     * browser the user is watching. This is the last-resort pressure valve; the normal 3-minute scheduleIdle still
+     * closes everything on its own. RUNNING_LOW is deliberately ignored: it is common in the background and the
+     * normal idle path already handles it.
+     */
+    override fun onTrimMemory(level: Int) {
+        super.onTrimMemory(level)
+        if (level != ComponentCallbacks2.TRIM_MEMORY_RUNNING_CRITICAL) return
+        val st = com.past9.phoneaos.App.graph(this).runtime.status.value
+        if (st.working || st.helpers > 0) return
+        val cutoff = System.currentTimeMillis() - CRITICAL_IDLE_MS
+        val released = engines.entries.filter { !it.value.attached && it.value.lastUsed < cutoff }
+            .mapNotNull { e -> engines.remove(e.key)?.also { it.destroy() } }
+        if (released.isNotEmpty()) {
+            _engines.value = engines.toMap()
+            scheduleIdle()
+        }
+    }
+
     override fun onDestroy() { service = null; com.past9.phoneaos.system.ForegroundGuard.left(this); idle?.cancel(); idleScope = null; engines.values.forEach { it.destroy() }; engines.clear(); _engines.value = emptyMap(); _running.value = false; super.onDestroy() }
 
     companion object {
@@ -80,6 +102,8 @@ class BrowserService : Service() {
         val running: StateFlow<Boolean> = _running
         private const val MAX = 4
         private const val IDLE_MS = 3 * 60_000L
+        /** Under critical pressure, a browser unused this long is safe to drop: the agent is not working. */
+        private const val CRITICAL_IDLE_MS = 60_000L
 
         fun start(context: Context) { com.past9.phoneaos.system.ForegroundGuard.start(context, BrowserService::class.java) }
         fun stop(context: Context) { com.past9.phoneaos.system.ForegroundGuard.stop(context, BrowserService::class.java) }

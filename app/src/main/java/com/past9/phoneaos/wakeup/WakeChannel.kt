@@ -25,6 +25,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.json.JSONObject
 
@@ -89,7 +90,9 @@ object WakeChannel {
         loop = scope.launch {
             while (true) {
                 val link = RemoteHub.link.value
-                if (link == null || !link.on) { delay(30_000); continue }
+                // Link off: wait for the flow, not a 30-second alarm. A service left alive by the system must not
+                // wake the phone every half minute just to learn that it has nothing to do.
+                if (link == null || !link.on) { RemoteHub.link.first { it?.on == true }; continue }
                 if (rpc?.isOpen == true && openKey == key(link)) { wake.receive(); continue }
                 if (rpc != null) { rpc?.close(); rpc = null }
                 var opened = false

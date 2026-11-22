@@ -212,7 +212,7 @@ open class ScreensTest(private val dark: Boolean) {
     @Test fun tasksMine() { shot("23-tasks-mine") { TasksScreen(demoGoals, demoTasks, TaskActions(), startTab = 0) } }
     @Test fun notifications() {
         val rows = listOf(NotificationRow(1, "com.mybank", "MyBank", "Payment received", "R 2,500.00 from ACME PTY LTD into Savings", now - 600_000), NotificationRow(2, "com.whatsapp", "WhatsApp", "Lerato", "Did you send the invoice?", now - 3_600_000))
-        shot("52-notifications") { NotificationsScreen(false, listOf(PhoneApp("com.mybank", "MyBank", null), PhoneApp("com.whatsapp", "WhatsApp", null), PhoneApp("com.takealot", "Takealot", null)), setOf("com.mybank", "com.whatsapp"), rows, NotificationsActions()) }
+        shot("52-notifications") { NotificationsScreen(false, listOf(PhoneApp("com.mybank", "MyBank"), PhoneApp("com.whatsapp", "WhatsApp"), PhoneApp("com.takealot", "Takealot")), setOf("com.mybank", "com.whatsapp"), rows, NotificationsActions()) }
     }
     @Test fun styleRed() { shot("17-onboarding-style-red") { OnboardingScreen(OnboardingActions(), start = OnbStep.STYLE, initialAccent = "red", initialMascot = "scout", initialUser = "Sam", initialAgent = "Nova") } }
 

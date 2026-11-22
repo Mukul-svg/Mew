@@ -309,7 +309,7 @@ class AuditShotsTest(private val width: Int, private val height: Int, private va
 
     // ---------- notifications ----------
     @Test fun notificationsOnWithManyApps() {
-        val appList = (1..14).map { PhoneApp("com.app$it", if (it == 3) "An application with a very long label that keeps going" else "App $it", null) }
+        val appList = (1..14).map { PhoneApp("com.app$it", if (it == 3) "An application with a very long label that keeps going" else "App $it") }
         val rows = listOf(NotificationRow(1, "com.app1", "App 1", "Payment received from a company with a very long registered name (Pty) Ltd", "R 2,500.00 from ACME PTY LTD into Savings. $unbroken", now - 600_000),
             NotificationRow(2, "com.app2", "App 2", "", "", now - 3_600_000))
         shot("a50-notifications-on") { NotificationsScreen(true, appList, setOf("com.app1", "com.app3"), rows, NotificationsActions()) }
