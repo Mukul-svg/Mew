@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <!-- Macrobenchmark needs a profileable, non-debuggable app (AGP merges this only into the benchmark build). -->
+        <profileable android:shell="true" />
+
+        <!-- Benchmark-only hooks. They exist only in the benchmark build type, never in a release. -->
+        <receiver
+            android:name=".benchmark.BenchmarkReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.past9.phoneaos.BENCHMARK" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

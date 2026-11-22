@@ -63,6 +63,8 @@ import kotlinx.coroutines.flow.first
 class MainActivity : ComponentActivity() {
     /** Text shared in from another app, or a route asked for by a notification. */
     private val incoming = MutableStateFlow<Pair<String?, String?>>(null to null)
+    /** The benchmark build only: a route to open after the graph is up (Macrobenchmark's deterministic entry). */
+    private var benchmarkRoute: String? = null
 
     override fun attachBaseContext(newBase: android.content.Context) = super.attachBaseContext(com.past9.phoneaos.system.AppLocale.wrap(newBase))
 
@@ -136,6 +138,8 @@ class MainActivity : ComponentActivity() {
 
     private fun handle(i: Intent?) {
         if (i == null) return
+        // Macrobenchmark only: open one screen directly, after the real graph and home are up.
+        if (BuildConfig.BENCHMARK) i.getStringExtra("benchmark_route")?.takeIf { it.isNotBlank() }?.let { benchmarkRoute = it }
         // A home-screen shortcut to one mini-app.
         i.getStringExtra("miniapp")?.let { com.past9.phoneaos.miniapps.MiniAppsHub.pendingOpen.value = it }
         // An important date's reminder (People): open that person's page.
@@ -518,6 +522,9 @@ class MainActivity : ComponentActivity() {
         val cards by g.cards.cards.collectAsStateWithLifecycle()
         val miniApps by com.past9.phoneaos.miniapps.MiniAppsHub.apps.collectAsStateWithLifecycle()
         LaunchedEffect(Unit) { com.past9.phoneaos.miniapps.MiniAppsHub.pendingOpen.collect { id -> if (id != null) { nav.navigate("miniapp/$id") { launchSingleTop = true }; com.past9.phoneaos.miniapps.MiniAppsHub.pendingOpen.value = null } } }
+        LaunchedEffect(Unit) {
+            if (BuildConfig.BENCHMARK) benchmarkRoute?.let { route -> nav.navigate(route) { launchSingleTop = true } }
+        }
         var openCard by remember { mutableStateOf<String?>(null) }
         val needStore = remember { NeedStore.of(applicationContext) }
         var refreshingCard by remember { mutableStateOf<String?>(null) }

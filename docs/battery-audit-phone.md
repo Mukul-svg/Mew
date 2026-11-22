@@ -153,7 +153,8 @@ Eight parallel audits covered agent runtime/tools, data/startup, networking/wake
 - **Boot/time rearm de-duplication**: scheduler refactor; deferred.
 - **Host-side Node/SSE fixes**: the Node host is a PC service, not the phone runtime; audited separately and not part of this phone battery batch.
 - **RGB_565 / low-RAM decode / lossy re-encode**: rejected for image quality.
-- **Baseline/startup profiles**: recommended, but generating them needs a macrobenchmark device run.
+- **Baseline/startup profiles**: recommended, and the suite that can generate/compare them now exists. See
+  [`docs/benchmarks.md`](benchmarks.md); a real device run is still required.
 - **Compose graphicsLayer rewrites, `SubcomposeAsyncImage` replacement, root/Home recomposition split**: visible-frame or broad refactor risk; deferred until screenshot/recomposition tests.
 
 ### Verification

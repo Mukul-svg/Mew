@@ -29,9 +29,11 @@ android {
     // for executing downloaded files is no longer needed. OpenCode Zen/Go API-key mode is the only
     // required model path; Claude/Codex/Antigravity runtimes are out of scope (DECISIONS.md D-011).
     targetSdk = 34
-    // Above upstream 0.15.76/179 and the previous Mew 0.16.0/180 so this build installs as an update.
-    versionCode = 181
-    versionName = "0.16.1"
+    // Above upstream 0.15.76/179, Mew 0.16.0/180 and Mew 0.16.1/181 so this build installs as an update.
+    versionCode = 182
+    versionName = "0.16.2"
+    // The macrobenchmark build type turns this on for its own seeding/navigation hooks only.
+    buildConfigField("boolean", "BENCHMARK", "false")
     // Android never lets an installed app rename itself or change the icon Samsung shows on
     // notifications, so a personal build bakes the owner's agent in: -PagentName=Hina -PagentIcon=ic_app_heart_red
     resValue("string", "app_name", (project.findProperty("agentName") as String?) ?: "Mew")
@@ -83,6 +85,15 @@ android {
         )
       }
     }
+    create("benchmark") {
+      // Release-like and profileable (src/benchmark/AndroidManifest.xml), signed with the debug key so the device
+      // accepts it. Macrobenchmark measures the real, non-debuggable code path.
+      initWith(getByName("release"))
+      isDebuggable = false
+      signingConfig = signingConfigs.getByName("debug")
+      matchingFallbacks += listOf("release")
+      buildConfigField("boolean", "BENCHMARK", "true")
+    }
   }
   compileOptions {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -110,7 +121,10 @@ android {
         it.systemProperty("robolectric.pixelCopyRenderMode", "hardware")
         // Without this Roborazzi writes nothing and the run still passes green.
         it.systemProperty("roborazzi.test.record", "true")
-        it.maxHeapSize = "3g"
+        it.maxHeapSize = (project.findProperty("testMaxHeap") as String?) ?: "3g"
+        // The giant parameterized screenshot matrix can hang inside Robolectric's native renderer on Windows.
+        // CI still runs it; local verification can leave it out with -PexcludeAuditShots (other shot suites stay in).
+        if (project.hasProperty("excludeAuditShots")) it.filter.excludeTestsMatching("*AuditShotsTest*")
         // The wake word accuracy run (docs/wake-word.md) loads the engine's Linux library; unset, those tests skip themselves.
         System.getenv("WAKE_NATIVE_DIR")?.let { dir -> it.systemProperty("java.library.path", dir); it.environment("WAKE_NATIVE_DIR", dir) }
         listOf("WAKE_EVAL_DIR", "WAKE_EVAL_OUT", "WAKE_EVAL_ARGS").forEach { k -> System.getenv(k)?.let { v -> it.environment(k, v) } }
@@ -153,6 +167,8 @@ dependencies {
   implementation(libs.androidx.compose.material3)
   implementation(libs.androidx.compose.material.icons.extended)
   implementation(libs.androidx.navigation.compose)
+  // Installs the baseline profile and lets Macrobenchmark reset/compile profiles on the benchmark build.
+  implementation(libs.androidx.profileinstaller)
   implementation(libs.androidx.room.runtime)
   implementation(libs.androidx.room.ktx)
   implementation(libs.androidx.work.runtime.ktx)

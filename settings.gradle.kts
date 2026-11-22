@@ -33,6 +33,7 @@ rootProject.name = "Mew"
 
 include(":app")
 include(":wearproto")
+include(":macrobenchmark")
 
 // Phone-only by default (0.16.0): the Wear OS app and watch faces stay in the repository, but are
 // configured only when asked for with -PwithWear. The phone app still depends on :wearproto.

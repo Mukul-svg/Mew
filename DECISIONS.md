@@ -260,6 +260,16 @@ When a conflict exists, **ask the user before doing any implementation work**. W
 - **Consequences:** Free-tier calls still have 65k TPM; long calls or screen frames can hit it. Functions `behavior` is added only for the exact `gemini-3.8-live` id, so older models receive their declarations unchanged. Paid tiers and extended thinking are unchanged and not required.
 - **Related:** D-017, D-020.
 
+### D-022: Measure the real app with a Macrobenchmark build type
+
+- **Date:** 2026-11-22
+- **Status:** accepted
+- **Decision:** Add a `benchmark` build type and a `:macrobenchmark` module. The build type is release-like (R8, not debuggable), signed with the debug key and marked `profileable`; it alone compiles `app/src/benchmark`, whose receiver seeds private state and triggers one background path at a time. The route extra `benchmark_route` is read only when `BuildConfig.BENCHMARK` is true.
+- **Rationale:** Macrobenchmark must measure the shipping code path, not a debuggable one. Private Room/DataStore data cannot be seeded with `run-as` on a non-debuggable app, and model/network turns are not deterministic; an explicit benchmark-only receiver gives reproducible data, routes and WorkManager/Node/browser triggers without putting any hook in a release.
+- **Alternatives considered:** Benchmark the debug build (different R8/profile behavior, and `run-as` still needs a debuggable build); seed by UI automation only (slow, brittle, cannot fill 200 chat rows or routines); add hooks to the release manifest (unacceptable surface area).
+- **Consequences:** A physical Android 14+ arm64 device is required; the suite cannot run on the x86 emulators the app does not support. The benchmark receiver and `benchmark_route` are compiled only into `benchmark`. CI remains unchanged; device runs are manual until a dedicated benchmark runner exists.
+- **Related:** D-014, D-019, D-020.
+
 ## Superseded decisions
 
 ### D-105: Write an exit plan for `targetSdk 28`

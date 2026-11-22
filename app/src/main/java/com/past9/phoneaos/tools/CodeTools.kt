@@ -27,6 +27,9 @@ class RunCodeTool(private val context: Context) : Tool {
         schema(listOf("code", "purpose"), "code" to str("The JavaScript to run"), "purpose" to str("One line: what this does, shown to the user")))
 
     override suspend fun run(input: JSONObject, ctx: ToolContext): String = withContext(Dispatchers.IO) {
+        val cookie = System.nanoTime().toInt()
+        android.os.Trace.beginAsyncSection("mew.node.run", cookie)
+        try {
         if (!rt.nodeAvailable) {
             ctx.activity("Downloading the code runtime (one time)", JSONObject().put("tool", "code"))
             val err = runCatching { rt.ensureNode() }.exceptionOrNull()
@@ -52,6 +55,9 @@ class RunCodeTool(private val context: Context) : Tool {
             append(out.toString().ifBlank { "(no output)" })
             if (changed.isNotEmpty()) append("\nFiles written: " + changed.joinToString { "${it.name} (${it.length()} bytes)" })
             images.forEach { append("\n[[image:${it.path}]]") }
+        }
+        } finally {
+            android.os.Trace.endAsyncSection("mew.node.run", cookie)
         }
     }
 }

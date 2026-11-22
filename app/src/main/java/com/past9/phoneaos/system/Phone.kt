@@ -197,10 +197,16 @@ object HelperWatchdog {
 
 class WatchdogWorker(context: Context, params: androidx.work.WorkerParameters) : androidx.work.CoroutineWorker(context, params) {
     override suspend fun doWork(): Result {
+        val cookie = System.nanoTime().toInt()
+        android.os.Trace.beginAsyncSection("mew.bg.watchdog", cookie)
+        try {
         val g = App.graph(applicationContext) // a fresh process resumes cut-off helpers as it starts
         runCatching { g.runtime.resumeCutOffHelpers() } // a live process: pick up any helper that has lost its coroutine
         if (g.runtime.status.value.helpers == 0 && g.runtime.workingHelperRows() == 0) HelperWatchdog.cancel(applicationContext)
         return Result.success()
+        } finally {
+            android.os.Trace.endAsyncSection("mew.bg.watchdog", cookie)
+        }
     }
 }
 

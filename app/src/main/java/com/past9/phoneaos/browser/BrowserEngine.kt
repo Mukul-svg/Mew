@@ -514,12 +514,18 @@ class BrowserEngine(private val context: Context, val profile: String = "Persona
     }
 
     suspend fun goto(url: String): PageState {
+        val cookie = System.nanoTime().toInt()
+        android.os.Trace.beginAsyncSection("mew.browser.goto", cookie)
+        try {
         val target = if (url.startsWith("http") || url.startsWith("about:")) url else "https://$url"
         val done = CompletableDeferred<Unit>().also { pageDone = it }
         onMain<Unit> { w, cb -> w.loadUrl(target); cb(Unit) }
         withTimeoutOrNull(20_000) { done.await() }
         kotlinx.coroutines.delay(600) // let late scripts render
         return _page.value
+        } finally {
+            android.os.Trace.endAsyncSection("mew.browser.goto", cookie)
+        }
     }
 
     suspend fun back(): PageState {

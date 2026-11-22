@@ -57,6 +57,9 @@ class NotificationReader : NotificationListenerService() {
 
     /** One notification, in order. The backfill uses this directly; live posts arrive through [handle]. */
     private suspend fun record(sbn: StatusBarNotification, live: Boolean) {
+        val cookie = System.nanoTime().toInt()
+        android.os.Trace.beginAsyncSection("mew.notif.record", cookie)
+        try {
         // The backfill path must obey the same allowed-app list as live posts.
         val watched = getSharedPreferences("settings", MODE_PRIVATE).getStringSet("notifApps", emptySet()).orEmpty()
         if (sbn.packageName == packageName || sbn.packageName !in watched) return
@@ -78,6 +81,9 @@ class NotificationReader : NotificationListenerService() {
             val (pkg, word) = t.spec.split("|", limit = 2).let { it[0] to it.getOrElse(1) { "" } }
             if ((pkg == sbn.packageName || app.equals(pkg, true)) && (word.isBlank() || title.contains(word, true) || text.contains(word, true)))
                 Routines.runNow(this@NotificationReader, t.id, "A notification just arrived from $app: \"$title: ${text.take(400)}\". ")
+        }
+        } finally {
+            android.os.Trace.endAsyncSection("mew.notif.record", cookie)
         }
     }
 

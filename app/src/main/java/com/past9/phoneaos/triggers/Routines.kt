@@ -217,6 +217,9 @@ class RoutineWorker(context: Context, params: WorkerParameters) : CoroutineWorke
     private var payload: String? = null
 
     override suspend fun doWork(): Result {
+        val cookie = System.nanoTime().toInt()
+        android.os.Trace.beginAsyncSection("mew.bg.routine", cookie)
+        try {
         // An outside caller (GitHub issue #18) asked for this run by name and is polling for the answer: it gets the
         // whole text, not the 500 characters a routine row keeps.
         val runId = inputData.getString("run")?.takeIf { it.isNotBlank() }
@@ -226,6 +229,9 @@ class RoutineWorker(context: Context, params: WorkerParameters) : CoroutineWorke
         }
         if (runId != null) com.past9.phoneaos.automation.AutomationRuns.finish(runId, payload ?: "It ran, and had nothing to report.")
         return result
+        } finally {
+            android.os.Trace.endAsyncSection("mew.bg.routine", cookie)
+        }
     }
 
     private suspend fun runBody(): Result {

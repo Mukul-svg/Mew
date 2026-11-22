@@ -158,7 +158,9 @@ class Graph(context: Context) {
 }
 
 class App : Application(), coil.ImageLoaderFactory {
-    val graph by lazy { Graph(this) }
+    val graph by lazy {
+        com.past9.phoneaos.system.TraceSections.section("mew.startup.graph") { Graph(this) }
+    }
 
     override fun attachBaseContext(base: Context) = super.attachBaseContext(com.past9.phoneaos.system.AppLocale.wrap(base))
 
