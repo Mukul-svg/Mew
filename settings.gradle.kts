@@ -18,6 +18,11 @@ dependencyResolutionManagement {
   repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
   repositories {
     google()
+    // Robolectric's android-all jar is large and repo.maven.apache.org rate-limits shared CI IPs (HTTP 429).
+    // Google's Maven Central mirror serves the same artifact; restrict it to Robolectric so nothing else moves.
+    maven("https://maven-central.storage-download.googleapis.com/maven2") {
+      content { includeGroupByRegex("org\\.robolectric.*") }
+    }
     mavenCentral()
     // The wake word engine (sherpa-onnx, Apache-2.0) is published as an AAR on its GitHub release, not on Maven Central.
     ivy {
