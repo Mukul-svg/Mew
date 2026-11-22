@@ -16,6 +16,17 @@ val bundledNodeRootDir = layout.buildDirectory.dir("generated/bundledNode").get(
 // Windows checkout turns into a small text file instead of the script, so stage a real copy for
 // every build on every OS.
 val agentHostAssetDir = layout.buildDirectory.dir("generated/agentHost").get().asFile
+val robolectricDir = layout.buildDirectory.dir("robolectric")
+
+// Robolectric otherwise downloads this jar itself from repo1.maven.org at test time; on a shared CI
+// runner that can answer 429 and fail every test at classMethod. Fetch it through Gradle instead and
+// run Robolectric offline against the staged jar.
+val robolectricRuntime: Configuration by configurations.creating { isTransitive = false }
+dependencies { robolectricRuntime("org.robolectric:android-all-instrumented:14-robolectric-10818077-i7") }
+val stageRobolectric = tasks.register<Copy>("stageRobolectric") {
+  from(robolectricRuntime)
+  into(robolectricDir)
+}
 
 android {
   namespace = "com.past9.phoneaos"
@@ -122,6 +133,10 @@ android {
         // Without this Roborazzi writes nothing and the run still passes green.
         it.systemProperty("roborazzi.test.record", "true")
         it.maxHeapSize = (project.findProperty("testMaxHeap") as String?) ?: "3g"
+        // No runtime Maven fetch: the staged jar is the only android-all Robolectric can see.
+        it.dependsOn(stageRobolectric)
+        it.systemProperty("robolectric.offline", "true")
+        it.systemProperty("robolectric.dependency.dir", robolectricDir.get().asFile.path)
         // The giant parameterized screenshot matrix can hang inside Robolectric's native renderer on Windows.
         // CI still runs it; local verification can leave it out with -PexcludeAuditShots (other shot suites stay in).
         if (project.hasProperty("excludeAuditShots")) it.filter.excludeTestsMatching("*AuditShotsTest*")
