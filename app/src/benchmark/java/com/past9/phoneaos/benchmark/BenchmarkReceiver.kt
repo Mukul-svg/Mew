@@ -41,6 +41,8 @@ class BenchmarkReceiver : BroadcastReceiver() {
         kotlinx.coroutines.CoroutineScope(Dispatchers.IO).launch {
             try {
                 withContext(Dispatchers.IO) { run(context.applicationContext, action) }
+            } catch (t: Throwable) {
+                android.util.Log.e("BenchmarkSeed", "action $action failed", t)
             } finally {
                 Trace.endAsyncSection("mew.bench.$action", cookie)
                 pending.finish()
@@ -50,10 +52,11 @@ class BenchmarkReceiver : BroadcastReceiver() {
 
     private suspend fun run(context: Context, action: String) {
         when (action) {
-            "seed_onboard" -> { seedOnboard(context); clearData(context) }
-            "seed_chat" -> { seedOnboard(context); clearData(context); seedChat(context) }
-            "seed_screens" -> { seedOnboard(context); clearData(context); seedScreens(context) }
-            "seed" -> { seedOnboard(context); clearData(context); seedChat(context); seedScreens(context) }
+            "seed_onboard" -> seedOnboard(context)
+            // The chat DAO clears its own rows: never run clearAllTables() while the app's Room flows are open.
+            "seed_chat" -> { seedOnboard(context); seedChat(context) }
+            "seed_screens" -> { seedOnboard(context); runCatching { clearData(context) }; seedScreens(context) }
+            "seed" -> { seedOnboard(context); runCatching { clearData(context) }; seedChat(context); seedScreens(context) }
             "reschedule" -> reschedule(context)
             "rearm" -> com.past9.phoneaos.system.Rearm.all(context)
             "run_routine" -> runRoutine(context)
@@ -99,9 +102,11 @@ class BenchmarkReceiver : BroadcastReceiver() {
         dao.clear()
         val now = System.currentTimeMillis()
         var at = now - 260 * 60_000L
+        var added = 0
         suspend fun add(kind: String, text: String, meta: JSONObject = JSONObject(), whenMs: Long = at) {
             dao.insert(ChatItem(kind = kind, text = text, meta = meta.toString(), createdAt = whenMs))
             at += 45_000
+            added++
         }
         for (i in 1..110) {
             add("user", if (i % 7 == 0) "Remember this for later: project $i is with Lerato." else "Message $i: what is the status of the thing we discussed?")
@@ -152,6 +157,8 @@ class BenchmarkReceiver : BroadcastReceiver() {
         // Written by saveCall at session end in 0.16.1 — the row that created a second call card.
         add("agent", "put the numbers in the EOD report", JSONObject(live.toString()).put("handoff", true).put("spoken", "put the numbers in the end of day report"), t + 2_000)
         add("agent", "Anything else?", JSONObject(live.toString()).put("turn", 1), t + 8_000)
+        add("notice", "Benchmark chat seeded: 110 turns, OpenUI, a question, a helper, a live call.")
+        android.util.Log.i("BenchmarkSeed", "seed_chat done: rows=$added")
     }
 
     // ---- the other screens' data --------------------------------------------------------------------

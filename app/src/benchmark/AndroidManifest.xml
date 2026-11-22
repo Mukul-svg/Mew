@@ -12,5 +12,17 @@
                 <action android:name="com.past9.phoneaos.BENCHMARK" />
             </intent-filter>
         </receiver>
+
+        <!-- A no-adb way into a seeded chat for cloud-device runs: mew://benchmark/seed. -->
+        <activity
+            android:name=".benchmark.BenchmarkActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="mew" android:host="benchmark" android:path="/seed" />
+            </intent-filter>
+        </activity>
     </application>
 </manifest>
