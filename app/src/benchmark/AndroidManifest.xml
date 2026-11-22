@@ -6,7 +6,7 @@
 
         <!-- Benchmark-only hooks. They exist only in the benchmark build type, never in a release. -->
         <receiver
-            android:name=".benchmark.BenchmarkReceiver"
+            android:name="com.past9.phoneaos.benchmark.BenchmarkReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.past9.phoneaos.BENCHMARK" />
@@ -15,7 +15,7 @@
 
         <!-- A no-adb way into a seeded chat for cloud-device runs: mew://benchmark/seed. -->
         <activity
-            android:name=".benchmark.BenchmarkActivity"
+            android:name="com.past9.phoneaos.benchmark.BenchmarkActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

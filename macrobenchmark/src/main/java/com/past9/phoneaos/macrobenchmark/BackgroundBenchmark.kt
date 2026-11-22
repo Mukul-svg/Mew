@@ -1,7 +1,6 @@
 package com.past9.phoneaos.macrobenchmark
 
 import androidx.benchmark.macro.ExperimentalMetricApi
-import androidx.benchmark.macro.FrameTimingMetric
 import androidx.benchmark.macro.MacrobenchmarkScope
 import androidx.benchmark.macro.MemoryUsageMetric
 import androidx.benchmark.macro.TraceSectionMetric
@@ -91,10 +90,10 @@ class BackgroundBenchmark {
         trigger("prune", 4_000)
     }
 
-    /** A frame check while the app is in the background: nothing should be drawing, and the process must stay small. */
+    /** Memory while the app is in the background; frame timing is meaningless when nothing redraws. */
     @Test fun idleBackgroundProcess() = rule.measureRepeated(
         packageName = PACKAGE,
-        metrics = listOf(FrameTimingMetric(), MemoryUsageMetric(MemoryUsageMetric.Mode.Max)),
+        metrics = listOf(MemoryUsageMetric(MemoryUsageMetric.Mode.Max)),
         iterations = 5,
         setupBlock = { seedEverything(); startAt("home"); pressHome() },
     ) {

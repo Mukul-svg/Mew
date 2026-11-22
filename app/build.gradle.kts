@@ -97,11 +97,15 @@ android {
       }
     }
     create("benchmark") {
-      // Release-like and profileable (src/benchmark/AndroidManifest.xml), signed with the debug key so the device
-      // accepts it. Macrobenchmark measures the real, non-debuggable code path.
+      // Release-like and profileable (src/benchmark/AndroidManifest.xml). Sign with the release key when it is
+      // available so the benchmark build can update an installed release without wiping its data; otherwise use
+      // the debug key. The macrobenchmark test APK uses the same choice, so instrumentation signatures match.
       initWith(getByName("release"))
       isDebuggable = false
-      signingConfig = signingConfigs.getByName("debug")
+      // A separate app id: the benchmark seed clears chat rows, so it must never touch the real Mew install.
+      applicationIdSuffix = ".bench"
+      resValue("string", "app_name", "Mew Bench")
+      signingConfig = signingConfigs.findByName("release") ?: signingConfigs.getByName("debug")
       matchingFallbacks += listOf("release")
       buildConfigField("boolean", "BENCHMARK", "true")
     }

@@ -26,9 +26,12 @@ class ScreensBenchmark {
         if (!seeded) { seed("seed_screens"); seeded = true }
     }
 
-    private fun screen(route: String, scroll: Boolean = true) = rule.measureRepeated(
+    private fun screen(route: String, scroll: Boolean = true, frames: Boolean = true) = rule.measureRepeated(
         packageName = PACKAGE,
-        metrics = listOf(FrameTimingMetric(), MemoryUsageMetric(MemoryUsageMetric.Mode.Max)),
+        metrics = buildList {
+            if (frames) add(FrameTimingMetric())
+            add(MemoryUsageMetric(MemoryUsageMetric.Mode.Max))
+        },
         iterations = 6,
         setupBlock = {
             seedScreens()
@@ -45,19 +48,19 @@ class ScreensBenchmark {
     @Test fun people() = screen("people")
     @Test fun person() = screen("person/1")
     @Test fun memory() = screen("memory")
-    @Test fun memoryPage() = screen("page/1")
+    @Test fun memoryPage() = screen("page/1", frames = false)
     @Test fun routines() = screen("routines")
     @Test fun connections() = screen("connections")
     @Test fun settings() = screen("settings")
     @Test fun notifications() = screen("notifications")
-    @Test fun recordings() = screen("recordings?box=main")
+    @Test fun recordings() = screen("recordings?box=main", frames = false)
     @Test fun report() = screen("report?path=" + Uri.encode("/data/user/0/com.past9.phoneaos/files/benchmark-report.md"))
     @Test fun style() = screen("style")
-    @Test fun miniApps() = screen("miniapps")
-    @Test fun miniApp() = screen("miniapp/bench")
+    @Test fun miniApps() = screen("miniapps", frames = false)
+    @Test fun miniApp() = screen("miniapp/bench", frames = false)
     @Test fun linkedDevices() = screen("linked")
-    @Test fun keySetup() = screen("key", scroll = false)
-    @Test fun callScreen() = screen("call", scroll = false)
+    @Test fun keySetup() = screen("key", scroll = false, frames = false)
+    @Test fun callScreen() = screen("call", scroll = false, frames = false)
     @Test fun projectChat() = screen("pchat/bench?name=Studio")
     @Test fun openChat() = screen("chat")
 }

@@ -2,6 +2,11 @@ plugins {
   alias(libs.plugins.android.test)
 }
 
+// The same optional release key as :app. When it exists, the benchmark test APK is signed with it so it can
+// instrument a release-signed benchmark build without uninstalling the user's app and its data.
+val releaseSigning: Map<String, String> = file((project.findProperty("signingProps") as String?) ?: "${System.getProperty("user.home")}/phone-aos/keys/signing.properties")
+  .takeIf { it.exists() }?.readLines()?.filter { "=" in it && !it.startsWith("#") }?.associate { it.substringBefore("=").trim() to it.substringAfter("=").trim() } ?: emptyMap()
+
 android {
   namespace = "com.past9.phoneaos.macrobenchmark"
   compileSdk = 37
@@ -12,13 +17,22 @@ android {
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
 
+  signingConfigs {
+    if (releaseSigning.isNotEmpty()) create("release") {
+      storeFile = file(releaseSigning.getValue("storeFile"))
+      storePassword = releaseSigning["storePassword"]
+      keyAlias = releaseSigning["keyAlias"]
+      keyPassword = releaseSigning["keyPassword"]
+    }
+  }
+
   targetProjectPath = ":app"
   experimentalProperties["android.experimental.self-instrumenting"] = true
 
   buildTypes {
     create("benchmark") {
       isDebuggable = true
-      signingConfig = signingConfigs.getByName("debug")
+      signingConfig = signingConfigs.findByName("release") ?: signingConfigs.getByName("debug")
       matchingFallbacks += listOf("release")
     }
   }

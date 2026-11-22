@@ -5,9 +5,17 @@ import androidx.benchmark.macro.MacrobenchmarkScope
 import androidx.test.uiautomator.By
 import androidx.test.uiautomator.Until
 
-const val PACKAGE = "com.past9.phoneaos"
+/**
+ * The benchmark build's own app id. It is fixed in :app's benchmark build type (applicationIdSuffix ".bench"),
+ * so the benchmark never touches the real Mew install or its data. The test APK is self-instrumenting, so its
+ * targetContext is the test package; this constant is the app under test.
+ */
+const val PACKAGE = "com.past9.phoneaos.bench"
+
+/** The class names do not change with the benchmark app id; only the package/applicationId does. */
+const val APP_CLASS = "com.past9.phoneaos.MainActivity"
+const val RECEIVER = "$PACKAGE/com.past9.phoneaos.benchmark.BenchmarkReceiver"
 const val ACTION = "com.past9.phoneaos.BENCHMARK"
-const val RECEIVER = "$PACKAGE/.benchmark.BenchmarkReceiver"
 
 /** Starts the real app and, only in the benchmark build, opens the screen the test needs. */
 fun MacrobenchmarkScope.startAt(route: String) {
@@ -19,7 +27,7 @@ fun MacrobenchmarkScope.startAt(route: String) {
 /** The bare launch used by the startup benchmarks: nothing but the real activity in the measured block. */
 fun MacrobenchmarkScope.launchApp(route: String) {
     val intent = Intent(Intent.ACTION_MAIN).apply {
-        setClassName(PACKAGE, "$PACKAGE.MainActivity")
+        setClassName(PACKAGE, APP_CLASS)
         addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
         putExtra("benchmark_route", route)
     }
@@ -67,7 +75,7 @@ fun MacrobenchmarkScope.waitForChat() {
 }
 
 fun MacrobenchmarkScope.grantNotificationAccess() {
-    device.executeShellCommand("cmd notification allow_listener $PACKAGE/$PACKAGE.system.NotificationReader")
+    device.executeShellCommand("cmd notification allow_listener $PACKAGE/com.past9.phoneaos.system.NotificationReader")
     seed("allow_shell_notifications")
 }
 

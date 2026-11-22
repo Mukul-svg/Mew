@@ -1,9 +1,10 @@
 # Macrobenchmark
 
-The suite lives in `:macrobenchmark` and measures the real phone app (package `com.past9.phoneaos`) in the
-`benchmark` build type: release-like R8/minification, **not debuggable**, signed with the debug key so a device
-accepts it, and `profileable` for Macrobenchmark. Nothing from `app/src/benchmark` is compiled into a release or a
-normal debug APK.
+The suite lives in `:macrobenchmark` and measures the real phone app in the `benchmark` build type: release-like
+R8/minification, **not debuggable**, `profileable`, and signed with the release key when it is available (otherwise the
+debug key). The benchmark build uses the separate app id **`com.past9.phoneaos.bench`**, so its seed can clear chat rows
+without ever touching the real `com.past9.phoneaos` install or its data. Nothing from `app/src/benchmark` is compiled
+into a release or a normal debug APK.
 
 It covers startup, every navigation route, the long chat (including OpenUI and the live-call block), the WebView
 browser, Node, notification intake, WorkManager routines, the helper watchdog, boot/rearm, the assist sheet, the share
@@ -21,15 +22,18 @@ From the repository root, on Unix:
 ```bash
 ./gradlew :app:assembleBenchmark :macrobenchmark:assembleBenchmark
 adb install -r app/build/outputs/apk/benchmark/app-benchmark.apk
-adb install -r macrobenchmark/build/outputs/apk/benchmark/macrobenchmark-benchmark.apk
+adb install -r -t macrobenchmark/build/outputs/apk/benchmark/macrobenchmark-benchmark.apk
 adb shell settings put global window_animation_scale 0
 adb shell settings put global transition_animation_scale 0
 adb shell settings put global animator_duration_scale 0
 adb shell svc power stayon true
-adb shell pm grant com.past9.phoneaos android.permission.RECORD_AUDIO
-adb shell pm grant com.past9.phoneaos android.permission.POST_NOTIFICATIONS
-adb shell cmd notification allow_listener com.past9.phoneaos/com.past9.phoneaos.system.NotificationReader
+adb shell pm grant com.past9.phoneaos.bench android.permission.RECORD_AUDIO
+adb shell pm grant com.past9.phoneaos.bench android.permission.POST_NOTIFICATIONS
+adb shell cmd notification allow_listener com.past9.phoneaos.bench/com.past9.phoneaos.system.NotificationReader
 ```
+
+The test APK is self-instrumenting: it launches `com.past9.phoneaos.bench` explicitly. Both APKs must be signed with
+the same release key for the benchmark build to update the benchmark app cleanly.
 
 On Windows the repository has no `gradlew.bat`; use the wrapper directly:
 
@@ -132,6 +136,13 @@ only when `BuildConfig.BENCHMARK` is true.
 - **Power**: only trust it on a physical Pixel 6+ on battery; compare like-for-like screen brightness and network.
 - **Traces**: every iteration's Perfetto trace is the source of truth. Check the `mew.*` slice, then the thread's
   `deliverInputEvent`/`Choreographer` slices and the process's CPU frequency residency.
+
+## Recorded runs
+
+- **2026-11-22, physical CPH2707 (Android 16, arm64)** — full phone run; startup, chat, screens, browser, background,
+  notifications and entry points. Results: [`benchmark-phone-0.16.2.md`](benchmark-phone-0.16.2.md).
+- **2026-11-22, Revyl cloud "Pixel 7" (x86_64 emulator + ARM translation)** — first cloud smoke run. Results:
+  [`revyl-benchmark-0.16.2.md`](revyl-benchmark-0.16.2.md).
 
 ## Limits (deliberate)
 

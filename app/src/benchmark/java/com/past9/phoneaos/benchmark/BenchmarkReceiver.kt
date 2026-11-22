@@ -55,8 +55,9 @@ class BenchmarkReceiver : BroadcastReceiver() {
             "seed_onboard" -> seedOnboard(context)
             // The chat DAO clears its own rows: never run clearAllTables() while the app's Room flows are open.
             "seed_chat" -> { seedOnboard(context); seedChat(context) }
-            "seed_screens" -> { seedOnboard(context); runCatching { clearData(context) }; seedScreens(context) }
-            "seed" -> { seedOnboard(context); runCatching { clearData(context) }; seedChat(context); seedScreens(context) }
+            // Screens are cheap to repeat; clearing the small tables avoids duplicate notifications/routines.
+            "seed_screens" -> { seedOnboard(context); seedScreens(context) }
+            "seed" -> { seedOnboard(context); seedChat(context); seedScreens(context) }
             "reschedule" -> reschedule(context)
             "rearm" -> com.past9.phoneaos.system.Rearm.all(context)
             "run_routine" -> runRoutine(context)
@@ -83,11 +84,16 @@ class BenchmarkReceiver : BroadcastReceiver() {
         s.setAccent("iris")
         s.setMascot("scout")
         s.setOnboarded(true)
+        // The first open after 4am otherwise shows the morning brief instead of the seeded chat.
+        s.setExtra("morning_seen", java.time.LocalDate.now().toString())
+        s.setExtra("reliability_offered", "1")
     }
 
     /** A benchmark seed is not additive: an earlier class's rows must not make the next class slower. */
-    private suspend fun clearData(context: Context) {
-        App.graph(context).db.clearAllTables()
+    private suspend fun clearSmallTables(context: Context) {
+        val g = App.graph(context)
+        runCatching { g.db.notifications().prune(Long.MAX_VALUE) }
+        runCatching { g.db.triggers().list().forEach { g.db.triggers().delete(it.id) } }
     }
 
     // ---- chat ---------------------------------------------------------------------------------------
@@ -165,6 +171,7 @@ class BenchmarkReceiver : BroadcastReceiver() {
 
     private suspend fun seedScreens(context: Context) {
         val g = App.graph(context)
+        clearSmallTables(context)
         val now = System.currentTimeMillis()
         runCatching {
             val goal = g.db.tasks().insertGoal(GoalRow(title = "Move the studio", why = "more light", createdAt = now - 86_400_000))

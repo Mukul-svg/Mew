@@ -8,6 +8,8 @@ import androidx.benchmark.macro.StartupTimingMetric
 import androidx.benchmark.macro.TraceSectionMetric
 import androidx.benchmark.macro.junit4.MacrobenchmarkRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.UiDevice
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -26,18 +28,36 @@ class StartupBenchmark {
         if (!seeded) { seed("seed_onboard"); seeded = true }
     }
 
-    @Test fun coldStart() = rule.measureRepeated(
-        packageName = PACKAGE,
-        metrics = listOf(
-            StartupTimingMetric(),
-            TraceSectionMetric("mew.startup.graph", mode = TraceSectionMetric.Mode.Sum),
-            MemoryUsageMetric(MemoryUsageMetric.Mode.Max),
-        ),
-        iterations = 10,
-        startupMode = StartupMode.COLD,
-        setupBlock = { seedOnce(); pressHome() },
-    ) {
-        launchApp("home")
+    /**
+     * Cold starts must begin with the process dead, so the seed runs before measureRepeated and the app is then
+     * force-stopped. Seeding inside setupBlock would start the process and fail Macrobenchmark's cold-start check.
+     */
+    private fun seedCold(action: String) {
+        val device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
+        device.executeShellCommand("am broadcast -a $ACTION --es action $action -n $RECEIVER")
+        Thread.sleep(12_000)
+        // The notification listener is system-bound; if it is enabled, force-stop immediately restarts the app.
+        device.executeShellCommand("cmd notification disallow_listener $PACKAGE/com.past9.phoneaos.system.NotificationReader")
+        Thread.sleep(1_000)
+        device.executeShellCommand("am force-stop $PACKAGE")
+        Thread.sleep(2_000)
+    }
+
+    @Test fun coldStart() {
+        seedCold("seed_onboard")
+        rule.measureRepeated(
+            packageName = PACKAGE,
+            metrics = listOf(
+                StartupTimingMetric(),
+                TraceSectionMetric("mew.startup.graph", mode = TraceSectionMetric.Mode.Sum),
+                MemoryUsageMetric(MemoryUsageMetric.Mode.Max),
+            ),
+            iterations = 10,
+            startupMode = StartupMode.COLD,
+            setupBlock = { pressHome() },
+        ) {
+            launchApp("home")
+        }
     }
 
     @Test fun warmStart() = rule.measureRepeated(
@@ -64,18 +84,21 @@ class StartupBenchmark {
         launchApp("home")
     }
 
-    @Test fun coldStartDirectlyIntoChat() = rule.measureRepeated(
-        packageName = PACKAGE,
-        metrics = listOf(
-            StartupTimingMetric(),
-            TraceSectionMetric("mew.startup.graph", mode = TraceSectionMetric.Mode.Sum),
-            TraceSectionMetric("mew.chat.group", mode = TraceSectionMetric.Mode.Sum),
-            MemoryUsageMetric(MemoryUsageMetric.Mode.Max),
-        ),
-        iterations = 10,
-        startupMode = StartupMode.COLD,
-        setupBlock = { if (!seeded) { seed("seed_chat"); seeded = true }; pressHome() },
-    ) {
-        launchApp("chat")
+    @Test fun coldStartDirectlyIntoChat() {
+        seedCold("seed_chat")
+        rule.measureRepeated(
+            packageName = PACKAGE,
+            metrics = listOf(
+                StartupTimingMetric(),
+                TraceSectionMetric("mew.startup.graph", mode = TraceSectionMetric.Mode.Sum),
+                TraceSectionMetric("mew.chat.group", mode = TraceSectionMetric.Mode.Sum),
+                MemoryUsageMetric(MemoryUsageMetric.Mode.Max),
+            ),
+            iterations = 10,
+            startupMode = StartupMode.COLD,
+            setupBlock = { pressHome() },
+        ) {
+            launchApp("chat")
+        }
     }
 }
