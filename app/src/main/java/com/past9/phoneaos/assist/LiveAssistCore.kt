@@ -214,8 +214,12 @@ class LiveAssistCore(private val clock: () -> Long = { System.currentTimeMillis(
     /** A job is out and the agent has not answered it in words yet. */
     val outstanding: Boolean get() = jobs > 0
 
-    /** The send did not go: nothing is out. */
-    fun handOffFailed() { jobs = maxOf(0, jobs - 1); publish { it.copy(label = "") } }
+    /** The send did not go: nothing is out, and the record does not claim a hand-off that was never sent. */
+    fun handOffFailed() {
+        jobs = maxOf(0, jobs - 1)
+        if (handoffs.isNotEmpty()) handoffs.removeAt(handoffs.size - 1)
+        publish { it.copy(label = "") }
+    }
 
     /** The tracker follows the chat from row [after] on, for the whole call: a later reply or a helper's result is still the answer. */
     private fun arm(after: Long) { hand = AssistCore().also { it.listen(); it.finished("job"); it.sent(after) } }

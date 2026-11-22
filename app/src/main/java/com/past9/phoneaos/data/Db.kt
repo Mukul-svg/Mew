@@ -124,6 +124,8 @@ interface ChatDao {
     @Insert suspend fun insert(item: ChatItem): Long
     @Update suspend fun update(item: ChatItem)
     @Query("SELECT * FROM chat_items WHERE id = :id") suspend fun get(id: Long): ChatItem?
+    /** A call row written before its send failed (a live hand-off that never went): it is removed again. */
+    @Query("DELETE FROM chat_items WHERE id = :id") suspend fun delete(id: Long)
     /** The newest user message whose meta matches [like] (an instant-send take's message, found by its recording id). */
     @Query("SELECT * FROM chat_items WHERE kind = 'user' AND meta LIKE :like ORDER BY id DESC LIMIT 1") suspend fun byMeta(like: String): ChatItem?
     @Query("DELETE FROM chat_items") suspend fun clear()

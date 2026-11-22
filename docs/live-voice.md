@@ -103,6 +103,11 @@ as a quote.
   `meta.handoffs`.
 - This phone's own chat writes the session as call rows (`meta.call = true`, `meta.live = true`; a hand-off row also has
   `meta.handoff = true`, `meta.spoken`, `meta.include_screen`) which `CallRow` folds into one block.
+- The rows are written **as they happen**, through one writer: a turn and the hand-off after it keep their order, and the
+  hand-off row is inserted *before* the agent's `On it: …` activity row. `saveCall()` at the end only fills a row whose
+  write failed; it never appends a hand-off after the agent's reply (that produced a second call block in 0.16.1).
+- `Chat.group` also folds rows of the same `meta.session` into the block they belong to, so a call stored by an older
+  build — or a rare late row — still shows as one call card, with the hand-off in its chronological place.
 - Both use `ui/screens/LiveCallParts.kt`.
 
 ## Code

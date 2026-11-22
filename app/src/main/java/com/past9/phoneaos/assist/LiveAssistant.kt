@@ -21,6 +21,8 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
@@ -293,7 +295,10 @@ class LiveAssistant(
     }
 
     private val localRows = HashMap<Int, Long>()
+    private val localHands = HashMap<Int, Long>()
     private val turnLock = Any()
+    /** One writer at a time: a turn and the hand-off after it can never swap places or insert twice. */
+    private val writeLock = Mutex()
 
     /**
      * Every turn goes into the main chat AS IT HAPPENS, marked as this live call (the call block folds them): over the link as
@@ -305,17 +310,46 @@ class LiveAssistant(
         if (batch.isEmpty()) return
         val r = RemoteHub.session.value
         scope.launch {
-            batch.forEach { (i, l) ->
-                if (r != null) {
+            if (r != null) {
+                batch.forEach { (i, l) ->
                     runCatching { r.call("voice.callTurn", listOf(JSONObject().put("session", core.sessionId).put("startedAt", startedAt).put("index", i).put("who", if (l.who == "in") "you" else "agent").put("text", l.text).put("at", l.at)), 10_000) }
                         .onFailure { Log.i(TAG, "callTurn not taken: ${it.message?.take(80)}") }
-                } else runCatching {
-                    val meta = JSONObject().put("call", true).put("live", true).put("session", core.sessionId).put("turn", i).toString()
-                    val have = localRows[i]
-                    if (have == null) localRows[i] = g.db.chat().insert(ChatItem(kind = if (l.who == "in") "user" else "agent", text = l.text, meta = meta, createdAt = l.at))
-                    else g.db.chat().get(have)?.let { g.db.chat().update(it.copy(text = l.text)) }
                 }
-            }
+            } else writeLock.withLock { batch.forEach { (i, l) -> writeTurnLocked(i, l) } }
+        }
+    }
+
+    /** One turn as a call row: inserted once, then only its text follows the transcript. Must hold [writeLock]. */
+    private suspend fun writeTurnLocked(i: Int, l: LiveLine) {
+        val meta = JSONObject().put("call", true).put("live", true).put("session", core.sessionId).put("turn", i).toString()
+        val have = localRows[i]
+        if (have == null) localRows[i] = g.db.chat().insert(ChatItem(kind = if (l.who == "in") "user" else "agent", text = l.text, meta = meta, createdAt = l.at))
+        else g.db.chat().get(have)?.let { g.db.chat().update(it.copy(text = l.text)) }
+    }
+
+    /** Every final turn not written yet goes in now. Must hold [writeLock]. */
+    private suspend fun flushTurnsLocked(all: Boolean) {
+        val batch = synchronized(turnLock) { core.drainFinal(all) }
+        batch.forEach { (i, l) -> writeTurnLocked(i, l) }
+    }
+
+    /**
+     * A hand-off is a call row once, at hand-off time: it goes in before the agent's own "On it" line, so the call block
+     * can never split around the agent's reply. [saveCall] only fills a row whose write failed. Must hold [writeLock].
+     */
+    private suspend fun writeHandoffLocked(index: Int): Long? {
+        localHands[index]?.let { return it }
+        val h = core.handOffs.getOrNull(index) ?: return null
+        val meta = JSONObject().put("call", true).put("live", true).put("session", core.sessionId)
+            .put("handoff", true).put("spoken", h.spoken).put("include_screen", h.includeScreen)
+        return g.db.chat().insert(ChatItem(kind = "agent", text = h.request, meta = meta.toString(), createdAt = h.at))
+            .also { localHands[index] = it }
+    }
+
+    /** The hand-off did not go: its call row goes too, so the chat never shows a job that was never sent. */
+    private suspend fun dropHandoff(index: Int) {
+        writeLock.withLock {
+            localHands.remove(index)?.let { id -> runCatching { g.db.chat().delete(id) } }
         }
     }
 
@@ -344,6 +378,9 @@ class LiveAssistant(
         // Aimed at a named project or helper (linked to a computer only): it goes there, as a voice call's hand-off does.
         val target = e.args.optString("target").trim().takeIf { it.isNotBlank() && !it.equals("main", true) && RemoteHub.session.value != null }
         scope.launch {
+            val cookie = System.nanoTime().toInt()
+            android.os.Trace.beginAsyncSection("mew.live.handoff", cookie)
+            try {
             // Minimised: he is in another app now, so what the sheet saw when it opened is out of date. Read the screen as it is at this moment.
             val screen0 = if (minimised()) AssistScreenNow.capture(context) else AssistHub.screen.value
             // The words on screen go along; the picture only when the job needs it (include_screen).
@@ -353,14 +390,24 @@ class LiveAssistant(
             val text = LiveAssistCore.message(request, e.args.optString("context"), source(), screen, spoken)
             core.handOff(request, lastId, wantPicture && jpeg != null, track = target == null)
             push()
-            val sent = runCatching { deliver(text, request, spoken, jpeg, target ?: "main") }
+            val handIndex = core.handOffs.lastIndex
+            // The hand-off row goes in on the local branch, right before the agent's own "On it" line. The callback
+            // runs inside deliver only when there is no linked computer, so a remote hand-off never writes a local row.
+            val beforeLocal: (suspend () -> Unit)? = if (target == null) {
+                { writeLock.withLock { flushTurnsLocked(true); writeHandoffLocked(handIndex) } }
+            } else null
+            val sent = runCatching { deliver(text, request, spoken, jpeg, target ?: "main", beforeLocal) }
             sent.onSuccess { where -> result(e, JSONObject().put("status", "sent_not_done").put("done", false).put("sent_to", where.ifBlank { "your main chat" })
                 .put("note", LiveTruth.ack(target == null, where.ifBlank { target.orEmpty() }))) }
                 .onFailure { err ->
                     core.handOffFailed(); push()
+                    runCatching { dropHandoff(handIndex) }
                     if (err is WhichOne) { result(e, JSONObject().put("status", "which_one").put("options", JSONArray(err.names)).put("note", "Not sent: ask the user out loud which one they mean (${err.names.joinToString(" or ")}), then call hand_to_agent again with that exact name as target.")); return@onFailure }
                     result(e, JSONObject().put("status", "failed").put("error", "It did not go: ${err.message.orEmpty().ifBlank { "the link to the computer dropped" }}. Tell the user and offer to try again."))
                 }
+            } finally {
+                android.os.Trace.endAsyncSection("mew.live.handoff", cookie)
+            }
         }
     }
 
@@ -369,7 +416,7 @@ class LiveAssistant(
      * computer through voice.callHandoff (carrying origin "live_voice" and the user's own words), on this phone as a call
      * hand-off ("On it: ..." in the chat, no user bubble). The picture, when the job needs one, goes with it.
      */
-    private suspend fun deliver(text: String, request: String, spoken: String, jpeg: ByteArray?, target: String = "main"): String {
+    private suspend fun deliver(text: String, request: String, spoken: String, jpeg: ByteArray?, target: String = "main", beforeLocal: (suspend () -> Unit)? = null): String {
         val r = RemoteHub.session.value
         if (r != null) {
             val args = LiveAssistCore.handoffMeta(request, spoken, jpeg != null, core.sessionId).put("target", target).put("message", text).put("newChat", false)
@@ -387,6 +434,7 @@ class LiveAssistant(
             }
             return res.optString("name")
         }
+        beforeLocal?.invoke()
         g.runtime.send(text, images = listOfNotNull(jpeg?.let { tempPicture(it) }), fromCall = request)
         return ""
     }
@@ -443,22 +491,33 @@ class LiveAssistant(
      * "live_assistant", hand-offs inside), on this phone as call rows the chat folds into one block. See docs/live-voice.md.
      */
     private fun saveCall() {
-        val lines = core.transcript; val hands = core.handOffs
-        if (lines.isEmpty() && hands.isEmpty()) return
-        val record = core.record(startedAt, clock())
-        runCatching { LiveHistory.save(context, lines) }
+        if (core.transcript.isEmpty() && core.handOffs.isEmpty()) return
         val r = RemoteHub.session.value
-        if (r != null) { scope.launch { runCatching { r.call("voice.callSave", listOf(record), 30_000) } }; return }
+        if (r != null) {
+            val lines = core.transcript
+            runCatching { LiveHistory.save(context, lines) }
+            val record = core.record(startedAt, clock())
+            scope.launch { runCatching { r.call("voice.callSave", listOf(record), 30_000) } }
+            return
+        }
         scope.launch {
-            // The turns were written as they happened: finish them (the last words), and add only what is not there yet (the hand-offs).
-            lines.forEachIndexed { i, l -> localRows[i]?.let { id -> runCatching { g.db.chat().get(id)?.let { row -> if (row.text != l.text) g.db.chat().update(row.copy(text = l.text)) } } } }
-            val entries = (lines.mapIndexedNotNull { i, l -> if (localRows.containsKey(i)) null else Triple(l.at, l.who, l.text) to null } + hands.map { Triple(it.at, "hand", it.request) to it }).sortedBy { it.first.first }
-            entries.forEach { (e, h) ->
-                val meta = JSONObject().put("call", true).put("live", true).put("session", core.sessionId)
-                if (h != null) meta.put("handoff", true).put("spoken", h.spoken).put("include_screen", h.includeScreen)
-                g.db.chat().insert(ChatItem(kind = if (e.second == "in") "user" else "agent", text = e.third, meta = meta.toString(), createdAt = e.first))
+            val cookie = System.nanoTime().toInt()
+            android.os.Trace.beginAsyncSection("mew.live.saveCall", cookie)
+            try {
+            writeLock.withLock {
+                // The last words go in before the call closes, in call order. Nothing is ever added after the agent's
+                // reply, which is what split one call into two blocks before.
+                flushTurnsLocked(true)
+                val lines = core.transcript
+                runCatching { LiveHistory.save(context, lines) }
+                lines.forEachIndexed { i, l -> localRows[i]?.let { id -> runCatching { g.db.chat().get(id)?.let { row -> if (row.text != l.text) g.db.chat().update(row.copy(text = l.text)) } } } }
+                // Hand-offs went in when they were sent; this only fills one whose row failed.
+                core.handOffs.indices.forEach { i -> runCatching { writeHandoffLocked(i) } }
+                runCatching { g.runtime.rememberCall(lines.joinToString("\n") { (if (it.who == "in") "User: " else "Voice: ") + it.text }) }
             }
-            runCatching { g.runtime.rememberCall(lines.joinToString("\n") { (if (it.who == "in") "User: " else "Voice: ") + it.text }) }
+            } finally {
+                android.os.Trace.endAsyncSection("mew.live.saveCall", cookie)
+            }
         }
     }
 

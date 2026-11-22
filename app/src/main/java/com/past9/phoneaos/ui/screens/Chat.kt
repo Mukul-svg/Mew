@@ -172,10 +172,27 @@ fun withMarker(rows: List<Row_>, firstId: Long?, count: Int): List<Row_> {
 /** [hideHelpers]: a linked computer publishes its own helper cards (remote/LiveCards.kt), so its helper rows stay out of the thread. */
 fun group(items: List<ChatItem>, hideHelpers: Boolean = false): List<Row_> {
     val out = mutableListOf<Row_>(); val buf = mutableListOf<ChatItem>(); val call = mutableListOf<ChatItem>()
+    /** The call block each live session was folded into: a row that arrives late (a hand-off saved at session end) joins it instead of starting a second block. */
+    val callAt = HashMap<String, Int>()
+    var callSession: String? = null
     /** Whether the running step buffer is a background routine's work, so a routine's steps never inflate the main agent's count. */
     var bufRoutine: Boolean? = null
-    fun flushCall() { if (call.isNotEmpty()) { out += Row_.Call(call.toList()); call.clear() } }
+    /** In call order: a hand-off written at session end still sits where it happened, not after the agent's reply. */
+    fun block(rows: List<ChatItem>) = Row_.Call(rows.sortedWith(compareBy({ it.createdAt }, { it.id })))
+    fun flushCall() {
+        if (call.isEmpty()) return
+        val sid = callSession
+        val at = sid?.let { callAt[it] }
+        if (at != null) out[at] = block((out[at] as Row_.Call).items + call)
+        else {
+            if (sid != null) callAt[sid] = out.size
+            out += block(call.toList())
+        }
+        call.clear(); callSession = null
+    }
     fun flush() { if (buf.isNotEmpty()) { out += Row_.Steps(buf.toList()); buf.clear() }; bufRoutine = null }
+    fun sessionOf(m: JSONObject): String =
+        m.optJSONObject("live")?.optString("session").orEmpty().ifBlank { m.optString("session") }
     // A finished helper leaves the chat once the main agent has replied after it (its result lives in that reply).
     // If that reply never came (the turn failed), the helper stays so its result isn't lost.
     val lastAgentAt = items.filter { it.kind == "agent" }.maxOfOrNull { it.createdAt } ?: 0L
@@ -183,7 +200,20 @@ fun group(items: List<ChatItem>, hideHelpers: Boolean = false): List<Row_> {
     val stepsOf = items.filter { it.kind == "activity" && JSONObject(it.meta).has("helper") }.groupBy { JSONObject(it.meta).optLong("helper") }
     items.forEach {
         val m = JSONObject(it.meta)
-        if ((m.optBoolean("call") || LiveCallParts.isLiveRow(it)) && (it.kind == "user" || it.kind == "agent")) { flush(); call += it; return@forEach }
+        if ((m.optBoolean("call") || LiveCallParts.isLiveRow(it)) && (it.kind == "user" || it.kind == "agent")) {
+            val sid = sessionOf(m).takeIf { s -> s.isNotBlank() }
+            if (call.isNotEmpty() && (sid == null || callSession != sid)) flushCall()
+            // Same call, earlier block: this is a late row (the hand-off used to be saved only at the end).
+            val at = sid?.let { callAt[it] }
+            if (at != null) {
+                out[at] = block((out[at] as Row_.Call).items + it)
+                return@forEach
+            }
+            flush()
+            callSession = sid
+            call += it
+            return@forEach
+        }
         flushCall()
         when {
             it.kind == "activity" && m.has("helper") -> {} // shown inside its helper's card
@@ -250,8 +280,10 @@ fun ChatScreen(
     }
     val hideHelpers = live != null
     val rows = remember(items, firstShown, markerId, markerCount, hideHelpers) {
-        val g = withMarker(group(items.drop(firstShown), hideHelpers), markerId, markerCount)
-        if (firstShown > 0) listOf<Row_>(Row_.Earlier) + g else g
+        com.past9.phoneaos.system.TraceSections.section("mew.chat.group") {
+            val g = withMarker(group(items.drop(firstShown), hideHelpers), markerId, markerCount)
+            if (firstShown > 0) listOf<Row_>(Row_.Earlier) + g else g
+        }
     }
     /** Tap a quote: jump to the message it quotes (loading earlier history first if it is not on screen). */
     val jumpTo: (Long) -> Unit = { id ->

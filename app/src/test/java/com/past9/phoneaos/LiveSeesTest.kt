@@ -15,6 +15,8 @@ import com.past9.phoneaos.assist.ScreenContext
 import com.past9.phoneaos.assist.ScreenGuard
 import com.past9.phoneaos.data.ChatItem
 import com.past9.phoneaos.ui.screens.LiveCallParts
+import com.past9.phoneaos.ui.screens.Row_
+import com.past9.phoneaos.ui.screens.group
 import org.json.JSONArray
 import org.json.JSONObject
 import org.junit.Assert.assertEquals
@@ -224,6 +226,14 @@ class LiveSeesTest {
         assertEquals(0, r.getJSONArray("lines").length()); assertEquals(0, r.getJSONArray("handoffs").length())
     }
 
+    @Test fun aHandOffThatNeverWentIsNotInTheCallRecord() {
+        val c = core()
+        c.handOff("send it", 7, track = false)
+        assertEquals(1, c.handOffs.size)
+        c.handOffFailed()
+        assertEquals("a failed send has no hand-off", 0, c.handOffs.size)
+    }
+
     // ---- how the chat reads it ----------------------------------------------------------------------
 
     private fun row(id: Long, kind: String, text: String, meta: JSONObject) = ChatItem(id = id, kind = kind, text = text, meta = meta.toString())
@@ -264,5 +274,34 @@ class LiveSeesTest {
         assertEquals(1, hands.size); assertEquals("update my end of day", hands[0].spoken)
         assertTrue("an old call row has none", LiveCallParts.fromMeta(JSONObject()).isEmpty())
         assertEquals("Live voice · 2 hand-offs", LiveCallParts.title("Voice call", true, 2))
+    }
+
+    // ---- the call block after the session ends -------------------------------------------------------
+
+    @Test fun aHandOffSavedAtSessionEndJoinsTheSameCallBlock() {
+        val live = JSONObject().put("call", true).put("live", true).put("session", "live-1")
+        fun turn(id: Long, kind: String, text: String, at: Long, extra: JSONObject.() -> Unit = {}) =
+            row(id, kind, text, JSONObject(live.toString()).apply(extra)).copy(createdAt = at)
+        // The order the database keeps (id): the call's turns and the agent's reply, then the hand-off row that
+        // saveCall used to append only when the call ended. It must not become a second call card.
+        val items = listOf(
+            turn(1, "user", "put the numbers in the EOD report", 1_000),
+            row(2, "activity", "On it: put the numbers in the EOD report", JSONObject().put("tool", "call")).copy(createdAt = 1_100),
+            row(3, "agent", "Done: the report is updated.", JSONObject()).copy(createdAt = 2_000),
+            turn(4, "agent", "put the numbers in the EOD report", 1_050) { put("handoff", true); put("spoken", "put the numbers in the end of day report") },
+            turn(5, "agent", "Anything else?", 3_000) { put("turn", 1) },
+        )
+        val rows = group(items)
+        assertEquals("one call card", 1, rows.count { it is Row_.Call })
+        val call = rows.filterIsInstance<Row_.Call>().single()
+        assertEquals("the hand-off sits where it happened", listOf(1L, 4L, 5L), call.items.map { it.id })
+        assertEquals("the reply stays after the call", listOf(2L, 3L), rows.filterIsInstance<Row_.Steps>().flatMap { s -> s.items.map { it.id } } + rows.filterIsInstance<Row_.Single>().map { it.item.id })
+    }
+
+    @Test fun twoCallsAreStillTwoBlocks() {
+        fun call(id: Long, session: String, at: Long) = row(id, "user", "hello $session",
+            JSONObject().put("call", true).put("live", true).put("session", session)).copy(createdAt = at)
+        val rows = group(listOf(call(1, "live-1", 1_000), row(2, "agent", "between", JSONObject()).copy(createdAt = 1_500), call(3, "live-2", 2_000)))
+        assertEquals(2, rows.count { it is Row_.Call })
     }
 }
