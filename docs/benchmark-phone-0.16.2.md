@@ -88,15 +88,42 @@ Two concrete outliers:
 | Assist sheet | TTID **374.1 ms** | RSS-anon 43.8 MB, heap 25.2 MB |
 | Share sheet | TTID **366.3 ms** | RSS-anon 41.0 MB, heap 23.9 MB |
 
+## What the memory numbers mean
+
+`MemoryUsageMetric` reports **RSS**, not PSS, for the app's main process. Each value is the maximum sample in an
+iteration, then the median across iterations:
+
+- `RSS-anon` — anonymous resident pages: Java/native heap and other process allocations, the closest of these numbers
+  to actual memory pressure.
+- `RSS-file` — file-backed resident pages: APK, dex, native libraries, fonts and WebView's Chromium library. These pages
+  are reclaimable under pressure and are not the same thing as a leak.
+- `HeapSize` — ART heap after GC.
+- `GPU` — graphics allocations (textures, surfaces, buffers), not Java heap.
+
+Only the main process is measured. A WebView renderer running in `:sandboxed_process0` is not included, so the browser
+number is a lower bound for the whole browser cost.
+
 ## Findings
 
 1. **Live-call expansion is the main UI jank hotspot** (P90 23.3 ms, overrun P90 11.4 ms). The collapsed block itself
    is correct; the animation/expansion is the cost.
 2. **Linked devices has a 101 ms frame** at P99; inspect the first-layout/connection animation.
-3. **WebView is the heaviest memory user**: 182 MB RSS-file and 91.5 MB GPU for one local page. It stays alive after
-   use; the service idle/stop path matters.
-4. **The notifications screen is the heaviest Compose screen** (72.6 MB RSS-anon with 180 rows), followed by settings
-   and profile. The list window and notification row composition are the likely levers.
+3. **WebView is the heaviest memory user — but the headline numbers are not anonymous heap.** The browser measured
+   182.4 MB RSS-file and 91.5 MB GPU, but only **64.5 MB RSS-anon** (about 15 MB more than chat). Most of the file
+   figure is Chromium's `libwebviewchromium.so` plus APK/dex/native mappings; the GPU figure is graphics memory. The
+   benchmark keeps the browser attached and active, so this is the cost of an open browser, not proof of a leak.
+   `BrowserService` stops after 3 minutes idle and destroys every WebView, and helper engines are released when the
+   helper finishes; the main engine intentionally stays for the agent. Measure after leaving the browser and waiting
+   out that idle window before calling it retained memory. Also note the test loads a local page with no images,
+   scripts or video, so real sites can be higher.
+4. **The notifications screen's 72.6 MB RSS-anon is not 180 rendered notification rows.** The screen only draws
+   `recent.take(6)` (at most six notification rows); the other seeded rows are just `NotificationRow` objects in the
+   `recent(200)` query. The expensive part of this route is that it eagerly loads a **96×96 bitmap icon for every
+   launcher app** and remembers the whole list, plus the normal Compose/SubScreen cost. Settings is next at 67.4 MB
+   because it is a fully composed `Column(verticalScroll)` rather than a lazy list. These are warm-process high-water
+   marks: the activity is cleared between iterations but the process is not killed, so later screens inherit caches
+   from earlier ones. They identify the highest screens, not a leak by themselves. The concrete lever is lazy icon
+   loading in `NotificationsScreen` (and optionally a lazy settings list), then re-measure with a fresh process.
 5. **Cold startup is ~500 ms**, of which the graph is ~94 ms; warm/hot are ~160 ms. Deferring more wake/reminder/DB
    work out of `Graph` would move the cold number, if it is worth the trade-off.
 6. **Background work is modest**: routine 64 ms, reschedule 197 ms, 250 notification writes 322 ms, Node 113 ms,
