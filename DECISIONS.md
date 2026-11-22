@@ -270,7 +270,16 @@ When a conflict exists, **ask the user before doing any implementation work**. W
 - **Consequences:** A physical Android 14+ arm64 device is required; the suite cannot run on the x86 emulators the app does not support. The benchmark receiver and `benchmark_route` are compiled only into `benchmark`. CI remains unchanged; device runs are manual until a dedicated benchmark runner exists.
 - **Related:** D-014, D-019, D-020.
 
-## Superseded decisions
+### D-023: Release 0.16.3 with the measured resource and power batch
+
+- **Date:** 2026-11-22
+- **Status:** accepted
+- **Decision:** Cut `0.16.3` (`versionCode 183`) from the optimization commit. The release contains the lazy notification icons and remembered notification-count flow, the bounded live-call expansion, the critical-memory WebView pressure valve, staged startup housekeeping, and the wake channel's link-flow wait.
+- **Rationale:** The batch was measured on the CPH2707 before release: notifications RSS-anon 72.6 → 52.1 MB (−28%), live-call expansion P90 23.3 → 14.8 ms (overrun 11.4 → 3.5 ms), cold TTID 505.5 → 495.4 ms, warm TTID 157.4 → 134.9 ms. The full suite is green (2,297 tests, 0 failures, 27 skipped), so the gains are real and verified rather than speculative.
+- **Alternatives considered:** Keep the batch on `main` without a release; continue profiling other screens first.
+- **Consequences:** `versionCode 183` supersedes `182`; users on `0.16.2` can update in place. The release still needs the signed GitHub Actions workflow and the asset/certificate checks used for `0.16.0`–`0.16.2`.
+- **Related:** D-016, D-019, D-022.
+
 
 ### D-105: Write an exit plan for `targetSdk 28`
 
