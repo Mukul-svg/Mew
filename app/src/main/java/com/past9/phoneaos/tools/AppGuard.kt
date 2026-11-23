@@ -17,6 +17,8 @@ class AppGuard(
     /** The user's accounts for these candidate app slugs (e.g. "microsoft", "microsoft_teams"). */
     private val accountsFor: suspend (List<String>) -> List<AccountRef>,
     private val profileOf: (ToolContext) -> AgentProfile?,
+    /** When true, an action for an app with no connected account is refused before it can run. */
+    private val requireAccount: Boolean = false,
 ) {
     /** refuse: why it may not run (say this to the agent). account: the account picked for it, to pass on the call. */
     data class Verdict(val refuse: String? = null, val account: String? = null)
@@ -29,8 +31,11 @@ class AppGuard(
         val resolved = mutableSetOf<String>()
         for (action in actions.map { it.uppercase() }) {
             val cands = candidates(action)
-            val all = runCatching { accountsFor(cands) }.getOrElse {
-                if (profileAtStart != null) return Verdict("Couldn't check which accounts this profile may use (${it.message}). Try again in a moment.")
+            val all = try {
+                accountsFor(cands)
+            } catch (e: Exception) {
+                if (requireAccount) return Verdict("Couldn't check your accounts just now. Nothing was sent or changed. Try again in a moment.")
+                if (profileAtStart != null) return Verdict("Couldn't check which accounts this profile may use (${e.message}). Try again in a moment.")
                 emptyList()
             }
             // Looking the accounts up can move the profile onto a reconnected account: read it again.
@@ -39,6 +44,7 @@ class AppGuard(
             val slug = cands.sortedByDescending { it.length }.firstOrNull { c -> all.any { it.slug.equals(c, true) } } ?: cands.first()
             val mine = all.filter { it.slug.equals(slug, true) }
             val app = AppCatalog.name(slug)
+            if (requireAccount && mine.isEmpty()) return Verdict("$app isn't connected${account?.let { " for that account" } ?: ""}. Connect it in Connections first. Do not say anything was sent or promise to send it.")
             val picked: AccountRef? = account?.let { w -> mine.firstOrNull { it.id == w } ?: mine.firstOrNull { it.label.equals(w, true) } }
             val use: List<AccountRef> = when {
                 profile != null -> {

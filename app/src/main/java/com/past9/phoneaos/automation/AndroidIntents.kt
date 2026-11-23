@@ -76,6 +76,14 @@ object IntentRules {
     fun opensOnly(spec: IntentSpec): Boolean =
         spec.kind == ACTIVITY && (spec.action in OPENS || spec.action.startsWith("android.settings.") || (spec.action.isBlank() && spec.component.isNotBlank()))
 
+    /** mailto: and a share into a mail app open a draft; they never send. The result must say so. */
+    fun composesOnly(spec: IntentSpec): Boolean {
+        if (spec.kind != ACTIVITY) return false
+        if (spec.data.startsWith("mailto:", true) && (spec.action == Intent.ACTION_VIEW || spec.action == Intent.ACTION_SENDTO)) return true
+        val mailApps = setOf("com.google.android.gm", "com.microsoft.office.outlook", "com.android.email", "com.samsung.android.email.provider", "com.yahoo.mobile.client.android.mail")
+        return spec.action == Intent.ACTION_SEND && spec.targetPackage in mailApps
+    }
+
     // ---- reading what the agent sent ------------------------------------------------------------------------------
 
     class Parsed(val spec: IntentSpec?, val error: String?)
@@ -290,11 +298,12 @@ class IntentSender(private val context: Context, private val inFront: () -> Bool
     }
 
     private fun startActivity(spec: IntentSpec, i: Intent): String {
+        val done = if (IntentRules.composesOnly(spec)) "opened a draft; nothing was sent. The user still has to press Send." else "sent"
         if (spec.component.isBlank() && i.resolveActivity(context.packageManager) == null)
             return "failed: no app on this phone can open that" + (if (spec.pkg.isNotBlank()) " (is ${spec.pkg} installed, and does it accept this action and data?)" else "")
         // Android 10+ does not let an app in the background put a screen up, unless it may draw over other apps.
         if (inFront() || runCatching { android.provider.Settings.canDrawOverlays(context) }.getOrDefault(false)) {
-            context.startActivity(i); return "sent"
+            context.startActivity(i); return done
         }
         val label = runCatching { i.resolveActivity(context.packageManager)?.packageName?.let { p -> context.packageManager.getApplicationLabel(context.packageManager.getApplicationInfo(p, 0)).toString() } }.getOrNull()
         val id = 7_300 + (spec.hashCode() and 0xff)
@@ -304,7 +313,7 @@ class IntentSender(private val context: Context, private val inFront: () -> Bool
             .setContentTitle("Tap to open ${label ?: "it"}").setContentText(spec.data.ifBlank { spec.action })
             .setContentIntent(pi).setAutoCancel(true).build()
         runCatching { NotificationManagerCompat.from(context).notify(id, n) }
-        return "sent: as a notification the user taps, because Android does not let an app open a screen from the background. " +
+        return "$done: as a notification the user taps, because Android does not let an app open a screen from the background. " +
             "It opens at once when the Mew app is on screen, or when Mew is allowed to display over other apps."
     }
 }
@@ -328,6 +337,7 @@ class AndroidIntentTool(
             "fire a broadcast an app listens for, start a service. Use android_apps first to see which apps are installed and what they accept. " +
             "To play music or a video NEVER use this (a play request or a media link is refused): play_media is the only way to play, and media_control pauses, skips or says what is playing. " +
             "Intents that only open a screen (VIEW, MAIN, DIAL, SEARCH, settings pages) go at once; anything else asks the user first unless its action and app are on their allowlist. " +
+            "A mailto: or a share into a mail app only opens a draft and returns that nothing was sent; the user still presses Send. " +
             "Examples: {kind:'activity', action:'android.intent.action.VIEW', data:'google.navigation:q=Sandton+City', package:'com.google.android.apps.maps'}; " +
             "{kind:'activity', action:'android.intent.action.SEND', mimeType:'text/plain', package:'com.whatsapp', extras:{'android.intent.extra.TEXT':'hello'}}; " +
             "{kind:'broadcast', action:'com.example.DO_THING', extras:{count:3, on:true}}. Returns 'sent' or 'failed: why'. The other app cannot report back.",

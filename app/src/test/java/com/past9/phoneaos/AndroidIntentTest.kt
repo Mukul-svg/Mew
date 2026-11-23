@@ -278,4 +278,12 @@ class AndroidIntentTest {
         val v = IntentRules.extraValue(JSONArray().put("a").put(1))
         assertArrayEquals(arrayOf("a", "1"), v as Array<*>)
     }
+
+    @Test fun mailtoAndMailShareOpenDraftsNotSentMessages() {
+        assertTrue(IntentRules.composesOnly(IntentSpec(IntentRules.ACTIVITY, Intent.ACTION_VIEW, data = "mailto:sam@example.com")))
+        assertTrue(IntentRules.composesOnly(IntentSpec(IntentRules.ACTIVITY, Intent.ACTION_SENDTO, data = "mailto:sam@example.com")))
+        assertTrue(IntentRules.composesOnly(IntentSpec(IntentRules.ACTIVITY, Intent.ACTION_SEND, pkg = "com.google.android.gm", mimeType = "text/plain")))
+        assertFalse(IntentRules.composesOnly(IntentSpec(IntentRules.ACTIVITY, Intent.ACTION_VIEW, data = "geo:0,0?q=Sandton")))
+        assertFalse(IntentRules.composesOnly(IntentSpec(IntentRules.BROADCAST, Intent.ACTION_SEND, pkg = "com.google.android.gm")))
+    }
 }

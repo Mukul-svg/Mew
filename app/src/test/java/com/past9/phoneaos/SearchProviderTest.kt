@@ -17,6 +17,7 @@ import okhttp3.mockwebserver.MockWebServer
 import org.json.JSONObject
 import org.junit.Assert.*
 import org.junit.Test
+import java.util.concurrent.TimeUnit
 
 class SearchProviderTest {
     private val req = WebSearchRequest(listOf("test query"), SearchDepth.QUICK, 5, SearchFreshness.ANY, SearchTopic.GENERAL, readTop = 0)
@@ -112,6 +113,17 @@ class SearchProviderTest {
             val e = runCatching { TavilyClient(s.base(), http).search("q", req, "bad") }.exceptionOrNull()
             assertTrue(e is ProviderHttpException)
             assertTrue((e as ProviderHttpException).rejected)
+        } finally { s.shutdown() }
+    }
+
+    @Test fun localTimeoutIsAnErrorNotCancellation() = runBlocking {
+        val s = MockWebServer()
+        s.enqueue(MockResponse().setBody("{}").setBodyDelay(3, TimeUnit.SECONDS))
+        s.start()
+        try {
+            val e = runCatching { TavilyClient(s.base(), http).search("q", req, "key") }.exceptionOrNull()
+            assertTrue("expected an IOException, got $e", e is java.io.IOException)
+            assertFalse("a local timeout must not cancel the turn", e is kotlinx.coroutines.CancellationException)
         } finally { s.shutdown() }
     }
 }

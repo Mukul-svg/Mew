@@ -2,7 +2,7 @@ package com.past9.phoneaos.web
 
 import com.past9.phoneaos.agent.sharedHttp
 import kotlinx.coroutines.suspendCancellableCoroutine
-import kotlinx.coroutines.withTimeout
+import kotlinx.coroutines.withTimeoutOrNull
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.HttpUrl
@@ -31,8 +31,10 @@ class ProviderHttpException(val code: Int, val detail: String, val rejected: Boo
 private const val UA = "Mozilla/5.0 (Linux; Android 14; Mobile) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0 Mobile Safari/537.36"
 private const val API_UA = "Mew-Android/1.0"
 
-internal suspend fun httpCall(http: OkHttpClient, request: Request, timeoutMs: Long): Pair<Int, String> =
-    withTimeout(timeoutMs) {
+internal suspend fun httpCall(http: OkHttpClient, request: Request, timeoutMs: Long): Pair<Int, String> {
+    // A local timeout is a normal provider failure, not cancellation of the whole turn: it must fall through to the
+    // next provider/keyless index. Parent cancellation still propagates.
+    val result = withTimeoutOrNull(timeoutMs) {
         suspendCancellableCoroutine { cont ->
             val call = http.newCall(request)
             cont.invokeOnCancellation { runCatching { call.cancel() } }
@@ -52,6 +54,8 @@ internal suspend fun httpCall(http: OkHttpClient, request: Request, timeoutMs: L
             })
         }
     }
+    return result ?: throw IOException("timeout after ${timeoutMs} ms")
+}
 
 private fun bodyJson(json: JSONObject): okhttp3.RequestBody = json.toString().toRequestBody(
     "application/json; charset=utf-8".toMediaType()

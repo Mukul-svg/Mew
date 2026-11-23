@@ -3,8 +3,16 @@ package com.past9.phoneaos.voice
 import android.content.Context
 import android.media.AudioManager
 import com.past9.phoneaos.agent.AgentRuntime
+import com.past9.phoneaos.assist.LiveAssistCore
+import com.past9.phoneaos.assist.LiveQuickTools
 import com.past9.phoneaos.data.AppDb
+import com.past9.phoneaos.fast.FastAnswers
 import com.past9.phoneaos.data.SettingsStore
+import com.past9.phoneaos.web.SearchDepth
+import com.past9.phoneaos.web.SearchProvider
+import com.past9.phoneaos.web.WebSearchRequest
+import com.past9.phoneaos.web.WebSearchService
+import com.past9.phoneaos.weather.WeatherService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.StateFlow
@@ -36,6 +44,23 @@ class CallController(
     /** The link this call started on: its chat is the computer's, and so are its questions and status. */
     private var remote: com.past9.phoneaos.remote.RemoteSession? = null
     private val db: AppDb get() = remote?.db ?: localDb
+
+    private val weather by lazy { WeatherService(context) }
+    private val fastAnswers by lazy { FastAnswers(context, weather) }
+    private val webSearch by lazy { WebSearchService({ settings.webSearchKey(it.id) }) }
+    private val quick by lazy {
+        LiveQuickTools(
+            weatherFor = { city, days -> weather.current(city, days) },
+            searchFor = { query, freshness, topic ->
+                webSearch.search(WebSearchRequest(
+                    queries = listOf(query), depth = SearchDepth.QUICK, maxResults = 3,
+                    freshness = freshness, topic = topic, readTop = 0,
+                    preferred = SearchProvider.of(settings.state.value.webSearchProvider), parallel = false,
+                ))
+            },
+            fastFor = { query -> fastAnswers.answer(query, 2_500L) },
+        )
+    }
 
     /** The voice runs on Gemini Live with this phone's Google key, alone or linked (the work runs wherever the agent does). */
     val available: Boolean get() = unavailableReason(linked() != null) == null
@@ -91,8 +116,8 @@ class CallController(
             return """
                 You are $name, $who's personal agent, now speaking with them on a voice call: the same one they type to $where. Be warm, quick and natural; short sentences; this is speech.
                 There is only you. Speak in the first person about everything you do: "I'll do that", "I'm on it", "I've started a helper on it", "I'll check". Never speak of yourself as someone else, and never say you are passing work on to anyone: your main chat, your project chats and your helpers are simply how you work.
-                You can do ANYTHING they ask: send emails and messages, reply to people, talk to or message someone for them, start helpers, use their connected apps (mail, calendar, Slack, WhatsApp and the rest), browse the web, run things, read and write files, remember things, manage tasks, routines and reminders, and look anything up.
-                So NEVER say you can't do something, that you have no access, or that the user should do it themselves. For anything that needs doing, finding, checking, sending or remembering, call start_work with the full request and every detail the user gave (names, who to, what to say), say a quick "I'm on it", and keep talking. If it's unclear, ask one short question first, then start it.
+                You can do real work: send emails and messages, reply to people, start helpers, use their connected apps (mail, calendar, Slack, WhatsApp and the rest), browse, run things, read and write files, remember things, manage tasks, routines and reminders. For a quick answer (a sum, a conversion, the time, a currency, a definition, a country fact or a short Wikipedia summary), call quick_answer directly. For a current public fact call web_search; for weather call weather. Do not start a job for those. For anything that needs doing, finding, checking, sending or remembering, call start_work with the full request and every detail the user gave (names, who to, what to say), say a quick "I'm on it", and keep talking. If it's unclear, ask one short question first, then start it.
+                So NEVER say you can't do something, that you have no access, or that the user should do it themselves, except when a tool says the account is not connected. For an email, check the account first; if none is connected, say so and point to Connections, and never promise it will send.
                 When a short status arrives, say it as your own news ("I've sent it", "I found three"). ${SpokenResult.RULE_CALL} Wait until they have clearly finished before you answer: people pause mid-sentence and mix languages in one sentence, and a pause is not the end of their turn. Never invent results; if you don't know yet, say you're still on it (work_status tells you).
                 When your work needs an answer from the user, it waits while the call carries on. Put the question to them out loud at a good moment. Take their answer (or decide if they tell you to) and call answer_question with it plus anything from the call that matters.
                 When you need the user's OK, say plainly what you want to do and ask, for example "I need your OK to send the invoice to Shey. Approve?". If they clearly say yes, call answer_question with answer "Approve" and their exact words in user_said. If they say no, answer "Decline". Never approve on your own. They can also tap the card on the call screen. If they need to DO something (sign in, type a code), tell them exactly what to tap.
@@ -123,7 +148,7 @@ class CallController(
         fun callTools(linked: Boolean): JSONArray = JSONArray().put(JSONObject().put("functionDeclarations", JSONArray()
             .put(JSONObject().put("name", "start_work")
                 .put("description", (if (linked) "Start ANY request yourself, on their computer where you have everything: it goes in as a message in your chat there. " else "Start ANY request yourself: it goes in as a message in your main chat. ") +
-                    "You can send emails and messages, contact people, start helpers, use every connected app, browse, run things, read and write files, memory, tasks and routines. Use it for anything that needs doing or looking up; never tell the user you can't. Say a short \"I'm on it\" and keep chatting; results come back to you.")
+                    "You can send emails and messages, contact people, start helpers, use every connected app, browse, run things, read and write files, memory, tasks and routines. Use it for real work; for a quick answer, a current fact or weather use quick_answer, web_search or weather instead. Never tell the user you can't. Say a short \"I'm on it\" and keep chatting; results come back to you.")
                 .put("parameters", JSONObject().put("type", "OBJECT").put("properties", JSONObject()
                     .put("task", JSONObject().put("type", "STRING").put("description", "The request, clearly, with every detail the user gave (who, what, where, wording)"))
                     .apply { if (linked) {
@@ -141,6 +166,23 @@ class CallController(
             .put(JSONObject().put("name", "work_status")
                 .put("description", "What you are working on right now, the last thing you said in the chat, and anything you are waiting on the user for.")
                 .put("parameters", JSONObject().put("type", "OBJECT").put("properties", JSONObject())))
+            .put(JSONObject().put("name", LiveAssistCore.QUICK_ANSWER)
+                .put("description", "A fast, checked answer for arithmetic, a unit conversion, the time or date, a currency conversion, a word definition, a country fact, or a short Wikipedia summary. Use it instead of guessing or start_work. For weather use weather; for current news, prices, scores or releases use web_search.")
+                .put("parameters", JSONObject().put("type", "OBJECT").put("properties", JSONObject()
+                    .put("query", JSONObject().put("type", "STRING").put("description", "The question, in their words, short and specific")))
+                    .put("required", JSONArray().put("query"))))
+            .put(JSONObject().put("name", LiveAssistCore.WEATHER)
+                .put("description", "Current weather and a short forecast from Open-Meteo. Use this for weather, temperature, rain or wind instead of start_work. Give the city they named; without one it uses a known location only if location is already allowed, otherwise it asks which city.")
+                .put("parameters", JSONObject().put("type", "OBJECT").put("properties", JSONObject()
+                    .put("city", JSONObject().put("type", "STRING").put("description", "City or place they named; leave out for their known location"))
+                    .put("days", JSONObject().put("type", "NUMBER").put("description", "Forecast days, 1-7; default 3")))))
+            .put(JSONObject().put("name", LiveAssistCore.WEB_SEARCH)
+                .put("description", "Quick web search for a current public fact: news, a price, a score, who won, a release, a person or company that may have changed. Returns a few sources; answer from them in one or two spoken lines. Do not use it for weather or for the user's own messages, mail, calendar or files; those go to start_work.")
+                .put("parameters", JSONObject().put("type", "OBJECT").put("properties", JSONObject()
+                    .put("query", JSONObject().put("type", "STRING").put("description", "The fact to look up, short and specific"))
+                    .put("freshness", JSONObject().put("type", "STRING").put("description", "any, day, week, month or year; default any"))
+                    .put("topic", JSONObject().put("type", "STRING").put("description", "general, news, finance or research; default general")))
+                    .put("required", JSONArray().put("query"))))
             .put(JSONObject().put("name", "play_media")
                 .put("description", "Play music or a video on the user's phone right now, in the app they use, without touching their screen. This is the ONLY way to play: use it at once when they ask to play something, and never hand playing to hand_to_agent or have an app opened. Answers what is playing, or that it failed: then say so.")
                 .put("parameters", JSONObject().put("type", "OBJECT").put("properties", JSONObject()
@@ -416,8 +458,18 @@ class CallController(
             is LiveSession.Event.Route -> core.patch { it.copy(route = e.route.kind.name) }
             is LiveSession.Event.Reconnecting -> { core.reconnecting(g); watch(g, CallCore.RECONNECTING, CallCore.RECONNECT_TIMEOUT_MS, CallCore.LOST) }
             is LiveSession.Event.ToolCall -> { core.thinking(g); android.util.Log.i("CallAgent", "tool call ${e.name}: ${e.args.toString().take(400)}"); when (e.name) {
-                "start_work" -> {
+                LiveAssistCore.WEB_SEARCH, LiveAssistCore.WEATHER, LiveAssistCore.QUICK_ANSWER -> scope.launch {
+                    val out = runCatching { quick.run(e.name, e.args) }.getOrElse { JSONObject().put("error", it.message ?: "it did not run") }
+                    toolResult(e.id, e.name, out)
+                }
+                "start_work" -> scope.launch {
                     val task = e.args.optString("task")
+                    // A missing account or app is a fact, not a prompt: answer now instead of starting a job that cannot run.
+                    // A linked computer has its own accounts, so let its agent be the judge there.
+                    if (remote == null) runtime.actionBlocker(task)?.let { reason ->
+                        toolResult(e.id, e.name, JSONObject().put("error", reason + " Do not say it will be sent or was sent."))
+                        return@launch
+                    }
                     flush()
                     // The agent gets the user's own words from the call, not just the voice's summary.
                     val message = "Task from our voice call: $task\n\n(Reply in a line or two: it is read out on the call.)\n\nWhat was said on the call so far:\n${transcript()}"
@@ -427,17 +479,15 @@ class CallController(
                     // replies, questions and approvals come back here.
                     if (r != null) {
                         val target = e.args.optString("target").trim()
-                        scope.launch { toolResult(e.id, e.name, handOff(r, task, target, e.args.optBoolean("new_chat"), message)) }
-                        return
+                        toolResult(e.id, e.name, handOff(r, task, target, e.args.optBoolean("new_chat"), message))
+                        return@launch
                     }
                     runtime.send(message, fromCall = task)
                     core.patch { it.copy(delegated = task) }
                     // One thing at a time: if the main agent is blocked on a question, this waits in line behind it, so say so.
-                    scope.launch {
-                        val waiting = pendingQuestion()
-                        toolResult(e.id, e.name, if (waiting == null) JSONObject().put("status", "started").put("note", "Started in your main chat; the result comes to you as an update. Tell the user you're on it.")
-                            else JSONObject().put("status", "queued").put("note", "Queued: you first need the user's answer to what you asked (${approvalWhat(waiting).take(120)}). Get that answered (answer_question), then this runs."))
-                    }
+                    val waiting = pendingQuestion()
+                    toolResult(e.id, e.name, if (waiting == null) JSONObject().put("status", "started").put("note", "Started in your main chat; the result comes to you as an update. Tell the user you're on it.")
+                        else JSONObject().put("status", "queued").put("note", "Queued: you first need the user's answer to what you asked (${approvalWhat(waiting).take(120)}). Get that answered (answer_question), then this runs."))
                 }
                 "answer_question" -> scope.launch {
                     val item = pendingQuestion()

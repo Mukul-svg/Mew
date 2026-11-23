@@ -236,7 +236,8 @@ class RuntimeTest {
         assertTrue(result.content.startsWith("APPROVED"))
         // The helper's result went back to the main agent, which told the user.
         assertTrue(p.seen.main().last().second.last().text.contains("[Helper #"))
-        assertEquals("Done, Lerato has it.", db.chat().all().first().last { it.kind == "agent" }.text)
+        val finalLine = db.chat().all().first().last { it.kind == "agent" }.text
+        assertTrue(finalLine, finalLine.contains("isn't connected"))
     }
 
     @Test fun typingWhileAHelperAsksTalksToTheMainAgent() = runBlocking {

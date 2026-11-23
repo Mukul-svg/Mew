@@ -10,8 +10,14 @@ import com.past9.phoneaos.remote.RemoteHub
 import com.past9.phoneaos.voice.CallCore
 import com.past9.phoneaos.voice.Earcon
 import com.past9.phoneaos.voice.LiveAuth
+import com.past9.phoneaos.fast.FastAnswers
 import com.past9.phoneaos.voice.LiveSession
 import com.past9.phoneaos.voice.LiveTiming
+import com.past9.phoneaos.web.SearchDepth
+import com.past9.phoneaos.web.SearchProvider
+import com.past9.phoneaos.web.WebSearchRequest
+import com.past9.phoneaos.web.WebSearchService
+import com.past9.phoneaos.weather.WeatherService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -76,6 +82,23 @@ class LiveAssistant(
     private var frames: LiveFrames? = null
     @Volatile private var lastLoud = 0L
     private var lastChecked = ""
+
+    private val weather by lazy { WeatherService(context) }
+    private val fastAnswers by lazy { FastAnswers(context, weather) }
+    private val webSearch by lazy { WebSearchService({ g.settings.webSearchKey(it.id) }) }
+    private val quick by lazy {
+        LiveQuickTools(
+            weatherFor = { city, days -> weather.current(city, days) },
+            searchFor = { query, freshness, topic ->
+                webSearch.search(WebSearchRequest(
+                    queries = listOf(query), depth = SearchDepth.QUICK, maxResults = 3,
+                    freshness = freshness, topic = topic, readTop = 0,
+                    preferred = SearchProvider.of(g.settings.state.value.webSearchProvider), parallel = false,
+                ))
+            },
+            fastFor = { query -> fastAnswers.answer(query, 2_500L) },
+        )
+    }
 
     val active: Boolean get() = !ended && (session != null || starting)
 
@@ -363,6 +386,13 @@ class LiveAssistant(
 
     private fun handle(e: LiveSession.Event.ToolCall) {
         Log.i(TAG, "tool call ${e.name}: ${e.args.toString().take(300)}")
+        if (e.name == LiveAssistCore.WEB_SEARCH || e.name == LiveAssistCore.WEATHER || e.name == LiveAssistCore.QUICK_ANSWER) {
+            scope.launch {
+                val out = runCatching { quick.run(e.name, e.args) }.getOrElse { JSONObject().put("error", it.message ?: "it did not run") }
+                result(e, out)
+            }
+            return
+        }
         if (e.name == LiveAssistCore.PLAY_MEDIA || e.name == LiveAssistCore.MEDIA_CONTROL) {
             scope.launch {
                 val out = runCatching { com.past9.phoneaos.media.MediaTools.runDirect(context, e.name, e.args) }.getOrElse { "failed: ${it.message ?: "it did not run"}" }
@@ -378,6 +408,12 @@ class LiveAssistant(
         // Aimed at a named project or helper (linked to a computer only): it goes there, as a voice call's hand-off does.
         val target = e.args.optString("target").trim().takeIf { it.isNotBlank() && !it.equals("main", true) && RemoteHub.session.value != null }
         scope.launch {
+            // A missing account or app is a fact, not a prompt: answer now instead of saying "on it" for a job that cannot run.
+            // A linked computer has its own accounts, so let its agent be the judge there.
+            if (RemoteHub.session.value == null) g.runtime.actionBlocker(request)?.let { reason ->
+                result(e, JSONObject().put("error", reason + " Do not say it will be sent or was sent."))
+                return@launch
+            }
             val cookie = System.nanoTime().toInt()
             android.os.Trace.beginAsyncSection("mew.live.handoff", cookie)
             try {

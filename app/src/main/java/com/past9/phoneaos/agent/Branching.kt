@@ -71,6 +71,8 @@ class Line(val id: String, val seq: Long) {
 class Turn(val line: Line, val branchItem: Long? = null) {
     @Volatile var origin: Long? = null
     @Volatile var late: Boolean = false
+    /** The action kinds this turn requested, what is missing, and what tools have confirmed. */
+    @Volatile var actions: ActionState = ActionState()
     /**
      * The last thing the agent said in this turn: what the phone carries to the user when the turn ends and the chat
      * is not in front of them (issue #15). Kept per turn, so the main chat and a side thread never hand over each

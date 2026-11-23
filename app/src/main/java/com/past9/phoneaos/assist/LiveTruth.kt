@@ -16,16 +16,18 @@ object LiveTruth {
 
     /** Words that state an outcome. "On it" and "still working" are not claims. */
     private val CLAIM = Regex(
-        """\b(done|uploaded|submitted|completed|finished|confirmed|successfully|all set|went through|has been (sent|uploaded|submitted|done|completed|saved|booked)|was (sent|uploaded|submitted|done|completed)|is (done|sent|uploaded|submitted|complete))\b""",
+        """\b(done|uploaded|submitted|completed|finished|confirmed|successfully|all set|went through|sent|emailed|messaged|texted|called|ordered|paid|transferred|deleted|scheduled|reserved|installed|has been (sent|uploaded|submitted|done|completed|saved|booked|paid|ordered|scheduled)|was (sent|uploaded|submitted|done|completed|paid|ordered|scheduled)|is (done|sent|uploaded|submitted|complete|booked|paid|ordered|scheduled))\b""",
         RegexOption.IGNORE_CASE,
     )
     /** "Not done yet", "not uploaded", "once it is done": a negation or a future is not a claim. */
-    private val HEDGE = Regex("""\b(not|n't|never|yet|once|when|until|will|still|if|no result)\b[^.!?]{0,30}\b(done|uploaded|submitted|completed|finished|confirmed|sent)\b""", RegexOption.IGNORE_CASE)
+    private val HEDGE = Regex("""\b(not|n't|never|yet|once|when|until|will|still|if|no result)\b[^.!?]{0,30}\b(done|uploaded|submitted|completed|finished|confirmed|sent|emailed|messaged|texted|called|ordered|paid|transferred|deleted|scheduled|reserved|installed)\b""", RegexOption.IGNORE_CASE)
+    /** Passing the user's answer to a helper is routing, not an outcome the agent has to confirm. */
+    private val ROUTED = Regex("""\b(sent|passed|gave|routed|forwarded|told)\b[^.!?]{0,50}\b(code|answer|it|that|words)\b[^.!?]{0,40}\b(helper|agent|pairing|chat)\b""", RegexOption.IGNORE_CASE)
 
     /** True when [said] (the voice's own words) states an outcome. */
     fun claimsOutcome(said: String): Boolean {
         if (!CLAIM.containsMatchIn(said)) return false
-        val unhedged = said.split(Regex("""(?<=[.!?])\s+""")).any { s -> CLAIM.containsMatchIn(s) && !HEDGE.containsMatchIn(s) }
+        val unhedged = said.split(Regex("""(?<=[.!?])\s+""")).any { s -> CLAIM.containsMatchIn(s) && !HEDGE.containsMatchIn(s) && !ROUTED.containsMatchIn(s) }
         return unhedged
     }
 

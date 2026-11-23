@@ -142,7 +142,94 @@ Partial results are returned rather than failing the whole search.
 At most four pages, three concurrent, 4 s per page, 4,000 characters per page and 12,000 characters total. Page
 text is untrusted data, never instructions.
 
+## Fast answers
+
+Before the model or a web search, `FastAnswers` checks whether the question is one of the everyday things that can be
+answered directly. A complete answer is returned without a model round trip; a fact that needs phrasing is injected
+as a compact `[FAST ANSWER]` block.
+
+| Kind | Source | What it handles |
+|---|---|---|
+| Math | on-device calculator | arithmetic, percentages, tips, increases/decreases, square roots, powers |
+| Units | on-device table | length, mass, volume, speed, area, data, duration and temperature |
+| Time | on-device clock | local/other-city time and date, days until a date, days between dates |
+| Weather | Open-Meteo | current conditions and 1-7 day forecast |
+| Currency | open.er-api.com | keyless daily rates for 50+ currencies |
+| Dictionary | dictionaryapi.dev | definitions, part of speech, pronunciation and an example |
+| Country | restcountries.com | capital, population, currency, languages, region |
+| Wikipedia | en.wikipedia.org | a short summary for who/what/where/tell-me-about questions |
+| Crypto | CoinGecko | keyless BTC/ETH/SOL and other major coin prices with 24h change |
+
+Local answers (math, units, time) never touch the network. Network answers use short timeouts (2.2 s), a small
+in-memory cache (20 s for time, 10 min for weather, 30 min for currency, 1 h for Wikipedia, 24 h for dictionary and
+country facts, 60 s for crypto) and return null on any failure, so the normal web search or the model takes over.
+`Web search: Off` still allows math, units and time, and disables the network answerers. A Wikipedia summary is
+evidence, not a direct answer, because it can be incomplete or stale.
+
+False positives are excluded: "temperature of the sun", "wind power", "rain check", "open weather app", "read my
+email", "call mom", "book a table" and similar action or idiom phrases fall through to the normal agent.
+
+## Weather fast path
+
+Weather is not a web search. A small `weather` tool calls Open-Meteo, which needs no key and no account:
+
+- `GET https://geocoding-api.open-meteo.com/v1/search` resolves a named city, preferring a result in the phone's
+  country; the place name and country are shown back so a wrong same-named city is visible.
+- `GET https://api.open-meteo.com/v1/forecast` returns current conditions and 1–7 daily forecasts in the phone's
+  units (Celsius/km/h, or Fahrenheit/mph in the US), in the place's timezone.
+- Geocodes are cached for 24 hours and forecasts for 10 minutes, in memory.
+- With no city it uses a last-known location only if location access is already allowed and the fix is under two
+  hours old; otherwise it asks which city. It never opens a permission dialog for weather.
+- A weather question runs before the general research gate, so "temperature in Durban" is fast even without a
+  question mark. False positives such as "temperature of the sun", "wind power", "rain check" and "open weather app"
+  are excluded.
+- If Open-Meteo fails or cannot resolve the place, the normal web search runs as a fallback.
+
+Measured from the dev network: geocode + forecast about **2.1 s cold** (two TLS handshakes) and **0.37 s warm**.
+The tool output includes "Open-Meteo" as the source. Data is by [Open-Meteo.com](https://open-meteo.com/) (CC BY 4.0).
+
+## Live voice
+
+Both Gemini Live surfaces — the assistant sheet and the full call screen — expose `quick_answer`, `weather` and
+`web_search` as direct function tools, alongside their existing hand-off, media and question tools:
+
+- `quick_answer` runs the same registry: a sum, a conversion, the time, a currency, a definition, a country fact or
+  a short Wikipedia summary. Capped at 2.5 s.
+- `weather` uses the same Open-Meteo service, capped at 3.2 s.
+- `web_search` runs one `QUICK` query, at most three results, no page reads, capped at 3 s.
+- Results are spoken in one or two lines; URLs are not read out and search results are explicitly untrusted data.
+- If a tool fails or is empty, Live hands the question to the main agent, which has the full search, fast-answer and
+  weather tools. Real work (send, change, book, the user's own messages and mail) still goes through the hand-off.
+
+## Action capability guard
+
+A prompt alone cannot stop a promise. The same guard now covers every action family, not only email: email, messages,
+calls, calendar changes, bookings, purchases, payments, file changes, settings and app changes.
+
+1. **Before the model call**, `ActionGuard` classifies the request. A definite missing capability becomes a user-facing
+   line and an `[ACTION CHECK]` note: no Gmail/Outlook account, a named messaging app that is neither installed nor
+   connected, or a device with no telephony. High-risk actions that may still work through a browser (booking,
+   purchase, payment) are not blocked; they get an explicit rule to obtain approval and confirm the result.
+2. **Before any connected-app action**, `AppGuard` refuses an app with no connected account (`requireAccount`),
+   before the approval card. A lookup failure says "Couldn't check your accounts; nothing was sent" rather than
+   pretending the app is disconnected.
+3. **During the turn**, `ActionLedger` records which action kinds a tool touched and whether the result is a verified
+   success. A draft composer, a page click, a refused call and a `successful:false` response are *not* verified.
+4. **Before a reply is stored**, `ActionClaim` checks each sentence. A claim such as "sent", "booked", "paid", "called",
+   "deleted" or a bare "Done" is kept only when the ledger has a verified success for that action. A missing
+   capability gets a truthful explanation; an unconfirmed attempt gets "hasn't been confirmed"; a promise with no
+   action yet gets "nothing is confirmed yet". Unrelated sentences are left alone. Helpers' final results pass through
+   the same check.
+5. `android_intent` no longer reports `sent` for a `mailto:`, a mail-app share or a dialer: it says a draft was opened
+   or the dialer was opened, and the user still has to press Send or Call.
+
+The voice call and the assistant sheet use `runtime.actionBlocker` before a hand-off, so Live answers a missing
+capability itself instead of saying "on it" for a job that cannot run. Subscription runs use the same preflight and
+claim guard, but only for definite missing capabilities because their harness tool events do not carry a result.
+
 ## Tool contract
+
+### web_search
 
 ```text
 web_search(
@@ -171,6 +258,29 @@ Web search: "latest exchange rate ZAR to USD" · 6 sources · 840 ms · Tavily
 The tool logs one activity row ("Searched the web · 6 sources · 840 ms") and a
 `mew.web.search` trace section. The model is told to cite `[n]` and never present a price, date or name as fact
 without a source.
+
+### quick_answer
+
+```text
+quick_answer(
+  query: string   // the question, under 500 characters
+)
+```
+
+Runs the `FastAnswers` registry and returns a short checked answer. Used by both Live voice surfaces. It never reads
+full pages and returns an error rather than guessing when nothing matches.
+
+### weather
+
+```text
+weather(
+  city: string? = null,   // named place; omitted uses an already-allowed recent location or asks
+  days: int = 3           // 1-7
+)
+```
+
+Returns current conditions and the daily forecast with the resolved place, country, units and "Open-Meteo" source.
+It never requests location permission; without a city and without a recent allowed fix it asks which city.
 
 ## Automatic research
 
@@ -295,7 +405,11 @@ none.
 
 - `WebSearchPlannerTest`, `SearchFusionTest`, `UrlGuardTest`, `SearchProviderTest`, `WebSearchServiceTest`,
   `WebSearchToolTest`, `WebSearchSettingsTest`, `LentToolsTest`, `TranslationsCheckTest`: green.
-- Full phone suite: **2,333 tests, 0 failures, 27 skipped**.
+- `WeatherTest`, `LiveQuickToolsTest`, `EmailCapabilityTest`, `AndroidIntentTest`, `LiveAssistTest`, `CallAgentTest`:
+  weather parsing, Open-Meteo geocode/forecast/cache, Live declarations, email intent/capability/claim guard, and
+  mailto draft truthfulness are covered.
+- Full phone suite: **2,333 tests, 0 failures, 27 skipped** before the weather/email/live additions; the edge-case
+  batch is re-running the full suite.
 - Translation checker: 54 locale folders, 0 problems.
 - Keyless Bing answered a real query from the dev network in ~310 ms; DuckDuckGo HTML returned a 202 challenge with
   no result nodes, so it remains a last resort.
@@ -311,6 +425,8 @@ none.
 - Firecrawl Search API reference: https://docs.firecrawl.dev/api-reference/endpoint/search
 - TinyFish TinySearch: https://docs.tinyfish.ai/tinysearch
 - TinyFish TinySearch reference: https://docs.tinyfish.ai/tinysearch/reference
+- Open-Meteo weather: https://open-meteo.com/en/docs
+- Open-Meteo geocoding: https://open-meteo.com/en/docs/geocoding-api
 - Anthropic, "How we built our multi-agent research system":
   https://www.anthropic.com/engineering/multi-agent-research-system
 - Google query fan-out (Search Engine Journal, July 2025):
