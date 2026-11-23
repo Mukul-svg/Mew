@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_web_search">Websoektog</string>
+    <string name="settings_web_search_sub">Feite, nuus en pryse, gekontroleer teen die web</string>
+    <string name="web_search_before">Voordat jy antwoord</string>
+    <string name="web_search_questions">Vrae</string>
+    <string name="web_search_questions_sub">Soek vir openbare feite, nuus en pryse. Slaan persoonlike data en aksies oor.</string>
+    <string name="web_search_always">Altyd</string>
+    <string name="web_search_always_sub">Soek voor elke antwoord behalwe dade en praatjies.</string>
+    <string name="web_search_off_sub">Moenie outomaties soek nie. Die agent kan steeds op die web deursoek wanneer dit nodig is.</string>
+    <string name="web_search_providers">Verskaffers</string>
+    <string name="web_search_preferred">Voorkeurverskaffer</string>
+    <string name="web_search_auto">Outo</string>
+    <string name="web_search_parallel">Soek parallel</string>
+    <string name="web_search_parallel_sub">Gebruik twee verskaffers per soektog wanneer albei sleutels gestel is. Mag meer kos.</string>
+    <string name="web_search_test">Toetssoektog</string>
+    <string name="web_search_testing">Toets tans …</string>
+    <string name="web_search_test_sub">Voer een regte soektog uit met die gestoorde sleutels.</string>
+    <string name="web_search_privacy">Navrae gaan na die geselekteerde soekverskaffers. Mew hou geen soekgeskiedenis nie.</string>
+    <string name="web_search_key_label">%1$s API-sleutel</string>
+    <string name="web_search_add_key">Voeg sleutel by</string>
+    <string name="web_search_remove_key">Verwyder sleutel</string>
+    <string name="web_search_no_keys">Nog geen sleutels nie</string>
+    <string name="web_search_test_failed">Toets misluk: %1$s</string>
+    <plurals name="web_search_key_count">
+        <item quantity="one">%1$d sleutel</item>
+        <item quantity="other">%1$d sleutels</item>
+    </plurals>
+</resources>

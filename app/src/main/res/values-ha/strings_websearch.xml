@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_web_search">Binciken yanar gizo</string>
+    <string name="settings_web_search_sub">Gaskiya, labarai da farashi, an duba su akan yanar gizo</string>
+    <string name="web_search_before">Kafin ya amsa</string>
+    <string name="web_search_questions">Tambayoyi</string>
+    <string name="web_search_questions_sub">Bincika bayanan jama\'a, labarai da farashi. Tsallake bayanan sirri da ayyuka.</string>
+    <string name="web_search_always">Koyaushe</string>
+    <string name="web_search_always_sub">Bincika kafin kowace amsa sai dai ayyuka da ƙananan magana.</string>
+    <string name="web_search_off_sub">Kar a bincika ta atomatik. Wakilin yana iya bincika gidan yanar gizo lokacin da ake buƙata.</string>
+    <string name="web_search_providers">Masu bayarwa</string>
+    <string name="web_search_preferred">Wanda akafi so</string>
+    <string name="web_search_auto">Mota</string>
+    <string name="web_search_parallel">Bincika a layi daya</string>
+    <string name="web_search_parallel_sub">Yi amfani da masu samarwa biyu kowane bincike lokacin da aka saita maɓallan biyu. Maiyuwa farashi mai yawa.</string>
+    <string name="web_search_test">Gwajin bincike</string>
+    <string name="web_search_testing">Gwaji…</string>
+    <string name="web_search_test_sub">Gudanar da bincike na gaske guda ɗaya tare da adana maɓallan.</string>
+    <string name="web_search_privacy">Tambayoyi suna zuwa ga zaɓaɓɓun masu samar da bincike. Mew baya ajiye tarihin bincike.</string>
+    <string name="web_search_key_label">%1$s API key</string>
+    <string name="web_search_add_key">Ƙara maɓalli</string>
+    <string name="web_search_remove_key">Cire maɓalli</string>
+    <string name="web_search_no_keys">Babu maɓalli tukuna</string>
+    <string name="web_search_test_failed">Gwajin ya gaza: %1$s</string>
+    <plurals name="web_search_key_count">
+        <item quantity="one">%1$d maɓalli</item>
+        <item quantity="other">%1$d maɓallan</item>
+    </plurals>
+</resources>

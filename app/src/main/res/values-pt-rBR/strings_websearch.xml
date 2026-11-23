@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_web_search">Pesquisa na web</string>
+    <string name="settings_web_search_sub">Fatos, notícias e preços verificados na web</string>
+    <string name="web_search_before">Antes de responder</string>
+    <string name="web_search_questions">Questões</string>
+    <string name="web_search_questions_sub">Pesquise fatos públicos, notícias e preços. Ignore dados e ações pessoais.</string>
+    <string name="web_search_always">Sempre</string>
+    <string name="web_search_always_sub">Pesquise antes de cada resposta, exceto ações e conversa fiada.</string>
+    <string name="web_search_off_sub">Não pesquise automaticamente. O agente ainda pode pesquisar na web quando necessário.</string>
+    <string name="web_search_providers">Provedores</string>
+    <string name="web_search_preferred">Provedor preferido</string>
+    <string name="web_search_auto">Auto</string>
+    <string name="web_search_parallel">Pesquisar em paralelo</string>
+    <string name="web_search_parallel_sub">Use dois provedores por pesquisa quando ambas as chaves estiverem definidas. Pode custar mais.</string>
+    <string name="web_search_test">Pesquisa de teste</string>
+    <string name="web_search_testing">Testando…</string>
+    <string name="web_search_test_sub">Execute uma pesquisa real com as chaves salvas.</string>
+    <string name="web_search_privacy">As consultas vão para os provedores de pesquisa selecionados. Mew não mantém histórico de pesquisa.</string>
+    <string name="web_search_key_label">Chave de API %1$s</string>
+    <string name="web_search_add_key">Adicionar chave</string>
+    <string name="web_search_remove_key">Remover chave</string>
+    <string name="web_search_no_keys">Ainda não há chaves</string>
+    <string name="web_search_test_failed">Falha no teste: %1$s</string>
+    <plurals name="web_search_key_count">
+        <item quantity="one">Tecla %1$d</item>
+        <item quantity="other">Chaves %1$d</item>
+    </plurals>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_web_search">Patlo ya webo</string>
+    <string name="settings_web_search_sub">Dintlha, dikgang le ditlhwatlhwa, di tlholwa kgatlhanong le webo</string>
+    <string name="web_search_before">Pele ke araba</string>
+    <string name="web_search_questions">Dipotso</string>
+    <string name="web_search_questions_sub">Batla dintlha tsa setšhaba, dikgang le ditlhwatlhwa. Tlola tshedimosetso ya botho le ditiro.</string>
+    <string name="web_search_always">Ka metlha</string>
+    <string name="web_search_always_sub">Batla pele ga karabo nngwe le nngwe kwa ntle ga ditiro le dipuo tse dinnye.</string>
+    <string name="web_search_off_sub">O se ka wa batla ka go itirisa. Moemedi o sa ntse a ka batla mo webong fa go tlhokega.</string>
+    <string name="web_search_providers">Batlamedi</string>
+    <string name="web_search_preferred">Motlamedi yo o ratwang</string>
+    <string name="web_search_auto">Itiriso</string>
+    <string name="web_search_parallel">Batla ka nako e le nngwe</string>
+    <string name="web_search_parallel_sub">Dirisa batlamedi ba le babedi ka patlo fa dinotlolo ka bobedi di setilwe. E ka nna ya ja go feta.</string>
+    <string name="web_search_test">Patlisiso ya teko</string>
+    <string name="web_search_testing">Teko...</string>
+    <string name="web_search_test_sub">Dira patlo e le nngwe ya mmatota ka dinotlolo tse di bolokilweng.</string>
+    <string name="web_search_privacy">Dipotso di ya kwa batlameding ba patlo ba ba tlhophilweng. Mew ga e boloke motlhala wa patlo.</string>
+    <string name="web_search_key_label">Senotlolo sa %1$s API</string>
+    <string name="web_search_add_key">Tsenya senotlolo</string>
+    <string name="web_search_remove_key">Tlosa senotlolo</string>
+    <string name="web_search_no_keys">Ga go ise go nne le dinotlolo</string>
+    <string name="web_search_test_failed">Teko e paletswe: %1$s</string>
+    <plurals name="web_search_key_count">
+        <item quantity="one">Senotlolo sa %1$d</item>
+        <item quantity="other">Dinotlolo tsa %1$d</item>
+    </plurals>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_web_search">Recherche sur le Web</string>
+    <string name="settings_web_search_sub">Faits, actualités et prix, comparés au Web</string>
+    <string name="web_search_before">Avant de répondre</string>
+    <string name="web_search_questions">Questions</string>
+    <string name="web_search_questions_sub">Recherchez des faits publics, des actualités et des prix. Ignorez les données et actions personnelles.</string>
+    <string name="web_search_always">Toujours</string>
+    <string name="web_search_always_sub">Recherchez avant chaque réponse, à l\'exception des actions et des bavardages.</string>
+    <string name="web_search_off_sub">Ne recherchez pas automatiquement. L\'agent peut toujours effectuer des recherches sur le Web en cas de besoin.</string>
+    <string name="web_search_providers">Fournisseurs</string>
+    <string name="web_search_preferred">Fournisseur préféré</string>
+    <string name="web_search_auto">Auto</string>
+    <string name="web_search_parallel">Rechercher en parallèle</string>
+    <string name="web_search_parallel_sub">Utilisez deux fournisseurs par recherche lorsque les deux clés sont définies. Peut coûter plus cher.</string>
+    <string name="web_search_test">Recherche de tests</string>
+    <string name="web_search_testing">Essai…</string>
+    <string name="web_search_test_sub">Exécutez une vraie recherche avec les clés enregistrées.</string>
+    <string name="web_search_privacy">Les requêtes sont dirigées vers les moteurs de recherche sélectionnés. Mew ne conserve aucun historique de recherche.</string>
+    <string name="web_search_key_label">Clé API %1$s</string>
+    <string name="web_search_add_key">Ajouter une clé</string>
+    <string name="web_search_remove_key">Supprimer la clé</string>
+    <string name="web_search_no_keys">Pas encore de clés</string>
+    <string name="web_search_test_failed">Échec du test : %1$s</string>
+    <plurals name="web_search_key_count">
+        <item quantity="one">Clé %1$d</item>
+        <item quantity="other">Clés %1$d</item>
+    </plurals>
+</resources>

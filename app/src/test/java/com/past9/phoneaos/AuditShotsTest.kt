@@ -281,6 +281,7 @@ class AuditShotsTest(private val width: Int, private val height: Int, private va
     @Test fun voiceSheet() { sheet("a37-sheet-voice-phone") { VoiceSheet(keySettings, VoiceActions()) {} } }
     @Test fun voiceSheetGoogle() { sheet("a38-sheet-voice-google-live") { VoiceSheet(keySettings.copy(ttsProvider = "gemini", ttsVoice = "Achernar", liveEnabled = true, speakReplies = true), VoiceActions(hasKey = { true })) {} } }
     @Test fun voiceSheetNoKey() { sheet("a39-sheet-voice-elevenlabs-no-key") { VoiceSheet(keySettings.copy(ttsProvider = "elevenlabs"), VoiceActions()) {} } }
+    @Test fun webSearchSheet() { sheet("a39b-sheet-web-search") { WebSearchSheet(WebSearchActions(mode = { "questions" }, hasKey = { it == "tavily" }), {}) } }
 
     // ---------- linking and devices ----------
     @Test fun linkReady() { shot("a40-link-scan") { LinkScreen({}, {}) } }

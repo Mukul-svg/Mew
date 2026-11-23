@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_web_search">Веб-поиск</string>
+    <string name="settings_web_search_sub">Факты, новости и цены, проверенные в Интернете.</string>
+    <string name="web_search_before">Прежде чем ответить</string>
+    <string name="web_search_questions">Вопросы</string>
+    <string name="web_search_questions_sub">Поиск общедоступных фактов, новостей и цен. Пропускать личные данные и действия.</string>
+    <string name="web_search_always">Всегда</string>
+    <string name="web_search_always_sub">Ищите перед каждым ответом, кроме действий и светской беседы.</string>
+    <string name="web_search_off_sub">Не выполнять автоматический поиск. Агент по-прежнему может выполнять поиск в Интернете, когда это необходимо.</string>
+    <string name="web_search_providers">Провайдеры</string>
+    <string name="web_search_preferred">Предпочитаемый поставщик</string>
+    <string name="web_search_auto">Авто</string>
+    <string name="web_search_parallel">Искать параллельно</string>
+    <string name="web_search_parallel_sub">Используйте двух поставщиков для каждого поиска, если установлены оба ключа. Может стоить дороже.</string>
+    <string name="web_search_test">Тестовый поиск</string>
+    <string name="web_search_testing">Тестирование…</string>
+    <string name="web_search_test_sub">Запустите один настоящий поиск с сохраненными ключами.</string>
+    <string name="web_search_privacy">Запросы отправляются выбранным поисковым провайдерам. Mew не сохраняет историю поиска.</string>
+    <string name="web_search_key_label">%1$s API-ключ</string>
+    <string name="web_search_add_key">Добавить ключ</string>
+    <string name="web_search_remove_key">Удалить ключ</string>
+    <string name="web_search_no_keys">Ключей пока нет</string>
+    <string name="web_search_test_failed">Тест не пройден: %1$s</string>
+    <plurals name="web_search_key_count">
+        <item quantity="one">%1$d ключ</item>
+        <item quantity="few">%1$d ключи</item>
+        <item quantity="many">%1$d ключи</item>
+        <item quantity="other">%1$d ключи</item>
+    </plurals>
+</resources>

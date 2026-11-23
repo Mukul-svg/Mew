@@ -85,6 +85,14 @@ data class AgentSettings(
     val autoPlayEarphones: Boolean = true,
     /** Which account and model each kind of turn runs on (issue #64). A kind with no entry runs on the default above. */
     val routes: Map<ModelRoute, RouteChoice> = emptyMap(),
+    /** Web search before answering: "questions" (default), "always" or "off". */
+    val webSearchMode: String = "questions",
+    /** "auto" or a provider id: tavily, exa, firecrawl, tinyfish. */
+    val webSearchProvider: String = "auto",
+    /** Query two configured providers at once (more cost, lower tail latency). */
+    val webSearchParallel: Boolean = true,
+    /** Search providers with a saved key. */
+    val webSearchKeys: Set<String> = emptySet(),
 ) {
     val ready: Boolean get() = when (mode) {
         PowerMode.API_KEY -> hasKey
@@ -142,6 +150,10 @@ class SettingsStore(context: Context) {
             subKind = runCatching { SubKind.valueOf(prefs.getString("subKind", "CLAUDE")!!) }.getOrDefault(SubKind.CLAUDE),
             helperRoster = HelperModel.listFrom(prefs.getString(rosterKey(), null)),
             routes = ModelRoute.entries.mapNotNull { r -> RouteChoice.fromJson(prefs.getString("x_route_${r.name}", null))?.let { r to it } }.toMap(),
+            webSearchMode = prefs.getString("x_web_search_mode", "questions") ?: "questions",
+            webSearchProvider = prefs.getString("x_web_search_provider", "auto") ?: "auto",
+            webSearchParallel = prefs.getString("x_web_search_parallel", "true") != "false",
+            webSearchKeys = listOf("tavily", "exa", "firecrawl", "tinyfish").filter { !secrets.getString("websearch_$it", null).isNullOrBlank() }.toSet(),
         )
     }
 
@@ -193,6 +205,18 @@ class SettingsStore(context: Context) {
         "gemini" -> apiKey(Provider.GEMINI); "openai" -> apiKey(Provider.OPENAI); else -> null
     }
     fun setVoiceKey(provider: String, key: String?) { secrets.edit().apply { if (key.isNullOrBlank()) remove("voice_$provider") else putString("voice_$provider", key.trim()) }.apply(); _state.value = read() }
+
+    // ---- web search (Tavily, Exa, Firecrawl, TinyFish) ---------------------------------------------------------
+    fun webSearchKey(provider: String): String? = secrets.getString("websearch_$provider", null)?.takeIf { it.isNotBlank() }
+    fun setWebSearchKey(provider: String, key: String?) {
+        val clean = key?.trim()?.removeSurrounding("\"")?.removePrefix("Bearer ")?.trim()
+        secrets.edit().apply { if (clean.isNullOrBlank()) remove("websearch_$provider") else putString("websearch_$provider", clean) }.apply()
+        _state.value = read()
+        com.past9.phoneaos.web.WebSearchService.clearCache()
+    }
+    fun setWebSearchMode(mode: String) { setExtra("web_search_mode", mode); _state.value = read(); com.past9.phoneaos.web.WebSearchService.clearCache() }
+    fun setWebSearchProvider(provider: String) { setExtra("web_search_provider", provider); _state.value = read(); com.past9.phoneaos.web.WebSearchService.clearCache() }
+    fun setWebSearchParallel(on: Boolean) { setExtra("web_search_parallel", if (on) "true" else "false"); _state.value = read(); com.past9.phoneaos.web.WebSearchService.clearCache() }
     fun setSubKind(k: SubKind) = edit { putString("subKind", k.name) }
     fun setAccent(a: String) = edit { putString("accent", a) }
     fun setMascot(m: String) = edit { putString("mascot", m) }
@@ -361,5 +385,5 @@ class SettingsStore(context: Context) {
     /** The same store as [setExtra], but on disk before it returns. For the few switches that must survive the app being killed right after. */
     fun setExtraNow(key: String, value: String?) { prefs.edit().apply { if (value == null) remove("x_$key") else putString("x_$key", value) }.commit() }
 
-    fun resetAll() { prefs.edit().clear().apply(); secrets.edit().clear().apply(); _state.value = read() }
+    fun resetAll() { prefs.edit().clear().apply(); secrets.edit().clear().apply(); _state.value = read(); com.past9.phoneaos.web.WebSearchService.clearCache() }
 }

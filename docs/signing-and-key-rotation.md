@@ -73,7 +73,7 @@ the new key for that app and keeps the data.
    apksigner sign --ks ~/phone-aos/keys/release.jks --ks-key-alias agent \
      --next-signer --ks ~/phone-aos/keys/published.keystore --ks-key-alias androiddebugkey \
      --lineage ~/phone-aos/keys/agent-lineage.bin \
-     --out Agent-<version>.apk app-release-unsigned.apk
+     --out Mew-<version>.apk app-release-unsigned.apk
    ```
    (Or let Gradle sign with the release key and then rotate the signature on the built file, which is the same command
    against `app-release.apk` after stripping its signature.)
@@ -126,7 +126,8 @@ Future rotations still need the v3 lineage procedure above, starting from this r
 
 The first release, `v0.16.0`, was published on 2026-11-21 as `Agent-0.16.0.apk` (87,170,416 bytes, SHA-256
 `5a297e670957386b0bf9e98cfdee605c9e0d029068b03dd072196d566d98e24b`), signed with the new key. Always verify the
-attached `.sha256` and the certificate before installing.
+attached `.sha256` and the certificate before installing. From `0.17.0` the workflow names the asset
+`Mew-<version>.apk`; the 0.16.x releases keep their original `Agent-` names.
 
 ## Guard: a wrong-key APK can be neither built nor published
 

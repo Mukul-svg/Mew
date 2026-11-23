@@ -66,6 +66,8 @@ data class SettingsActions(
     val media: MediaAppsActions = MediaAppsActions(),
     /** Settings > Browser: sites that may use shared memory in the agent's browser, and the agent's voice in WhatsApp calls. */
     val browser: BrowserSettingsActions = BrowserSettingsActions(),
+    /** Settings > Web search: research mode, provider keys, preferred provider and the test. */
+    val webSearch: WebSearchActions = WebSearchActions(),
     /** Settings > Model routing: which account and model chat, routines and watchers run on (issue #64). */
     val routing: RoutingActions = RoutingActions(),
     val linkedLine: String = "Use the agent on your computer from this phone",
@@ -110,6 +112,7 @@ fun SettingsScreen(s: AgentSettings, runtime: RuntimeInfo, version: String, acti
     var macroSheet by remember { mutableStateOf(false) }
     var mediaSheet by remember { mutableStateOf(false) }
     var browserSheet by remember { mutableStateOf(false) }
+    var webSheet by remember { mutableStateOf(false) }
     var routeSheet by remember { mutableStateOf<com.past9.phoneaos.data.ModelRoute?>(null) }
     // The sheet keeps what it shows, so a flip of the switch or a new token lands without re-reading Settings.
     var automationAllowedNow by remember { mutableStateOf(automation.allowed) }
@@ -225,6 +228,18 @@ fun SettingsScreen(s: AgentSettings, runtime: RuntimeInfo, version: String, acti
                 val sites = remember(browserSheet) { actions.browser.origins() }
                 Line(Icons.Rounded.Public, stringResource(R.string.settings_browser_sites), com.past9.phoneaos.browser.IsolatedOrigins.line(sites)) { browserSheet = true }
             }
+            SectionHeader(stringResource(R.string.settings_web_search), stringResource(R.string.settings_web_search_sub), Modifier.padding(start = 4.dp, top = 12.dp))
+            AppCard(padding = PaddingValues(vertical = 4.dp)) {
+                val mode = when (com.past9.phoneaos.web.WebSearchMode.of(s.webSearchMode)) {
+                    com.past9.phoneaos.web.WebSearchMode.QUESTIONS -> stringResource(R.string.web_search_questions)
+                    com.past9.phoneaos.web.WebSearchMode.ALWAYS -> stringResource(R.string.web_search_always)
+                    com.past9.phoneaos.web.WebSearchMode.OFF -> stringResource(R.string.rel_off)
+                }
+                val keys = s.webSearchKeys.size
+                val count = if (keys == 0) stringResource(R.string.web_search_no_keys)
+                    else pluralStringResource(R.plurals.web_search_key_count, keys, keys)
+                Line(Icons.Rounded.Public, stringResource(R.string.settings_web_search), "$mode · $count") { webSheet = true }
+            }
             SectionHeader(stringResource(R.string.settings_linked), stringResource(R.string.settings_linked_sub), Modifier.padding(start = 4.dp, top = 12.dp))
             AppCard(padding = PaddingValues(vertical = 4.dp)) {
                 Line(Icons.Rounded.Devices, stringResource(R.string.settings_linked), actions.linkedLine) { actions.onLinked() }
@@ -268,6 +283,7 @@ fun SettingsScreen(s: AgentSettings, runtime: RuntimeInfo, version: String, acti
     if (macroSheet) MacroSheet(actions.macro) { macroSheet = false }
     if (mediaSheet) MediaAppsSheet(actions.media) { mediaSheet = false }
     if (browserSheet) BrowserSheet(actions.browser) { browserSheet = false }
+    if (webSheet) WebSearchSheet(actions.webSearch) { webSheet = false }
     routeSheet?.let { r -> ModelRoutingSheet(r, s.routes[r], actions.routing) { routeSheet = null } }
     if (confirmReset) com.past9.phoneaos.ui.ConfirmSheet(androidx.compose.material.icons.Icons.Rounded.DeleteForever, stringResource(R.string.settings_this_phone), stringResource(R.string.settings_reset_confirm),
         stringResource(R.string.settings_reset_confirm_body),

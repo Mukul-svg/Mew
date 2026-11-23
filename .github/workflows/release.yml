@@ -102,7 +102,7 @@ jobs:
         run: |
           VERSION=$(sed -n 's/.*versionName = "\(.*\)".*/\1/p' app/build.gradle.kts | head -1)
           test -n "$VERSION"
-          ASSET="Agent-${VERSION}.apk"
+          ASSET="Mew-${VERSION}.apk"
           cp app/build/outputs/apk/release/app-release.apk "$RUNNER_TEMP/$ASSET"
           sha256sum "$RUNNER_TEMP/$ASSET" | tee "$RUNNER_TEMP/$ASSET.sha256"
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
@@ -113,8 +113,8 @@ jobs:
         with:
           name: mew-release
           path: |
-            ${{ runner.temp }}/Agent-*.apk
-            ${{ runner.temp }}/Agent-*.apk.sha256
+            ${{ runner.temp }}/Mew-*.apk
+            ${{ runner.temp }}/Mew-*.apk.sha256
           if-no-files-found: error
           retention-days: 30
 

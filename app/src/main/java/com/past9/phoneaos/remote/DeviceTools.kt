@@ -55,6 +55,7 @@ object DeviceTools {
         "run_code" to "A shell on the phone is never lent.",
         "selfcheck_ping" to "The phone's own start-up check.",
         "now" to "The computer has its own clock tool.", "web_fetch" to "The computer fetches pages itself.", "report" to "Writes into the phone's own chat.",
+        "web_search" to "Searches with the phone's own keys; a linked computer searches with its own.",
         "files_pick" to "Opens a picker for the phone's own agent; a computer reads phone files with phone_files.",
         "media_frames" to "Works on files in the phone agent's own folders.", "media_transcribe" to "Works on files in the phone agent's own folders.",
         "voice_note" to "Speaks in the phone's own chat.", "profile_create" to "Profiles belong to the agent that runs; the computer has its own.",

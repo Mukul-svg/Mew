@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_web_search">ค้นหาเว็บ</string>
+    <string name="settings_web_search_sub">ตรวจสอบข้อเท็จจริง ข่าวสาร และราคาจากเว็บ</string>
+    <string name="web_search_before">ก่อนจะตอบ</string>
+    <string name="web_search_questions">คำถาม</string>
+    <string name="web_search_questions_sub">ค้นหาข้อเท็จจริง ข่าวสาร และราคาสาธารณะ ข้ามข้อมูลส่วนบุคคลและการดำเนินการ</string>
+    <string name="web_search_always">เสมอ</string>
+    <string name="web_search_always_sub">ค้นหาก่อนทุกคำตอบ ยกเว้นการกระทำและการพูดคุยเล็กๆ น้อยๆ</string>
+    <string name="web_search_off_sub">อย่าค้นหาโดยอัตโนมัติ ตัวแทนยังสามารถค้นหาเว็บได้เมื่อจำเป็น</string>
+    <string name="web_search_providers">ผู้ให้บริการ</string>
+    <string name="web_search_preferred">ผู้ให้บริการที่ต้องการ</string>
+    <string name="web_search_auto">อัตโนมัติ</string>
+    <string name="web_search_parallel">ค้นหาแบบคู่ขนาน</string>
+    <string name="web_search_parallel_sub">ใช้ผู้ให้บริการสองรายต่อการค้นหาเมื่อมีการตั้งค่าคีย์ทั้งสอง อาจมีค่าใช้จ่ายมากขึ้น</string>
+    <string name="web_search_test">ทดสอบการค้นหา</string>
+    <string name="web_search_testing">กำลังทดสอบ...</string>
+    <string name="web_search_test_sub">ดำเนินการค้นหาจริงหนึ่งครั้งด้วยคีย์ที่บันทึกไว้</string>
+    <string name="web_search_privacy">ข้อความค้นหาไปที่ผู้ให้บริการค้นหาที่เลือก Mew ไม่เก็บประวัติการค้นหา</string>
+    <string name="web_search_key_label">%1$s คีย์ API</string>
+    <string name="web_search_add_key">เพิ่มรหัส</string>
+    <string name="web_search_remove_key">เอากุญแจออก</string>
+    <string name="web_search_no_keys">ยังไม่มีกุญแจ.</string>
+    <string name="web_search_test_failed">การทดสอบล้มเหลว: %1$s</string>
+    <plurals name="web_search_key_count">
+        <item quantity="other">%1$d คีย์</item>
+    </plurals>
+</resources>

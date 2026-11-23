@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_web_search">Ọchụchọ webụ</string>
+    <string name="settings_web_search_sub">Eziokwu, akụkọ na ọnụ ahịa, enyochara megide webụ</string>
+    <string name="web_search_before">Tupu azaa</string>
+    <string name="web_search_questions">Ajụjụ</string>
+    <string name="web_search_questions_sub">Chọọ eziokwu ọha, akụkọ na ọnụ ahịa. Mafere data nkeonwe na omume.</string>
+    <string name="web_search_always">Mgbe niile</string>
+    <string name="web_search_always_sub">Chọọ tupu nzaghachi ọ bụla ma e wezụga omume na obere okwu.</string>
+    <string name="web_search_off_sub">Achọla na-akpaghị aka. Onye ọrụ ahụ ka nwere ike chọọ webụ mgbe achọrọ ya.</string>
+    <string name="web_search_providers">Ndị na-enye ihe</string>
+    <string name="web_search_preferred">Onye na-eweta ahọrọ</string>
+    <string name="web_search_auto">Akpaaka</string>
+    <string name="web_search_parallel">Chọọ n\'otu n\'otu</string>
+    <string name="web_search_parallel_sub">Jiri ndị na-eweta abụọ n\'otu nchọta mgbe edobere igodo abụọ ahụ. Nwere ike na-eri karịa.</string>
+    <string name="web_search_test">Nwalee ọchụchọ</string>
+    <string name="web_search_testing">Na-anwale…</string>
+    <string name="web_search_test_sub">Jiri igodo echekwara mee otu ezigbo ọchụchọ.</string>
+    <string name="web_search_privacy">Ajuju na-aga na ndị na-eweta ọchụchọ ahọpụtara. Mew anaghị edobe akụkọ ọchụchọ ọ bụla.</string>
+    <string name="web_search_key_label">%1$s igodo API</string>
+    <string name="web_search_add_key">Tinye igodo</string>
+    <string name="web_search_remove_key">Wepu igodo</string>
+    <string name="web_search_no_keys">Enweghị igodo ma</string>
+    <string name="web_search_test_failed">Nnwale dara: %1$s</string>
+    <plurals name="web_search_key_count">
+        <item quantity="other">igodo %1$d</item>
+    </plurals>
+</resources>

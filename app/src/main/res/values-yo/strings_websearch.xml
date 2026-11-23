@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_web_search">Wiwa wẹẹbu</string>
+    <string name="settings_web_search_sub">Awọn otitọ, awọn iroyin ati awọn idiyele, ṣayẹwo lodi si wẹẹbu</string>
+    <string name="web_search_before">Ṣaaju ki o to dahun</string>
+    <string name="web_search_questions">Awọn ibeere</string>
+    <string name="web_search_questions_sub">Wa awọn otitọ gbangba, awọn iroyin ati awọn idiyele. Rekọja data ti ara ẹni ati awọn iṣe.</string>
+    <string name="web_search_always">Nigbagbogbo</string>
+    <string name="web_search_always_sub">Wa ṣaaju gbogbo idahun ayafi awọn iṣe ati ọrọ kekere.</string>
+    <string name="web_search_off_sub">Ma ṣe wa laifọwọyi. Aṣoju tun le wa oju opo wẹẹbu nigbati o nilo.</string>
+    <string name="web_search_providers">Awọn olupese</string>
+    <string name="web_search_preferred">Olupese ti o fẹ</string>
+    <string name="web_search_auto">Aifọwọyi</string>
+    <string name="web_search_parallel">Wa ni afiwe</string>
+    <string name="web_search_parallel_sub">Lo awọn olupese meji fun wiwa nigbati awọn bọtini mejeeji ti ṣeto. Le jẹ diẹ sii.</string>
+    <string name="web_search_test">Idanwo wiwa</string>
+    <string name="web_search_testing">Idanwo…</string>
+    <string name="web_search_test_sub">Ṣiṣe wiwa gidi kan pẹlu awọn bọtini ti o fipamọ.</string>
+    <string name="web_search_privacy">Awọn ibeere lọ si awọn olupese wiwa ti o yan. Mew ko tọju itan-akọọlẹ wiwa kankan.</string>
+    <string name="web_search_key_label">%1$s API bọtini</string>
+    <string name="web_search_add_key">Fi bọtini kun</string>
+    <string name="web_search_remove_key">Yọ bọtini kuro</string>
+    <string name="web_search_no_keys">Ko si awọn bọtini sibẹsibẹ</string>
+    <string name="web_search_test_failed">Idanwo kuna: %1$s</string>
+    <plurals name="web_search_key_count">
+        <item quantity="other">%1$d bọtini</item>
+    </plurals>
+</resources>

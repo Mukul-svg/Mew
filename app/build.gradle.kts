@@ -41,8 +41,8 @@ android {
     // required model path; Claude/Codex/Antigravity runtimes are out of scope (DECISIONS.md D-011).
     targetSdk = 34
     // Above upstream 0.15.76/179, Mew 0.16.0/180 and Mew 0.16.1/181 so this build installs as an update.
-    versionCode = 183
-    versionName = "0.16.3"
+    versionCode = 184
+    versionName = "0.17.0"
     // The macrobenchmark build type turns this on for its own seeding/navigation hooks only.
     buildConfigField("boolean", "BENCHMARK", "false")
     // Android never lets an installed app rename itself or change the icon Samsung shows on

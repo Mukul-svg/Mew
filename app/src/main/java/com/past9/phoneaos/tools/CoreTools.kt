@@ -5,7 +5,6 @@ import com.past9.phoneaos.agent.Tool
 import com.past9.phoneaos.agent.ToolContext
 import com.past9.phoneaos.agent.ToolSpec
 import com.past9.phoneaos.agent.schema
-import com.past9.phoneaos.agent.sharedHttp
 import com.past9.phoneaos.agent.str
 import com.past9.phoneaos.agent.strList
 import kotlinx.coroutines.Dispatchers
@@ -44,10 +43,11 @@ class WebFetchTool : Tool {
         schema(listOf("url"), "url" to str("http(s) URL")))
     override suspend fun run(input: JSONObject, ctx: ToolContext): String = withContext(Dispatchers.IO) {
         val url = input.optString("url")
+        com.past9.phoneaos.web.UrlGuard.check(url)
         val id = ctx.activity("Reading $url", JSONObject().put("tool", "web"))
         val req = Request.Builder().url(url).header("User-Agent", "Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 Mobile").build()
-        sharedHttp.newCall(req).execute().use { res ->
-            val body = res.body?.string().orEmpty()
+        com.past9.phoneaos.web.UrlGuard.http.newCall(req).execute().use { res ->
+            val body = res.peekBody(2_000_000).string()
             val type = res.header("Content-Type").orEmpty()
             val text = if (type.contains("html")) htmlToText(body) else body
             ctx.updateActivity(id, "Read ${res.request.url.host} · ${res.code}")

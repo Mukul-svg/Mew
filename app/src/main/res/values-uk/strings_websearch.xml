@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_web_search">Пошук в Інтернеті</string>
+    <string name="settings_web_search_sub">Факти, новини та ціни, перевірені в Інтернеті</string>
+    <string name="web_search_before">Перед відповіддю</string>
+    <string name="web_search_questions">Питання</string>
+    <string name="web_search_questions_sub">Шукайте публічні факти, новини та ціни. Пропустити особисті дані та дії.</string>
+    <string name="web_search_always">Завжди</string>
+    <string name="web_search_always_sub">Шукайте перед кожною відповіддю, окрім дій і невеликих розмов.</string>
+    <string name="web_search_off_sub">Не шукайте автоматично. За потреби агент усе ще може шукати в Інтернеті.</string>
+    <string name="web_search_providers">Провайдери</string>
+    <string name="web_search_preferred">Бажаний провайдер</string>
+    <string name="web_search_auto">Авто</string>
+    <string name="web_search_parallel">Шукати паралельно</string>
+    <string name="web_search_parallel_sub">Використовуйте двох постачальників на пошук, якщо встановлено обидва ключі. Може коштувати дорожче.</string>
+    <string name="web_search_test">Тестовий пошук</string>
+    <string name="web_search_testing">Тестування…</string>
+    <string name="web_search_test_sub">Запустіть один реальний пошук із збереженими ключами.</string>
+    <string name="web_search_privacy">Запити надходять до вибраних пошукових систем. Mew не зберігає історію пошуку.</string>
+    <string name="web_search_key_label">Ключ API %1$s</string>
+    <string name="web_search_add_key">Додати ключ</string>
+    <string name="web_search_remove_key">Зняти ключ</string>
+    <string name="web_search_no_keys">Ключів ще немає</string>
+    <string name="web_search_test_failed">Перевірка не виконана: %1$s</string>
+    <plurals name="web_search_key_count">
+        <item quantity="one">Ключ %1$d</item>
+        <item quantity="few">%1$d ключі</item>
+        <item quantity="many">%1$d ключі</item>
+        <item quantity="other">%1$d ключі</item>
+    </plurals>
+</resources>

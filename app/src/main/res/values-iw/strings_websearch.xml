@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_web_search">חיפוש באינטרנט</string>
+    <string name="settings_web_search_sub">עובדות, חדשות ומחירים, נבדקו מול האינטרנט</string>
+    <string name="web_search_before">לפני שעונה</string>
+    <string name="web_search_questions">שאלות</string>
+    <string name="web_search_questions_sub">חפש עובדות ציבוריות, חדשות ומחירים. דלג על נתונים ופעולות אישיות.</string>
+    <string name="web_search_always">תָמִיד</string>
+    <string name="web_search_always_sub">חפש לפני כל תשובה למעט מעשים ושיחות חולין.</string>
+    <string name="web_search_off_sub">אל תחפש אוטומטית. הסוכן עדיין יכול לחפש באינטרנט בעת הצורך.</string>
+    <string name="web_search_providers">ספקים</string>
+    <string name="web_search_preferred">ספק מועדף</string>
+    <string name="web_search_auto">אוטומטי</string>
+    <string name="web_search_parallel">חפש במקביל</string>
+    <string name="web_search_parallel_sub">השתמש בשני ספקים לכל חיפוש כאשר שני המפתחות מוגדרים. עשוי לעלות יותר.</string>
+    <string name="web_search_test">חיפוש בדיקה</string>
+    <string name="web_search_testing">בּוֹחֵן…</string>
+    <string name="web_search_test_sub">הפעל חיפוש אמיתי אחד עם המפתחות השמורים.</string>
+    <string name="web_search_privacy">שאילתות עוברות לספקי החיפוש שנבחרו. Mew לא שומרת היסטוריית חיפושים.</string>
+    <string name="web_search_key_label">מפתח API %1$s</string>
+    <string name="web_search_add_key">הוסף מפתח</string>
+    <string name="web_search_remove_key">הסר את המפתח</string>
+    <string name="web_search_no_keys">עדיין אין מפתחות</string>
+    <string name="web_search_test_failed">הבדיקה נכשלה: %1$s</string>
+    <plurals name="web_search_key_count">
+        <item quantity="one">מפתח %1$d</item>
+        <item quantity="two">%1$d מפתחות</item>
+        <item quantity="other">%1$d מפתחות</item>
+    </plurals>
+</resources>

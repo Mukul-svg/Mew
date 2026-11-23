@@ -936,6 +936,21 @@ class MainActivity : ComponentActivity() {
                             testNumbers = g.settings::callTestNumbers, addTestNumber = g.settings::addCallTestNumber, removeTestNumber = g.settings::removeCallTestNumber,
                             testCallingOn = g.settings::callTestOn, setTestCallingOn = { on -> g.settings.setCallTestOn(on) },
                         ),
+                        webSearch = com.past9.phoneaos.ui.screens.WebSearchActions(
+                            mode = { g.settings.state.value.webSearchMode },
+                            setMode = g.settings::setWebSearchMode,
+                            provider = { g.settings.state.value.webSearchProvider },
+                            setProvider = g.settings::setWebSearchProvider,
+                            parallel = { g.settings.state.value.webSearchParallel },
+                            setParallel = g.settings::setWebSearchParallel,
+                            hasKey = { p -> g.settings.webSearchKey(p) != null },
+                            setKey = { p, k -> g.settings.setWebSearchKey(p, k) },
+                            test = {
+                                val st = g.settings.state.value
+                                com.past9.phoneaos.web.WebSearchService({ p -> g.settings.webSearchKey(p.id) })
+                                    .test(com.past9.phoneaos.web.SearchProvider.of(st.webSearchProvider), st.webSearchParallel)
+                            },
+                        ),
                     ),
                         automation = com.past9.phoneaos.ui.screens.AutomationInfo(
                             url = g.automation.url.ifBlank { "http://127.0.0.1:" + g.settings.automationPort() },

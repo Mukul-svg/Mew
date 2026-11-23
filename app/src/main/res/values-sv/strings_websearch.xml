@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_web_search">Webbsökning</string>
+    <string name="settings_web_search_sub">Fakta, nyheter och priser, kontrollerade mot webben</string>
+    <string name="web_search_before">Innan du svarar</string>
+    <string name="web_search_questions">Frågor</string>
+    <string name="web_search_questions_sub">Sök efter offentliga fakta, nyheter och priser. Hoppa över personuppgifter och åtgärder.</string>
+    <string name="web_search_always">Alltid</string>
+    <string name="web_search_always_sub">Sök före varje svar utom handlingar och småprat.</string>
+    <string name="web_search_off_sub">Sök inte automatiskt. Agenten kan fortfarande söka på webben vid behov.</string>
+    <string name="web_search_providers">Leverantörer</string>
+    <string name="web_search_preferred">Föredragen leverantör</string>
+    <string name="web_search_auto">Bil</string>
+    <string name="web_search_parallel">Sök parallellt</string>
+    <string name="web_search_parallel_sub">Använd två leverantörer per sökning när båda nycklarna är inställda. Kan kosta mer.</string>
+    <string name="web_search_test">Testsökning</string>
+    <string name="web_search_testing">Testning…</string>
+    <string name="web_search_test_sub">Kör en riktig sökning med de sparade nycklarna.</string>
+    <string name="web_search_privacy">Frågor går till de valda sökleverantörerna. Mew har ingen sökhistorik.</string>
+    <string name="web_search_key_label">%1$s API-nyckel</string>
+    <string name="web_search_add_key">Lägg till nyckel</string>
+    <string name="web_search_remove_key">Ta bort nyckeln</string>
+    <string name="web_search_no_keys">Inga nycklar än</string>
+    <string name="web_search_test_failed">Testet misslyckades: %1$s</string>
+    <plurals name="web_search_key_count">
+        <item quantity="one">%1$d nyckel</item>
+        <item quantity="other">%1$d nycklar</item>
+    </plurals>
+</resources>

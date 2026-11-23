@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_web_search">વેબ શોધ</string>
+    <string name="settings_web_search_sub">તથ્યો, સમાચાર અને કિંમતો, વેબ પર તપાસવામાં આવી</string>
+    <string name="web_search_before">જવાબ આપતા પહેલા</string>
+    <string name="web_search_questions">પ્રશ્નો</string>
+    <string name="web_search_questions_sub">સાર્વજનિક તથ્યો, સમાચાર અને કિંમતો માટે શોધો. વ્યક્તિગત ડેટા અને ક્રિયાઓ છોડો.</string>
+    <string name="web_search_always">હંમેશા</string>
+    <string name="web_search_always_sub">ક્રિયાઓ અને નાની વાતો સિવાય દરેક જવાબ પહેલાં શોધો.</string>
+    <string name="web_search_off_sub">આપમેળે શોધશો નહીં. જ્યારે જરૂર પડે ત્યારે એજન્ટ હજી પણ વેબ પર સર્ચ કરી શકે છે.</string>
+    <string name="web_search_providers">પ્રદાતાઓ</string>
+    <string name="web_search_preferred">મનપસંદ પ્રદાતા</string>
+    <string name="web_search_auto">ઓટો</string>
+    <string name="web_search_parallel">સમાંતર માં શોધો</string>
+    <string name="web_search_parallel_sub">જ્યારે બંને કી સેટ હોય ત્યારે શોધ દીઠ બે પ્રદાતાઓનો ઉપયોગ કરો. વધુ ખર્ચ થઈ શકે છે.</string>
+    <string name="web_search_test">પરીક્ષણ શોધ</string>
+    <string name="web_search_testing">પરીક્ષણ...</string>
+    <string name="web_search_test_sub">સાચવેલી કી વડે એક વાસ્તવિક શોધ ચલાવો.</string>
+    <string name="web_search_privacy">ક્વેરીઝ પસંદ કરેલ શોધ પ્રદાતાઓ પર જાય છે. Mew કોઈ શોધ ઇતિહાસ રાખતું નથી.</string>
+    <string name="web_search_key_label">%1$s API કી</string>
+    <string name="web_search_add_key">કી ઉમેરો</string>
+    <string name="web_search_remove_key">કી દૂર કરો</string>
+    <string name="web_search_no_keys">હજી સુધી કોઈ ચાવી નથી</string>
+    <string name="web_search_test_failed">પરીક્ષણ નિષ્ફળ થયું: %1$s</string>
+    <plurals name="web_search_key_count">
+        <item quantity="one">%1$d કી</item>
+        <item quantity="other">%1$d કી</item>
+    </plurals>
+</resources>

@@ -281,6 +281,16 @@ When a conflict exists, **ask the user before doing any implementation work**. W
 - **Related:** D-016, D-019, D-022.
 
 
+### D-024: Web search is a first-class tool with parallel providers and automatic research
+
+- **Date:** 2026-11-23
+- **Status:** accepted
+- **Decision:** Add `web_search` to the phone agent (main, helpers and routines). It supports Tavily, Exa, Firecrawl and TinyFish keys in the existing Keystore-backed secrets store; queries configured providers in parallel within a depth budget, fuses results with Reciprocal Rank Fusion, dedupes and diversifies domains, and falls back to keyless Bing RSS, then DuckDuckGo, then the existing browser. A pure `ResearchGate` decides when to search before the model answers: `Questions` (public factual questions only), `Always` (every reply except actions and small talk) and `Off`. The model must cite numbered sources and treat results as untrusted data. `web_fetch` and page reads now reject private, loopback and link-local addresses, including redirects.
+- **Rationale:** Browser-only fact checks are slow and need a helper. A one-provider API has no tail-latency or outage protection. Parallel providers plus rank fusion is the public pattern used by frontier research systems (query fan-out, concurrent retrieval, RRF) and gives the best accuracy per second. Keys stay optional, so the OpenCode model key remains the only required key.
+- **Alternatives considered:** Keep browser-only (slow, JavaScript/consent walls); integrate one provider only (no fallback); trust a provider-generated answer without sources (unverified); move browsing to a cloud VM (latency, sessions, privacy, cost).
+- **Consequences:** Search queries leave the phone to the selected provider; Mew stores no search history beyond a five-minute memory cache. Automatic research adds roughly 0.3–4 seconds to factual questions and spends provider credits when keys are present. This is `0.17.0` (`versionCode 184`). The release asset is renamed from `Agent-<version>.apk` to `Mew-<version>.apk`; old assets keep their names.
+- **Related:** D-011, D-013, D-017, D-022, D-023.
+
 ### D-105: Write an exit plan for `targetSdk 28`
 
 - **Date:** 2026-11-17

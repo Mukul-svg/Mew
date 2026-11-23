@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_web_search">ವೆಬ್ ಹುಡುಕಾಟ</string>
+    <string name="settings_web_search_sub">ಸತ್ಯಗಳು, ಸುದ್ದಿಗಳು ಮತ್ತು ಬೆಲೆಗಳು, ವೆಬ್‌ನಲ್ಲಿ ಪರಿಶೀಲಿಸಲಾಗಿದೆ</string>
+    <string name="web_search_before">ಉತ್ತರಿಸುವ ಮೊದಲು</string>
+    <string name="web_search_questions">ಪ್ರಶ್ನೆಗಳು</string>
+    <string name="web_search_questions_sub">ಸಾರ್ವಜನಿಕ ಸಂಗತಿಗಳು, ಸುದ್ದಿ ಮತ್ತು ಬೆಲೆಗಳಿಗಾಗಿ ಹುಡುಕಿ. ವೈಯಕ್ತಿಕ ಡೇಟಾ ಮತ್ತು ಕ್ರಿಯೆಗಳನ್ನು ಬಿಟ್ಟುಬಿಡಿ.</string>
+    <string name="web_search_always">ಯಾವಾಗಲೂ</string>
+    <string name="web_search_always_sub">ಕ್ರಿಯೆಗಳು ಮತ್ತು ಸಣ್ಣ ಮಾತುಗಳನ್ನು ಹೊರತುಪಡಿಸಿ ಪ್ರತಿ ಉತ್ತರಕ್ಕೂ ಮೊದಲು ಹುಡುಕಿ.</string>
+    <string name="web_search_off_sub">ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಹುಡುಕಬೇಡಿ. ಅಗತ್ಯವಿದ್ದಾಗ ಏಜೆಂಟ್ ಇನ್ನೂ ವೆಬ್ ಅನ್ನು ಹುಡುಕಬಹುದು.</string>
+    <string name="web_search_providers">ಪೂರೈಕೆದಾರರು</string>
+    <string name="web_search_preferred">ಆದ್ಯತೆಯ ಪೂರೈಕೆದಾರ</string>
+    <string name="web_search_auto">ಆಟೋ</string>
+    <string name="web_search_parallel">ಸಮಾನಾಂತರವಾಗಿ ಹುಡುಕಿ</string>
+    <string name="web_search_parallel_sub">ಎರಡೂ ಕೀಗಳನ್ನು ಹೊಂದಿಸಿದಾಗ ಪ್ರತಿ ಹುಡುಕಾಟಕ್ಕೆ ಇಬ್ಬರು ಪೂರೈಕೆದಾರರನ್ನು ಬಳಸಿ. ಹೆಚ್ಚು ವೆಚ್ಚವಾಗಬಹುದು.</string>
+    <string name="web_search_test">ಪರೀಕ್ಷಾ ಹುಡುಕಾಟ</string>
+    <string name="web_search_testing">ಪರೀಕ್ಷಿಸಲಾಗುತ್ತಿದೆ...</string>
+    <string name="web_search_test_sub">ಉಳಿಸಿದ ಕೀಲಿಗಳೊಂದಿಗೆ ಒಂದು ನೈಜ ಹುಡುಕಾಟವನ್ನು ರನ್ ಮಾಡಿ.</string>
+    <string name="web_search_privacy">ಪ್ರಶ್ನೆಗಳು ಆಯ್ಕೆಮಾಡಿದ ಹುಡುಕಾಟ ಪೂರೈಕೆದಾರರಿಗೆ ಹೋಗುತ್ತವೆ. Mew ಯಾವುದೇ ಹುಡುಕಾಟ ಇತಿಹಾಸವನ್ನು ಇಟ್ಟುಕೊಳ್ಳುವುದಿಲ್ಲ.</string>
+    <string name="web_search_key_label">%1$s API ಕೀ</string>
+    <string name="web_search_add_key">ಕೀ ಸೇರಿಸಿ</string>
+    <string name="web_search_remove_key">ಕೀಲಿಯನ್ನು ತೆಗೆದುಹಾಕಿ</string>
+    <string name="web_search_no_keys">ಇನ್ನೂ ಯಾವುದೇ ಕೀಗಳಿಲ್ಲ</string>
+    <string name="web_search_test_failed">ಪರೀಕ್ಷೆ ವಿಫಲವಾಗಿದೆ: %1$s</string>
+    <plurals name="web_search_key_count">
+        <item quantity="one">%1$d ಕೀ</item>
+        <item quantity="other">%1$d ಕೀಗಳು</item>
+    </plurals>
+</resources>

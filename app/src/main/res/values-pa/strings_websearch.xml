@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_web_search">ਵੈੱਬ ਖੋਜ</string>
+    <string name="settings_web_search_sub">ਤੱਥ, ਖਬਰਾਂ ਅਤੇ ਕੀਮਤਾਂ, ਵੈੱਬ \'ਤੇ ਜਾਂਚ ਕੀਤੀ ਗਈ</string>
+    <string name="web_search_before">ਜਵਾਬ ਦੇਣ ਤੋਂ ਪਹਿਲਾਂ</string>
+    <string name="web_search_questions">ਸਵਾਲ</string>
+    <string name="web_search_questions_sub">ਜਨਤਕ ਤੱਥਾਂ, ਖ਼ਬਰਾਂ ਅਤੇ ਕੀਮਤਾਂ ਦੀ ਖੋਜ ਕਰੋ। ਨਿੱਜੀ ਡੇਟਾ ਅਤੇ ਕਾਰਵਾਈਆਂ ਛੱਡੋ।</string>
+    <string name="web_search_always">ਹਮੇਸ਼ਾ</string>
+    <string name="web_search_always_sub">ਕਾਰਵਾਈਆਂ ਅਤੇ ਛੋਟੀਆਂ ਗੱਲਾਂ ਨੂੰ ਛੱਡ ਕੇ ਹਰ ਜਵਾਬ ਤੋਂ ਪਹਿਲਾਂ ਖੋਜ ਕਰੋ।</string>
+    <string name="web_search_off_sub">ਆਪਣੇ ਆਪ ਖੋਜ ਨਾ ਕਰੋ। ਲੋੜ ਪੈਣ \'ਤੇ ਏਜੰਟ ਅਜੇ ਵੀ ਵੈੱਬ \'ਤੇ ਖੋਜ ਕਰ ਸਕਦਾ ਹੈ।</string>
+    <string name="web_search_providers">ਪ੍ਰਦਾਤਾ</string>
+    <string name="web_search_preferred">ਤਰਜੀਹੀ ਪ੍ਰਦਾਤਾ</string>
+    <string name="web_search_auto">ਆਟੋ</string>
+    <string name="web_search_parallel">ਸਮਾਨਾਂਤਰ ਵਿੱਚ ਖੋਜੋ</string>
+    <string name="web_search_parallel_sub">ਜਦੋਂ ਦੋਵੇਂ ਕੁੰਜੀਆਂ ਸੈਟ ਹੁੰਦੀਆਂ ਹਨ ਤਾਂ ਪ੍ਰਤੀ ਖੋਜ ਦੋ ਪ੍ਰਦਾਤਾਵਾਂ ਦੀ ਵਰਤੋਂ ਕਰੋ। ਹੋਰ ਖਰਚ ਹੋ ਸਕਦਾ ਹੈ.</string>
+    <string name="web_search_test">ਜਾਂਚ ਖੋਜ</string>
+    <string name="web_search_testing">ਜਾਂਚ...</string>
+    <string name="web_search_test_sub">ਸੁਰੱਖਿਅਤ ਕੀਤੀਆਂ ਕੁੰਜੀਆਂ ਨਾਲ ਇੱਕ ਅਸਲੀ ਖੋਜ ਚਲਾਓ।</string>
+    <string name="web_search_privacy">ਸਵਾਲ ਚੁਣੇ ਹੋਏ ਖੋਜ ਪ੍ਰਦਾਤਾਵਾਂ ਨੂੰ ਜਾਂਦੇ ਹਨ। Mew ਕੋਈ ਖੋਜ ਇਤਿਹਾਸ ਨਹੀਂ ਰੱਖਦਾ ਹੈ।</string>
+    <string name="web_search_key_label">%1$s API ਕੁੰਜੀ</string>
+    <string name="web_search_add_key">ਕੁੰਜੀ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="web_search_remove_key">ਕੁੰਜੀ ਹਟਾਓ</string>
+    <string name="web_search_no_keys">ਅਜੇ ਤੱਕ ਕੋਈ ਕੁੰਜੀਆਂ ਨਹੀਂ ਹਨ</string>
+    <string name="web_search_test_failed">ਟੈਸਟ ਅਸਫਲ ਹੋਇਆ: %1$s</string>
+    <plurals name="web_search_key_count">
+        <item quantity="one">%1$d ਕੁੰਜੀ</item>
+        <item quantity="other">%1$d ਕੁੰਜੀਆਂ</item>
+    </plurals>
+</resources>

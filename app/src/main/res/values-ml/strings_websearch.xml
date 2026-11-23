@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_web_search">വെബ് തിരയൽ</string>
+    <string name="settings_web_search_sub">വസ്‌തുതകളും വാർത്തകളും വിലകളും വെബിൽ പരിശോധിച്ചു</string>
+    <string name="web_search_before">ഉത്തരം പറയുന്നതിന് മുമ്പ്</string>
+    <string name="web_search_questions">ചോദ്യങ്ങൾ</string>
+    <string name="web_search_questions_sub">പൊതു വസ്തുതകൾ, വാർത്തകൾ, വിലകൾ എന്നിവയ്ക്കായി തിരയുക. വ്യക്തിഗത വിവരങ്ങളും പ്രവർത്തനങ്ങളും ഒഴിവാക്കുക.</string>
+    <string name="web_search_always">എപ്പോഴും</string>
+    <string name="web_search_always_sub">പ്രവർത്തനങ്ങളും ചെറിയ സംസാരവും ഒഴികെ എല്ലാ മറുപടിക്കും മുമ്പായി തിരയുക.</string>
+    <string name="web_search_off_sub">യാന്ത്രികമായി തിരയരുത്. ആവശ്യമുള്ളപ്പോൾ ഏജൻ്റിന് ഇപ്പോഴും വെബിൽ തിരയാനാകും.</string>
+    <string name="web_search_providers">ദാതാക്കൾ</string>
+    <string name="web_search_preferred">തിരഞ്ഞെടുത്ത ദാതാവ്</string>
+    <string name="web_search_auto">ഓട്ടോ</string>
+    <string name="web_search_parallel">സമാന്തരമായി തിരയുക</string>
+    <string name="web_search_parallel_sub">രണ്ട് കീകളും സജ്ജീകരിച്ചിരിക്കുമ്പോൾ ഒരു തിരയലിന് രണ്ട് ദാതാക്കളെ ഉപയോഗിക്കുക. കൂടുതൽ ചിലവ് വരാം.</string>
+    <string name="web_search_test">ടെസ്റ്റ് തിരയൽ</string>
+    <string name="web_search_testing">പരിശോധിക്കുന്നു...</string>
+    <string name="web_search_test_sub">സംരക്ഷിച്ച കീകൾ ഉപയോഗിച്ച് ഒരു യഥാർത്ഥ തിരയൽ പ്രവർത്തിപ്പിക്കുക.</string>
+    <string name="web_search_privacy">അന്വേഷണങ്ങൾ തിരഞ്ഞെടുത്ത തിരയൽ ദാതാക്കളിലേക്ക് പോകുന്നു. Mew ഒരു തിരയൽ ചരിത്രവും സൂക്ഷിക്കുന്നില്ല.</string>
+    <string name="web_search_key_label">%1$s API കീ</string>
+    <string name="web_search_add_key">കീ ചേർക്കുക</string>
+    <string name="web_search_remove_key">കീ നീക്കം ചെയ്യുക</string>
+    <string name="web_search_no_keys">ഇതുവരെ കീകളൊന്നുമില്ല</string>
+    <string name="web_search_test_failed">ടെസ്റ്റ് പരാജയപ്പെട്ടു: %1$s</string>
+    <plurals name="web_search_key_count">
+        <item quantity="one">%1$d കീ</item>
+        <item quantity="other">%1$d കീകൾ</item>
+    </plurals>
+</resources>

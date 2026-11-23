@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_web_search">Ricerca sul Web</string>
+    <string name="settings_web_search_sub">Fatti, notizie e prezzi confrontati sul web</string>
+    <string name="web_search_before">Prima di rispondere</string>
+    <string name="web_search_questions">Domande</string>
+    <string name="web_search_questions_sub">Cerca fatti pubblici, notizie e prezzi. Salta dati personali e azioni.</string>
+    <string name="web_search_always">Sempre</string>
+    <string name="web_search_always_sub">Cerca prima di ogni risposta tranne le azioni e le chiacchiere.</string>
+    <string name="web_search_off_sub">Non eseguire la ricerca automaticamente. L\'agente può comunque effettuare ricerche sul Web quando necessario.</string>
+    <string name="web_search_providers">Fornitori</string>
+    <string name="web_search_preferred">Fornitore preferito</string>
+    <string name="web_search_auto">Auto</string>
+    <string name="web_search_parallel">Cerca in parallelo</string>
+    <string name="web_search_parallel_sub">Utilizza due provider per ricerca quando entrambe le chiavi sono impostate. Potrebbe costare di più.</string>
+    <string name="web_search_test">Prova la ricerca</string>
+    <string name="web_search_testing">Prova…</string>
+    <string name="web_search_test_sub">Esegui una ricerca reale con le chiavi salvate.</string>
+    <string name="web_search_privacy">Le query vengono inviate ai provider di ricerca selezionati. Mew non conserva la cronologia delle ricerche.</string>
+    <string name="web_search_key_label">%1$s Chiave API</string>
+    <string name="web_search_add_key">Aggiungi chiave</string>
+    <string name="web_search_remove_key">Rimuovere la chiave</string>
+    <string name="web_search_no_keys">Ancora nessuna chiave</string>
+    <string name="web_search_test_failed">Test fallito: %1$s</string>
+    <plurals name="web_search_key_count">
+        <item quantity="one">Tasto %1$d</item>
+        <item quantity="other">%1$d tasti</item>
+    </plurals>
+</resources>

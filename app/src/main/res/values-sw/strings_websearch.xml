@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_web_search">Utafutaji wa wavuti</string>
+    <string name="settings_web_search_sub">Ukweli, habari na bei, zilizoangaliwa dhidi ya wavuti</string>
+    <string name="web_search_before">Kabla ya kujibu</string>
+    <string name="web_search_questions">Maswali</string>
+    <string name="web_search_questions_sub">Tafuta ukweli wa umma, habari na bei. Ruka data na vitendo vya kibinafsi.</string>
+    <string name="web_search_always">Daima</string>
+    <string name="web_search_always_sub">Tafuta kabla ya kila jibu isipokuwa vitendo na mazungumzo madogo.</string>
+    <string name="web_search_off_sub">Usitafute kiotomatiki. Wakala bado anaweza kutafuta wavuti inapohitajika.</string>
+    <string name="web_search_providers">Watoa huduma</string>
+    <string name="web_search_preferred">Mtoa huduma anayependekezwa</string>
+    <string name="web_search_auto">Otomatiki</string>
+    <string name="web_search_parallel">Tafuta kwa sambamba</string>
+    <string name="web_search_parallel_sub">Tumia watoa huduma wawili kwa kila utafutaji wakati funguo zote mbili zimewekwa. Inaweza kugharimu zaidi.</string>
+    <string name="web_search_test">Utafutaji wa majaribio</string>
+    <string name="web_search_testing">Inajaribu...</string>
+    <string name="web_search_test_sub">Tekeleza utafutaji mmoja wa kweli kwa funguo zilizohifadhiwa.</string>
+    <string name="web_search_privacy">Hoja huenda kwa watoa huduma waliochaguliwa. Mew haihifadhi historia ya utafutaji.</string>
+    <string name="web_search_key_label">%1$s Kitufe cha API</string>
+    <string name="web_search_add_key">Ongeza ufunguo</string>
+    <string name="web_search_remove_key">Ondoa ufunguo</string>
+    <string name="web_search_no_keys">Hakuna funguo bado</string>
+    <string name="web_search_test_failed">Jaribio halikufaulu: %1$s</string>
+    <plurals name="web_search_key_count">
+        <item quantity="one">%1$d ufunguo</item>
+        <item quantity="other">%1$d vitufe</item>
+    </plurals>
+</resources>

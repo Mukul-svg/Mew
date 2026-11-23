@@ -106,6 +106,7 @@ These names are stable and are the first thing to open in Perfetto when a metric
 | `mew.bg.watchdog` | `WatchdogWorker.doWork` |
 | `mew.node.run` | `RunCodeTool` (Node process start, script, output) |
 | `mew.browser.goto` | `BrowserEngine.goto` |
+| `mew.web.search` | `WebSearchService.search` (provider fan-out, fusion, optional page reads) |
 | `mew.notif.record` | `NotificationReader.record` |
 | `mew.bench.*` | the benchmark-only receiver's seed/trigger actions |
 

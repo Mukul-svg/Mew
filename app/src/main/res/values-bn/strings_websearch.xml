@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_web_search">ওয়েব অনুসন্ধান</string>
+    <string name="settings_web_search_sub">তথ্য, খবর এবং দাম, ওয়েবের বিরুদ্ধে চেক করা হয়েছে</string>
+    <string name="web_search_before">উত্তর দেওয়ার আগে</string>
+    <string name="web_search_questions">প্রশ্ন</string>
+    <string name="web_search_questions_sub">জনসাধারণের তথ্য, খবর এবং দামের জন্য অনুসন্ধান করুন। ব্যক্তিগত তথ্য এবং কর্ম এড়িয়ে যান.</string>
+    <string name="web_search_always">সর্বদা</string>
+    <string name="web_search_always_sub">কর্ম এবং ছোট কথা ছাড়া প্রতিটি উত্তর আগে অনুসন্ধান করুন.</string>
+    <string name="web_search_off_sub">স্বয়ংক্রিয়ভাবে অনুসন্ধান করবেন না। এজেন্ট যখন প্রয়োজন তখনও ওয়েবে অনুসন্ধান করতে পারে।</string>
+    <string name="web_search_providers">প্রদানকারী</string>
+    <string name="web_search_preferred">পছন্দের প্রদানকারী</string>
+    <string name="web_search_auto">অটো</string>
+    <string name="web_search_parallel">সমান্তরালভাবে অনুসন্ধান করুন</string>
+    <string name="web_search_parallel_sub">উভয় কী সেট করা থাকলে প্রতি অনুসন্ধানে দুটি প্রদানকারী ব্যবহার করুন। বেশি খরচ হতে পারে।</string>
+    <string name="web_search_test">পরীক্ষা অনুসন্ধান</string>
+    <string name="web_search_testing">পরীক্ষা করা হচ্ছে...</string>
+    <string name="web_search_test_sub">সংরক্ষিত কী দিয়ে একটি বাস্তব অনুসন্ধান চালান।</string>
+    <string name="web_search_privacy">প্রশ্নগুলি নির্বাচিত অনুসন্ধান প্রদানকারীদের কাছে যায়৷ Mew কোনো অনুসন্ধান ইতিহাস রাখে না।</string>
+    <string name="web_search_key_label">%1$s API কী</string>
+    <string name="web_search_add_key">কী যোগ করুন</string>
+    <string name="web_search_remove_key">কী সরান</string>
+    <string name="web_search_no_keys">এখনো কোন চাবি নেই</string>
+    <string name="web_search_test_failed">পরীক্ষা ব্যর্থ হয়েছে: %1$s</string>
+    <plurals name="web_search_key_count">
+        <item quantity="one">%1$d কী</item>
+        <item quantity="other">%1$d কী</item>
+    </plurals>
+</resources>

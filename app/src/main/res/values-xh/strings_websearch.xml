@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_web_search">Uphendlo lwewebhu</string>
+    <string name="settings_web_search_sub">Iinyani, iindaba kunye namaxabiso, ahlolwe ngokuchasene newebhu</string>
+    <string name="web_search_before">Phambi kokuba uphendule</string>
+    <string name="web_search_questions">Imibuzo</string>
+    <string name="web_search_questions_sub">Khangela iinyani zoluntu, iindaba kunye namaxabiso. Tsiba idatha yobuqu kunye nezenzo.</string>
+    <string name="web_search_always">Ngalo lonke ixesha</string>
+    <string name="web_search_always_sub">Khangela phambi kwempendulo nganye ngaphandle kwezenzo kunye neentetho ezincinci.</string>
+    <string name="web_search_off_sub">Musa ukukhangela ngokuzenzekelayo. I-arhente isenokukhangela iwebhu xa ifuneka.</string>
+    <string name="web_search_providers">Ababoneleli</string>
+    <string name="web_search_preferred">Umboneleli okhethwayo</string>
+    <string name="web_search_auto">Ngokuzenzekelayo</string>
+    <string name="web_search_parallel">Khangela ngokunxuseneyo</string>
+    <string name="web_search_parallel_sub">Sebenzisa ababoneleli ababini ngophendlo ngalunye xa omabini amaqhosha esetiwe. Isenokubiza ngaphezulu.</string>
+    <string name="web_search_test">Uvavanyo lokukhangela</string>
+    <string name="web_search_testing">Uvavanyo...</string>
+    <string name="web_search_test_sub">Yenza ukhangelo lokwenyani kunye nezitshixo ezigciniweyo.</string>
+    <string name="web_search_privacy">Imibuzo iya kubaboneleli bokukhangela abakhethiweyo. Mew ayigcini imbali yokukhangela.</string>
+    <string name="web_search_key_label">%1$s API isitshixo</string>
+    <string name="web_search_add_key">Yongeza isitshixo</string>
+    <string name="web_search_remove_key">Susa isitshixo</string>
+    <string name="web_search_no_keys">Akukho zitshixo okwangoku</string>
+    <string name="web_search_test_failed">Uvavanyo aluphumelelanga: %1$s</string>
+    <plurals name="web_search_key_count">
+        <item quantity="one">%1$d isitshixo</item>
+        <item quantity="other">%1$d amaqhosha</item>
+    </plurals>
+</resources>
